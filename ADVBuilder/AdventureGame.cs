@@ -30,6 +30,39 @@ namespace ADVBuilder
         {
             InitializeInternalComponent();
             ViewData();
+            ViewMap();
+        }
+        private void ViewMap()
+        {
+            int x = (pcbMap.Image.Width - 50) / 2;
+            int y = (pcbMap.Image.Height - 13) / 2;
+            Pen p = new Pen(Color.Green);
+            RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
+            DrawMap(actual, x, y, p);
+            p = new Pen(Color.Black);
+            //if (actual.AA != 0) { actual = ADD.Rooms.Where(r => r.Id == actual.AA).FirstOrDefault(); DrawMap(actual, x, y); }
+            //if (actual.BB != 0) { actual = ADD.Rooms.Where(r => r.Id == actual.AA).FirstOrDefault(); DrawMap(actual, x, y); }
+            if (actual.NN != 0) { actual = ADD.Rooms.Where(r => r.Id == actual.NN).FirstOrDefault(); DrawMap(actual, x, y - 30, p); }
+            if (actual.NE != 0) { actual = ADD.Rooms.Where(r => r.Id == actual.NE).FirstOrDefault(); DrawMap(actual, x + 55, y - 30, p); }
+            if (actual.EE != 0) { actual = ADD.Rooms.Where(r => r.Id == actual.EE).FirstOrDefault(); DrawMap(actual, x + 55, y, p); }
+            if (actual.SE != 0) { actual = ADD.Rooms.Where(r => r.Id == actual.SE).FirstOrDefault(); DrawMap(actual, x + 55, y + 30, p); }
+            if (actual.SS != 0) { actual = ADD.Rooms.Where(r => r.Id == actual.SS).FirstOrDefault(); DrawMap(actual, x, y + 30, p); }
+            if (actual.SO != 0) { actual = ADD.Rooms.Where(r => r.Id == actual.SO).FirstOrDefault(); DrawMap(actual, x - 55, y + 30, p); }
+            if (actual.OO != 0) { actual = ADD.Rooms.Where(r => r.Id == actual.OO).FirstOrDefault(); DrawMap(actual, x - 55, y, p); }
+            if (actual.NO != 0) { actual = ADD.Rooms.Where(r => r.Id == actual.NO).FirstOrDefault(); DrawMap(actual, x - 55, y - 30, p); }
+        }
+        private void DrawMap(RoomData rd, int x, int y, Pen p)
+        {
+            Graphics g = Graphics.FromImage(pcbMap.Image);
+            Font drawFont = new Font("Arial", 3);
+            SolidBrush drawBrush = new SolidBrush(Color.Black);
+
+            g.DrawRectangle(p, new Rectangle(x, y, 50, 25));
+            g.DrawString(rd.Title, drawFont, drawBrush , x + 2, y + 12);
+            if (rd.AA != 0) g.DrawLine(p, x + 48, y + 2, x + 48, y + 7);
+            if (rd.BB != 0) g.DrawLine(p, x + 48, y + 25 - 7, x + 48, y + 25 - 2);
+            if (rd.NN != 0) g.DrawLine(p, x + 25, y, x + 25, y - 5);
+            if (rd.NE != 0) g.DrawLine(p, x + 50, y, x + 53, y - 3);
         }
         private void InitializeInternalComponent()
         {
@@ -137,6 +170,7 @@ namespace ADVBuilder
                     break;
             }
             ViewData();
+            ViewMap();
         }
 
         private void lstActions_SelectedIndexChanged(object sender, EventArgs e)

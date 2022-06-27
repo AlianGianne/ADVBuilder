@@ -71,6 +71,10 @@ namespace ADVBuilder_1.Model
         public int CurrentRoom { get; set; }
         #endregion
         #region "Methods"
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string ViewRoom()
         {
             return Rooms.Where(r=> r.Id== CurrentRoom).FirstOrDefault().Description;

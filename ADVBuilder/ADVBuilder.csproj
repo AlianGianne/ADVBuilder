@@ -103,6 +103,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -147,6 +148,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Data\SQLBuilder\Rooms.sql" />
+    <None Include="Images\Withe.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
