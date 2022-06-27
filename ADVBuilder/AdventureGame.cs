@@ -1,4 +1,5 @@
 ﻿using ADVBuilder.Common;
+using ADVBuilder.Model;
 using ADVBuilder_1.Model;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,9 @@ namespace ADVBuilder
     {
         public Adventure ADV;
         public AdventureData ADD;
+        public Actions Actions = new Actions();
+        public ActionData Action { get; set; }
+        public ObjectsData Object { get; set; }
         public int AdvIdSelected { get; set; }
         public int RoomIdSelected { get; set; }
         public AdventureGame()
@@ -81,6 +85,10 @@ namespace ADVBuilder
                         break;
                 }
             }
+            //Actions
+            lstActions.DisplayMember = "Action";
+            lstActions.ValueMember = "Id";
+            lstActions.DataSource = Actions.List;
         }
         private void btnDIR_Click(object sender, EventArgs e)
         {
@@ -88,7 +96,7 @@ namespace ADVBuilder
             switch (direction)
             {
                 case "NN":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r=> r.Id==ADD.CurrentRoom).FirstOrDefault().NN;
+                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().NN;
                     RoomIdSelected = ADD.CurrentRoom;
                     break;
                 case "NE":
@@ -129,6 +137,23 @@ namespace ADVBuilder
                     break;
             }
             ViewData();
+        }
+
+        private void lstActions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Action = (lstActions.SelectedItem as ActionData);
+            lblAction.Text = Action.Action;
+        }
+
+        private void lsbObjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Object = (lsbObjects.SelectedItem as ObjectsData);
+            lblObject1.Text = Object.Title;
+            if (Action != null)
+            {
+
+                Action = null;
+            }
         }
     }
 }

@@ -45,7 +45,7 @@ namespace ADVBuilder_1.Model
         //[cAttributes(Name = "Takeable")] public bool Takeable { get; set; }
         public string ViewObject
         {
-            get { return string.Format("{0} - {1}", Title, Description); }
+            get { return string.Format("{0} - {1}", Title, ShortDescription); }
         }
     }
 }

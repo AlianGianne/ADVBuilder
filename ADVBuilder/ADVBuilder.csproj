@@ -77,6 +77,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Actions.cs" />
     <Compile Include="Model\Adventure.cs" />
     <Compile Include="Model\Abstract\cData.cs" />
     <Compile Include="Model\Abstract\cOggettoData.cs" />
@@ -121,6 +122,9 @@
     </Content>
     <Content Include="Data\ADVBuilder_log.ldf">
       <DependentUpon>ADVBuilder.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Query\Actions.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\SQLBuilder\Actions.sql" />

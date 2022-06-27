@@ -40,6 +40,10 @@
             this.btnAA = new System.Windows.Forms.Button();
             this.btnBB = new System.Windows.Forms.Button();
             this.lsbObjects = new System.Windows.Forms.ListBox();
+            this.lstActions = new System.Windows.Forms.ListBox();
+            this.lblAction = new System.Windows.Forms.Label();
+            this.lblObject1 = new System.Windows.Forms.Label();
+            this.lblObject2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtRoomDescription
@@ -157,12 +161,50 @@
             this.lsbObjects.Name = "lsbObjects";
             this.lsbObjects.Size = new System.Drawing.Size(216, 225);
             this.lsbObjects.TabIndex = 12;
+            this.lsbObjects.SelectedIndexChanged += new System.EventHandler(this.lsbObjects_SelectedIndexChanged);
+            // 
+            // lstActions
+            // 
+            this.lstActions.FormattingEnabled = true;
+            this.lstActions.Location = new System.Drawing.Point(389, 309);
+            this.lstActions.Name = "lstActions";
+            this.lstActions.Size = new System.Drawing.Size(367, 121);
+            this.lstActions.TabIndex = 13;
+            this.lstActions.SelectedIndexChanged += new System.EventHandler(this.lstActions_SelectedIndexChanged);
+            // 
+            // lblAction
+            // 
+            this.lblAction.Location = new System.Drawing.Point(762, 407);
+            this.lblAction.Name = "lblAction";
+            this.lblAction.Size = new System.Drawing.Size(100, 23);
+            this.lblAction.TabIndex = 14;
+            this.lblAction.Text = "label1";
+            // 
+            // lblObject1
+            // 
+            this.lblObject1.Location = new System.Drawing.Point(868, 407);
+            this.lblObject1.Name = "lblObject1";
+            this.lblObject1.Size = new System.Drawing.Size(100, 23);
+            this.lblObject1.TabIndex = 15;
+            this.lblObject1.Text = "label2";
+            // 
+            // lblObject2
+            // 
+            this.lblObject2.Location = new System.Drawing.Point(974, 407);
+            this.lblObject2.Name = "lblObject2";
+            this.lblObject2.Size = new System.Drawing.Size(100, 23);
+            this.lblObject2.TabIndex = 16;
+            this.lblObject2.Text = "label2";
             // 
             // AdventureGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 630);
+            this.ClientSize = new System.Drawing.Size(1146, 630);
+            this.Controls.Add(this.lblObject2);
+            this.Controls.Add(this.lblObject1);
+            this.Controls.Add(this.lblAction);
+            this.Controls.Add(this.lstActions);
             this.Controls.Add(this.lsbObjects);
             this.Controls.Add(this.btnBB);
             this.Controls.Add(this.btnAA);
@@ -197,5 +239,9 @@
         private System.Windows.Forms.Button btnAA;
         private System.Windows.Forms.Button btnBB;
         private System.Windows.Forms.ListBox lsbObjects;
+        private System.Windows.Forms.ListBox lstActions;
+        private System.Windows.Forms.Label lblAction;
+        private System.Windows.Forms.Label lblObject1;
+        private System.Windows.Forms.Label lblObject2;
     }
 }
