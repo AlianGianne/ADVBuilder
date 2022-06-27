@@ -26,7 +26,7 @@ namespace ADVBuilder.Model
         public string Action { get; set; }
         [cAttributes(Name = "Description")]
         public string Description { get; set; }
-        [cAttributes(Name = "Description")]
+        [cAttributes(Name = "DeepObjects")]
         public string DeepObjects { get; set; }
     }
 }

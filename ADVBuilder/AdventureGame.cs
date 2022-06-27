@@ -141,19 +141,23 @@ namespace ADVBuilder
 
         private void lstActions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Action = (lstActions.SelectedItem as ActionData);
-            lblAction.Text = Action.Action;
+            SetActions(lstActions.SelectedItem as ActionData, null);
         }
 
         private void lsbObjects_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Object = (lsbObjects.SelectedItem as ObjectsData);
-            lblObject1.Text = Object.Title;
+            SetActions(Action, lsbObjects.SelectedItem as ObjectsData);
             if (Action != null)
             {
-
-                Action = null;
+                SetActions(null, null);
             }
+        }
+        private void SetActions(ActionData pAction, ObjectsData pObject)
+        {
+            Action = pAction;
+            Object = pObject;
+            lblObject1.Text = Object == null ? "" : Object.Title;
+            lblAction.Text = Action == null ? "" : Action.Action;
         }
     }
 }
