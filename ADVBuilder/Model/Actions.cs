@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ADVBuilder.Model
 {
+    /// <summary>
+    /// Costruttore Actions
+    /// </summary>
     public class Actions : cOggettoData
     {
         public List<ActionData> List = new List<ActionData>();
@@ -18,6 +21,9 @@ namespace ADVBuilder.Model
             ReadList(List);
         }
     }
+    /// <summary>
+    /// Struttura Actions
+    /// </summary>
     public class ActionData
     {
         [cAttributes(Name = "Id")]

@@ -1,20 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Gema2022.CommonClass
 {
     [System.AttributeUsage(System.AttributeTargets.Property | System.AttributeTargets.Struct)]
-    class cAttributes : System.Attribute
+    internal class cAttributes : System.Attribute
     {
         public string Name;
     }
+
+    /// <summary>
+    /// Legge gli attributi della classe e/o proprietà
+    /// </summary>
     public static class cGetAttributes
     {
+        /// <summary>
+        /// Restituisce il nome dell'attributo associato alla proprietà
+        /// </summary>
+        /// <param name="t">Tipo dell'attributo richiesto</param>
+        /// <returns>Nome Dell'attributo</returns>
         public static string GetName(System.Type t)
         {
             string ret = "";
@@ -29,6 +33,12 @@ namespace Gema2022.CommonClass
             }
             return ret;
         }
+
+        /// <summary>
+        /// Restituisce la proprietà in base all'attributo
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public static IList<PropertyInfo> GetAttributes(System.Type t)
         {
             return new List<PropertyInfo>(t.GetProperties());
