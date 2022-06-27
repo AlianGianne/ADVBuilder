@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ROOT>
+	<Select>
+		SELECT * FROM ROOMS
+	</Select>
+	<SelectById>
+		SELECT * FROM ROOMS
+		WHERE IDADV=@IDADV
+	</SelectById>
+	<Insert>
+		INSERT INTO Rooms (IDADV, TITLE, DESCRIPTION, SHORTDESCRIPTION, NN, NE, EE, SE, SS, SO, OO, NO, AA, BB)
+		VALUES (@IDADV, @TITLE, @DESCRIPTION, @SHORTDESCRIPTION, @NN, @NE, @EE, @SE, @SS, @SO, @OO, @NO, @AA, @BB)
+	</Insert>
+	<Update>
+		UPDATE Rooms SET
+		IDADV=@IDADV,
+		TITLE=@TITLE,
+		DESCRIPTION=@DESCRIPTION,
+		SHORTDESCRIPTION=@SHORTDESCRIPTION,
+		NN=@NN,
+		NE=@NE,
+		EE=@EE,
+		SE=@SE,
+		SS=@SS,
+		SO=@SO,
+		OO=@OO,
+		NO=@NO,
+		AA=@AA,
+		BB=@BB
+		WHERE ID=@ID
+	</Update>
+</ROOT>
