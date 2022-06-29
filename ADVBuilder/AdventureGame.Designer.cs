@@ -200,10 +200,11 @@
             // 
             // pcbMap
             // 
+            this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Withe;
             this.pcbMap.Location = new System.Drawing.Point(868, 13);
             this.pcbMap.Name = "pcbMap";
             this.pcbMap.Size = new System.Drawing.Size(471, 351);
-            this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pcbMap.TabIndex = 17;
             this.pcbMap.TabStop = false;
             // 

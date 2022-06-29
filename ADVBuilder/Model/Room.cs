@@ -3,6 +3,7 @@ using Gema2022.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace ADVBuilder_1.Model
@@ -11,6 +12,7 @@ namespace ADVBuilder_1.Model
     {
         private const string SELECTBYID = "SelectById";
         public List<RoomData> List = new List<RoomData>();
+        public List<string> Directions;
         public Room()
         {
             Settings(this.GetType().Name);
@@ -22,8 +24,24 @@ namespace ADVBuilder_1.Model
         private void ReadOther()
         {
             ReadList(List);
+            Directions = ReadDirections();
             ////////////////
             ReadObjects();
+        }
+
+        private List<string> ReadDirections()
+        {
+            //List<string> directions = new List<string>(); ;
+            //directions.Clear();
+            //Type type = typeof(RoomData);
+
+            //var a = cGetAttributes.GetAttributes(type);
+            //foreach (PropertyInfo prop in a)
+            //{
+            //    if (prop.CustomAttributes.Count() > 0)
+            //        directions.Add(prop.Name);
+            //}
+            return new List<string>(){ "AA", "BB", "NN", "NE", "EE", "SE", "SS", "SO", "OO", "NO"};
         }
 
         public Room(int pIdAdv)
@@ -40,6 +58,7 @@ namespace ADVBuilder_1.Model
                 rm.Objects = ob.List;
             }
         }
+        
         private void ReadData(int pIdAdv)
         {
             if (Open())
@@ -70,8 +89,10 @@ namespace ADVBuilder_1.Model
         [cAttributes(Name = "AA")] public int AA { get; set; }
         [cAttributes(Name = "BB")] public int BB { get; set; }                  //Direzioni perseguibili (Nord, Nord/est, Est, Sud/Est, Sud, Sud/Ovest, Ovest, Nord/Ovest, Alto, Basso)
         public int Layer { get; set; }
-        public int Sector { get; set; }                                         //Posizione nella mappa (Layer, Sector)
+        public bool Visited { get; set; } = false;
+        public List<string> Directions { get; set; }
         public List<ObjectsData> Objects { get; set; }                          //Eventuali oggetti presenti
+        public bool Drawed { get; set; }
         #endregion
     }
 }
