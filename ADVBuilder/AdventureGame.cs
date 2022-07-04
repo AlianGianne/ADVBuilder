@@ -15,6 +15,9 @@ namespace ADVBuilder
 {
     public partial class AdventureGame : CommonForm
     {
+        private bool Dragging;
+        private Point lastLocation;
+
         Pen PenGreen = new Pen(Color.Green);
         Pen PenBlack = new Pen(Color.Black);
 
@@ -41,7 +44,7 @@ namespace ADVBuilder
             Graphics g = Graphics.FromImage(pcbMap.Image);
             Font drawFont = new Font("Arial", 4);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
-            
+
             int x = (pcbMap.Image.Width - 50) / 2;
             int y = (pcbMap.Image.Height - 13) / 2;
             RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
@@ -58,75 +61,85 @@ namespace ADVBuilder
                     rd.Visited = true;
                     g.DrawRectangle(p, new Rectangle(x, y, 50, 25));
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2, y + 12);
-                    if (rd.AA > 0 && ADD.Rooms.Where(r => r.Id == rd.AA).FirstOrDefault().Visited)
+                    if (rd.AA > 0)
                     {
                         g.DrawLine(p, x + 48, y + 2, x + 48, y + 7);
-                        DrawMap(ADD.Rooms.Where(r => r.Id == rd.AA).FirstOrDefault(),
+                        if (ADD.Rooms.Where(r => r.Id == rd.AA).FirstOrDefault().Visited)
+                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.AA).FirstOrDefault(),
                             (pcbMap.Image.Width - 50) / 2,
                             (pcbMap.Image.Height - 13) / 2,
                             PenBlack, drawFont, drawBrush, g);
                     }
-                    if (rd.BB > 0 && ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault().Visited)
+                    if (rd.BB > 0)
                     {
                         g.DrawLine(p, x + 48, y + 25 - 7, x + 48, y + 25 - 2);
-                        DrawMap(ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault(),
-                            (pcbMap.Image.Width - 50) / 2,
-                            (pcbMap.Image.Height - 13) / 2,
-                            PenBlack, drawFont, drawBrush, g);
+                        if (ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault().Visited)
+                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault(),
+                                (pcbMap.Image.Width - 50) / 2,
+                                (pcbMap.Image.Height - 13) / 2,
+                                PenBlack, drawFont, drawBrush, g);
                     }
-                    if (rd.NN > 0 && ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault().Visited)
+                    if (rd.NN > 0)
                     {
                         g.DrawLine(p, x + 25, y, x + 25, y - 5);
-                        DrawMap(ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault(),
+                        if (ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault().Visited)
+                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault(),
                             x, y - 30,
                             PenBlack, drawFont, drawBrush, g);
                     }
-                    if (rd.NE > 0 && ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault().Visited)
+                    if (rd.NE > 0)
                     {
                         g.DrawLine(p, x + 50, y, x + 53, y - 3);
-                        DrawMap(ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault(),
+                        if (ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault().Visited)
+                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault(),
                             x + 55, y - 30,
                             PenBlack, drawFont, drawBrush, g);
                     }
-                    if (rd.EE > 0 && ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault().Visited)
+                    if (rd.EE > 0)
                     {
-                        g.DrawLine(p, x + 50, y+12, x + 55, y +12);
-                        DrawMap(ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault(),
-                            x + 55, y,
-                            PenBlack, drawFont, drawBrush, g);
+                        g.DrawLine(p, x + 50, y + 12, x + 55, y + 12);
+                        if (ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault().Visited)
+                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault(),
+                                x + 55, y,
+                                PenBlack, drawFont, drawBrush, g);
                     }
-                    if (rd.SE > 0 && ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault().Visited)
+                    if (rd.SE > 0)
                     {
-                        g.DrawLine(p, x + 50, y+25, x + 53, y +28);
-                        DrawMap(ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault(),
+                        g.DrawLine(p, x + 50, y + 25, x + 53, y + 28);
+                        if (ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault().Visited)
+                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault(),
                             x + 55, y + 30,
                             PenBlack, drawFont, drawBrush, g);
                     }
-                    if (rd.SS > 0 && ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault().Visited)
+                    if (rd.SS > 0)
                     {
-                        g.DrawLine(p, x + 25, y+25, x + 25, y +30);
-                        DrawMap(ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault(),
+                        g.DrawLine(p, x + 25, y + 25, x + 25, y + 30);
+                        if (ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault().Visited)
+                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault(),
                             x, y + 30,
                             PenBlack, drawFont, drawBrush, g);
                     }
-                    if (rd.SO > 0 && ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault().Visited)
+                    if (rd.SO > 0)
                     {
-                        g.DrawLine(p, x, y+25, x -3, y +28);
-                        DrawMap(ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault(),
+                        g.DrawLine(p, x, y + 25, x - 3, y + 28);
+                        if (ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault().Visited)
+                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault(),
                             x - 55, y + 30,
                             PenBlack, drawFont, drawBrush, g);
                     }
-                    if (rd.OO > 0 && ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault().Visited)
+                    if (rd.OO > 0)
                     {
-                        g.DrawLine(p, x , y+12, x -5, y +12);
-                        DrawMap(ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault(),
+                        g.DrawLine(p, x, y + 12, x - 5, y + 12);
+                        if (ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault().Visited)
+                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault(),
                             x - 55, y,
                             PenBlack, drawFont, drawBrush, g);
                     }
-                    if (rd.NO > 0 && ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault().Visited)
+                    if (rd.NO > 0)
                     {
-                        g.DrawLine(p, x, y, x -3, y - 3);
-                        DrawMap(ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault(),
+                        g.DrawLine(p, x, y, x - 3, y - 3);
+                        if (ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault().Visited)
+                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault(),
                             x - 55, y - 30,
                             PenBlack, drawFont, drawBrush, g);
                     }
@@ -261,6 +274,35 @@ namespace ADVBuilder
             Object = pObject;
             lblObject1.Text = Object == null ? "" : Object.Title;
             lblAction.Text = Action == null ? "" : Action.Action;
+        }
+
+        private void pcbMap_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Dragging == true)
+            {
+                int dx = e.X - lastLocation.X;
+                int dy = e.Y - lastLocation.Y;
+
+
+                pcbMap.Padding = new Padding(Padding.Left + dx, Padding.Top + dy, Padding.Right - dx, Padding.Bottom - dy);
+
+                pcbMap.Invalidate();
+
+            }
+        }
+
+        private void pcbMap_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Dragging = true;
+                lastLocation = e.Location;
+            }
+        }
+
+        private void pcbMap_MouseUp(object sender, MouseEventArgs e)
+        {
+            Dragging = false;
         }
     }
 }

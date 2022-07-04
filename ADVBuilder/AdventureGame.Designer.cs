@@ -207,6 +207,9 @@
             this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pcbMap.TabIndex = 17;
             this.pcbMap.TabStop = false;
+            this.pcbMap.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseDown);
+            this.pcbMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseMove);
+            this.pcbMap.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseUp);
             // 
             // AdventureGame
             // 
