@@ -120,9 +120,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\ADVBuilder.mdf" />
+    <Content Include="Data\ADVBuilder.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\ADVBuilder_log.ldf">
       <DependentUpon>ADVBuilder.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Query\Actions.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
