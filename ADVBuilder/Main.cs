@@ -50,7 +50,7 @@ namespace ADVBuilder
             List<RoomData> rmd = new List<RoomData>();
             rmd.Add(new RoomData() { Id = -1, IdAdv = -1, Title = "Scegli..." });
             rmd.AddRange(ADV.List.Where(ad => ad.Id == AdvIdSelected).FirstOrDefault().Rooms);
-            
+
             cmb.DisplayMember = "Title";
             cmb.ValueMember = "Id";
             cmb.DataSource = rmd;
@@ -82,13 +82,8 @@ namespace ADVBuilder
 
         private void btnAddAdv_Click(object sender, EventArgs e)
         {
-            AdventureData adv = new AdventureData();
-            ADV.ReadParamForObj(ADV.List, pnlAdvList);
-            adv = ADV.List.FirstOrDefault();
-            if (adv.Id < 0)
-                ADV.InsertData(adv);
-            else
-                ADV.UpdateData(adv);
+            InsertDataADV();
+
             InitializeInternalComponent();
             DataBind();
         }
@@ -96,8 +91,23 @@ namespace ADVBuilder
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
             InsertDataRoom();
+
             InitializeInternalComponent();
             DataBind();
+        }
+        private void btnAddObject_Click(object sender, EventArgs e)
+        {
+            InsertDataObject();
+
+            InitializeInternalComponent();
+            DataBind();
+        }
+        private void InsertDataADV()
+        {
+            AdventureData adv = new AdventureData();
+            ADV.ReadParamForObj(ADV.List, pnlAdvList);
+            adv = ADV.List.FirstOrDefault();
+            ADV.StoreData(adv);
         }
         private void InsertDataRoom()
         {
@@ -105,27 +115,19 @@ namespace ADVBuilder
             RoomData rmd = new RoomData();
             rmn.ReadParamForObj(ADV.List.Where(a => a.Id == AdvIdSelected).FirstOrDefault().Rooms, pnlRoom);
             rmd = ADV.List.Where(a => a.Id == AdvIdSelected).FirstOrDefault().Rooms.FirstOrDefault();
-            if (rmd.Id < 0)
-                rmn.InsertData(rmd);
-            else
-                rmn.UpdateData(rmd);
+            rmn.StoreData(rmd);
         }
-        
-        private void btnAddObject_Click(object sender, EventArgs e)
+        private void InsertDataObject()
         {
             Room rmn = new Room();
             Objects obs = new Objects();
             RoomData rmd = new RoomData();
             ObjectsData obd = new ObjectsData();
-            obs.ReadParamForObj(ADV.List.Where(a => a.Id == AdvIdSelected).FirstOrDefault().Rooms.Where(r=> r.Id==RoomIdSelected).FirstOrDefault().Objects, pnlObjects);
+            obs.ReadParamForObj(ADV.List.Where(a => a.Id == AdvIdSelected).FirstOrDefault().Rooms.Where(r => r.Id == RoomIdSelected).FirstOrDefault().Objects, pnlObjects);
             obd = ADV.List.Where(a => a.Id == AdvIdSelected).FirstOrDefault().Rooms.FirstOrDefault().Objects.FirstOrDefault();
-            if (obd.Id < 0)
-                obs.InsertData(obd);
-            else
-                obs.UpdateData(obd);
-            InitializeInternalComponent();
-            DataBind();
+            obs.StoreData(obd);
         }
+
 
         private void btnNew_Click(object sender, EventArgs e)
         {

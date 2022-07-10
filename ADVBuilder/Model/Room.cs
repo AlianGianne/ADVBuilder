@@ -31,16 +31,6 @@ namespace ADVBuilder_1.Model
 
         private List<string> ReadDirections()
         {
-            //List<string> directions = new List<string>(); ;
-            //directions.Clear();
-            //Type type = typeof(RoomData);
-
-            //var a = cGetAttributes.GetAttributes(type);
-            //foreach (PropertyInfo prop in a)
-            //{
-            //    if (prop.CustomAttributes.Count() > 0)
-            //        directions.Add(prop.Name);
-            //}
             return new List<string>(){ "AA", "BB", "NN", "NE", "EE", "SE", "SS", "SO", "OO", "NO"};
         }
 

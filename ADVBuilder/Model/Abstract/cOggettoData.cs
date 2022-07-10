@@ -28,9 +28,9 @@ namespace Gema2022.Class
         {
             readData();
         }
-        public void Settings(string quaryName)
+        public void Settings(string queryName)
         {
-            PercorsoFileXml = string.Format("Data/Query/{0}.xml", quaryName);
+            PercorsoFileXml = string.Format("Data/Query/{0}.xml", queryName);
         }
         public List<T> ReadList<T>(List<T> list)
         {
@@ -65,6 +65,28 @@ namespace Gema2022.Class
                 Table = ExecuteQuery(SELECT, new Dictionary<string, object>(), PercorsoFileXml);
                 Close();
             }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="qry"></param>
+        /// <param name="data"></param>
+        public void StoreData(object data)
+        {
+            string qry;
+            Dictionary<string, object> values = new Dictionary<string, object>();
+
+            if (Open())
+            {
+                Type type = data.GetType();
+                var a = cGetAttributes.GetAttributes(type);
+                foreach (PropertyInfo prop in a)
+                {
+                    values.Add(prop.Name, prop.GetValue(data));
+                }
+            }
+            qry = int.Parse(values["Id"].ToString()) > 0 ? UPDATE : INSERT;
+            ExecuteNonQuery(qry, values, PercorsoFileXml);
         }
         public void InsertData(object data)
         {

@@ -15,10 +15,13 @@ namespace ADVBuilder
 {
     public partial class AdventureGame : CommonForm
     {
+        private const int BTN_ACTION_HEIGHT = 25;
+        private const int BTN_ACTION_WIDTH = 75;
+        private const int BTN_ACTION_GAP = 3;
         private bool Dragging;
         private Point lastLocation;
 
-        Pen PenGreen = new Pen(Color.Green);
+        Pen PenGreen = new Pen(Color.Green, 2);
         Pen PenBlack = new Pen(Color.Black);
 
         public Adventure ADV;
@@ -36,13 +39,14 @@ namespace ADVBuilder
         {
             InitializeInternalComponent();
             ViewData();
+            ViewActions();
             ViewMap();
         }
         private void ViewMap()
         {
             pcbMap.Image = Image.FromFile("Images/Withe.png");
             Graphics g = Graphics.FromImage(pcbMap.Image);
-            Font drawFont = new Font("Arial", 4);
+            Font drawFont = new Font("Arial", 5);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
             int x = (pcbMap.Image.Width - 50) / 2;
@@ -153,6 +157,49 @@ namespace ADVBuilder
                 ADV = new Adventure(AdvIdSelected);
                 ADD = ADV.List.FirstOrDefault();
                 RoomIdSelected = ADD.CurrentRoom;
+            }
+        }
+        private Button GetActionButton(int pX, int pY, ActionData pAction, Color pColor)
+        {
+            Button btn = new Button();
+            btn.Top = pY;
+            btn.Left = pX;
+            btn.Width = BTN_ACTION_WIDTH;
+            btn.Height = BTN_ACTION_HEIGHT;
+            btn.Text = pAction.Action;
+            btn.Tag = pAction.DeepObjects;
+            btn.BackColor = pColor;
+            tltMain.SetToolTip(btn, pAction.Description);
+
+            return btn;
+        }
+        private void ViewActions()
+        {
+            int r = 200;
+            int g = 196;
+            int b = 222;
+
+            int x = 0;
+            int y = 0;
+            foreach (ActionData a in Actions.List)
+            {
+                r = r - 3;
+                g = g + 2;
+                b = b + 2;
+                Color color = Color.FromArgb(r, g, b);
+                if (a != null)
+                {
+                    pnlActions.Controls.Add(GetActionButton(x, y, a, color));
+                    if (x < 300)
+                    {
+                        x += BTN_ACTION_WIDTH + BTN_ACTION_GAP;
+                    }
+                    else
+                    {
+                        x = 0;
+                        y += BTN_ACTION_HEIGHT + BTN_ACTION_GAP;
+                    }
+                }
             }
         }
         private void ViewData()
@@ -275,13 +322,14 @@ namespace ADVBuilder
             lblObject1.Text = Object == null ? "" : Object.Title;
             lblAction.Text = Action == null ? "" : Action.Action;
         }
-
+        int dx;
+        int dy;
         private void pcbMap_MouseMove(object sender, MouseEventArgs e)
         {
             if (Dragging == true)
             {
-                int dx = e.X - lastLocation.X;
-                int dy = e.Y - lastLocation.Y;
+                dx = e.X - lastLocation.X;
+                dy = e.Y - lastLocation.Y;
 
 
                 pcbMap.Padding = new Padding(Padding.Left + dx, Padding.Top + dy, Padding.Right - dx, Padding.Bottom - dy);

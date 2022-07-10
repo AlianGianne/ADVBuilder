@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtRoomDescription = new System.Windows.Forms.TextBox();
             this.btnNN = new System.Windows.Forms.Button();
             this.btnNE = new System.Windows.Forms.Button();
@@ -45,20 +46,26 @@
             this.lblObject1 = new System.Windows.Forms.Label();
             this.lblObject2 = new System.Windows.Forms.Label();
             this.pcbMap = new System.Windows.Forms.PictureBox();
+            this.lstPersons = new System.Windows.Forms.ListBox();
+            this.pnlActions = new System.Windows.Forms.Panel();
+            this.tltMain = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
             this.SuspendLayout();
             // 
             // txtRoomDescription
             // 
-            this.txtRoomDescription.Location = new System.Drawing.Point(12, 12);
+            this.txtRoomDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRoomDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomDescription.Location = new System.Drawing.Point(330, 13);
             this.txtRoomDescription.Multiline = true;
             this.txtRoomDescription.Name = "txtRoomDescription";
-            this.txtRoomDescription.Size = new System.Drawing.Size(531, 225);
+            this.txtRoomDescription.Size = new System.Drawing.Size(504, 456);
             this.txtRoomDescription.TabIndex = 0;
             // 
             // btnNN
             // 
-            this.btnNN.Location = new System.Drawing.Point(53, 243);
+            this.btnNN.Location = new System.Drawing.Point(547, 475);
             this.btnNN.Name = "btnNN";
             this.btnNN.Size = new System.Drawing.Size(35, 35);
             this.btnNN.TabIndex = 2;
@@ -68,7 +75,7 @@
             // 
             // btnNE
             // 
-            this.btnNE.Location = new System.Drawing.Point(94, 243);
+            this.btnNE.Location = new System.Drawing.Point(588, 475);
             this.btnNE.Name = "btnNE";
             this.btnNE.Size = new System.Drawing.Size(35, 35);
             this.btnNE.TabIndex = 3;
@@ -78,7 +85,7 @@
             // 
             // btnEE
             // 
-            this.btnEE.Location = new System.Drawing.Point(94, 284);
+            this.btnEE.Location = new System.Drawing.Point(588, 516);
             this.btnEE.Name = "btnEE";
             this.btnEE.Size = new System.Drawing.Size(35, 35);
             this.btnEE.TabIndex = 4;
@@ -88,7 +95,7 @@
             // 
             // btnSE
             // 
-            this.btnSE.Location = new System.Drawing.Point(94, 325);
+            this.btnSE.Location = new System.Drawing.Point(588, 557);
             this.btnSE.Name = "btnSE";
             this.btnSE.Size = new System.Drawing.Size(35, 35);
             this.btnSE.TabIndex = 5;
@@ -98,7 +105,7 @@
             // 
             // btnSS
             // 
-            this.btnSS.Location = new System.Drawing.Point(53, 325);
+            this.btnSS.Location = new System.Drawing.Point(547, 557);
             this.btnSS.Name = "btnSS";
             this.btnSS.Size = new System.Drawing.Size(35, 35);
             this.btnSS.TabIndex = 6;
@@ -108,7 +115,7 @@
             // 
             // btnSO
             // 
-            this.btnSO.Location = new System.Drawing.Point(12, 325);
+            this.btnSO.Location = new System.Drawing.Point(506, 557);
             this.btnSO.Name = "btnSO";
             this.btnSO.Size = new System.Drawing.Size(35, 35);
             this.btnSO.TabIndex = 7;
@@ -118,7 +125,7 @@
             // 
             // btnOO
             // 
-            this.btnOO.Location = new System.Drawing.Point(12, 284);
+            this.btnOO.Location = new System.Drawing.Point(506, 516);
             this.btnOO.Name = "btnOO";
             this.btnOO.Size = new System.Drawing.Size(35, 35);
             this.btnOO.TabIndex = 8;
@@ -128,7 +135,7 @@
             // 
             // btnNO
             // 
-            this.btnNO.Location = new System.Drawing.Point(12, 243);
+            this.btnNO.Location = new System.Drawing.Point(506, 475);
             this.btnNO.Name = "btnNO";
             this.btnNO.Size = new System.Drawing.Size(35, 35);
             this.btnNO.TabIndex = 9;
@@ -138,7 +145,7 @@
             // 
             // btnAA
             // 
-            this.btnAA.Location = new System.Drawing.Point(135, 242);
+            this.btnAA.Location = new System.Drawing.Point(629, 474);
             this.btnAA.Name = "btnAA";
             this.btnAA.Size = new System.Drawing.Size(35, 35);
             this.btnAA.TabIndex = 10;
@@ -148,7 +155,7 @@
             // 
             // btnBB
             // 
-            this.btnBB.Location = new System.Drawing.Point(135, 325);
+            this.btnBB.Location = new System.Drawing.Point(629, 557);
             this.btnBB.Name = "btnBB";
             this.btnBB.Size = new System.Drawing.Size(35, 35);
             this.btnBB.TabIndex = 11;
@@ -159,7 +166,7 @@
             // lsbObjects
             // 
             this.lsbObjects.FormattingEnabled = true;
-            this.lsbObjects.Location = new System.Drawing.Point(549, 12);
+            this.lsbObjects.Location = new System.Drawing.Point(12, 13);
             this.lsbObjects.Name = "lsbObjects";
             this.lsbObjects.Size = new System.Drawing.Size(312, 225);
             this.lsbObjects.TabIndex = 12;
@@ -168,15 +175,15 @@
             // lstActions
             // 
             this.lstActions.FormattingEnabled = true;
-            this.lstActions.Location = new System.Drawing.Point(176, 243);
+            this.lstActions.Location = new System.Drawing.Point(1027, 560);
             this.lstActions.Name = "lstActions";
-            this.lstActions.Size = new System.Drawing.Size(367, 121);
+            this.lstActions.Size = new System.Drawing.Size(312, 121);
             this.lstActions.TabIndex = 13;
             this.lstActions.SelectedIndexChanged += new System.EventHandler(this.lstActions_SelectedIndexChanged);
             // 
             // lblAction
             // 
-            this.lblAction.Location = new System.Drawing.Point(549, 341);
+            this.lblAction.Location = new System.Drawing.Point(1018, 474);
             this.lblAction.Name = "lblAction";
             this.lblAction.Size = new System.Drawing.Size(100, 23);
             this.lblAction.TabIndex = 14;
@@ -184,7 +191,7 @@
             // 
             // lblObject1
             // 
-            this.lblObject1.Location = new System.Drawing.Point(655, 341);
+            this.lblObject1.Location = new System.Drawing.Point(1124, 474);
             this.lblObject1.Name = "lblObject1";
             this.lblObject1.Size = new System.Drawing.Size(100, 23);
             this.lblObject1.TabIndex = 15;
@@ -192,7 +199,7 @@
             // 
             // lblObject2
             // 
-            this.lblObject2.Location = new System.Drawing.Point(761, 341);
+            this.lblObject2.Location = new System.Drawing.Point(1230, 474);
             this.lblObject2.Name = "lblObject2";
             this.lblObject2.Size = new System.Drawing.Size(100, 23);
             this.lblObject2.TabIndex = 16;
@@ -200,10 +207,11 @@
             // 
             // pcbMap
             // 
+            this.pcbMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Withe;
-            this.pcbMap.Location = new System.Drawing.Point(868, 13);
+            this.pcbMap.Location = new System.Drawing.Point(840, 12);
             this.pcbMap.Name = "pcbMap";
-            this.pcbMap.Size = new System.Drawing.Size(471, 351);
+            this.pcbMap.Size = new System.Drawing.Size(515, 457);
             this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pcbMap.TabIndex = 17;
             this.pcbMap.TabStop = false;
@@ -211,11 +219,28 @@
             this.pcbMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseMove);
             this.pcbMap.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseUp);
             // 
+            // lstPersons
+            // 
+            this.lstPersons.FormattingEnabled = true;
+            this.lstPersons.Location = new System.Drawing.Point(12, 244);
+            this.lstPersons.Name = "lstPersons";
+            this.lstPersons.Size = new System.Drawing.Size(312, 225);
+            this.lstPersons.TabIndex = 18;
+            // 
+            // pnlActions
+            // 
+            this.pnlActions.Location = new System.Drawing.Point(13, 476);
+            this.pnlActions.Name = "pnlActions";
+            this.pnlActions.Size = new System.Drawing.Size(311, 116);
+            this.pnlActions.TabIndex = 19;
+            // 
             // AdventureGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1351, 723);
+            this.ClientSize = new System.Drawing.Size(1367, 664);
+            this.Controls.Add(this.pnlActions);
+            this.Controls.Add(this.lstPersons);
             this.Controls.Add(this.pcbMap);
             this.Controls.Add(this.lblObject2);
             this.Controls.Add(this.lblObject1);
@@ -261,5 +286,8 @@
         private System.Windows.Forms.Label lblObject1;
         private System.Windows.Forms.Label lblObject2;
         private System.Windows.Forms.PictureBox pcbMap;
+        private System.Windows.Forms.ListBox lstPersons;
+        private System.Windows.Forms.Panel pnlActions;
+        private System.Windows.Forms.ToolTip tltMain;
     }
 }
