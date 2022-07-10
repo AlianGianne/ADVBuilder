@@ -1,4 +1,5 @@
-﻿using ADVBuilder.Common;
+﻿using ADVBuilder.ActionsClass;
+using ADVBuilder.Common;
 using ADVBuilder.Model;
 using ADVBuilder_1.Model;
 using System;
@@ -20,6 +21,7 @@ namespace ADVBuilder
         private const int BTN_ACTION_GAP = 3;
         private bool Dragging;
         private Point lastLocation;
+        private Dictionary<string, iActions> ClassList = new Dictionary<string, iActions>();
 
         Pen PenGreen = new Pen(Color.Green, 2);
         Pen PenBlack = new Pen(Color.Black);
@@ -31,16 +33,23 @@ namespace ADVBuilder
         public ObjectsData Object { get; set; }
         public int AdvIdSelected { get; set; }
         public int RoomIdSelected { get; set; }
+
+
         public AdventureGame()
         {
             InitializeComponent();
         }
         private void AdventureGame_Load(object sender, EventArgs e)
         {
+            InitializeFunction();
             InitializeInternalComponent();
             ViewData();
             ViewActions();
             ViewMap();
+        }
+        private void InitializeFunction()
+        {
+            ClassList.Add("Prendi", new Take());
         }
         private void ViewMap()
         {
@@ -169,9 +178,17 @@ namespace ADVBuilder
             btn.Text = pAction.Action;
             btn.Tag = pAction.DeepObjects;
             btn.BackColor = pColor;
+            btn.Click += new EventHandler(btnActions_Click);
             tltMain.SetToolTip(btn, pAction.Description);
 
             return btn;
+        }
+        
+        private void btnActions_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            iActions a = ClassList[btn.Text];
+            a.Execute(lsbObjects.SelectedItem as ObjectsData);
         }
         private void ViewActions()
         {
