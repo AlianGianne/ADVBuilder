@@ -72,7 +72,7 @@ namespace ADVBuilder
         }
 
         private void dgvRooms_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
+        {/////
             RoomIdSelected = int.Parse(dgvRooms.Rows[e.RowIndex].Cells["Id"].Value.ToString());
             ADV.ReadParamForForm(ADV.List.Where(ad => ad.Id == AdvIdSelected).FirstOrDefault()
                 .Rooms.Where(r => r.Id == RoomIdSelected).FirstOrDefault(), pnlRoom, RoomIdSelected);
@@ -97,8 +97,6 @@ namespace ADVBuilder
         }
         private void btnAddObject_Click(object sender, EventArgs e)
         {
-            InsertDataObject();
-
             InitializeInternalComponent();
             DataBind();
         }
@@ -122,6 +120,15 @@ namespace ADVBuilder
             Room rmn = new Room();
             Objects obs = new Objects();
             RoomData rmd = new RoomData();
+            
+            
+            
+            
+            
+            
+            
+            
+            ////
             ObjectsData obd = new ObjectsData();
             obs.ReadParamForObj(ADV.List.Where(a => a.Id == AdvIdSelected).FirstOrDefault().Rooms.Where(r => r.Id == RoomIdSelected).FirstOrDefault().Objects, pnlObjects);
             obd = ADV.List.Where(a => a.Id == AdvIdSelected).FirstOrDefault().Rooms.FirstOrDefault().Objects.FirstOrDefault();

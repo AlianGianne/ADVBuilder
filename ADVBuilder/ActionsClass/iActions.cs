@@ -1,5 +1,6 @@
 ﻿using ADVBuilder_1.Model;
-using System;
+using ADVBuilder.Model;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,6 @@ namespace ADVBuilder.ActionsClass
 {
     public interface iActions
     {
-        //string Name;
-        Response Execute(ObjectsData pObj);
+        Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom, List<ObjectsData> pInventario);
     }
 }

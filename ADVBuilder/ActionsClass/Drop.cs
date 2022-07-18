@@ -1,5 +1,6 @@
-﻿using ADVBuilder.Model;
-using ADVBuilder_1.Model;
+﻿using ADVBuilder_1.Model;
+using ADVBuilder.Model;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,11 @@ using System.Threading.Tasks;
 
 namespace ADVBuilder.ActionsClass
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class Take : aActions, iActions
+    public class Drop : aActions, iActions
     {
+        public Response Response { get; set; } = new Response();
         public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom, List<ObjectsData> pInventario)
         {
-
             Object = pObj;
             Room = pRoom;
             Inventario = pInventario;
@@ -29,18 +27,22 @@ namespace ADVBuilder.ActionsClass
                 Exec();
             }
             return Response;
+
+
         }
         private void Exec()
         {
-            Response.Success = Room.Objects.Remove(Object) ;
-            Inventario.Add(Object);
+            Object.IdRoom = Room.Id;
+            Room.Objects.Add(Object);
+            Inventario.Remove(Object);
+            Response.Success = true;
             Response.Message = SetMessage();
             Object = null;
             Room = null;
         }
         private string SetMessage()
         {
-            return Response.Success ? "Oggetto in Inventario." : "Errore";
+            return Response.Success ? "Oggetto lasciato." : "Errore";
         }
     }
 }

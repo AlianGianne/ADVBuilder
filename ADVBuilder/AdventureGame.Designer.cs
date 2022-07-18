@@ -41,7 +41,6 @@
             this.btnAA = new System.Windows.Forms.Button();
             this.btnBB = new System.Windows.Forms.Button();
             this.lsbObjects = new System.Windows.Forms.ListBox();
-            this.lstActions = new System.Windows.Forms.ListBox();
             this.lblAction = new System.Windows.Forms.Label();
             this.lblObject1 = new System.Windows.Forms.Label();
             this.lblObject2 = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.lstPersons = new System.Windows.Forms.ListBox();
             this.pnlActions = new System.Windows.Forms.Panel();
             this.tltMain = new System.Windows.Forms.ToolTip(this.components);
+            this.lstInventario = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,18 +168,9 @@
             this.lsbObjects.FormattingEnabled = true;
             this.lsbObjects.Location = new System.Drawing.Point(12, 13);
             this.lsbObjects.Name = "lsbObjects";
-            this.lsbObjects.Size = new System.Drawing.Size(312, 225);
+            this.lsbObjects.Size = new System.Drawing.Size(312, 108);
             this.lsbObjects.TabIndex = 12;
             this.lsbObjects.SelectedIndexChanged += new System.EventHandler(this.lsbObjects_SelectedIndexChanged);
-            // 
-            // lstActions
-            // 
-            this.lstActions.FormattingEnabled = true;
-            this.lstActions.Location = new System.Drawing.Point(1027, 560);
-            this.lstActions.Name = "lstActions";
-            this.lstActions.Size = new System.Drawing.Size(312, 121);
-            this.lstActions.TabIndex = 13;
-            this.lstActions.SelectedIndexChanged += new System.EventHandler(this.lstActions_SelectedIndexChanged);
             // 
             // lblAction
             // 
@@ -234,18 +225,27 @@
             this.pnlActions.Size = new System.Drawing.Size(311, 116);
             this.pnlActions.TabIndex = 19;
             // 
+            // lstInventario
+            // 
+            this.lstInventario.FormattingEnabled = true;
+            this.lstInventario.Location = new System.Drawing.Point(12, 127);
+            this.lstInventario.Name = "lstInventario";
+            this.lstInventario.Size = new System.Drawing.Size(312, 108);
+            this.lstInventario.TabIndex = 20;
+            this.lstInventario.SelectedIndexChanged += new System.EventHandler(this.lstInventario_SelectedIndexChanged);
+            // 
             // AdventureGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1367, 664);
+            this.Controls.Add(this.lstInventario);
             this.Controls.Add(this.pnlActions);
             this.Controls.Add(this.lstPersons);
             this.Controls.Add(this.pcbMap);
             this.Controls.Add(this.lblObject2);
             this.Controls.Add(this.lblObject1);
             this.Controls.Add(this.lblAction);
-            this.Controls.Add(this.lstActions);
             this.Controls.Add(this.lsbObjects);
             this.Controls.Add(this.btnBB);
             this.Controls.Add(this.btnAA);
@@ -281,7 +281,6 @@
         private System.Windows.Forms.Button btnAA;
         private System.Windows.Forms.Button btnBB;
         private System.Windows.Forms.ListBox lsbObjects;
-        private System.Windows.Forms.ListBox lstActions;
         private System.Windows.Forms.Label lblAction;
         private System.Windows.Forms.Label lblObject1;
         private System.Windows.Forms.Label lblObject2;
@@ -289,5 +288,6 @@
         private System.Windows.Forms.ListBox lstPersons;
         private System.Windows.Forms.Panel pnlActions;
         private System.Windows.Forms.ToolTip tltMain;
+        private System.Windows.Forms.ListBox lstInventario;
     }
 }

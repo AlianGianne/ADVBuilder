@@ -21,13 +21,16 @@ namespace ADVBuilder
         private const int BTN_ACTION_GAP = 3;
         private bool Dragging;
         private Point lastLocation;
+        private iActions CurrentAction;
         private Dictionary<string, iActions> ClassList = new Dictionary<string, iActions>();
+        private List<ObjectsData> Inventario=new List<ObjectsData>();
 
         Pen PenGreen = new Pen(Color.Green, 2);
         Pen PenBlack = new Pen(Color.Black);
 
         public Adventure ADV;
         public AdventureData ADD;
+
         public Actions Actions = new Actions();
         public ActionData Action { get; set; }
         public ObjectsData Object { get; set; }
@@ -50,6 +53,8 @@ namespace ADVBuilder
         private void InitializeFunction()
         {
             ClassList.Add("Prendi", new Take());
+            ClassList.Add("Lascia", new Drop());
+            ClassList.Add("Getta", new Drop());
         }
         private void ViewMap()
         {
@@ -183,12 +188,15 @@ namespace ADVBuilder
 
             return btn;
         }
-        
+
         private void btnActions_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            iActions a = ClassList[btn.Text];
-            a.Execute(lsbObjects.SelectedItem as ObjectsData);
+            CurrentAction = ClassList[btn.Text];
+            Object = null;
+            CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario);
+            ViewData();
+            ViewMap();
         }
         private void ViewActions()
         {
@@ -224,9 +232,19 @@ namespace ADVBuilder
             //Rooms
             txtRoomDescription.Text = ADD.ViewRoom();
             //Objects
+            //lsbObjects.Items.Clear();
+            lsbObjects.DataSource = null;
+
             lsbObjects.DisplayMember = "ViewObject";
             lsbObjects.ValueMember = "Id";
             lsbObjects.DataSource = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().Objects;
+            lsbObjects.Refresh();
+
+            //Inventario
+            lstInventario.DisplayMember = "ViewObject";
+            lstInventario.ValueMember = "Id";
+            lstInventario.DataSource = Inventario;
+            lstInventario.Refresh();
             //Directions
             foreach (Button btn in this.Controls.OfType<Button>())
             {
@@ -264,10 +282,6 @@ namespace ADVBuilder
                         break;
                 }
             }
-            //Actions
-            lstActions.DisplayMember = "Action";
-            lstActions.ValueMember = "Id";
-            lstActions.DataSource = Actions.List;
         }
         private void btnDIR_Click(object sender, EventArgs e)
         {
@@ -319,17 +333,14 @@ namespace ADVBuilder
             ViewMap();
         }
 
-        private void lstActions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetActions(lstActions.SelectedItem as ActionData, null);
-        }
-
         private void lsbObjects_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SetActions(Action, lsbObjects.SelectedItem as ObjectsData);
-            if (Action != null)
+            if (CurrentAction != null)
             {
-                SetActions(null, null);
+                SetActions(Action, lsbObjects.SelectedItem as ObjectsData);
+                CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario);
+                ViewData();
+                ViewMap();
             }
         }
         private void SetActions(ActionData pAction, ObjectsData pObject)
@@ -368,6 +379,17 @@ namespace ADVBuilder
         private void pcbMap_MouseUp(object sender, MouseEventArgs e)
         {
             Dragging = false;
+        }
+
+        private void lstInventario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CurrentAction != null)
+            {
+                SetActions(Action, lstInventario.SelectedItem as ObjectsData);
+                CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario);
+                ViewData();
+                ViewMap();
+            }
         }
     }
 }
