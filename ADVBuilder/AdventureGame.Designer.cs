@@ -40,16 +40,16 @@
             this.btnNO = new System.Windows.Forms.Button();
             this.btnAA = new System.Windows.Forms.Button();
             this.btnBB = new System.Windows.Forms.Button();
-            this.lsbObjects = new System.Windows.Forms.ListBox();
-            this.lblAction = new System.Windows.Forms.Label();
-            this.lblObject1 = new System.Windows.Forms.Label();
-            this.lblObject2 = new System.Windows.Forms.Label();
             this.pcbMap = new System.Windows.Forms.PictureBox();
-            this.lstPersons = new System.Windows.Forms.ListBox();
             this.pnlActions = new System.Windows.Forms.Panel();
             this.tltMain = new System.Windows.Forms.ToolTip(this.components);
-            this.lstInventario = new System.Windows.Forms.ListBox();
+            this.pnlObjects = new System.Windows.Forms.Panel();
+            this.pnlInventario = new System.Windows.Forms.Panel();
+            this.pnlPerson = new System.Windows.Forms.Panel();
+            this.pnlResult = new System.Windows.Forms.Panel();
+            this.txtResult = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
+            this.pnlResult.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRoomDescription
@@ -65,7 +65,7 @@
             // 
             // btnNN
             // 
-            this.btnNN.Location = new System.Drawing.Point(547, 475);
+            this.btnNN.Location = new System.Drawing.Point(371, 476);
             this.btnNN.Name = "btnNN";
             this.btnNN.Size = new System.Drawing.Size(35, 35);
             this.btnNN.TabIndex = 2;
@@ -75,7 +75,7 @@
             // 
             // btnNE
             // 
-            this.btnNE.Location = new System.Drawing.Point(588, 475);
+            this.btnNE.Location = new System.Drawing.Point(412, 476);
             this.btnNE.Name = "btnNE";
             this.btnNE.Size = new System.Drawing.Size(35, 35);
             this.btnNE.TabIndex = 3;
@@ -85,7 +85,7 @@
             // 
             // btnEE
             // 
-            this.btnEE.Location = new System.Drawing.Point(588, 516);
+            this.btnEE.Location = new System.Drawing.Point(412, 517);
             this.btnEE.Name = "btnEE";
             this.btnEE.Size = new System.Drawing.Size(35, 35);
             this.btnEE.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             // btnSE
             // 
-            this.btnSE.Location = new System.Drawing.Point(588, 557);
+            this.btnSE.Location = new System.Drawing.Point(412, 558);
             this.btnSE.Name = "btnSE";
             this.btnSE.Size = new System.Drawing.Size(35, 35);
             this.btnSE.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             // btnSS
             // 
-            this.btnSS.Location = new System.Drawing.Point(547, 557);
+            this.btnSS.Location = new System.Drawing.Point(371, 558);
             this.btnSS.Name = "btnSS";
             this.btnSS.Size = new System.Drawing.Size(35, 35);
             this.btnSS.TabIndex = 6;
@@ -115,7 +115,7 @@
             // 
             // btnSO
             // 
-            this.btnSO.Location = new System.Drawing.Point(506, 557);
+            this.btnSO.Location = new System.Drawing.Point(330, 558);
             this.btnSO.Name = "btnSO";
             this.btnSO.Size = new System.Drawing.Size(35, 35);
             this.btnSO.TabIndex = 7;
@@ -125,7 +125,7 @@
             // 
             // btnOO
             // 
-            this.btnOO.Location = new System.Drawing.Point(506, 516);
+            this.btnOO.Location = new System.Drawing.Point(330, 517);
             this.btnOO.Name = "btnOO";
             this.btnOO.Size = new System.Drawing.Size(35, 35);
             this.btnOO.TabIndex = 8;
@@ -135,7 +135,7 @@
             // 
             // btnNO
             // 
-            this.btnNO.Location = new System.Drawing.Point(506, 475);
+            this.btnNO.Location = new System.Drawing.Point(330, 476);
             this.btnNO.Name = "btnNO";
             this.btnNO.Size = new System.Drawing.Size(35, 35);
             this.btnNO.TabIndex = 9;
@@ -145,7 +145,7 @@
             // 
             // btnAA
             // 
-            this.btnAA.Location = new System.Drawing.Point(629, 474);
+            this.btnAA.Location = new System.Drawing.Point(453, 475);
             this.btnAA.Name = "btnAA";
             this.btnAA.Size = new System.Drawing.Size(35, 35);
             this.btnAA.TabIndex = 10;
@@ -155,46 +155,13 @@
             // 
             // btnBB
             // 
-            this.btnBB.Location = new System.Drawing.Point(629, 557);
+            this.btnBB.Location = new System.Drawing.Point(453, 558);
             this.btnBB.Name = "btnBB";
             this.btnBB.Size = new System.Drawing.Size(35, 35);
             this.btnBB.TabIndex = 11;
             this.btnBB.Text = "BB";
             this.btnBB.UseVisualStyleBackColor = true;
             this.btnBB.Click += new System.EventHandler(this.btnDIR_Click);
-            // 
-            // lsbObjects
-            // 
-            this.lsbObjects.FormattingEnabled = true;
-            this.lsbObjects.Location = new System.Drawing.Point(12, 13);
-            this.lsbObjects.Name = "lsbObjects";
-            this.lsbObjects.Size = new System.Drawing.Size(312, 108);
-            this.lsbObjects.TabIndex = 12;
-            this.lsbObjects.SelectedIndexChanged += new System.EventHandler(this.lsbObjects_SelectedIndexChanged);
-            // 
-            // lblAction
-            // 
-            this.lblAction.Location = new System.Drawing.Point(1018, 474);
-            this.lblAction.Name = "lblAction";
-            this.lblAction.Size = new System.Drawing.Size(100, 23);
-            this.lblAction.TabIndex = 14;
-            this.lblAction.Text = "label1";
-            // 
-            // lblObject1
-            // 
-            this.lblObject1.Location = new System.Drawing.Point(1124, 474);
-            this.lblObject1.Name = "lblObject1";
-            this.lblObject1.Size = new System.Drawing.Size(100, 23);
-            this.lblObject1.TabIndex = 15;
-            this.lblObject1.Text = "label2";
-            // 
-            // lblObject2
-            // 
-            this.lblObject2.Location = new System.Drawing.Point(1230, 474);
-            this.lblObject2.Name = "lblObject2";
-            this.lblObject2.Size = new System.Drawing.Size(100, 23);
-            this.lblObject2.TabIndex = 16;
-            this.lblObject2.Text = "label2";
             // 
             // pcbMap
             // 
@@ -210,43 +177,69 @@
             this.pcbMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseMove);
             this.pcbMap.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseUp);
             // 
-            // lstPersons
-            // 
-            this.lstPersons.FormattingEnabled = true;
-            this.lstPersons.Location = new System.Drawing.Point(12, 244);
-            this.lstPersons.Name = "lstPersons";
-            this.lstPersons.Size = new System.Drawing.Size(312, 225);
-            this.lstPersons.TabIndex = 18;
-            // 
             // pnlActions
             // 
-            this.pnlActions.Location = new System.Drawing.Point(13, 476);
+            this.pnlActions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlActions.Location = new System.Drawing.Point(12, 476);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(311, 116);
+            this.pnlActions.Size = new System.Drawing.Size(312, 116);
             this.pnlActions.TabIndex = 19;
             // 
-            // lstInventario
+            // pnlObjects
             // 
-            this.lstInventario.FormattingEnabled = true;
-            this.lstInventario.Location = new System.Drawing.Point(12, 127);
-            this.lstInventario.Name = "lstInventario";
-            this.lstInventario.Size = new System.Drawing.Size(312, 108);
-            this.lstInventario.TabIndex = 20;
-            this.lstInventario.SelectedIndexChanged += new System.EventHandler(this.lstInventario_SelectedIndexChanged);
+            this.pnlObjects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlObjects.Location = new System.Drawing.Point(12, 13);
+            this.pnlObjects.Name = "pnlObjects";
+            this.pnlObjects.Size = new System.Drawing.Size(310, 150);
+            this.pnlObjects.TabIndex = 20;
+            // 
+            // pnlInventario
+            // 
+            this.pnlInventario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlInventario.Location = new System.Drawing.Point(12, 165);
+            this.pnlInventario.Name = "pnlInventario";
+            this.pnlInventario.Size = new System.Drawing.Size(310, 150);
+            this.pnlInventario.TabIndex = 21;
+            // 
+            // pnlPerson
+            // 
+            this.pnlPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPerson.Location = new System.Drawing.Point(12, 318);
+            this.pnlPerson.Name = "pnlPerson";
+            this.pnlPerson.Size = new System.Drawing.Size(310, 150);
+            this.pnlPerson.TabIndex = 22;
+            // 
+            // pnlResult
+            // 
+            this.pnlResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlResult.Controls.Add(this.txtResult);
+            this.pnlResult.Location = new System.Drawing.Point(494, 476);
+            this.pnlResult.Name = "pnlResult";
+            this.pnlResult.Size = new System.Drawing.Size(340, 117);
+            this.pnlResult.TabIndex = 23;
+            // 
+            // txtResult
+            // 
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtResult.Enabled = false;
+            this.txtResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResult.Location = new System.Drawing.Point(0, 0);
+            this.txtResult.Multiline = true;
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(338, 115);
+            this.txtResult.TabIndex = 0;
             // 
             // AdventureGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1367, 664);
-            this.Controls.Add(this.lstInventario);
+            this.Controls.Add(this.pnlResult);
+            this.Controls.Add(this.pnlPerson);
+            this.Controls.Add(this.pnlInventario);
+            this.Controls.Add(this.pnlObjects);
             this.Controls.Add(this.pnlActions);
-            this.Controls.Add(this.lstPersons);
             this.Controls.Add(this.pcbMap);
-            this.Controls.Add(this.lblObject2);
-            this.Controls.Add(this.lblObject1);
-            this.Controls.Add(this.lblAction);
-            this.Controls.Add(this.lsbObjects);
             this.Controls.Add(this.btnBB);
             this.Controls.Add(this.btnAA);
             this.Controls.Add(this.btnNO);
@@ -262,6 +255,8 @@
             this.Text = "AdventureGame";
             this.Load += new System.EventHandler(this.AdventureGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).EndInit();
+            this.pnlResult.ResumeLayout(false);
+            this.pnlResult.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,14 +275,13 @@
         private System.Windows.Forms.Button btnNO;
         private System.Windows.Forms.Button btnAA;
         private System.Windows.Forms.Button btnBB;
-        private System.Windows.Forms.ListBox lsbObjects;
-        private System.Windows.Forms.Label lblAction;
-        private System.Windows.Forms.Label lblObject1;
-        private System.Windows.Forms.Label lblObject2;
         private System.Windows.Forms.PictureBox pcbMap;
-        private System.Windows.Forms.ListBox lstPersons;
         private System.Windows.Forms.Panel pnlActions;
         private System.Windows.Forms.ToolTip tltMain;
-        private System.Windows.Forms.ListBox lstInventario;
+        private System.Windows.Forms.Panel pnlObjects;
+        private System.Windows.Forms.Panel pnlInventario;
+        private System.Windows.Forms.Panel pnlPerson;
+        private System.Windows.Forms.Panel pnlResult;
+        private System.Windows.Forms.TextBox txtResult;
     }
 }

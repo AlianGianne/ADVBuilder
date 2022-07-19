@@ -41,8 +41,8 @@ namespace ADVBuilder_1.Model
         [cAttributes(Name = "Description")] public string Description { get; set; }
         [cAttributes(Name = "ShortDescription")] public string ShortDescription { get; set; }
         [cAttributes(Name = "IdRoom")] public int IdRoom { get; set; }
-        //[cAttributes(Name = "Usable")] public bool Usable { get; set; }
-        //[cAttributes(Name = "Takeable")] public bool Takeable { get; set; }
+        [cAttributes(Name = "Position")] public string Position { get; set; }
+        [cAttributes(Name = "Status")] public string Status { get; set; }
         public string ViewObject
         {
             get { return string.Format("{0} - {1}", Title, ShortDescription); }

@@ -20,7 +20,7 @@ namespace ADVBuilder.ActionsClass
             if (Object == null)
             {
                 Response.Success = true;
-                Response.Message = "Seleziona l'oggetto da prendere";
+                Response.Message = "Seleziona l'oggetto da lasciare!";
             }
             else
             {
@@ -30,6 +30,12 @@ namespace ADVBuilder.ActionsClass
 
 
         }
+
+        public Response Execute(AdventureData ADD, RoomData pRoom, string pDirection, ref int pRoomIdSelected)
+        {
+            return Response;
+        }
+
         private void Exec()
         {
             Object.IdRoom = Room.Id;
@@ -42,7 +48,7 @@ namespace ADVBuilder.ActionsClass
         }
         private string SetMessage()
         {
-            return Response.Success ? "Oggetto lasciato." : "Errore";
+            return Response.Success ? string.Format("Oggetto {0} lasciato.", Object.Title) : "Errore";
         }
     }
 }

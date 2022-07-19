@@ -11,5 +11,6 @@ namespace ADVBuilder.ActionsClass
     public interface iActions
     {
         Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom, List<ObjectsData> pInventario);
+        Response Execute(AdventureData ADD, RoomData pRoom, string pDirection, ref int pRoomIdSelected);
     }
 }

@@ -64,9 +64,12 @@
   <ItemGroup>
     <Compile Include="ActionsClass\aActions.cs" />
     <Compile Include="ActionsClass\Drop.cs" />
+    <Compile Include="ActionsClass\Go.cs" />
     <Compile Include="ActionsClass\iActions.cs" />
+    <Compile Include="ActionsClass\Open.cs" />
     <Compile Include="ActionsClass\Response.cs" />
     <Compile Include="ActionsClass\Take.cs" />
+    <Compile Include="ActionsClass\Examinate.cs" />
     <Compile Include="AdventureGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +77,7 @@
       <DependentUpon>AdventureGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\cAttributes.cs" />
+    <Compile Include="Common\cCommon.cs" />
     <Compile Include="Common\CommonForm.cs">
       <SubType>Form</SubType>
     </Compile>

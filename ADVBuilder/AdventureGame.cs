@@ -24,7 +24,8 @@ namespace ADVBuilder
         private iActions CurrentAction;
         private Dictionary<string, iActions> ClassList = new Dictionary<string, iActions>();
         private List<ObjectsData> Inventario=new List<ObjectsData>();
-
+        private int dx;
+        private int dy;
         Pen PenGreen = new Pen(Color.Green, 2);
         Pen PenBlack = new Pen(Color.Black);
 
@@ -35,8 +36,7 @@ namespace ADVBuilder
         public ActionData Action { get; set; }
         public ObjectsData Object { get; set; }
         public int AdvIdSelected { get; set; }
-        public int RoomIdSelected { get; set; }
-
+        public int RoomIdSelected;
 
         public AdventureGame()
         {
@@ -55,6 +55,20 @@ namespace ADVBuilder
             ClassList.Add("Prendi", new Take());
             ClassList.Add("Lascia", new Drop());
             ClassList.Add("Getta", new Drop());
+            ClassList.Add("Guarda", new Examinate());
+            ClassList.Add("Esamina", new Examinate());
+            ClassList.Add("Osserva", new Examinate());
+            ClassList.Add("Apri", new Open());
+            ClassList.Add("NN", new Go());
+            ClassList.Add("NE", new Go());
+            ClassList.Add("EE", new Go());
+            ClassList.Add("SE", new Go());
+            ClassList.Add("SS", new Go());
+            ClassList.Add("SO", new Go());
+            ClassList.Add("OO", new Go());
+            ClassList.Add("NO", new Go());
+            ClassList.Add("AA", new Go());
+            ClassList.Add("BB", new Go());
         }
         private void ViewMap()
         {
@@ -188,13 +202,43 @@ namespace ADVBuilder
 
             return btn;
         }
+        private Button GetObjectButton(int pX, int pY, ObjectsData pObject, Color pColor)
+        {
+            Button btn = new Button();
+            btn.Top = pY;
+            btn.Left = pX;
+            btn.Width = BTN_ACTION_WIDTH;
+            btn.Height = BTN_ACTION_HEIGHT;
+            btn.Text = pObject.Title;
+            btn.Tag = pObject;
+            btn.BackColor = pColor;
+            btn.Click += new EventHandler(btnObjects_Click);
+            tltMain.SetToolTip(btn, pObject.Description);
 
+            return btn;
+        }
+        private Button GetInventarioButton(int pX, int pY, ObjectsData pObject, Color pColor)
+        {
+            Button btn = new Button();
+            btn.Top = pY;
+            btn.Left = pX;
+            btn.Width = BTN_ACTION_WIDTH;
+            btn.Height = BTN_ACTION_HEIGHT;
+            btn.Text = pObject.Title;
+            btn.Tag = pObject;
+            btn.BackColor = pColor;
+            btn.ForeColor = Color.White;
+            btn.Click += new EventHandler(btnInventario_Click);
+            tltMain.SetToolTip(btn, pObject.Description);
+
+            return btn;
+        }
         private void btnActions_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             CurrentAction = ClassList[btn.Text];
             Object = null;
-            CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario);
+            txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario).Message;
             ViewData();
             ViewMap();
         }
@@ -215,7 +259,7 @@ namespace ADVBuilder
                 if (a != null)
                 {
                     pnlActions.Controls.Add(GetActionButton(x, y, a, color));
-                    if (x < 300)
+                    if (x < 300 - BTN_ACTION_WIDTH)
                     {
                         x += BTN_ACTION_WIDTH + BTN_ACTION_GAP;
                     }
@@ -227,25 +271,72 @@ namespace ADVBuilder
                 }
             }
         }
-        private void ViewData()
+        private void ViewObjects()
         {
-            //Rooms
-            txtRoomDescription.Text = ADD.ViewRoom();
-            //Objects
-            //lsbObjects.Items.Clear();
-            lsbObjects.DataSource = null;
+            int r = 100;
+            int g = 200;
+            int b = 222;
 
-            lsbObjects.DisplayMember = "ViewObject";
-            lsbObjects.ValueMember = "Id";
-            lsbObjects.DataSource = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().Objects;
-            lsbObjects.Refresh();
+            int x = 0;
+            int y = 0;
 
-            //Inventario
-            lstInventario.DisplayMember = "ViewObject";
-            lstInventario.ValueMember = "Id";
-            lstInventario.DataSource = Inventario;
-            lstInventario.Refresh();
-            //Directions
+            pnlObjects.Controls.Clear();
+
+            foreach (ObjectsData o in ADD.Rooms.Where(l => l.Id == ADD.CurrentRoom).FirstOrDefault().Objects)
+            {
+                r = r - 3;
+                g = g + 2;
+                b = b + 2;
+                Color color = Color.FromArgb(r, g, b);
+                if (o != null)
+                {
+                    pnlObjects.Controls.Add(GetObjectButton(x, y, o, color));
+                    if (x < 300 - BTN_ACTION_WIDTH)
+                    {
+                        x += BTN_ACTION_WIDTH + BTN_ACTION_GAP;
+                    }
+                    else
+                    {
+                        x = 0;
+                        y += BTN_ACTION_HEIGHT + BTN_ACTION_GAP;
+                    }
+                }
+            }
+        }
+        private void ViewInventario()
+        {
+            int r = 200;
+            int g = 50;
+            int b = 100;
+
+            int x = 0;
+            int y = 0;
+
+            pnlInventario.Controls.Clear();
+
+            foreach (ObjectsData o in Inventario)
+            {
+                r = r - 3;
+                g = g + 2;
+                b = b + 2;
+                Color color = Color.FromArgb(r, g, b);
+                if (o != null)
+                {
+                    pnlInventario.Controls.Add(GetInventarioButton(x, y, o, color));
+                    if (x < 300 - BTN_ACTION_WIDTH)
+                    {
+                        x += BTN_ACTION_WIDTH + BTN_ACTION_GAP;
+                    }
+                    else
+                    {
+                        x = 0;
+                        y += BTN_ACTION_HEIGHT + BTN_ACTION_GAP;
+                    }
+                }
+            }
+        }
+        private void ViewDirections()
+        {
             foreach (Button btn in this.Controls.OfType<Button>())
             {
                 switch (btn.Name.Substring(3))
@@ -283,62 +374,40 @@ namespace ADVBuilder
                 }
             }
         }
+        private void ViewData()
+        {
+            //Rooms
+            txtRoomDescription.Text = ADD.ViewRoom();
+
+            //Objects
+            ViewObjects();
+            
+            //Inventario
+            ViewInventario();
+
+            //Directions
+            ViewDirections();
+        }
         private void btnDIR_Click(object sender, EventArgs e)
         {
-            string direction = (sender as Button).Text;
-            switch (direction)
-            {
-                case "NN":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().NN;
-                    RoomIdSelected = ADD.CurrentRoom;
-                    break;
-                case "NE":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().NE;
-                    RoomIdSelected = ADD.CurrentRoom;
-                    break;
-                case "EE":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().EE;
-                    RoomIdSelected = ADD.CurrentRoom;
-                    break;
-                case "SE":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().SE;
-                    RoomIdSelected = ADD.CurrentRoom;
-                    break;
-                case "SS":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().SS;
-                    RoomIdSelected = ADD.CurrentRoom;
-                    break;
-                case "SO":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().SO;
-                    RoomIdSelected = ADD.CurrentRoom;
-                    break;
-                case "OO":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().OO;
-                    RoomIdSelected = ADD.CurrentRoom;
-                    break;
-                case "NO":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().NO;
-                    RoomIdSelected = ADD.CurrentRoom;
-                    break;
-                case "AA":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().AA;
-                    RoomIdSelected = ADD.CurrentRoom;
-                    break;
-                case "BB":
-                    ADD.CurrentRoom = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().BB;
-                    RoomIdSelected = ADD.CurrentRoom;
-                    break;
-            }
+            Button btn = (Button)sender;
+            string direction = btn.Text;
+
+            CurrentAction = ClassList[btn.Text];
+            Object = null;
+            txtResult.Text = CurrentAction.Execute(ADD, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), direction, ref RoomIdSelected).Message;
             ViewData();
             ViewMap();
         }
 
-        private void lsbObjects_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnObjects_Click(object sender, EventArgs e)
         {
             if (CurrentAction != null)
             {
-                SetActions(Action, lsbObjects.SelectedItem as ObjectsData);
-                CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario);
+                Button btn = (Button)sender;
+
+                SetActions(Action, btn.Tag as ObjectsData);
+                txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario).Message;
                 ViewData();
                 ViewMap();
             }
@@ -347,11 +416,8 @@ namespace ADVBuilder
         {
             Action = pAction;
             Object = pObject;
-            lblObject1.Text = Object == null ? "" : Object.Title;
-            lblAction.Text = Action == null ? "" : Action.Action;
         }
-        int dx;
-        int dy;
+
         private void pcbMap_MouseMove(object sender, MouseEventArgs e)
         {
             if (Dragging == true)
@@ -381,12 +447,14 @@ namespace ADVBuilder
             Dragging = false;
         }
 
-        private void lstInventario_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnInventario_Click(object sender, EventArgs e)
         {
             if (CurrentAction != null)
             {
-                SetActions(Action, lstInventario.SelectedItem as ObjectsData);
-                CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario);
+                Button btn = (Button)sender;
+
+                SetActions(Action, btn.Tag as ObjectsData);
+                txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario).Message;
                 ViewData();
                 ViewMap();
             }

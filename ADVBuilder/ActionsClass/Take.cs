@@ -1,4 +1,5 @@
-﻿using ADVBuilder.Model;
+﻿using ADVBuilder.Common;
+using ADVBuilder.Model;
 using ADVBuilder_1.Model;
 using System;
 using System.Collections.Generic;
@@ -15,14 +16,13 @@ namespace ADVBuilder.ActionsClass
     {
         public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom, List<ObjectsData> pInventario)
         {
-
             Object = pObj;
             Room = pRoom;
             Inventario = pInventario;
             if (Object == null)
             {
                 Response.Success = true;
-                Response.Message = "Seleziona l'oggetto da prendere";
+                Response.Message = "Seleziona l'oggetto da prendere!";
             }
             else
             {
@@ -30,17 +30,32 @@ namespace ADVBuilder.ActionsClass
             }
             return Response;
         }
+
+        public Response Execute(AdventureData ADD, RoomData pRoom, string pDirection, ref int pRoomIdSelected)
+        {
+            return Response;
+        }
+
         private void Exec()
         {
-            Response.Success = Room.Objects.Remove(Object) ;
-            Inventario.Add(Object);
-            Response.Message = SetMessage();
+            if (Object.Status == null || Object.Status != cCommon.STATUS_STATIC)
+            {
+                Response.Success = Room.Objects.Remove(Object);
+                Inventario.Add(Object);
+                Response.Message = SetMessage();
+            }
+            else
+            {
+                Response.Success = false;
+                Response.Message = string.Format("Non puoi prendere {0}", Object.Title);
+            }
             Object = null;
             Room = null;
         }
         private string SetMessage()
         {
-            return Response.Success ? "Oggetto in Inventario." : "Errore";
+            return Response.Success ?
+                string.Format("{0} in Inventario.", Object.Title) : "Errore";
         }
     }
 }

@@ -72,9 +72,9 @@ namespace ADVBuilder_1.Model
         #endregion
         #region "Methods"
         /// <summary>
-        /// 
+        /// Restituisce la descrizione lunga della Room
         /// </summary>
-        /// <returns></returns>
+        /// <returns>string: descrizione lunga della Room</returns>
         public string ViewRoom()
         {
             return Rooms.Where(r=> r.Id== CurrentRoom).FirstOrDefault().Description;
