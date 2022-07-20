@@ -44,11 +44,17 @@
             this.pnlActions = new System.Windows.Forms.Panel();
             this.tltMain = new System.Windows.Forms.ToolTip(this.components);
             this.pnlObjects = new System.Windows.Forms.Panel();
+            this.lblObjects = new System.Windows.Forms.Label();
             this.pnlInventario = new System.Windows.Forms.Panel();
+            this.lblInventario = new System.Windows.Forms.Label();
             this.pnlPerson = new System.Windows.Forms.Panel();
             this.pnlResult = new System.Windows.Forms.Panel();
             this.txtResult = new System.Windows.Forms.TextBox();
+            this.lblPersons = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
+            this.pnlObjects.SuspendLayout();
+            this.pnlInventario.SuspendLayout();
+            this.pnlPerson.SuspendLayout();
             this.pnlResult.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,12 +66,12 @@
             this.txtRoomDescription.Location = new System.Drawing.Point(330, 13);
             this.txtRoomDescription.Multiline = true;
             this.txtRoomDescription.Name = "txtRoomDescription";
-            this.txtRoomDescription.Size = new System.Drawing.Size(504, 456);
+            this.txtRoomDescription.Size = new System.Drawing.Size(504, 543);
             this.txtRoomDescription.TabIndex = 0;
             // 
             // btnNN
             // 
-            this.btnNN.Location = new System.Drawing.Point(371, 476);
+            this.btnNN.Location = new System.Drawing.Point(371, 563);
             this.btnNN.Name = "btnNN";
             this.btnNN.Size = new System.Drawing.Size(35, 35);
             this.btnNN.TabIndex = 2;
@@ -75,7 +81,7 @@
             // 
             // btnNE
             // 
-            this.btnNE.Location = new System.Drawing.Point(412, 476);
+            this.btnNE.Location = new System.Drawing.Point(412, 563);
             this.btnNE.Name = "btnNE";
             this.btnNE.Size = new System.Drawing.Size(35, 35);
             this.btnNE.TabIndex = 3;
@@ -85,7 +91,7 @@
             // 
             // btnEE
             // 
-            this.btnEE.Location = new System.Drawing.Point(412, 517);
+            this.btnEE.Location = new System.Drawing.Point(412, 604);
             this.btnEE.Name = "btnEE";
             this.btnEE.Size = new System.Drawing.Size(35, 35);
             this.btnEE.TabIndex = 4;
@@ -95,7 +101,7 @@
             // 
             // btnSE
             // 
-            this.btnSE.Location = new System.Drawing.Point(412, 558);
+            this.btnSE.Location = new System.Drawing.Point(412, 645);
             this.btnSE.Name = "btnSE";
             this.btnSE.Size = new System.Drawing.Size(35, 35);
             this.btnSE.TabIndex = 5;
@@ -105,7 +111,7 @@
             // 
             // btnSS
             // 
-            this.btnSS.Location = new System.Drawing.Point(371, 558);
+            this.btnSS.Location = new System.Drawing.Point(371, 645);
             this.btnSS.Name = "btnSS";
             this.btnSS.Size = new System.Drawing.Size(35, 35);
             this.btnSS.TabIndex = 6;
@@ -115,7 +121,7 @@
             // 
             // btnSO
             // 
-            this.btnSO.Location = new System.Drawing.Point(330, 558);
+            this.btnSO.Location = new System.Drawing.Point(330, 645);
             this.btnSO.Name = "btnSO";
             this.btnSO.Size = new System.Drawing.Size(35, 35);
             this.btnSO.TabIndex = 7;
@@ -125,7 +131,7 @@
             // 
             // btnOO
             // 
-            this.btnOO.Location = new System.Drawing.Point(330, 517);
+            this.btnOO.Location = new System.Drawing.Point(330, 604);
             this.btnOO.Name = "btnOO";
             this.btnOO.Size = new System.Drawing.Size(35, 35);
             this.btnOO.TabIndex = 8;
@@ -135,7 +141,7 @@
             // 
             // btnNO
             // 
-            this.btnNO.Location = new System.Drawing.Point(330, 476);
+            this.btnNO.Location = new System.Drawing.Point(330, 563);
             this.btnNO.Name = "btnNO";
             this.btnNO.Size = new System.Drawing.Size(35, 35);
             this.btnNO.TabIndex = 9;
@@ -145,7 +151,7 @@
             // 
             // btnAA
             // 
-            this.btnAA.Location = new System.Drawing.Point(453, 475);
+            this.btnAA.Location = new System.Drawing.Point(453, 562);
             this.btnAA.Name = "btnAA";
             this.btnAA.Size = new System.Drawing.Size(35, 35);
             this.btnAA.TabIndex = 10;
@@ -155,7 +161,7 @@
             // 
             // btnBB
             // 
-            this.btnBB.Location = new System.Drawing.Point(453, 558);
+            this.btnBB.Location = new System.Drawing.Point(453, 645);
             this.btnBB.Name = "btnBB";
             this.btnBB.Size = new System.Drawing.Size(35, 35);
             this.btnBB.TabIndex = 11;
@@ -169,7 +175,7 @@
             this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Withe;
             this.pcbMap.Location = new System.Drawing.Point(840, 12);
             this.pcbMap.Name = "pcbMap";
-            this.pcbMap.Size = new System.Drawing.Size(515, 457);
+            this.pcbMap.Size = new System.Drawing.Size(515, 544);
             this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pcbMap.TabIndex = 17;
             this.pcbMap.TabStop = false;
@@ -180,40 +186,63 @@
             // pnlActions
             // 
             this.pnlActions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlActions.Location = new System.Drawing.Point(12, 476);
+            this.pnlActions.Location = new System.Drawing.Point(14, 563);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(312, 116);
+            this.pnlActions.Size = new System.Drawing.Size(310, 116);
             this.pnlActions.TabIndex = 19;
             // 
             // pnlObjects
             // 
             this.pnlObjects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlObjects.Controls.Add(this.lblObjects);
             this.pnlObjects.Location = new System.Drawing.Point(12, 13);
             this.pnlObjects.Name = "pnlObjects";
-            this.pnlObjects.Size = new System.Drawing.Size(310, 150);
+            this.pnlObjects.Size = new System.Drawing.Size(310, 166);
             this.pnlObjects.TabIndex = 20;
+            // 
+            // lblObjects
+            // 
+            this.lblObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObjects.Location = new System.Drawing.Point(3, 2);
+            this.lblObjects.Name = "lblObjects";
+            this.lblObjects.Size = new System.Drawing.Size(302, 21);
+            this.lblObjects.TabIndex = 0;
+            this.lblObjects.Text = "In questo luogo trovi:";
+            this.lblObjects.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlInventario
             // 
             this.pnlInventario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlInventario.Location = new System.Drawing.Point(12, 165);
+            this.pnlInventario.Controls.Add(this.lblInventario);
+            this.pnlInventario.Location = new System.Drawing.Point(14, 199);
             this.pnlInventario.Name = "pnlInventario";
-            this.pnlInventario.Size = new System.Drawing.Size(310, 150);
+            this.pnlInventario.Size = new System.Drawing.Size(310, 166);
             this.pnlInventario.TabIndex = 21;
+            // 
+            // lblInventario
+            // 
+            this.lblInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInventario.Location = new System.Drawing.Point(3, 0);
+            this.lblInventario.Name = "lblInventario";
+            this.lblInventario.Size = new System.Drawing.Size(302, 21);
+            this.lblInventario.TabIndex = 1;
+            this.lblInventario.Text = "Inventario:";
+            this.lblInventario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlPerson
             // 
             this.pnlPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlPerson.Location = new System.Drawing.Point(12, 318);
+            this.pnlPerson.Controls.Add(this.lblPersons);
+            this.pnlPerson.Location = new System.Drawing.Point(14, 390);
             this.pnlPerson.Name = "pnlPerson";
-            this.pnlPerson.Size = new System.Drawing.Size(310, 150);
+            this.pnlPerson.Size = new System.Drawing.Size(310, 166);
             this.pnlPerson.TabIndex = 22;
             // 
             // pnlResult
             // 
             this.pnlResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlResult.Controls.Add(this.txtResult);
-            this.pnlResult.Location = new System.Drawing.Point(494, 476);
+            this.pnlResult.Location = new System.Drawing.Point(494, 563);
             this.pnlResult.Name = "pnlResult";
             this.pnlResult.Size = new System.Drawing.Size(340, 117);
             this.pnlResult.TabIndex = 23;
@@ -229,11 +258,21 @@
             this.txtResult.Size = new System.Drawing.Size(338, 115);
             this.txtResult.TabIndex = 0;
             // 
+            // lblPersons
+            // 
+            this.lblPersons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersons.Location = new System.Drawing.Point(3, 0);
+            this.lblPersons.Name = "lblPersons";
+            this.lblPersons.Size = new System.Drawing.Size(302, 21);
+            this.lblPersons.TabIndex = 2;
+            this.lblPersons.Text = "Persone incontrate:";
+            this.lblPersons.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AdventureGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1367, 664);
+            this.ClientSize = new System.Drawing.Size(1367, 722);
             this.Controls.Add(this.pnlResult);
             this.Controls.Add(this.pnlPerson);
             this.Controls.Add(this.pnlInventario);
@@ -255,6 +294,9 @@
             this.Text = "AdventureGame";
             this.Load += new System.EventHandler(this.AdventureGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).EndInit();
+            this.pnlObjects.ResumeLayout(false);
+            this.pnlInventario.ResumeLayout(false);
+            this.pnlPerson.ResumeLayout(false);
             this.pnlResult.ResumeLayout(false);
             this.pnlResult.PerformLayout();
             this.ResumeLayout(false);
@@ -283,5 +325,8 @@
         private System.Windows.Forms.Panel pnlPerson;
         private System.Windows.Forms.Panel pnlResult;
         private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.Label lblObjects;
+        private System.Windows.Forms.Label lblInventario;
+        private System.Windows.Forms.Label lblPersons;
     }
 }

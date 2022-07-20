@@ -23,7 +23,7 @@ namespace ADVBuilder
         private Point lastLocation;
         private iActions CurrentAction;
         private Dictionary<string, iActions> ClassList = new Dictionary<string, iActions>();
-        private List<ObjectsData> Inventario=new List<ObjectsData>();
+        private List<ObjectsData> Inventario = new List<ObjectsData>();
         private int dx;
         private int dy;
         Pen PenGreen = new Pen(Color.Green, 2);
@@ -95,21 +95,21 @@ namespace ADVBuilder
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2, y + 12);
                     if (rd.AA > 0)
                     {
-                        g.DrawLine(p, x + 48, y + 2, x + 48, y + 7);
-                        if (ADD.Rooms.Where(r => r.Id == rd.AA).FirstOrDefault().Visited)
-                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.AA).FirstOrDefault(),
-                            (pcbMap.Image.Width - 50) / 2,
-                            (pcbMap.Image.Height - 13) / 2,
-                            PenBlack, drawFont, drawBrush, g);
+                        //g.DrawLine(p, x + 48, y + 2, x + 48, y + 7);
+                        //if (ADD.Rooms.Where(r => r.Id == rd.AA).FirstOrDefault().Visited)
+                        //    DrawMap(ADD.Rooms.Where(r => r.Id == rd.AA).FirstOrDefault(),
+                        //    (pcbMap.Image.Width - 50) / 2,
+                        //    (pcbMap.Image.Height - 13) / 2,
+                        //    PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.BB > 0)
                     {
-                        g.DrawLine(p, x + 48, y + 25 - 7, x + 48, y + 25 - 2);
-                        if (ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault().Visited)
-                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault(),
-                                (pcbMap.Image.Width - 50) / 2,
-                                (pcbMap.Image.Height - 13) / 2,
-                                PenBlack, drawFont, drawBrush, g);
+                        //g.DrawLine(p, x + 48, y + 25 - 7, x + 48, y + 25 - 2);
+                        //if (ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault().Visited)
+                        //    DrawMap(ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault(),
+                        //        (pcbMap.Image.Width - 50) / 2,
+                        //        (pcbMap.Image.Height - 13) / 2,
+                        //        PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.NN > 0)
                     {
@@ -278,9 +278,9 @@ namespace ADVBuilder
             int b = 222;
 
             int x = 0;
-            int y = 0;
+            int y = lblObjects.Top + lblObjects.Height;
 
-            pnlObjects.Controls.Clear();
+            foreach (Control p in pnlObjects.Controls) if(p.GetType()==typeof(Button)) pnlObjects.Controls.Remove(p);
 
             foreach (ObjectsData o in ADD.Rooms.Where(l => l.Id == ADD.CurrentRoom).FirstOrDefault().Objects)
             {
@@ -310,9 +310,9 @@ namespace ADVBuilder
             int b = 100;
 
             int x = 0;
-            int y = 0;
+            int y = lblInventario.Top + lblInventario.Height;
 
-            pnlInventario.Controls.Clear();
+            foreach (Control p in pnlInventario.Controls) if (p.GetType() == typeof(Button)) pnlInventario.Controls.Remove(p);
 
             foreach (ObjectsData o in Inventario)
             {
@@ -381,7 +381,7 @@ namespace ADVBuilder
 
             //Objects
             ViewObjects();
-            
+
             //Inventario
             ViewInventario();
 

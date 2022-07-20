@@ -22,8 +22,8 @@ namespace ADVBuilder.ActionsClass
             Type myType = typeof(RoomData);
             PropertyInfo myPropInfo = myType.GetProperty(pDirection);
 
-            ObjectsData obj = pRoom.Objects.Where(o => o.Position == pDirection).FirstOrDefault();
-            if (obj == null || (obj!=null && obj.Status == cCommon.STATUS_OPEN))
+            ObjectsData door = pRoom.Objects.Where(o => o.Position == pDirection).FirstOrDefault();
+            if (door == null || door.Status == cCommon.STATUS_OPEN)
             {
                 ADD.CurrentRoom = int.Parse(myPropInfo.GetValue(pRoom, null).ToString());
                 pRoomIdSelected = ADD.CurrentRoom;

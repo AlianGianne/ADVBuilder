@@ -25,6 +25,10 @@ namespace ADVBuilder.Common
         /// Oggetto fisso, non spostabile e non prendibile
         /// </summary>
         public const string STATUS_STATIC = "Static";
+        /// <summary>
+        /// Oggetto raccoglibile
+        /// </summary>
+        public const string STATUS_TAKE = "Take";
         #endregion
     }
 }

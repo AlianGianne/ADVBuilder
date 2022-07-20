@@ -38,7 +38,7 @@ namespace ADVBuilder.ActionsClass
 
         private void Exec()
         {
-            if (Object.Status == null || Object.Status != cCommon.STATUS_STATIC)
+            if (Object.Status == cCommon.STATUS_TAKE)
             {
                 Response.Success = Room.Objects.Remove(Object);
                 Inventario.Add(Object);
