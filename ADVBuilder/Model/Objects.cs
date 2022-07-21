@@ -10,6 +10,9 @@ namespace ADVBuilder_1.Model
     public class Objects : cOggettoData
     {
         private const string SELECTBYID = "SelectById";
+        /// <summary>
+        /// Lista Oggetti
+        /// </summary>
         public List<ObjectsData> List = new List<ObjectsData>();
         public Objects()
         {
@@ -17,6 +20,10 @@ namespace ADVBuilder_1.Model
             ReadData();
             ReadList(List);
         }
+        /// <summary>
+        /// Costrutture standard
+        /// </summary>
+        /// <param name="pIdRoom"></param>
         public Objects(int pIdRoom)
         {
             Settings(this.GetType().Name);
@@ -34,6 +41,9 @@ namespace ADVBuilder_1.Model
             }
         }
     }
+    /// <summary>
+    /// Struttura Objects
+    /// </summary>
     public class ObjectsData
     {
         [cAttributes(Name = "Id")] public int Id { get; set; }

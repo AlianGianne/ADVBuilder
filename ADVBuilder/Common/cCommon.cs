@@ -30,5 +30,11 @@ namespace ADVBuilder.Common
         /// </summary>
         public const string STATUS_TAKE = "Take";
         #endregion
+        #region "Inventario"
+        /// <summary>
+        /// Massimo numero di oggetti in Inventario
+        /// </summary>
+        public const int INVENTARIO_MAX = 20;
+        #endregion
     }
 }

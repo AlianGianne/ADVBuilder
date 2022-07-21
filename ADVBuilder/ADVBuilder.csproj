@@ -158,6 +158,15 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Data\SQLBuilder\Rooms.sql" />
+    <None Include="Images\Papiro1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Scala.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\RosaVenti.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Images\Withe.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

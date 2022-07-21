@@ -26,8 +26,10 @@ namespace ADVBuilder
         private List<ObjectsData> Inventario = new List<ObjectsData>();
         private int dx;
         private int dy;
+
         Pen PenGreen = new Pen(Color.Green, 2);
-        Pen PenBlack = new Pen(Color.Black);
+        Pen PenBlack = new Pen(Color.Black, 2);
+        Pen PenYellow = new Pen(Color.Yellow, 2);
 
         public Adventure ADV;
         public AdventureData ADD;
@@ -72,16 +74,16 @@ namespace ADVBuilder
         }
         private void ViewMap()
         {
-            pcbMap.Image = Image.FromFile("Images/Withe.png");
+            pcbMap.Image = Image.FromFile("Images/Papiro1.jpg");
             Graphics g = Graphics.FromImage(pcbMap.Image);
-            Font drawFont = new Font("Arial", 5);
+            Font drawFont = new Font("Arial", 2);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
             int x = (pcbMap.Image.Width - 50) / 2;
             int y = (pcbMap.Image.Height - 13) / 2;
             RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
             foreach (var r in ADD.Rooms) r.Drawed = false;
-            DrawMap(actual, x, y, PenGreen, drawFont, drawBrush, g);
+            DrawMap(actual, x, y, PenYellow, drawFont, drawBrush, g);
         }
         private void DrawMap(RoomData rd, int x, int y, Pen p, Font drawFont, Brush drawBrush, Graphics g)
         {
@@ -249,7 +251,9 @@ namespace ADVBuilder
             int b = 222;
 
             int x = 0;
-            int y = 0;
+            int y = lblAction.Top + lblAction.Height;
+
+
             foreach (ActionData a in Actions.List)
             {
                 r = r - 3;
@@ -273,14 +277,14 @@ namespace ADVBuilder
         }
         private void ViewObjects()
         {
-            int r = 100;
+            int r = 50;
             int g = 200;
-            int b = 222;
+            int b = 52;
 
             int x = 0;
             int y = lblObjects.Top + lblObjects.Height;
 
-            foreach (Control p in pnlObjects.Controls) if(p.GetType()==typeof(Button)) pnlObjects.Controls.Remove(p);
+            foreach (Control p in pnlObjects.Controls.OfType<Button>().ToList()) pnlObjects.Controls.Remove(p);
 
             foreach (ObjectsData o in ADD.Rooms.Where(l => l.Id == ADD.CurrentRoom).FirstOrDefault().Objects)
             {
@@ -312,7 +316,7 @@ namespace ADVBuilder
             int x = 0;
             int y = lblInventario.Top + lblInventario.Height;
 
-            foreach (Control p in pnlInventario.Controls) if (p.GetType() == typeof(Button)) pnlInventario.Controls.Remove(p);
+            foreach (Control p in pnlInventario.Controls.OfType<Button>().ToList()) pnlInventario.Controls.Remove(p);
 
             foreach (ObjectsData o in Inventario)
             {
@@ -337,7 +341,7 @@ namespace ADVBuilder
         }
         private void ViewDirections()
         {
-            foreach (Button btn in this.Controls.OfType<Button>())
+            foreach (Button btn in pnlDirection.Controls.OfType<Button>())
             {
                 switch (btn.Name.Substring(3))
                 {
