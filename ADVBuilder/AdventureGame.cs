@@ -19,6 +19,7 @@ namespace ADVBuilder
         private const int BTN_ACTION_HEIGHT = 25;
         private const int BTN_ACTION_WIDTH = 75;
         private const int BTN_ACTION_GAP = 3;
+        public int Room_Zoom = 0;
         private bool Dragging;
         private Point lastLocation;
         private iActions CurrentAction;
@@ -93,7 +94,7 @@ namespace ADVBuilder
                 {
                     rd.Drawed = true;
                     rd.Visited = true;
-                    g.DrawRectangle(p, new Rectangle(x, y, 50, 25));
+                    g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, cCommon.ROOM_HEIGHT + Room_Zoom / 2));
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2, y + 12);
                     if (rd.AA > 0)
                     {
@@ -106,7 +107,7 @@ namespace ADVBuilder
                     }
                     if (rd.BB > 0)
                     {
-                        //g.DrawLine(p, x + 48, y + 25 - 7, x + 48, y + 25 - 2);
+                        //g.DrawLine(p, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom/2 - 7, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom/2 - 2);
                         //if (ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault().Visited)
                         //    DrawMap(ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault(),
                         //        (pcbMap.Image.Width - 50) / 2,
@@ -115,58 +116,58 @@ namespace ADVBuilder
                     }
                     if (rd.NN > 0)
                     {
-                        g.DrawLine(p, x + 25, y, x + 25, y - 5);
+                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y - 5);
                         if (ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault(),
-                            x, y - 30,
+                            x, y - (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.NE > 0)
                     {
-                        g.DrawLine(p, x + 50, y, x + 53, y - 3);
+                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y, x + (cCommon.ROOM_WIDTH + Room_Zoom) + 3, y - 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault(),
-                            x + 55, y - 30,
+                            x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.EE > 0)
                     {
-                        g.DrawLine(p, x + 50, y + 12, x + 55, y + 12);
+                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) / 2, x + (cCommon.ROOM_WIDTH + Room_Zoom) + 5, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) / 2);
                         if (ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault(),
-                                x + 55, y,
+                                x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y,
                                 PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.SE > 0)
                     {
-                        g.DrawLine(p, x + 50, y + 25, x + 53, y + 28);
+                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y + cCommon.ROOM_HEIGHT + Room_Zoom / 2, x + (cCommon.ROOM_WIDTH + Room_Zoom) + 3, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2));
                         if (ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault(),
-                            x + 55, y + 30,
+                            x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.SS > 0)
                     {
-                        g.DrawLine(p, x + 25, y + 25, x + 25, y + 30);
+                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y + cCommon.ROOM_HEIGHT + Room_Zoom / 2, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) + 5);
                         if (ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault(),
-                            x, y + 30,
+                            x, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.SO > 0)
                     {
-                        g.DrawLine(p, x, y + 25, x - 3, y + 28);
+                        g.DrawLine(p, x, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2), x - 3, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) + 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault(),
-                            x - 55, y + 30,
+                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.OO > 0)
                     {
-                        g.DrawLine(p, x, y + 12, x - 5, y + 12);
+                        g.DrawLine(p, x, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) / 2, x - 5, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) / 2);
                         if (ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault(),
-                            x - 55, y,
+                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y,
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.NO > 0)
@@ -174,7 +175,7 @@ namespace ADVBuilder
                         g.DrawLine(p, x, y, x - 3, y - 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault(),
-                            x - 55, y - 30,
+                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                 }
@@ -199,6 +200,7 @@ namespace ADVBuilder
             btn.Text = pAction.Action;
             btn.Tag = pAction.DeepObjects;
             btn.BackColor = pColor;
+            btn.ForeColor = Color.White;
             btn.Click += new EventHandler(btnActions_Click);
             tltMain.SetToolTip(btn, pAction.Description);
 
@@ -214,6 +216,7 @@ namespace ADVBuilder
             btn.Text = pObject.Title;
             btn.Tag = pObject;
             btn.BackColor = pColor;
+            btn.ForeColor = Color.White;
             btn.Click += new EventHandler(btnObjects_Click);
             tltMain.SetToolTip(btn, pObject.Description);
 
@@ -462,6 +465,30 @@ namespace ADVBuilder
                 ViewData();
                 ViewMap();
             }
+        }
+
+        private void btnZoomPlus_Click(object sender, EventArgs e)
+        {
+            Room_Zoom += cCommon.ZOOM_FACTOR;
+            ViewMap();
+        }
+
+        private void btnZoomMinus_Click(object sender, EventArgs e)
+        {
+            Room_Zoom -= cCommon.ZOOM_FACTOR;
+            ViewMap();
+        }
+
+        private void btnSuperPlus_Click(object sender, EventArgs e)
+        {
+            Room_Zoom += cCommon.ZOOM_FACTOR * cCommon.ZOOM_FACTOR_MULTIPLIER;
+            ViewMap();
+        }
+
+        private void btnSuperMinus_Click(object sender, EventArgs e)
+        {
+            Room_Zoom -= cCommon.ZOOM_FACTOR * cCommon.ZOOM_FACTOR_MULTIPLIER;
+            ViewMap();
         }
     }
 }

@@ -57,6 +57,13 @@
             this.pnlRoomDescription = new System.Windows.Forms.Panel();
             this.txtRoomDescription = new System.Windows.Forms.TextBox();
             this.lblRoomDescription = new System.Windows.Forms.Label();
+            this.pnlActionMap = new System.Windows.Forms.Panel();
+            this.btnSuperMinus = new System.Windows.Forms.Button();
+            this.btnSuperPlus = new System.Windows.Forms.Button();
+            this.btnZoomMinus = new System.Windows.Forms.Button();
+            this.btnZoomPlus = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
             this.pnlInventario.SuspendLayout();
@@ -67,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
             this.pnlRoomDescription.SuspendLayout();
+            this.pnlActionMap.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNN
@@ -311,6 +319,8 @@
             // 
             // pnlResult
             // 
+            this.pnlResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlResult.Controls.Add(this.txtResult);
             this.pnlResult.Location = new System.Drawing.Point(543, 529);
@@ -320,7 +330,8 @@
             // 
             // txtResult
             // 
-            this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResult.Enabled = false;
             this.txtResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResult.Location = new System.Drawing.Point(0, 0);
@@ -410,6 +421,8 @@
             // 
             // lblRoomDescription
             // 
+            this.lblRoomDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRoomDescription.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.lblRoomDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoomDescription.Location = new System.Drawing.Point(-1, 0);
@@ -419,11 +432,114 @@
             this.lblRoomDescription.Text = "Descrizione luogo visitato:";
             this.lblRoomDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pnlActionMap
+            // 
+            this.pnlActionMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlActionMap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlActionMap.Controls.Add(this.btnSuperMinus);
+            this.pnlActionMap.Controls.Add(this.btnSuperPlus);
+            this.pnlActionMap.Controls.Add(this.btnZoomMinus);
+            this.pnlActionMap.Controls.Add(this.btnZoomPlus);
+            this.pnlActionMap.Controls.Add(this.label1);
+            this.pnlActionMap.Location = new System.Drawing.Point(840, 530);
+            this.pnlActionMap.Name = "pnlActionMap";
+            this.pnlActionMap.Size = new System.Drawing.Size(515, 166);
+            this.pnlActionMap.TabIndex = 20;
+            // 
+            // btnSuperMinus
+            // 
+            this.btnSuperMinus.BackColor = System.Drawing.Color.Transparent;
+            this.btnSuperMinus.FlatAppearance.BorderSize = 0;
+            this.btnSuperMinus.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnSuperMinus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSuperMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSuperMinus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSuperMinus.Location = new System.Drawing.Point(44, 65);
+            this.btnSuperMinus.Name = "btnSuperMinus";
+            this.btnSuperMinus.Size = new System.Drawing.Size(35, 35);
+            this.btnSuperMinus.TabIndex = 13;
+            this.btnSuperMinus.Text = "--";
+            this.btnSuperMinus.UseVisualStyleBackColor = false;
+            this.btnSuperMinus.Click += new System.EventHandler(this.btnSuperMinus_Click);
+            // 
+            // btnSuperPlus
+            // 
+            this.btnSuperPlus.BackColor = System.Drawing.Color.Transparent;
+            this.btnSuperPlus.FlatAppearance.BorderSize = 0;
+            this.btnSuperPlus.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnSuperPlus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSuperPlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSuperPlus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSuperPlus.Location = new System.Drawing.Point(44, 24);
+            this.btnSuperPlus.Name = "btnSuperPlus";
+            this.btnSuperPlus.Size = new System.Drawing.Size(35, 35);
+            this.btnSuperPlus.TabIndex = 12;
+            this.btnSuperPlus.Text = "++";
+            this.btnSuperPlus.UseVisualStyleBackColor = false;
+            this.btnSuperPlus.Click += new System.EventHandler(this.btnSuperPlus_Click);
+            // 
+            // btnZoomMinus
+            // 
+            this.btnZoomMinus.BackColor = System.Drawing.Color.Transparent;
+            this.btnZoomMinus.FlatAppearance.BorderSize = 0;
+            this.btnZoomMinus.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnZoomMinus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZoomMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZoomMinus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnZoomMinus.Location = new System.Drawing.Point(3, 65);
+            this.btnZoomMinus.Name = "btnZoomMinus";
+            this.btnZoomMinus.Size = new System.Drawing.Size(35, 35);
+            this.btnZoomMinus.TabIndex = 11;
+            this.btnZoomMinus.Text = "-";
+            this.btnZoomMinus.UseVisualStyleBackColor = false;
+            this.btnZoomMinus.Click += new System.EventHandler(this.btnZoomMinus_Click);
+            // 
+            // btnZoomPlus
+            // 
+            this.btnZoomPlus.BackColor = System.Drawing.Color.Transparent;
+            this.btnZoomPlus.FlatAppearance.BorderSize = 0;
+            this.btnZoomPlus.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnZoomPlus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZoomPlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZoomPlus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnZoomPlus.Location = new System.Drawing.Point(3, 24);
+            this.btnZoomPlus.Name = "btnZoomPlus";
+            this.btnZoomPlus.Size = new System.Drawing.Size(35, 35);
+            this.btnZoomPlus.TabIndex = 10;
+            this.btnZoomPlus.Text = "+";
+            this.btnZoomPlus.UseVisualStyleBackColor = false;
+            this.btnZoomPlus.Click += new System.EventHandler(this.btnZoomPlus_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(-5, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(519, 21);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Azioni Mappa:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(840, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(515, 21);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Mappa:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AdventureGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1367, 722);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.pnlActionMap);
             this.Controls.Add(this.pnlRoomDescription);
             this.Controls.Add(this.pnlDirection);
             this.Controls.Add(this.pnlResult);
@@ -447,6 +563,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).EndInit();
             this.pnlRoomDescription.ResumeLayout(false);
             this.pnlRoomDescription.PerformLayout();
+            this.pnlActionMap.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -480,5 +597,12 @@
         private System.Windows.Forms.Panel pnlRoomDescription;
         private System.Windows.Forms.TextBox txtRoomDescription;
         private System.Windows.Forms.Label lblRoomDescription;
+        private System.Windows.Forms.Panel pnlActionMap;
+        private System.Windows.Forms.Button btnZoomMinus;
+        private System.Windows.Forms.Button btnZoomPlus;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSuperMinus;
+        private System.Windows.Forms.Button btnSuperPlus;
+        private System.Windows.Forms.Label label2;
     }
 }

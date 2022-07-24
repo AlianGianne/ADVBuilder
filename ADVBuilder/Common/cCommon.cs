@@ -8,6 +8,12 @@ namespace ADVBuilder.Common
 {
     static class cCommon
     {
+        #region "Maps"
+        public const int ROOM_WIDTH = 50;
+        public const int ROOM_HEIGHT = 25;
+        public const int ZOOM_FACTOR = 1;
+        public const int ZOOM_FACTOR_MULTIPLIER = 10;
+        #endregion
         #region "Objects Status"
         /// <summary>
         /// Oggetto semplicemente chiuso apribile senza altri oggetti (es.: Porta apribile senza chiave)

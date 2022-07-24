@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionClass_New\aActions.cs" />
     <Compile Include="ActionsClass\aActions.cs" />
     <Compile Include="ActionsClass\Drop.cs" />
     <Compile Include="ActionsClass\Go.cs" />
