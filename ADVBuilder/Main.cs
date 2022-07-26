@@ -97,6 +97,8 @@ namespace ADVBuilder
         }
         private void btnAddObject_Click(object sender, EventArgs e)
         {
+            InsertDataObject();
+
             InitializeInternalComponent();
             DataBind();
         }

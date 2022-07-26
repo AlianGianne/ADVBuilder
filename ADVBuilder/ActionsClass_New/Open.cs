@@ -1,24 +1,28 @@
-﻿using System;
+﻿using ADVBuilder.Common;
+using ADVBuilder_1.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ADVBuilder.Common;
-using ADVBuilder_1.Model;
 
-namespace ADVBuilder.ActionsClass
+namespace ADVBuilder.ActionsClass_New
 {
-    public class Open : aActions, iActions
+    internal class Open : aActions, iActions
     {
-        public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom, List<ObjectsData> pInventario)
+        public Open(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        {
+        }
+
+        public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
         {
             Object = pObj;
             Room = pRoom;
-            Inventario = pInventario;
             if (Object == null)
             {
                 Response.Success = true;
                 Response.Message = "Seleziona l'oggetto da aprire!";
+                Response.Value = 0;
             }
             else
             {
@@ -35,11 +39,13 @@ namespace ADVBuilder.ActionsClass
                 Room.Objects.Where(o => o.Id == Object.Id).FirstOrDefault().Status = cCommon.STATUS_OPEN;
                 Response.Success = true;
                 Response.Message = SetMessage();
+                Response.Value = 0;
             }
             else
             {
                 Response.Success = false;
                 Response.Message = string.Format("Non puoi aprire {0}", Object.Title);
+                Response.Value = 0;
             }
             Object = null;
             Room = null;
@@ -49,10 +55,5 @@ namespace ADVBuilder.ActionsClass
             return Response.Success ?
                 string.Format("Oggetto {0} aperto con successo.", Object.Title) : "Errore";
         }
-        public Response Execute(AdventureData ADD, RoomData pRoom, string pDirection, ref int pRoomIdSelected)
-        {
-            return Response;
-        }
-
     }
 }

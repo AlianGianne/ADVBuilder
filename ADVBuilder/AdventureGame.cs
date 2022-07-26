@@ -1,4 +1,4 @@
-﻿using ADVBuilder.ActionsClass;
+﻿using ADVBuilder.ActionsClass_New;
 using ADVBuilder.Common;
 using ADVBuilder.Model;
 using ADVBuilder_1.Model;
@@ -19,7 +19,7 @@ namespace ADVBuilder
         private const int BTN_ACTION_HEIGHT = 25;
         private const int BTN_ACTION_WIDTH = 75;
         private const int BTN_ACTION_GAP = 3;
-        public int Room_Zoom = 0;
+        private int Room_Zoom = 0;
         private bool Dragging;
         private Point lastLocation;
         private iActions CurrentAction;
@@ -47,31 +47,31 @@ namespace ADVBuilder
         }
         private void AdventureGame_Load(object sender, EventArgs e)
         {
-            InitializeFunction();
             InitializeInternalComponent();
+            InitializeFunction();
             ViewData();
             ViewActions();
             ViewMap();
         }
         private void InitializeFunction()
         {
-            ClassList.Add("Prendi", new Take());
-            ClassList.Add("Lascia", new Drop());
-            ClassList.Add("Getta", new Drop());
-            ClassList.Add("Guarda", new Examinate());
-            ClassList.Add("Esamina", new Examinate());
-            ClassList.Add("Osserva", new Examinate());
-            ClassList.Add("Apri", new Open());
-            ClassList.Add("NN", new Go());
-            ClassList.Add("NE", new Go());
-            ClassList.Add("EE", new Go());
-            ClassList.Add("SE", new Go());
-            ClassList.Add("SS", new Go());
-            ClassList.Add("SO", new Go());
-            ClassList.Add("OO", new Go());
-            ClassList.Add("NO", new Go());
-            ClassList.Add("AA", new Go());
-            ClassList.Add("BB", new Go());
+            ClassList.Add("Prendi", new Take(ADD, Inventario));
+            ClassList.Add("Lascia", new Drop(ADD, Inventario));
+            ClassList.Add("Getta", new Drop(ADD, Inventario));
+            ClassList.Add("Guarda", new Examinate(ADD, Inventario));
+            ClassList.Add("Esamina", new Examinate(ADD, Inventario));
+            ClassList.Add("Osserva", new Examinate(ADD, Inventario));
+            ClassList.Add("Apri", new Open(ADD, Inventario));
+            ClassList.Add("NN", new Go(ADD, Inventario));
+            ClassList.Add("NE", new Go(ADD, Inventario));
+            ClassList.Add("EE", new Go(ADD, Inventario));
+            ClassList.Add("SE", new Go(ADD, Inventario));
+            ClassList.Add("SS", new Go(ADD, Inventario));
+            ClassList.Add("SO", new Go(ADD, Inventario));
+            ClassList.Add("OO", new Go(ADD, Inventario));
+            ClassList.Add("NO", new Go(ADD, Inventario));
+            ClassList.Add("AA", new Go(ADD, Inventario));
+            ClassList.Add("BB", new Go(ADD, Inventario));
         }
         private void ViewMap()
         {
@@ -201,6 +201,8 @@ namespace ADVBuilder
             btn.Tag = pAction.DeepObjects;
             btn.BackColor = pColor;
             btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
             btn.Click += new EventHandler(btnActions_Click);
             tltMain.SetToolTip(btn, pAction.Description);
 
@@ -217,6 +219,8 @@ namespace ADVBuilder
             btn.Tag = pObject;
             btn.BackColor = pColor;
             btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
             btn.Click += new EventHandler(btnObjects_Click);
             tltMain.SetToolTip(btn, pObject.Description);
 
@@ -233,6 +237,8 @@ namespace ADVBuilder
             btn.Tag = pObject;
             btn.BackColor = pColor;
             btn.ForeColor = Color.White;
+            btn.FlatStyle=FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
             btn.Click += new EventHandler(btnInventario_Click);
             tltMain.SetToolTip(btn, pObject.Description);
 
@@ -243,7 +249,7 @@ namespace ADVBuilder
             Button btn = (Button)sender;
             CurrentAction = ClassList[btn.Text];
             Object = null;
-            txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario).Message;
+            txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
             ViewData();
             ViewMap();
         }
@@ -402,7 +408,8 @@ namespace ADVBuilder
 
             CurrentAction = ClassList[btn.Text];
             Object = null;
-            txtResult.Text = CurrentAction.Execute(ADD, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), direction, ref RoomIdSelected).Message;
+            ADD.Direction = direction;
+            txtResult.Text = CurrentAction.Execute(null, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
             ViewData();
             ViewMap();
         }
@@ -414,7 +421,7 @@ namespace ADVBuilder
                 Button btn = (Button)sender;
 
                 SetActions(Action, btn.Tag as ObjectsData);
-                txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario).Message;
+                txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
                 ViewData();
                 ViewMap();
             }
@@ -461,7 +468,7 @@ namespace ADVBuilder
                 Button btn = (Button)sender;
 
                 SetActions(Action, btn.Tag as ObjectsData);
-                txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault(), Inventario).Message;
+                txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
                 ViewData();
                 ViewMap();
             }

@@ -69,6 +69,7 @@ namespace ADVBuilder_1.Model
         public List<RoomData> Rooms { get; set; }
         [cAttributes(Name = "CurrentRoom")]
         public int CurrentRoom { get; set; }
+        public string Direction { get; set; }
         #endregion
         #region "Methods"
         /// <summary>

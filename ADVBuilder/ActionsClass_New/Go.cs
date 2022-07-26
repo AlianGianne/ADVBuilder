@@ -1,33 +1,30 @@
-﻿using System;
+﻿using ADVBuilder.Common;
+using ADVBuilder_1.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using ADVBuilder.Common;
-using ADVBuilder_1.Model;
 
-namespace ADVBuilder.ActionsClass
+namespace ADVBuilder.ActionsClass_New
 {
-    public class Go : aActions, iActions
+    internal class Go : aActions, iActions
     {
-        public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom, List<ObjectsData> pInventario)
+        public Go(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
         {
-            return Response;
         }
-
-        public Response Execute(AdventureData ADD, RoomData pRoom, string pDirection, ref int pRoomIdSelected)
+        public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
         {
-            
             Type myType = typeof(RoomData);
-            PropertyInfo myPropInfo = myType.GetProperty(pDirection);
+            PropertyInfo myPropInfo = myType.GetProperty(ADD.Direction);
 
-            ObjectsData door = pRoom.Objects.Where(o => o.Position == pDirection).FirstOrDefault();
+            ObjectsData door = pRoom.Objects.Where(o => o.Position == ADD.Direction).FirstOrDefault();
             if (door == null || door.Status == cCommon.STATUS_OPEN)
             {
                 ADD.CurrentRoom = int.Parse(myPropInfo.GetValue(pRoom, null).ToString());
-                pRoomIdSelected = ADD.CurrentRoom;
-                Response.Message = SetMessage(pDirection);
+                Response.Value = ADD.CurrentRoom;
+                Response.Message = SetMessage(ADD.Direction);
             }
             else
             {
@@ -36,6 +33,10 @@ namespace ADVBuilder.ActionsClass
             }
             return Response;
         }
+        
+
+
+
         private string SetMessage(string pDirection)
         {
             Response.Success = true;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ADVBuilder.ActionsClass
+namespace ADVBuilder.ActionsClass_New
 {
     /// <summary>
     /// 
@@ -13,5 +13,6 @@ namespace ADVBuilder.ActionsClass
     {
         public bool Success { get; set; }
         public string Message { get; set; }
+        public object Value { get; set; }
     }
 }

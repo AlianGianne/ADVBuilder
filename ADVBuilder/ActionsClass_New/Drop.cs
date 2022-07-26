@@ -1,38 +1,32 @@
 ﻿using ADVBuilder_1.Model;
-using ADVBuilder.Model;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ADVBuilder.ActionsClass
+namespace ADVBuilder.ActionsClass_New
 {
-    public class Drop : aActions, iActions
+    internal class Drop : aActions, iActions
     {
-        public Response Response { get; set; } = new Response();
-        public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom, List<ObjectsData> pInventario)
+        public Drop(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        {
+        }
+
+        public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
         {
             Object = pObj;
             Room = pRoom;
-            Inventario = pInventario;
             if (Object == null)
             {
                 Response.Success = true;
                 Response.Message = "Seleziona l'oggetto da lasciare!";
+                Response.Value = 0;
             }
             else
             {
                 Exec();
             }
-            return Response;
-
-
-        }
-
-        public Response Execute(AdventureData ADD, RoomData pRoom, string pDirection, ref int pRoomIdSelected)
-        {
             return Response;
         }
 
@@ -40,9 +34,9 @@ namespace ADVBuilder.ActionsClass
         {
             Object.IdRoom = Room.Id;
             Room.Objects.Add(Object);
-            Inventario.Remove(Object);
-            Response.Success = true;
+            Response.Success = Inventario.Remove(Object);
             Response.Message = SetMessage();
+            Response.Value = 0;
             Object = null;
             Room = null;
         }

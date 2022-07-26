@@ -1,5 +1,4 @@
 ﻿using ADVBuilder.Common;
-using ADVBuilder.Model;
 using ADVBuilder_1.Model;
 using System;
 using System.Collections.Generic;
@@ -7,30 +6,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ADVBuilder.ActionsClass
+namespace ADVBuilder.ActionsClass_New
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class Take : aActions, iActions
+    internal class Take : aActions, iActions
     {
+        public Take(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        {
+
+        }
+
         /// <summary>
         /// Esegue la prima azione Take
         /// </summary>
         /// <param name="pObj"></param>
         /// <param name="pCmp"></param>
         /// <param name="pRoom"></param>
-        /// <param name="pInventario"></param>
         /// <returns>Response</returns>
-        public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom, List<ObjectsData> pInventario)
+        public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
         {
             Object = pObj;
             Room = pRoom;
-            Inventario = pInventario;
             if (Object == null)
             {
                 Response.Success = true;
                 Response.Message = "Seleziona l'oggetto da prendere!";
+                Response.Value = 0;    
             }
             else
             {
@@ -38,39 +38,29 @@ namespace ADVBuilder.ActionsClass
             }
             return Response;
         }
-        /// <summary>
-        /// Esegue la seconda azione Take
-        /// </summary>
-        /// <param name="ADD"></param>
-        /// <param name="pRoom"></param>
-        /// <param name="pDirection"></param>
-        /// <param name="pRoomIdSelected"></param>
-        /// <returns>Response</returns>
-        public Response Execute(AdventureData ADD, RoomData pRoom, string pDirection, ref int pRoomIdSelected)
-        {
-            return Response;
-        }
-
         private void Exec()
         {
             if (Object.Status == cCommon.STATUS_TAKE)
             {
                 if (Inventario.Count() < cCommon.INVENTARIO_MAX)
                 {
-                    Response.Success = Room.Objects.Remove(Object);
                     Inventario.Add(Object);
+                    Response.Success = Room.Objects.Remove(Object);
                     Response.Message = SetMessage();
+                    Response.Value = 0;
                 }
                 else
                 {
                     Response.Success = false;
                     Response.Message = string.Format("Non puoi prendere {0}, inventario pieno!", Object.Title);
+                    Response.Value = 0;
                 }
             }
             else
             {
                 Response.Success = false;
                 Response.Message = string.Format("Non puoi prendere {0}", Object.Title);
+                Response.Value = 0;
             }
             Object = null;
             Room = null;

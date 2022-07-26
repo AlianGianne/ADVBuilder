@@ -62,15 +62,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionClass_New\aActions.cs" />
-    <Compile Include="ActionsClass\aActions.cs" />
-    <Compile Include="ActionsClass\Drop.cs" />
-    <Compile Include="ActionsClass\Go.cs" />
-    <Compile Include="ActionsClass\iActions.cs" />
-    <Compile Include="ActionsClass\Open.cs" />
-    <Compile Include="ActionsClass\Response.cs" />
-    <Compile Include="ActionsClass\Take.cs" />
-    <Compile Include="ActionsClass\Examinate.cs" />
+    <Compile Include="ActionsClass_New\aActions.cs" />
+    <Compile Include="ActionsClass_New\Drop.cs" />
+    <Compile Include="ActionsClass_New\Examinate.cs" />
+    <Compile Include="ActionsClass_New\Go.cs" />
+    <Compile Include="ActionsClass_New\iActions.cs" />
+    <Compile Include="ActionsClass_New\Open.cs" />
+    <Compile Include="ActionsClass_New\Response.cs" />
+    <Compile Include="ActionsClass_New\Take.cs" />
     <Compile Include="AdventureGame.cs">
       <SubType>Form</SubType>
     </Compile>
