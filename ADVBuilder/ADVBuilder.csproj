@@ -70,6 +70,7 @@
     <Compile Include="ActionsClass_New\Open.cs" />
     <Compile Include="ActionsClass_New\Response.cs" />
     <Compile Include="ActionsClass_New\Take.cs" />
+    <Compile Include="ActionsClass_New\UseWith.cs" />
     <Compile Include="AdventureGame.cs">
       <SubType>Form</SubType>
     </Compile>

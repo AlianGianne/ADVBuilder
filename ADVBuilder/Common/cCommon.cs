@@ -36,6 +36,11 @@ namespace ADVBuilder.Common
         /// </summary>
         public const string STATUS_TAKE = "Take";
         #endregion
+        #region "Object Actions"
+        public const string ACTION_OPEN = "Open";
+        public const string ACTION_CLOSE = "Close";
+        public const string ACTION_SHOOT = "Shoot";
+        #endregion
         #region "Inventario"
         /// <summary>
         /// Massimo numero di oggetti in Inventario

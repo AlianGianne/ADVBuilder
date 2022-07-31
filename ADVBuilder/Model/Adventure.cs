@@ -38,7 +38,7 @@ namespace ADVBuilder_1.Model
                 Table = ExecuteQuery(SELECTBYID, param, PercorsoFileXml);
                 Close();
             }
-        }
+        }   
 
         public void ReadRooms()
         {

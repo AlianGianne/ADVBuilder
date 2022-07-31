@@ -16,6 +16,7 @@ namespace ADVBuilder.ActionsClass_New
         public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
         {
             Object = pObj;
+            Complement = pCmp;
             Room = pRoom;
             if (Object == null)
             {

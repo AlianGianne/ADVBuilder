@@ -38,6 +38,7 @@ namespace ADVBuilder
         public Actions Actions = new Actions();
         public ActionData Action { get; set; }
         public ObjectsData Object { get; set; }
+        public ObjectsData Complement { get; set; }
         public int AdvIdSelected { get; set; }
         public int RoomIdSelected;
 
@@ -62,6 +63,7 @@ namespace ADVBuilder
             ClassList.Add("Esamina", new Examinate(ADD, Inventario));
             ClassList.Add("Osserva", new Examinate(ADD, Inventario));
             ClassList.Add("Apri", new Open(ADD, Inventario));
+            ClassList.Add("Usa con...", new UseWith(ADD, Inventario));
             ClassList.Add("NN", new Go(ADD, Inventario));
             ClassList.Add("NE", new Go(ADD, Inventario));
             ClassList.Add("EE", new Go(ADD, Inventario));
@@ -249,7 +251,8 @@ namespace ADVBuilder
             Button btn = (Button)sender;
             CurrentAction = ClassList[btn.Text];
             Object = null;
-            txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+            Complement = null;
+            txtResult.Text = CurrentAction.Execute(Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
             ViewData();
             ViewMap();
         }
@@ -408,12 +411,12 @@ namespace ADVBuilder
 
             CurrentAction = ClassList[btn.Text];
             Object = null;
+            Complement = null;
             ADD.Direction = direction;
             txtResult.Text = CurrentAction.Execute(null, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
             ViewData();
             ViewMap();
         }
-
         private void btnObjects_Click(object sender, EventArgs e)
         {
             if (CurrentAction != null)
@@ -421,7 +424,7 @@ namespace ADVBuilder
                 Button btn = (Button)sender;
 
                 SetActions(Action, btn.Tag as ObjectsData);
-                txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+                txtResult.Text = CurrentAction.Execute(Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
                 ViewData();
                 ViewMap();
             }
@@ -429,9 +432,11 @@ namespace ADVBuilder
         private void SetActions(ActionData pAction, ObjectsData pObject)
         {
             Action = pAction;
-            Object = pObject;
+            if (Object == null)
+                Object = pObject;
+            else
+                Complement = pObject;
         }
-
         private void pcbMap_MouseMove(object sender, MouseEventArgs e)
         {
             if (Dragging == true)
@@ -446,7 +451,6 @@ namespace ADVBuilder
 
             }
         }
-
         private void pcbMap_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -455,12 +459,10 @@ namespace ADVBuilder
                 lastLocation = e.Location;
             }
         }
-
         private void pcbMap_MouseUp(object sender, MouseEventArgs e)
         {
             Dragging = false;
         }
-
         private void btnInventario_Click(object sender, EventArgs e)
         {
             if (CurrentAction != null)
@@ -468,30 +470,26 @@ namespace ADVBuilder
                 Button btn = (Button)sender;
 
                 SetActions(Action, btn.Tag as ObjectsData);
-                txtResult.Text = CurrentAction.Execute(Object, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+                txtResult.Text = CurrentAction.Execute(Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
                 ViewData();
                 ViewMap();
             }
         }
-
         private void btnZoomPlus_Click(object sender, EventArgs e)
         {
             Room_Zoom += cCommon.ZOOM_FACTOR;
             ViewMap();
         }
-
         private void btnZoomMinus_Click(object sender, EventArgs e)
         {
             Room_Zoom -= cCommon.ZOOM_FACTOR;
             ViewMap();
         }
-
         private void btnSuperPlus_Click(object sender, EventArgs e)
         {
             Room_Zoom += cCommon.ZOOM_FACTOR * cCommon.ZOOM_FACTOR_MULTIPLIER;
             ViewMap();
         }
-
         private void btnSuperMinus_Click(object sender, EventArgs e)
         {
             Room_Zoom -= cCommon.ZOOM_FACTOR * cCommon.ZOOM_FACTOR_MULTIPLIER;
