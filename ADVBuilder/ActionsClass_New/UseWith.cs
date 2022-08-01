@@ -30,7 +30,7 @@ namespace ADVBuilder.ActionsClass_New
                 if (Complement == null)
                 {
                     Response.Success = true;
-                    Response.Message = "Seleziona l'oggetto con cui interagire!";
+                    Response.Message = "Seleziona l'oggetto con cui interagire!"; 
                     Response.Value = 0;
                 }
                 else

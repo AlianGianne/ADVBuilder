@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<ROOT>
+	<Select>
+		SELECT * FROM Characters
+	</Select>
+	<SelectById>
+		SELECT * FROM Characters
+		WHERE IDROOM=@IDROOM
+	</SelectById>
+	<Insert>
+		INSERT INTO Characters(IDROOM, TITLE, DESCRIPTION, SHORTDESCRIPTION)
+		VALUES(@IDROOM, @TITLE, @DESCRIPTION, @SHORTDESCRIPTION)
+	</Insert>
+	<Update>
+		UPDATE Characters SET
+		IDROOM=@IDROOM,
+		TITLE=@TITLE,
+		DESCRIPTION=@DESCRIPTION,
+		SHORTDESCRIPTION=@SHORTDESCRIPTION
+		WHERE ID=@ID
+	</Update>
+</ROOT>

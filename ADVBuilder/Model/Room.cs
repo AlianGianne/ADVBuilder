@@ -1,4 +1,5 @@
-﻿using Gema2022.Class;
+﻿using ADVBuilder.Model;
+using Gema2022.Class;
 using Gema2022.CommonClass;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace ADVBuilder_1.Model
             Directions = ReadDirections();
             ////////////////
             ReadObjects();
+            ReadCharacters();
         }
 
         private List<string> ReadDirections()
@@ -40,7 +42,7 @@ namespace ADVBuilder_1.Model
             ReadData(pIdAdv);
             ReadOther();
         }
-        public void ReadObjects()
+        private void ReadObjects()
         {
             foreach (RoomData rm in List)
             {
@@ -48,7 +50,14 @@ namespace ADVBuilder_1.Model
                 rm.Objects = ob.List;
             }
         }
-        
+        private void ReadCharacters()
+        {
+            foreach (RoomData rm in List)
+            {
+                Characters ch = new Characters(rm.Id);
+                rm.Characters = ch.List;
+            }
+        }
         private void ReadData(int pIdAdv)
         {
             if (Open())
@@ -82,6 +91,7 @@ namespace ADVBuilder_1.Model
         public bool Visited { get; set; } = false;
         public List<string> Directions { get; set; }
         public List<ObjectsData> Objects { get; set; }                          //Eventuali oggetti presenti
+        public List<CharactersData> Characters { get; set; }                          //Eventuali oggetti presenti
         public bool Drawed { get; set; }
         #endregion
     }

@@ -92,11 +92,13 @@
     <Compile Include="Model\Adventure.cs" />
     <Compile Include="Model\Abstract\cData.cs" />
     <Compile Include="Model\Abstract\cOggettoData.cs" />
+    <Compile Include="Model\Characters.cs" />
     <Compile Include="Model\Directions.cs" />
     <Compile Include="Model\Inventario.cs" />
     <Compile Include="Model\Objects.cs" />
     <Compile Include="Model\Positions.cs" />
     <Compile Include="Model\Room.cs" />
+    <Compile Include="Model\Sentences.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +141,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Query\Actions.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Query\Characters.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Query\Sentences.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\SQLBuilder\Actions.sql" />

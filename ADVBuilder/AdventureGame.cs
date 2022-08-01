@@ -228,6 +228,24 @@ namespace ADVBuilder
 
             return btn;
         }
+        private Button GetCharacterButton(int pX, int pY, CharactersData pCharacter, Color pColor)
+        {
+            Button btn = new Button();
+            btn.Top = pY;
+            btn.Left = pX;
+            btn.Width = BTN_ACTION_WIDTH;
+            btn.Height = BTN_ACTION_HEIGHT;
+            btn.Text = pCharacter.Title;
+            btn.Tag = pCharacter;
+            btn.BackColor = pColor;
+            btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.Click += new EventHandler(btnCharacters_Click);
+            tltMain.SetToolTip(btn, pCharacter.Description);
+
+            return btn;
+        }
         private Button GetInventarioButton(int pX, int pY, ObjectsData pObject, Color pColor)
         {
             Button btn = new Button();
@@ -307,6 +325,38 @@ namespace ADVBuilder
                 if (o != null)
                 {
                     pnlObjects.Controls.Add(GetObjectButton(x, y, o, color));
+                    if (x < 300 - BTN_ACTION_WIDTH)
+                    {
+                        x += BTN_ACTION_WIDTH + BTN_ACTION_GAP;
+                    }
+                    else
+                    {
+                        x = 0;
+                        y += BTN_ACTION_HEIGHT + BTN_ACTION_GAP;
+                    }
+                }
+            }
+        }
+        private void ViewCharacters()
+        {
+            int r = 50;
+            int g = 20;
+            int b = 200;
+
+            int x = 0;
+            int y = lblPersons.Top + lblPersons.Height;
+
+            foreach (Control p in pnlPerson.Controls.OfType<Button>().ToList()) pnlPerson.Controls.Remove(p);
+
+            foreach (CharactersData o in ADD.Rooms.Where(l => l.Id == ADD.CurrentRoom).FirstOrDefault().Characters)
+            {
+                r = r - 3;
+                g = g + 2;
+                b = b + 2;
+                Color color = Color.FromArgb(r, g, b);
+                if (o != null)
+                {
+                    pnlPerson.Controls.Add(GetCharacterButton(x, y, o, color));
                     if (x < 300 - BTN_ACTION_WIDTH)
                     {
                         x += BTN_ACTION_WIDTH + BTN_ACTION_GAP;
@@ -401,6 +451,9 @@ namespace ADVBuilder
             //Inventario
             ViewInventario();
 
+            //Persone
+            ViewCharacters();
+
             //Directions
             ViewDirections();
         }
@@ -413,11 +466,23 @@ namespace ADVBuilder
             Object = null;
             Complement = null;
             ADD.Direction = direction;
-            txtResult.Text = CurrentAction.Execute(null, null, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+            txtResult.Text = CurrentAction.Execute(Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
             ViewData();
             ViewMap();
         }
         private void btnObjects_Click(object sender, EventArgs e)
+        {
+            if (CurrentAction != null)
+            {
+                Button btn = (Button)sender;
+
+                SetActions(Action, btn.Tag as ObjectsData);
+                txtResult.Text = CurrentAction.Execute(Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+                ViewData();
+                ViewMap();
+            }
+        }
+        private void btnCharacters_Click(object sender, EventArgs e)
         {
             if (CurrentAction != null)
             {

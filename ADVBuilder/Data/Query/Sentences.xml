@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ROOT>
+	<Select>
+		
+	</Select>
+	<SelectById>
+		SELECT * FROM SENTENCES
+		WHERE IDCHARACTER=@IDCHARACTER
+	</SelectById>
+</ROOT>

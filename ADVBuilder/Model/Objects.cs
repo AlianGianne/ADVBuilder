@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ADVBuilder_1.Model
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Objects : cOggettoData
     {
         private const string SELECTBYID = "SelectById";
