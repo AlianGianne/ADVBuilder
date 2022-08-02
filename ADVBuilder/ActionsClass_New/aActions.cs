@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ADVBuilder.Model;
 
 namespace ADVBuilder.ActionsClass_New
 {
@@ -16,6 +17,7 @@ namespace ADVBuilder.ActionsClass_New
         internal RoomData Room;
         internal ObjectsData Object;
         internal ObjectsData Complement;
+        internal CharactersData Character;
         internal List<ObjectsData> Inventario;
         internal Response Response { get; set; } = new Response();
         /// <summary>

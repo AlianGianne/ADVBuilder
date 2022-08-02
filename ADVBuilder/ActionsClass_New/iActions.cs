@@ -1,4 +1,5 @@
-﻿using ADVBuilder_1.Model;
+﻿using ADVBuilder.Model;
+using ADVBuilder_1.Model;
 
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,6 @@ namespace ADVBuilder.ActionsClass_New
         /// <param name="pCmp">Oggetto che subisce l'azione</param>
         /// <param name="pRoom">Stanza di riferimento</param>
         /// <returns></returns>
-        Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom);
+        Response Execute(CharactersData pCharacter, ObjectsData pObj, ObjectsData pCmp, RoomData pRoom);
     }
 }

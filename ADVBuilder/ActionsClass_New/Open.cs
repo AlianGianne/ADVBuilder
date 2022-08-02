@@ -1,4 +1,5 @@
 ﻿using ADVBuilder.Common;
+using ADVBuilder.Model;
 using ADVBuilder_1.Model;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace ADVBuilder.ActionsClass_New
         {
         }
 
-        public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
+        public Response Execute(CharactersData pCharacter, ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
         {
             Object = pObj;
             Room = pRoom;
@@ -36,7 +37,6 @@ namespace ADVBuilder.ActionsClass_New
             if (Object.Status == null || Object.Status == cCommon.STATUS_CLOSED)
             {
                 Object.Status = cCommon.STATUS_OPEN;
-                Room.Objects.Where(o => o.Id == Object.Id).FirstOrDefault().Status = cCommon.STATUS_OPEN;
                 Response.Success = true;
                 Response.Message = SetMessage();
                 Response.Value = 0;

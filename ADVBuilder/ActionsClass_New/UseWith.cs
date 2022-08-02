@@ -1,4 +1,5 @@
 ﻿using ADVBuilder.Common;
+using ADVBuilder.Model;
 using ADVBuilder_1.Model;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace ADVBuilder.ActionsClass_New
         {
         }
 
-        public Response Execute(ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
+        public Response Execute(CharactersData pCharacter, ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
         {
             Object = pObj;
             Complement = pCmp;

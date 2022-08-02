@@ -39,6 +39,7 @@ namespace ADVBuilder
         public ActionData Action { get; set; }
         public ObjectsData Object { get; set; }
         public ObjectsData Complement { get; set; }
+        public CharactersData Character { get; set; }
         public int AdvIdSelected { get; set; }
         public int RoomIdSelected;
 
@@ -64,6 +65,8 @@ namespace ADVBuilder
             ClassList.Add("Osserva", new Examinate(ADD, Inventario));
             ClassList.Add("Apri", new Open(ADD, Inventario));
             ClassList.Add("Usa con...", new UseWith(ADD, Inventario));
+            ClassList.Add("Parla", new Speak(ADD, Inventario));
+            ClassList.Add("Inimplementato", new Unable(ADD, Inventario));
             ClassList.Add("NN", new Go(ADD, Inventario));
             ClassList.Add("NE", new Go(ADD, Inventario));
             ClassList.Add("EE", new Go(ADD, Inventario));
@@ -82,8 +85,8 @@ namespace ADVBuilder
             Font drawFont = new Font("Arial", 2);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
-            int x = (pcbMap.Image.Width - 50) / 2;
-            int y = (pcbMap.Image.Height - 13) / 2;
+            int x = (pcbMap.Image.Width - (cCommon.ROOM_WIDTH + Room_Zoom)) / 2;
+            int y = (pcbMap.Image.Height - (cCommon.ROOM_HEIGHT + Room_Zoom)) / 2;
             RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
             foreach (var r in ADD.Rooms) r.Drawed = false;
             DrawMap(actual, x, y, PenYellow, drawFont, drawBrush, g);
@@ -100,21 +103,11 @@ namespace ADVBuilder
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2, y + 12);
                     if (rd.AA > 0)
                     {
-                        //g.DrawLine(p, x + 48, y + 2, x + 48, y + 7);
-                        //if (ADD.Rooms.Where(r => r.Id == rd.AA).FirstOrDefault().Visited)
-                        //    DrawMap(ADD.Rooms.Where(r => r.Id == rd.AA).FirstOrDefault(),
-                        //    (pcbMap.Image.Width - 50) / 2,
-                        //    (pcbMap.Image.Height - 13) / 2,
-                        //    PenBlack, drawFont, drawBrush, g);
+                        g.DrawLine(p, x + 48, y + 2, x + 48, y + 7);
                     }
                     if (rd.BB > 0)
                     {
-                        //g.DrawLine(p, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom/2 - 7, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom/2 - 2);
-                        //if (ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault().Visited)
-                        //    DrawMap(ADD.Rooms.Where(r => r.Id == rd.BB).FirstOrDefault(),
-                        //        (pcbMap.Image.Width - 50) / 2,
-                        //        (pcbMap.Image.Height - 13) / 2,
-                        //        PenBlack, drawFont, drawBrush, g);
+                        g.DrawLine(p, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom/2 - 7, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom/2 - 2);
                     }
                     if (rd.NN > 0)
                     {
@@ -267,10 +260,14 @@ namespace ADVBuilder
         private void btnActions_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            CurrentAction = ClassList[btn.Text];
+            
+            CurrentAction = ClassList.Where(cl=> cl.Key == btn.Text).FirstOrDefault().Value;
+
+            if (CurrentAction == null) CurrentAction = ClassList["Inimplementato"];
+
             Object = null;
             Complement = null;
-            txtResult.Text = CurrentAction.Execute(Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+            txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
             ViewData();
             ViewMap();
         }
@@ -466,7 +463,7 @@ namespace ADVBuilder
             Object = null;
             Complement = null;
             ADD.Direction = direction;
-            txtResult.Text = CurrentAction.Execute(Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+            txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
             ViewData();
             ViewMap();
         }
@@ -477,7 +474,7 @@ namespace ADVBuilder
                 Button btn = (Button)sender;
 
                 SetActions(Action, btn.Tag as ObjectsData);
-                txtResult.Text = CurrentAction.Execute(Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+                txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
                 ViewData();
                 ViewMap();
             }
@@ -488,8 +485,8 @@ namespace ADVBuilder
             {
                 Button btn = (Button)sender;
 
-                SetActions(Action, btn.Tag as ObjectsData);
-                txtResult.Text = CurrentAction.Execute(Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+                SetActionsCharacter(Action, btn.Tag as CharactersData);
+                txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
                 ViewData();
                 ViewMap();
             }
@@ -501,6 +498,14 @@ namespace ADVBuilder
                 Object = pObject;
             else
                 Complement = pObject;
+        }
+        private void SetActionsCharacter(ActionData pAction, CharactersData pCharacter)
+        {
+            Action = pAction;
+            //if (Character == null)
+                Character = pCharacter;
+            //else
+            //    Complement = pObject;
         }
         private void pcbMap_MouseMove(object sender, MouseEventArgs e)
         {
@@ -535,7 +540,7 @@ namespace ADVBuilder
                 Button btn = (Button)sender;
 
                 SetActions(Action, btn.Tag as ObjectsData);
-                txtResult.Text = CurrentAction.Execute(Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+                txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
                 ViewData();
                 ViewMap();
             }

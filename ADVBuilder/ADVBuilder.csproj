@@ -69,7 +69,9 @@
     <Compile Include="ActionsClass_New\iActions.cs" />
     <Compile Include="ActionsClass_New\Open.cs" />
     <Compile Include="ActionsClass_New\Response.cs" />
+    <Compile Include="ActionsClass_New\Speak.cs" />
     <Compile Include="ActionsClass_New\Take.cs" />
+    <Compile Include="ActionsClass_New\Unable.cs" />
     <Compile Include="ActionsClass_New\UseWith.cs" />
     <Compile Include="AdventureGame.cs">
       <SubType>Form</SubType>
