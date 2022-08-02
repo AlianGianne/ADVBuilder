@@ -57,26 +57,26 @@ namespace ADVBuilder
         }
         private void InitializeFunction()
         {
-            ClassList.Add("Prendi", new Take(ADD, Inventario));
-            ClassList.Add("Lascia", new Drop(ADD, Inventario));
-            ClassList.Add("Getta", new Drop(ADD, Inventario));
-            ClassList.Add("Guarda", new Examinate(ADD, Inventario));
-            ClassList.Add("Esamina", new Examinate(ADD, Inventario));
-            ClassList.Add("Osserva", new Examinate(ADD, Inventario));
-            ClassList.Add("Apri", new Open(ADD, Inventario));
-            ClassList.Add("Usa con...", new UseWith(ADD, Inventario));
-            ClassList.Add("Parla", new Speak(ADD, Inventario));
-            ClassList.Add("Inimplementato", new Unable(ADD, Inventario));
-            ClassList.Add("NN", new Go(ADD, Inventario));
-            ClassList.Add("NE", new Go(ADD, Inventario));
-            ClassList.Add("EE", new Go(ADD, Inventario));
-            ClassList.Add("SE", new Go(ADD, Inventario));
-            ClassList.Add("SS", new Go(ADD, Inventario));
-            ClassList.Add("SO", new Go(ADD, Inventario));
-            ClassList.Add("OO", new Go(ADD, Inventario));
-            ClassList.Add("NO", new Go(ADD, Inventario));
-            ClassList.Add("AA", new Go(ADD, Inventario));
-            ClassList.Add("BB", new Go(ADD, Inventario));
+            ClassList.Add("Prendi",         new Take     (ADD, Inventario));
+            ClassList.Add("Lascia",         new Drop     (ADD, Inventario));
+            ClassList.Add("Getta",          new Drop     (ADD, Inventario));
+            ClassList.Add("Guarda",         new Examinate(ADD, Inventario));
+            ClassList.Add("Esamina",        new Examinate(ADD, Inventario));
+            ClassList.Add("Osserva",        new Examinate(ADD, Inventario));
+            ClassList.Add("Apri",           new Open     (ADD, Inventario));
+            ClassList.Add("Usa con...",     new UseWith  (ADD, Inventario));
+            ClassList.Add("Parla",          new Speak    (ADD, Inventario));
+            ClassList.Add("Inimplementato", new Unable   (ADD, Inventario));
+            ClassList.Add("NN",             new Go       (ADD, Inventario));
+            ClassList.Add("NE",             new Go       (ADD, Inventario));
+            ClassList.Add("EE",             new Go       (ADD, Inventario));
+            ClassList.Add("SE",             new Go       (ADD, Inventario));
+            ClassList.Add("SS",             new Go       (ADD, Inventario));
+            ClassList.Add("SO",             new Go       (ADD, Inventario));
+            ClassList.Add("OO",             new Go       (ADD, Inventario));
+            ClassList.Add("NO",             new Go       (ADD, Inventario));
+            ClassList.Add("AA",             new Go       (ADD, Inventario));
+            ClassList.Add("BB",             new Go       (ADD, Inventario));
         }
         private void ViewMap()
         {
