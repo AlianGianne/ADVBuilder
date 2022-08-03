@@ -1,17 +1,17 @@
 ﻿using Gema2022.Class;
 using Gema2022.CommonClass;
-using System;
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace ADVBuilder_1.Model
+namespace ADVBuilder.Model
 {
     public class Adventure : cOggettoData
     {
         private const string SELECTBYID = "SelectById";
 
         public List<AdventureData> List = new List<AdventureData>();
+
         public Adventure()
         {
             Settings(this.GetType().Name);
@@ -20,6 +20,7 @@ namespace ADVBuilder_1.Model
             ///////////////
             ReadRooms();
         }
+
         public Adventure(int pIdAdv)
         {
             Settings(this.GetType().Name);
@@ -38,7 +39,7 @@ namespace ADVBuilder_1.Model
                 Table = ExecuteQuery(SELECTBYID, param, PercorsoFileXml);
                 Close();
             }
-        }   
+        }
 
         public void ReadRooms()
         {
@@ -49,38 +50,52 @@ namespace ADVBuilder_1.Model
             }
         }
     }
+
     public class AdventureData
     {
         #region "Properties"
+
         [cAttributes(Name = "Id")]
         public int Id { get; set; }
+
         [cAttributes(Name = "Title")]
         public string Title { get; set; }                   //Titolo
+
         [cAttributes(Name = "SubTitle")]
         public string SubTitle { get; set; }
+
         [cAttributes(Name = "Description")]
         public string Description { get; set; }             //Descrizione
+
         [cAttributes(Name = "ShortDescription")]
         public string ShortDescription { get; set; }        //Descrizione breve
+
         [cAttributes(Name = "Version")]
         public string Version { get; set; }
+
         [cAttributes(Name = "Author")]
         public string Author { get; set; }
+
         public List<RoomData> Rooms { get; set; }
+
         [cAttributes(Name = "CurrentRoom")]
         public int CurrentRoom { get; set; }
+
         public string Direction { get; set; }
-        #endregion
+
+        #endregion "Properties"
+
         #region "Methods"
+
         /// <summary>
         /// Restituisce la descrizione lunga della Room
         /// </summary>
         /// <returns>string: descrizione lunga della Room</returns>
         public string ViewRoom()
         {
-            return Rooms.Where(r=> r.Id== CurrentRoom).FirstOrDefault().Description;
+            return Rooms.Where(r => r.Id == CurrentRoom).FirstOrDefault().Description;
         }
-        #endregion
-    }
 
+        #endregion "Methods"
+    }
 }

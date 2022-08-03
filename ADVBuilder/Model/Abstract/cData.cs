@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace Gema2022.Class
@@ -13,16 +10,19 @@ namespace Gema2022.Class
     public abstract class cData
     {
         public string ConnectionString { get; set; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Data\\ADVBuilder.mdf;Integrated Security=True";
-        //public string ConnectionString { get; set; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Lavoro\\Gianne\\CalcCorr\\Gema2022\\Gema2022\\StockMan.mdf;Integrated Security=True"; 
+
+        //public string ConnectionString { get; set; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Lavoro\\Gianne\\CalcCorr\\Gema2022\\Gema2022\\StockMan.mdf;Integrated Security=True";
         private SqlConnection connection = new SqlConnection();
+
         public cData()
         {
-
         }
+
         public cData(string connectionString)
         {
             ConnectionString = connectionString;
         }
+
         public bool Open()
         {
             bool ret = true;
@@ -31,13 +31,14 @@ namespace Gema2022.Class
                 connection.ConnectionString = ConnectionString;
                 connection.Open();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 connection.Dispose();
                 ret = false;
             }
             return ret;
         }
+
         public bool Close()
         {
             bool ret = true;
@@ -52,6 +53,7 @@ namespace Gema2022.Class
             }
             return ret;
         }
+
         /// <summary>
         /// Restituisce i dati richiesti in query in formato DataTable
         /// </summary>
@@ -66,8 +68,6 @@ namespace Gema2022.Class
 
             dataTable = new DataTable();
             dataAdapter = new SqlDataAdapter();
-
-            
 
             command = new SqlCommand();
             command.CommandText = GetCommandQuery(queryName, percorsoFileXml);
@@ -92,6 +92,7 @@ namespace Gema2022.Class
 
             return dataTable;
         }
+
         public void ExecuteNonQuery(string queryName, Dictionary<string, object> values, string percorsoFileXml)
         {
             SqlCommand command;
@@ -117,6 +118,7 @@ namespace Gema2022.Class
         }
 
         #region "Helpers"
+
         private void ParametersAdd(SqlCommand command, Dictionary<string, object> values)
         {
             foreach (KeyValuePair<string, object> entry in values)
@@ -124,6 +126,7 @@ namespace Gema2022.Class
                 ParameterAdd(command, entry.Key, entry.Value);
             }
         }
+
         private void ParameterAdd(SqlCommand command, string name, object value)
         {
             if (value != null)
@@ -135,6 +138,7 @@ namespace Gema2022.Class
                 command.Parameters.AddWithValue(name, DBNull.Value);
             }
         }
+
         public string GetCommandQuery(string queryName, string percorsoFileXml)
         {
             try
@@ -159,6 +163,7 @@ namespace Gema2022.Class
                 throw ex;
             }
         }
-        #endregion
+
+        #endregion "Helpers"
     }
 }

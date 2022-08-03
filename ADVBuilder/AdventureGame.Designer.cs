@@ -80,7 +80,7 @@
             // btnNN
             // 
             this.btnNN.BackColor = System.Drawing.Color.Transparent;
-            this.btnNN.FlatAppearance.BorderSize = 0;
+            this.btnNN.FlatAppearance.BorderColor = System.Drawing.Color.MistyRose;
             this.btnNN.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnNN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -96,7 +96,7 @@
             // btnNE
             // 
             this.btnNE.BackColor = System.Drawing.Color.Transparent;
-            this.btnNE.FlatAppearance.BorderSize = 0;
+            this.btnNE.FlatAppearance.BorderColor = System.Drawing.Color.MistyRose;
             this.btnNE.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnNE.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -112,7 +112,7 @@
             // btnEE
             // 
             this.btnEE.BackColor = System.Drawing.Color.Transparent;
-            this.btnEE.FlatAppearance.BorderSize = 0;
+            this.btnEE.FlatAppearance.BorderColor = System.Drawing.Color.MistyRose;
             this.btnEE.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnEE.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnEE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -128,7 +128,7 @@
             // btnSE
             // 
             this.btnSE.BackColor = System.Drawing.Color.Transparent;
-            this.btnSE.FlatAppearance.BorderSize = 0;
+            this.btnSE.FlatAppearance.BorderColor = System.Drawing.Color.MistyRose;
             this.btnSE.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnSE.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -144,7 +144,7 @@
             // btnSS
             // 
             this.btnSS.BackColor = System.Drawing.Color.Transparent;
-            this.btnSS.FlatAppearance.BorderSize = 0;
+            this.btnSS.FlatAppearance.BorderColor = System.Drawing.Color.MistyRose;
             this.btnSS.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnSS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -160,7 +160,7 @@
             // btnSO
             // 
             this.btnSO.BackColor = System.Drawing.Color.Transparent;
-            this.btnSO.FlatAppearance.BorderSize = 0;
+            this.btnSO.FlatAppearance.BorderColor = System.Drawing.Color.MistyRose;
             this.btnSO.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnSO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -176,7 +176,7 @@
             // btnOO
             // 
             this.btnOO.BackColor = System.Drawing.Color.Transparent;
-            this.btnOO.FlatAppearance.BorderSize = 0;
+            this.btnOO.FlatAppearance.BorderColor = System.Drawing.Color.MistyRose;
             this.btnOO.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnOO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnOO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -192,7 +192,7 @@
             // btnNO
             // 
             this.btnNO.BackColor = System.Drawing.Color.Transparent;
-            this.btnNO.FlatAppearance.BorderSize = 0;
+            this.btnNO.FlatAppearance.BorderColor = System.Drawing.Color.MistyRose;
             this.btnNO.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnNO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -208,7 +208,7 @@
             // btnAA
             // 
             this.btnAA.BackColor = System.Drawing.Color.Transparent;
-            this.btnAA.FlatAppearance.BorderSize = 0;
+            this.btnAA.FlatAppearance.BorderColor = System.Drawing.Color.MistyRose;
             this.btnAA.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnAA.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -224,7 +224,7 @@
             // btnBB
             // 
             this.btnBB.BackColor = System.Drawing.Color.Transparent;
-            this.btnBB.FlatAppearance.BorderSize = 0;
+            this.btnBB.FlatAppearance.BorderColor = System.Drawing.Color.MistyRose;
             this.btnBB.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnBB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnBB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -386,9 +386,9 @@
             // 
             this.pcbMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Papiro1;
-            this.pcbMap.Location = new System.Drawing.Point(840, 12);
+            this.pcbMap.Location = new System.Drawing.Point(840, 37);
             this.pcbMap.Name = "pcbMap";
-            this.pcbMap.Size = new System.Drawing.Size(515, 511);
+            this.pcbMap.Size = new System.Drawing.Size(515, 486);
             this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pcbMap.TabIndex = 17;
             this.pcbMap.TabStop = false;
@@ -528,7 +528,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(840, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(515, 21);
+            this.label2.Size = new System.Drawing.Size(515, 23);
             this.label2.TabIndex = 25;
             this.label2.Text = "Mappa:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

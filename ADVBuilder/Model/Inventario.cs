@@ -1,9 +1,4 @@
-﻿using ADVBuilder_1.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ADVBuilder.Model
 {
@@ -11,6 +6,5 @@ namespace ADVBuilder.Model
     {
         public int Id { get; set; }
         public List<ObjectsData> Objects { get; set; }
-
     }
 }

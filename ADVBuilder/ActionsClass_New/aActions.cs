@@ -1,15 +1,11 @@
-﻿using ADVBuilder_1.Model;
+﻿using ADVBuilder.Model;
+
 using System.Collections.Generic;
-using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ADVBuilder.Model;
 
 namespace ADVBuilder.ActionsClass_New
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public abstract class aActions
     {
@@ -20,6 +16,7 @@ namespace ADVBuilder.ActionsClass_New
         internal CharactersData Character;
         internal List<ObjectsData> Inventario;
         internal Response Response { get; set; } = new Response();
+
         /// <summary>
         /// Costruttore
         /// </summary>

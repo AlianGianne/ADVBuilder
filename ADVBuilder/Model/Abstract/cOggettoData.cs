@@ -1,11 +1,10 @@
 ﻿using Gema2022.CommonClass;
+
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gema2022.Class
@@ -22,16 +21,18 @@ namespace Gema2022.Class
 
         public cOggettoData()
         {
-
         }
+
         public void ReadData()
         {
             readData();
         }
+
         public void Settings(string queryName)
         {
             PercorsoFileXml = string.Format("Data/Query/{0}.xml", queryName);
         }
+
         public List<T> ReadList<T>(List<T> list)
         {
             if (Table != null)
@@ -58,6 +59,7 @@ namespace Gema2022.Class
             }
             return list;
         }
+
         private void readData()
         {
             if (Open())
@@ -66,8 +68,9 @@ namespace Gema2022.Class
                 Close();
             }
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="qry"></param>
         /// <param name="data"></param>
@@ -88,6 +91,7 @@ namespace Gema2022.Class
             qry = int.Parse(values["Id"].ToString()) > 0 ? UPDATE : INSERT;
             ExecuteNonQuery(qry, values, PercorsoFileXml);
         }
+
         public void InsertData(object data)
         {
             Dictionary<string, object> values = new Dictionary<string, object>();
@@ -104,6 +108,7 @@ namespace Gema2022.Class
                 ExecuteNonQuery(INSERT, values, PercorsoFileXml);
             }
         }
+
         public void UpdateData(object data)
         {
             Dictionary<string, object> values = new Dictionary<string, object>();
@@ -120,6 +125,7 @@ namespace Gema2022.Class
                 ExecuteNonQuery(UPDATE, values, PercorsoFileXml);
             }
         }
+
         public void DeleteData(int Id)
         {
             Dictionary<string, object> values = new Dictionary<string, object>();
@@ -131,6 +137,7 @@ namespace Gema2022.Class
                 ExecuteNonQuery(DELETE, values, PercorsoFileXml);
             }
         }
+
         public List<T> ReadParamForObj<T>(List<T> list, Panel pPanel)
         {
             if (list != null)
@@ -147,7 +154,6 @@ namespace Gema2022.Class
                             if (prop.CustomAttributes.First().NamedArguments[0].TypedValue.Value.ToString() == c.Name.Substring(3))
                                 prop.SetValue(obj, Convert.ChangeType(c.Text, prop.PropertyType));
                     }
-
                 }
                 foreach (var c in pPanel.Controls.OfType<ComboBox>())
                 {
@@ -158,12 +164,12 @@ namespace Gema2022.Class
                             if (prop.CustomAttributes.First().NamedArguments[0].TypedValue.Value.ToString() == c.Name.Substring(3))
                                 prop.SetValue(obj, Convert.ChangeType(c.SelectedValue ?? "0", prop.PropertyType));
                     }
-
                 }
                 list.Add(obj);
             }
             return list;
         }
+
         public void ReadParamForForm<T>(T pObj, Panel pPanel, int pId)
         {
             Type type = typeof(T);
@@ -191,7 +197,6 @@ namespace Gema2022.Class
                         }
                 }
             }
-
         }
     }
 }

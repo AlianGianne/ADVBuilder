@@ -1,10 +1,6 @@
 ﻿using ADVBuilder.Model;
-using ADVBuilder_1.Model;
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ADVBuilder.ActionsClass_New
 {
@@ -42,6 +38,7 @@ namespace ADVBuilder.ActionsClass_New
             Object = null;
             Room = null;
         }
+
         private string SetMessage()
         {
             return Response.Success ? string.Format("Oggetto {0} lasciato.", Object.Title) : "Errore";

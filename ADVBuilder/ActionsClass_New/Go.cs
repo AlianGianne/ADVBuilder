@@ -1,12 +1,9 @@
 ﻿using ADVBuilder.Common;
 using ADVBuilder.Model;
-using ADVBuilder_1.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ADVBuilder.ActionsClass_New
 {
@@ -15,6 +12,7 @@ namespace ADVBuilder.ActionsClass_New
         public Go(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
         {
         }
+
         public Response Execute(CharactersData pCharacter, ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
         {
             Type myType = typeof(RoomData);
@@ -34,14 +32,11 @@ namespace ADVBuilder.ActionsClass_New
             }
             return Response;
         }
-        
-
-
 
         private string SetMessage(string pDirection)
         {
             Response.Success = true;
-            return string.Format("Prosegui verso {0}", pDirection);
+            return string.Format("Prosegui verso {0}", cCommon.GetDirectionText(pDirection));
         }
     }
 }

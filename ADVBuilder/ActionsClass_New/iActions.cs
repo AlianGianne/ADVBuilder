@@ -1,15 +1,9 @@
 ﻿using ADVBuilder.Model;
-using ADVBuilder_1.Model;
-
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ADVBuilder.ActionsClass_New
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public interface iActions
     {

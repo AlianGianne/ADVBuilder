@@ -1,26 +1,25 @@
 ﻿using Gema2022.Class;
 using Gema2022.CommonClass;
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ADVBuilder.Model
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class Sentences : cOggettoData
     {
         private const string SELECTBYID = "SelectById";
         public List<SentencesData> List = new List<SentencesData>();
+
         public Sentences()
         {
             Settings(this.GetType().Name);
             ReadData();
             ReadList(List);
         }
+
         /// <summary>
         /// Costrutture standard
         /// </summary>
@@ -31,6 +30,7 @@ namespace ADVBuilder.Model
             ReadData(pIdCharacter);
             ReadList(List);
         }
+
         private void ReadData(int pIdCharacter)
         {
             if (Open())
@@ -42,6 +42,7 @@ namespace ADVBuilder.Model
             }
         }
     }
+
     public class SentencesData
     {
         [cAttributes(Name = "Id")] public int Id { get; set; }

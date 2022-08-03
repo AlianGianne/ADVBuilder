@@ -33,6 +33,7 @@ namespace Gema2022.CommonClass
             }
             return ret;
         }
+
         //public static int GetValue()
         /// <summary>
         /// Restituisce la proprietà in base all'attributo

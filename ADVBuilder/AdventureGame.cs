@@ -1,24 +1,22 @@
 ﻿using ADVBuilder.ActionsClass_New;
 using ADVBuilder.Common;
 using ADVBuilder.Model;
-using ADVBuilder_1.Model;
+
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace ADVBuilder
 {
     public partial class AdventureGame : CommonForm
     {
-        private const int BTN_ACTION_HEIGHT = 25;
-        private const int BTN_ACTION_WIDTH = 75;
-        private const int BTN_ACTION_GAP = 3;
+        private const int BTN_HEIGHT = 25;
+        private const int BTN_WIDTH = 75;
+        private const int BTN_GAP = 3;
         private int Room_Zoom = 0;
         private bool Dragging;
         private Point lastLocation;
@@ -28,9 +26,9 @@ namespace ADVBuilder
         private int dx;
         private int dy;
 
-        Pen PenGreen = new Pen(Color.Green, 2);
-        Pen PenBlack = new Pen(Color.Black, 2);
-        Pen PenYellow = new Pen(Color.Yellow, 2);
+        private Pen PenGreen = new Pen(Color.Green, 2);
+        private Pen PenBlack = new Pen(Color.Black, 2);
+        private Pen PenYellow = new Pen(Color.Yellow, 2);
 
         public Adventure ADV;
         public AdventureData ADD;
@@ -47,6 +45,7 @@ namespace ADVBuilder
         {
             InitializeComponent();
         }
+
         private void AdventureGame_Load(object sender, EventArgs e)
         {
             InitializeInternalComponent();
@@ -55,29 +54,41 @@ namespace ADVBuilder
             ViewActions();
             ViewMap();
         }
+
+        private void InitializeInternalComponent()
+        {
+            if (AdvIdSelected != 0)
+            {
+                ADV = new Adventure(AdvIdSelected);
+                ADD = ADV.List.FirstOrDefault();
+                RoomIdSelected = ADD.CurrentRoom;
+            }
+        }
+
         private void InitializeFunction()
         {
-            ClassList.Add("Prendi",         new Take     (ADD, Inventario));
-            ClassList.Add("Lascia",         new Drop     (ADD, Inventario));
-            ClassList.Add("Getta",          new Drop     (ADD, Inventario));
-            ClassList.Add("Guarda",         new Examinate(ADD, Inventario));
-            ClassList.Add("Esamina",        new Examinate(ADD, Inventario));
-            ClassList.Add("Osserva",        new Examinate(ADD, Inventario));
-            ClassList.Add("Apri",           new Open     (ADD, Inventario));
-            ClassList.Add("Usa con...",     new UseWith  (ADD, Inventario));
-            ClassList.Add("Parla",          new Speak    (ADD, Inventario));
-            ClassList.Add("Inimplementato", new Unable   (ADD, Inventario));
-            ClassList.Add("NN",             new Go       (ADD, Inventario));
-            ClassList.Add("NE",             new Go       (ADD, Inventario));
-            ClassList.Add("EE",             new Go       (ADD, Inventario));
-            ClassList.Add("SE",             new Go       (ADD, Inventario));
-            ClassList.Add("SS",             new Go       (ADD, Inventario));
-            ClassList.Add("SO",             new Go       (ADD, Inventario));
-            ClassList.Add("OO",             new Go       (ADD, Inventario));
-            ClassList.Add("NO",             new Go       (ADD, Inventario));
-            ClassList.Add("AA",             new Go       (ADD, Inventario));
-            ClassList.Add("BB",             new Go       (ADD, Inventario));
+            ClassList.Add("Prendi", new Take(ADD, Inventario));
+            ClassList.Add("Lascia", new Drop(ADD, Inventario));
+            ClassList.Add("Getta", new Drop(ADD, Inventario));
+            ClassList.Add("Guarda", new Examinate(ADD, Inventario));
+            ClassList.Add("Esamina", new Examinate(ADD, Inventario));
+            ClassList.Add("Osserva", new Examinate(ADD, Inventario));
+            ClassList.Add("Apri", new Open(ADD, Inventario));
+            ClassList.Add("Usa con...", new UseWith(ADD, Inventario));
+            ClassList.Add("Parla", new Speak(ADD, Inventario));
+            ClassList.Add("Inimplementato", new Unable(ADD, Inventario));
+            ClassList.Add("NN", new Go(ADD, Inventario));
+            ClassList.Add("NE", new Go(ADD, Inventario));
+            ClassList.Add("EE", new Go(ADD, Inventario));
+            ClassList.Add("SE", new Go(ADD, Inventario));
+            ClassList.Add("SS", new Go(ADD, Inventario));
+            ClassList.Add("SO", new Go(ADD, Inventario));
+            ClassList.Add("OO", new Go(ADD, Inventario));
+            ClassList.Add("NO", new Go(ADD, Inventario));
+            ClassList.Add("AA", new Go(ADD, Inventario));
+            ClassList.Add("BB", new Go(ADD, Inventario));
         }
+
         private void ViewMap()
         {
             pcbMap.Image = Image.FromFile("Images/Papiro1.jpg");
@@ -91,6 +102,7 @@ namespace ADVBuilder
             foreach (var r in ADD.Rooms) r.Drawed = false;
             DrawMap(actual, x, y, PenYellow, drawFont, drawBrush, g);
         }
+
         private void DrawMap(RoomData rd, int x, int y, Pen p, Font drawFont, Brush drawBrush, Graphics g)
         {
             if (rd != null)
@@ -107,7 +119,7 @@ namespace ADVBuilder
                     }
                     if (rd.BB > 0)
                     {
-                        g.DrawLine(p, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom/2 - 7, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom/2 - 2);
+                        g.DrawLine(p, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom / 2 - 7, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom / 2 - 2);
                     }
                     if (rd.NN > 0)
                     {
@@ -176,101 +188,29 @@ namespace ADVBuilder
                 }
             }
         }
-        private void InitializeInternalComponent()
-        {
-            if (AdvIdSelected != 0)
-            {
-                ADV = new Adventure(AdvIdSelected);
-                ADD = ADV.List.FirstOrDefault();
-                RoomIdSelected = ADD.CurrentRoom;
-            }
-        }
-        private Button GetActionButton(int pX, int pY, ActionData pAction, Color pColor)
-        {
-            Button btn = new Button();
-            btn.Top = pY;
-            btn.Left = pX;
-            btn.Width = BTN_ACTION_WIDTH;
-            btn.Height = BTN_ACTION_HEIGHT;
-            btn.Text = pAction.Action;
-            btn.Tag = pAction.DeepObjects;
-            btn.BackColor = pColor;
-            btn.ForeColor = Color.White;
-            btn.FlatStyle = FlatStyle.Flat;
-            btn.FlatAppearance.BorderSize = 0;
-            btn.Click += new EventHandler(btnActions_Click);
-            tltMain.SetToolTip(btn, pAction.Description);
 
-            return btn;
-        }
-        private Button GetObjectButton(int pX, int pY, ObjectsData pObject, Color pColor)
+        private Button GetButton(int pX, int pY, object pObject, Color pBackColor, Color pForeColor, EventHandler pEventHandler)
         {
+            Type type = pObject.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+
             Button btn = new Button();
             btn.Top = pY;
             btn.Left = pX;
-            btn.Width = BTN_ACTION_WIDTH;
-            btn.Height = BTN_ACTION_HEIGHT;
-            btn.Text = pObject.Title;
+            btn.Width = BTN_WIDTH;
+            btn.Height = BTN_HEIGHT;
+            btn.Text = properties.Where(p => p.Name == "Title").FirstOrDefault().GetValue(pObject).ToString();
             btn.Tag = pObject;
-            btn.BackColor = pColor;
-            btn.ForeColor = Color.White;
+            btn.BackColor = pBackColor;
+            btn.ForeColor = pForeColor;
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderSize = 0;
-            btn.Click += new EventHandler(btnObjects_Click);
-            tltMain.SetToolTip(btn, pObject.Description);
+            btn.Click += pEventHandler;
+            tltMain.SetToolTip(btn, properties.Where(p => p.Name == "Description").FirstOrDefault().GetValue(pObject).ToString());
 
             return btn;
         }
-        private Button GetCharacterButton(int pX, int pY, CharactersData pCharacter, Color pColor)
-        {
-            Button btn = new Button();
-            btn.Top = pY;
-            btn.Left = pX;
-            btn.Width = BTN_ACTION_WIDTH;
-            btn.Height = BTN_ACTION_HEIGHT;
-            btn.Text = pCharacter.Title;
-            btn.Tag = pCharacter;
-            btn.BackColor = pColor;
-            btn.ForeColor = Color.White;
-            btn.FlatStyle = FlatStyle.Flat;
-            btn.FlatAppearance.BorderSize = 0;
-            btn.Click += new EventHandler(btnCharacters_Click);
-            tltMain.SetToolTip(btn, pCharacter.Description);
 
-            return btn;
-        }
-        private Button GetInventarioButton(int pX, int pY, ObjectsData pObject, Color pColor)
-        {
-            Button btn = new Button();
-            btn.Top = pY;
-            btn.Left = pX;
-            btn.Width = BTN_ACTION_WIDTH;
-            btn.Height = BTN_ACTION_HEIGHT;
-            btn.Text = pObject.Title;
-            btn.Tag = pObject;
-            btn.BackColor = pColor;
-            btn.ForeColor = Color.White;
-            btn.FlatStyle=FlatStyle.Flat;
-            btn.FlatAppearance.BorderSize = 0;
-            btn.Click += new EventHandler(btnInventario_Click);
-            tltMain.SetToolTip(btn, pObject.Description);
-
-            return btn;
-        }
-        private void btnActions_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            
-            CurrentAction = ClassList.Where(cl=> cl.Key == btn.Text).FirstOrDefault().Value;
-
-            if (CurrentAction == null) CurrentAction = ClassList["Inimplementato"];
-
-            Object = null;
-            Complement = null;
-            txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
-            ViewData();
-            ViewMap();
-        }
         private void ViewActions()
         {
             int r = 200;
@@ -280,28 +220,29 @@ namespace ADVBuilder
             int x = 0;
             int y = lblAction.Top + lblAction.Height;
 
-
             foreach (ActionData a in Actions.List)
             {
                 r = r - 3;
                 g = g + 2;
                 b = b + 2;
                 Color color = Color.FromArgb(r, g, b);
+                Color foreColor = Color.WhiteSmoke;
                 if (a != null)
                 {
-                    pnlActions.Controls.Add(GetActionButton(x, y, a, color));
-                    if (x < 300 - BTN_ACTION_WIDTH)
+                    pnlActions.Controls.Add(GetButton(x, y, a, color, foreColor, new EventHandler(btnActions_Click)));
+                    if (x < 300 - BTN_WIDTH)
                     {
-                        x += BTN_ACTION_WIDTH + BTN_ACTION_GAP;
+                        x += BTN_WIDTH + BTN_GAP;
                     }
                     else
                     {
                         x = 0;
-                        y += BTN_ACTION_HEIGHT + BTN_ACTION_GAP;
+                        y += BTN_HEIGHT + BTN_GAP;
                     }
                 }
             }
         }
+
         private void ViewObjects()
         {
             int r = 50;
@@ -319,21 +260,23 @@ namespace ADVBuilder
                 g = g + 2;
                 b = b + 2;
                 Color color = Color.FromArgb(r, g, b);
+                Color foreColor = Color.WhiteSmoke;
                 if (o != null)
                 {
-                    pnlObjects.Controls.Add(GetObjectButton(x, y, o, color));
-                    if (x < 300 - BTN_ACTION_WIDTH)
+                    pnlObjects.Controls.Add(GetButton(x, y, o, color, foreColor, new EventHandler(btnObjects_Click)));
+                    if (x < 300 - BTN_WIDTH)
                     {
-                        x += BTN_ACTION_WIDTH + BTN_ACTION_GAP;
+                        x += BTN_WIDTH + BTN_GAP;
                     }
                     else
                     {
                         x = 0;
-                        y += BTN_ACTION_HEIGHT + BTN_ACTION_GAP;
+                        y += BTN_HEIGHT + BTN_GAP;
                     }
                 }
             }
         }
+
         private void ViewCharacters()
         {
             int r = 50;
@@ -351,21 +294,23 @@ namespace ADVBuilder
                 g = g + 2;
                 b = b + 2;
                 Color color = Color.FromArgb(r, g, b);
+                Color foreColor = Color.WhiteSmoke;
                 if (o != null)
                 {
-                    pnlPerson.Controls.Add(GetCharacterButton(x, y, o, color));
-                    if (x < 300 - BTN_ACTION_WIDTH)
+                    pnlPerson.Controls.Add(GetButton(x, y, o, color, foreColor, new EventHandler(btnCharacters_Click)));
+                    if (x < 300 - BTN_WIDTH)
                     {
-                        x += BTN_ACTION_WIDTH + BTN_ACTION_GAP;
+                        x += BTN_WIDTH + BTN_GAP;
                     }
                     else
                     {
                         x = 0;
-                        y += BTN_ACTION_HEIGHT + BTN_ACTION_GAP;
+                        y += BTN_HEIGHT + BTN_GAP;
                     }
                 }
             }
         }
+
         private void ViewInventario()
         {
             int r = 200;
@@ -383,21 +328,23 @@ namespace ADVBuilder
                 g = g + 2;
                 b = b + 2;
                 Color color = Color.FromArgb(r, g, b);
+                Color foreColor = Color.WhiteSmoke;
                 if (o != null)
                 {
-                    pnlInventario.Controls.Add(GetInventarioButton(x, y, o, color));
-                    if (x < 300 - BTN_ACTION_WIDTH)
+                    pnlInventario.Controls.Add(GetButton(x, y, o, color, foreColor, new EventHandler(btnInventario_Click)));
+                    if (x < 300 - BTN_WIDTH)
                     {
-                        x += BTN_ACTION_WIDTH + BTN_ACTION_GAP;
+                        x += BTN_WIDTH + BTN_GAP;
                     }
                     else
                     {
                         x = 0;
-                        y += BTN_ACTION_HEIGHT + BTN_ACTION_GAP;
+                        y += BTN_HEIGHT + BTN_GAP;
                     }
                 }
             }
         }
+
         private void ViewDirections()
         {
             foreach (Button btn in pnlDirection.Controls.OfType<Button>())
@@ -407,36 +354,47 @@ namespace ADVBuilder
                     case "NN":
                         btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().NN > 0;
                         break;
+
                     case "NE":
                         btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().NE > 0;
                         break;
+
                     case "EE":
                         btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().EE > 0;
                         break;
+
                     case "SE":
                         btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().SE > 0;
                         break;
+
                     case "SS":
                         btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().SS > 0;
                         break;
+
                     case "SO":
                         btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().SO > 0;
                         break;
+
                     case "OO":
                         btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().OO > 0;
                         break;
+
                     case "NO":
                         btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().NO > 0;
                         break;
+
                     case "AA":
                         btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().AA > 0;
                         break;
+
                     case "BB":
                         btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().BB > 0;
                         break;
                 }
+                btn.BackColor = !btn.Enabled ? Color.LightGray : Color.LightSalmon;
             }
         }
+
         private void ViewData()
         {
             //Rooms
@@ -454,6 +412,7 @@ namespace ADVBuilder
             //Directions
             ViewDirections();
         }
+
         private void btnDIR_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -467,6 +426,7 @@ namespace ADVBuilder
             ViewData();
             ViewMap();
         }
+
         private void btnObjects_Click(object sender, EventArgs e)
         {
             if (CurrentAction != null)
@@ -479,6 +439,7 @@ namespace ADVBuilder
                 ViewMap();
             }
         }
+
         private void btnCharacters_Click(object sender, EventArgs e)
         {
             if (CurrentAction != null)
@@ -491,6 +452,22 @@ namespace ADVBuilder
                 ViewMap();
             }
         }
+
+        private void btnActions_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            CurrentAction = ClassList.Where(cl => cl.Key == btn.Text).FirstOrDefault().Value;
+
+            if (CurrentAction == null) CurrentAction = ClassList["Inimplementato"];
+
+            Object = null;
+            Complement = null;
+            txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+            ViewData();
+            ViewMap();
+        }
+
         private void SetActions(ActionData pAction, ObjectsData pObject)
         {
             Action = pAction;
@@ -499,14 +476,15 @@ namespace ADVBuilder
             else
                 Complement = pObject;
         }
+
         private void SetActionsCharacter(ActionData pAction, CharactersData pCharacter)
         {
             Action = pAction;
-            //if (Character == null)
-                Character = pCharacter;
-            //else
-            //    Complement = pObject;
+            Character = pCharacter;
         }
+
+        #region "Maps"
+
         private void pcbMap_MouseMove(object sender, MouseEventArgs e)
         {
             if (Dragging == true)
@@ -514,13 +492,12 @@ namespace ADVBuilder
                 dx = e.X - lastLocation.X;
                 dy = e.Y - lastLocation.Y;
 
-
                 pcbMap.Padding = new Padding(Padding.Left + dx, Padding.Top + dy, Padding.Right - dx, Padding.Bottom - dy);
 
                 pcbMap.Invalidate();
-
             }
         }
+
         private void pcbMap_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -529,10 +506,12 @@ namespace ADVBuilder
                 lastLocation = e.Location;
             }
         }
+
         private void pcbMap_MouseUp(object sender, MouseEventArgs e)
         {
             Dragging = false;
         }
+
         private void btnInventario_Click(object sender, EventArgs e)
         {
             if (CurrentAction != null)
@@ -545,25 +524,31 @@ namespace ADVBuilder
                 ViewMap();
             }
         }
+
         private void btnZoomPlus_Click(object sender, EventArgs e)
         {
             Room_Zoom += cCommon.ZOOM_FACTOR;
             ViewMap();
         }
+
         private void btnZoomMinus_Click(object sender, EventArgs e)
         {
             Room_Zoom -= cCommon.ZOOM_FACTOR;
             ViewMap();
         }
+
         private void btnSuperPlus_Click(object sender, EventArgs e)
         {
             Room_Zoom += cCommon.ZOOM_FACTOR * cCommon.ZOOM_FACTOR_MULTIPLIER;
             ViewMap();
         }
+
         private void btnSuperMinus_Click(object sender, EventArgs e)
         {
             Room_Zoom -= cCommon.ZOOM_FACTOR * cCommon.ZOOM_FACTOR_MULTIPLIER;
             ViewMap();
         }
+
+        #endregion "Maps"
     }
 }

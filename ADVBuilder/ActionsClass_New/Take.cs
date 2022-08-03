@@ -1,11 +1,8 @@
 ﻿using ADVBuilder.Common;
 using ADVBuilder.Model;
-using ADVBuilder_1.Model;
-using System;
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ADVBuilder.ActionsClass_New
 {
@@ -13,7 +10,6 @@ namespace ADVBuilder.ActionsClass_New
     {
         public Take(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
         {
-
         }
 
         /// <summary>
@@ -31,7 +27,7 @@ namespace ADVBuilder.ActionsClass_New
             {
                 Response.Success = true;
                 Response.Message = "Seleziona l'oggetto da prendere!";
-                Response.Value = 0;    
+                Response.Value = 0;
             }
             else
             {
@@ -39,6 +35,7 @@ namespace ADVBuilder.ActionsClass_New
             }
             return Response;
         }
+
         private void Exec()
         {
             if (Object.Status == cCommon.STATUS_TAKE)
@@ -66,6 +63,7 @@ namespace ADVBuilder.ActionsClass_New
             Object = null;
             Room = null;
         }
+
         private string SetMessage()
         {
             return Response.Success ?

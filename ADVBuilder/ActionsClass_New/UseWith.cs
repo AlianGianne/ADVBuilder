@@ -1,11 +1,8 @@
 ﻿using ADVBuilder.Common;
 using ADVBuilder.Model;
-using ADVBuilder_1.Model;
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ADVBuilder.ActionsClass_New
 {
@@ -31,7 +28,7 @@ namespace ADVBuilder.ActionsClass_New
                 if (Complement == null)
                 {
                     Response.Success = true;
-                    Response.Message = "Seleziona l'oggetto con cui interagire!"; 
+                    Response.Message = "Seleziona l'oggetto con cui interagire!";
                     Response.Value = 0;
                 }
                 else
@@ -41,6 +38,7 @@ namespace ADVBuilder.ActionsClass_New
             }
             return Response;
         }
+
         private void Exec()
         {
             switch (Object.Action)
@@ -48,6 +46,7 @@ namespace ADVBuilder.ActionsClass_New
                 case cCommon.ACTION_OPEN:
                     SetOpenAction();
                     break;
+
                 case cCommon.ACTION_CLOSE:
                     SetCloseAction();
                     break;

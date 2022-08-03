@@ -1,7 +1,5 @@
 ﻿using ADVBuilder.Common;
-
-using ADVBuilder_1.Model;
-
+using ADVBuilder.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,6 +30,7 @@ namespace ADVBuilder
         {
             dgvAdvList.DataSource = ADV.List;
         }
+
         private void SetDirectionCombo()
         {
             SetCombo(cmbNN);
@@ -45,6 +44,7 @@ namespace ADVBuilder
             SetCombo(cmbAA);
             SetCombo(cmbBB);
         }
+
         private void SetCombo(ComboBox cmb)
         {
             List<RoomData> rmd = new List<RoomData>();
@@ -55,6 +55,7 @@ namespace ADVBuilder
             cmb.ValueMember = "Id";
             cmb.DataSource = rmd;
         }
+
         private void dgvAdvList_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             AdvIdSelected = int.Parse(dgvAdvList.Rows[e.RowIndex].Cells["Id"].Value.ToString());
@@ -95,6 +96,7 @@ namespace ADVBuilder
             InitializeInternalComponent();
             DataBind();
         }
+
         private void btnAddObject_Click(object sender, EventArgs e)
         {
             InsertDataObject();
@@ -102,6 +104,7 @@ namespace ADVBuilder
             InitializeInternalComponent();
             DataBind();
         }
+
         private void InsertDataADV()
         {
             AdventureData adv = new AdventureData();
@@ -109,6 +112,7 @@ namespace ADVBuilder
             adv = ADV.List.FirstOrDefault();
             ADV.StoreData(adv);
         }
+
         private void InsertDataRoom()
         {
             Room rmn = new Room();
@@ -117,26 +121,19 @@ namespace ADVBuilder
             rmd = ADV.List.Where(a => a.Id == AdvIdSelected).FirstOrDefault().Rooms.FirstOrDefault();
             rmn.StoreData(rmd);
         }
+
         private void InsertDataObject()
         {
             Room rmn = new Room();
             Objects obs = new Objects();
             RoomData rmd = new RoomData();
-            
-            
-            
-            
-            
-            
-            
-            
+
             ////
             ObjectsData obd = new ObjectsData();
             obs.ReadParamForObj(ADV.List.Where(a => a.Id == AdvIdSelected).FirstOrDefault().Rooms.Where(r => r.Id == RoomIdSelected).FirstOrDefault().Objects, pnlObjects);
             obd = ADV.List.Where(a => a.Id == AdvIdSelected).FirstOrDefault().Rooms.FirstOrDefault().Objects.FirstOrDefault();
             obs.StoreData(obd);
         }
-
 
         private void btnNew_Click(object sender, EventArgs e)
         {

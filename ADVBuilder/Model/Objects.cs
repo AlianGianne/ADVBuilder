@@ -1,28 +1,29 @@
 ﻿using Gema2022.Class;
 using Gema2022.CommonClass;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ADVBuilder_1.Model
+using System.Collections.Generic;
+
+namespace ADVBuilder.Model
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class Objects : cOggettoData
     {
         private const string SELECTBYID = "SelectById";
+
         /// <summary>
         /// Lista Oggetti
         /// </summary>
         public List<ObjectsData> List = new List<ObjectsData>();
+
         public Objects()
         {
             Settings(this.GetType().Name);
             ReadData();
             ReadList(List);
         }
+
         /// <summary>
         /// Costrutture standard
         /// </summary>
@@ -33,6 +34,7 @@ namespace ADVBuilder_1.Model
             ReadData(pIdRoom);
             ReadList(List);
         }
+
         private void ReadData(int pIdRoom)
         {
             if (Open())
@@ -44,6 +46,7 @@ namespace ADVBuilder_1.Model
             }
         }
     }
+
     /// <summary>
     /// Struttura Objects
     /// </summary>
@@ -58,6 +61,7 @@ namespace ADVBuilder_1.Model
         [cAttributes(Name = "Status")] public string Status { get; set; }
         [cAttributes(Name = "Action")] public string Action { get; set; }
         [cAttributes(Name = "SufferAction")] public string SufferAction { get; set; }
+
         public string ViewObject
         {
             get { return string.Format("{0} - {1}", Title, ShortDescription); }

@@ -153,6 +153,7 @@
     </Content>
     <Content Include="Data\SQLBuilder\Actions.sql" />
     <Content Include="Data\SQLBuilder\Adventures.sql" />
+    <Content Include="Data\SQLBuilder\Characters.sql" />
     <Content Include="Data\SQLBuilder\Objects.sql" />
     <Content Include="Data\Query\Adventure.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -169,6 +170,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Data\SQLBuilder\Rooms.sql" />
+    <Content Include="Data\SQLBuilder\Sentences.sql" />
     <None Include="Images\Papiro1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

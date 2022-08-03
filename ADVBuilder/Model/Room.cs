@@ -1,25 +1,21 @@
-﻿using ADVBuilder.Model;
-using Gema2022.Class;
+﻿using Gema2022.Class;
 using Gema2022.CommonClass;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 
-namespace ADVBuilder_1.Model
+using System.Collections.Generic;
+
+namespace ADVBuilder.Model
 {
     public class Room : cOggettoData
     {
         private const string SELECTBYID = "SelectById";
         public List<RoomData> List = new List<RoomData>();
         public List<string> Directions;
+
         public Room()
         {
             Settings(this.GetType().Name);
             ReadData();
             ReadOther();
-
         }
 
         private void ReadOther()
@@ -33,7 +29,7 @@ namespace ADVBuilder_1.Model
 
         private List<string> ReadDirections()
         {
-            return new List<string>(){ "AA", "BB", "NN", "NE", "EE", "SE", "SS", "SO", "OO", "NO"};
+            return new List<string>() { "AA", "BB", "NN", "NE", "EE", "SE", "SS", "SO", "OO", "NO" };
         }
 
         public Room(int pIdAdv)
@@ -42,6 +38,7 @@ namespace ADVBuilder_1.Model
             ReadData(pIdAdv);
             ReadOther();
         }
+
         private void ReadObjects()
         {
             foreach (RoomData rm in List)
@@ -50,6 +47,7 @@ namespace ADVBuilder_1.Model
                 rm.Objects = ob.List;
             }
         }
+
         private void ReadCharacters()
         {
             foreach (RoomData rm in List)
@@ -58,6 +56,7 @@ namespace ADVBuilder_1.Model
                 rm.Characters = ch.List;
             }
         }
+
         private void ReadData(int pIdAdv)
         {
             if (Open())
@@ -69,10 +68,12 @@ namespace ADVBuilder_1.Model
             }
         }
     }
+
     public class RoomData
     {
         #region Properties
-        [cAttributes(Name = "Id")] public int Id { get; set; }                         //Id stanza 
+
+        [cAttributes(Name = "Id")] public int Id { get; set; }                         //Id stanza
         [cAttributes(Name = "IdAdv")] public int IdAdv { get; set; }                      //Id avventura
         [cAttributes(Name = "Title")] public string Title { get; set; }                   //Titolo
         [cAttributes(Name = "Description")] public string Description { get; set; }             //Descrizione
@@ -93,6 +94,7 @@ namespace ADVBuilder_1.Model
         public List<ObjectsData> Objects { get; set; }                          //Eventuali oggetti presenti
         public List<CharactersData> Characters { get; set; }                          //Eventuali oggetti presenti
         public bool Drawed { get; set; }
-        #endregion
+
+        #endregion Properties
     }
 }

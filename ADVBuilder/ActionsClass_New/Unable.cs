@@ -1,10 +1,6 @@
-﻿using System;
+﻿using ADVBuilder.Model;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ADVBuilder.Model;
-using ADVBuilder_1.Model;
 
 namespace ADVBuilder.ActionsClass_New
 {
@@ -13,6 +9,7 @@ namespace ADVBuilder.ActionsClass_New
         public Unable(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
         {
         }
+
         public Response Execute(CharactersData pCharacter, ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
         {
             Response.Message = "Non ancora implementato";
