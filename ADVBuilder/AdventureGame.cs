@@ -96,8 +96,8 @@ namespace ADVBuilder
             Font drawFont = new Font("Arial", 2);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
-            int x = (pcbMap.Image.Width - (cCommon.ROOM_WIDTH + Room_Zoom)) / 2;
-            int y = (pcbMap.Image.Height - (cCommon.ROOM_HEIGHT + Room_Zoom)) / 2;
+            int x = (pcbMap.Image.Width - (cCommon.ROOM_WIDTH + Room_Zoom)) / 2 + cCommon.GAP_FACTOR_X;
+            int y = (pcbMap.Image.Height - (cCommon.ROOM_HEIGHT + Room_Zoom)) / 2 + cCommon.GAP_FACTOR_Y;
             RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
             foreach (var r in ADD.Rooms) r.Drawed = false;
             DrawMap(actual, x, y, PenYellow, drawFont, drawBrush, g);
@@ -113,6 +113,7 @@ namespace ADVBuilder
                     rd.Visited = true;
                     g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, cCommon.ROOM_HEIGHT + Room_Zoom / 2));
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2, y + 12);
+
                     if (rd.AA > 0)
                     {
                         g.DrawLine(p, x + 48, y + 2, x + 48, y + 7);
@@ -484,17 +485,15 @@ namespace ADVBuilder
         }
 
         #region "Maps"
-
         private void pcbMap_MouseMove(object sender, MouseEventArgs e)
         {
             if (Dragging == true)
             {
                 dx = e.X - lastLocation.X;
                 dy = e.Y - lastLocation.Y;
-
-                pcbMap.Padding = new Padding(Padding.Left + dx, Padding.Top + dy, Padding.Right - dx, Padding.Bottom - dy);
-
-                pcbMap.Invalidate();
+                cCommon.GAP_FACTOR_X = dx;
+                cCommon.GAP_FACTOR_Y = dy;
+                ViewMap();
             }
         }
 
@@ -548,7 +547,29 @@ namespace ADVBuilder
             Room_Zoom -= cCommon.ZOOM_FACTOR * cCommon.ZOOM_FACTOR_MULTIPLIER;
             ViewMap();
         }
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            cCommon.GAP_FACTOR_X -= cCommon.GAP_FACTOR;
+            ViewMap();
+        }
 
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            cCommon.GAP_FACTOR_Y -= cCommon.GAP_FACTOR;
+            ViewMap();
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            cCommon.GAP_FACTOR_Y += cCommon.GAP_FACTOR;
+            ViewMap();
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            cCommon.GAP_FACTOR_X += cCommon.GAP_FACTOR;
+            ViewMap();
+        }
         #endregion "Maps"
     }
 }

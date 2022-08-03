@@ -58,12 +58,16 @@
             this.txtRoomDescription = new System.Windows.Forms.TextBox();
             this.lblRoomDescription = new System.Windows.Forms.Label();
             this.pnlActionMap = new System.Windows.Forms.Panel();
+            this.btnLeft = new System.Windows.Forms.Button();
             this.btnSuperMinus = new System.Windows.Forms.Button();
             this.btnSuperPlus = new System.Windows.Forms.Button();
             this.btnZoomMinus = new System.Windows.Forms.Button();
             this.btnZoomPlus = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnRight = new System.Windows.Forms.Button();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
             this.pnlInventario.SuspendLayout();
@@ -436,6 +440,10 @@
             // 
             this.pnlActionMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlActionMap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlActionMap.Controls.Add(this.btnUp);
+            this.pnlActionMap.Controls.Add(this.btnDown);
+            this.pnlActionMap.Controls.Add(this.btnRight);
+            this.pnlActionMap.Controls.Add(this.btnLeft);
             this.pnlActionMap.Controls.Add(this.btnSuperMinus);
             this.pnlActionMap.Controls.Add(this.btnSuperPlus);
             this.pnlActionMap.Controls.Add(this.btnZoomMinus);
@@ -445,6 +453,22 @@
             this.pnlActionMap.Name = "pnlActionMap";
             this.pnlActionMap.Size = new System.Drawing.Size(515, 166);
             this.pnlActionMap.TabIndex = 20;
+            // 
+            // btnLeft
+            // 
+            this.btnLeft.BackColor = System.Drawing.Color.Transparent;
+            this.btnLeft.FlatAppearance.BorderSize = 0;
+            this.btnLeft.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnLeft.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLeft.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
+            this.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeft.Location = new System.Drawing.Point(85, 24);
+            this.btnLeft.Name = "btnLeft";
+            this.btnLeft.Size = new System.Drawing.Size(35, 35);
+            this.btnLeft.TabIndex = 14;
+            this.btnLeft.Text = "<--";
+            this.btnLeft.UseVisualStyleBackColor = false;
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
             // btnSuperMinus
             // 
@@ -533,6 +557,54 @@
             this.label2.Text = "Mappa:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnRight
+            // 
+            this.btnRight.BackColor = System.Drawing.Color.Transparent;
+            this.btnRight.FlatAppearance.BorderSize = 0;
+            this.btnRight.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnRight.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
+            this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRight.Location = new System.Drawing.Point(126, 24);
+            this.btnRight.Name = "btnRight";
+            this.btnRight.Size = new System.Drawing.Size(35, 35);
+            this.btnRight.TabIndex = 15;
+            this.btnRight.Text = "-->";
+            this.btnRight.UseVisualStyleBackColor = false;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
+            // 
+            // btnUp
+            // 
+            this.btnUp.BackColor = System.Drawing.Color.Transparent;
+            this.btnUp.FlatAppearance.BorderSize = 0;
+            this.btnUp.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
+            this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUp.Location = new System.Drawing.Point(126, 61);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(35, 35);
+            this.btnUp.TabIndex = 17;
+            this.btnUp.Text = "^";
+            this.btnUp.UseVisualStyleBackColor = false;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            // 
+            // btnDown
+            // 
+            this.btnDown.BackColor = System.Drawing.Color.Transparent;
+            this.btnDown.FlatAppearance.BorderSize = 0;
+            this.btnDown.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnDown.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDown.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
+            this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDown.Location = new System.Drawing.Point(85, 61);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(35, 35);
+            this.btnDown.TabIndex = 16;
+            this.btnDown.Text = "v";
+            this.btnDown.UseVisualStyleBackColor = false;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            // 
             // AdventureGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -604,5 +676,9 @@
         private System.Windows.Forms.Button btnSuperMinus;
         private System.Windows.Forms.Button btnSuperPlus;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnLeft;
+        private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Button btnRight;
     }
 }

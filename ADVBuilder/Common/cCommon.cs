@@ -8,7 +8,9 @@
         public const int ROOM_HEIGHT = 25;
         public const int ZOOM_FACTOR = 1;
         public const int ZOOM_FACTOR_MULTIPLIER = 10;
-
+        public const int GAP_FACTOR = 50;
+        public static int GAP_FACTOR_X = 0;
+        public static int GAP_FACTOR_Y = 0;
         #endregion "Maps"
 
         #region "Objects Status"
