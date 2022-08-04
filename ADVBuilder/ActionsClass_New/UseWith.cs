@@ -62,7 +62,7 @@ namespace ADVBuilder.ActionsClass_New
             {
                 Complement.Status = cCommon.STATUS_CLOSED;
                 Response.Success = true;
-                Response.Message = String.Format("{0} aperto.", Complement.Description);
+                Response.Message = String.Format("{0} chiuso.", Complement.Description);
                 Response.Value = 0;
             }
             else
@@ -88,12 +88,6 @@ namespace ADVBuilder.ActionsClass_New
                 Response.Message = String.Format("{0} non può aprire {1}.", Object.Description, Complement.Description);
                 Response.Value = 0;
             }
-        }
-
-        private string SetMessage()
-        {
-            return Response.Success ?
-                string.Format("{0} in Inventario.", Object.Title) : "Errore";
         }
     }
 }

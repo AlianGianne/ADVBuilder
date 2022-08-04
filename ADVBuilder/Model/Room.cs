@@ -94,7 +94,7 @@ namespace ADVBuilder.Model
         public List<ObjectsData> Objects { get; set; }                          //Eventuali oggetti presenti
         public List<CharactersData> Characters { get; set; }                          //Eventuali oggetti presenti
         public bool Drawed { get; set; }
-
+        public string TitleForCombo { get { return string.Format("{0}-{1}", Id, Title); } }
         #endregion Properties
     }
 }

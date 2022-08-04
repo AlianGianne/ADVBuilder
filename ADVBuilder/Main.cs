@@ -51,7 +51,7 @@ namespace ADVBuilder
             rmd.Add(new RoomData() { Id = -1, IdAdv = -1, Title = "Scegli..." });
             rmd.AddRange(ADV.List.Where(ad => ad.Id == AdvIdSelected).FirstOrDefault().Rooms);
 
-            cmb.DisplayMember = "Title";
+            cmb.DisplayMember = "TitleForCombo";
             cmb.ValueMember = "Id";
             cmb.DataSource = rmd;
         }
@@ -66,14 +66,14 @@ namespace ADVBuilder
 
         private void dgvObjects_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            int id = int.Parse(dgvRooms.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+            int id = int.Parse(dgvObjects.Rows[e.RowIndex].Cells["Id"].Value.ToString());
             ADV.ReadParamForForm(ADV.List.Where(ad => ad.Id == AdvIdSelected).FirstOrDefault()
-                .Rooms.Where(r => r.Id == id).FirstOrDefault()
+                .Rooms.Where(r => r.Id == RoomIdSelected).FirstOrDefault()
                 .Objects.Where(o => o.Id == id).FirstOrDefault(), pnlObjects, id);
         }
 
         private void dgvRooms_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {/////
+        {
             RoomIdSelected = int.Parse(dgvRooms.Rows[e.RowIndex].Cells["Id"].Value.ToString());
             ADV.ReadParamForForm(ADV.List.Where(ad => ad.Id == AdvIdSelected).FirstOrDefault()
                 .Rooms.Where(r => r.Id == RoomIdSelected).FirstOrDefault(), pnlRoom, RoomIdSelected);

@@ -42,10 +42,19 @@ namespace ADVBuilder.ActionsClass_New
             {
                 if (Inventario.Count() < cCommon.INVENTARIO_MAX)
                 {
-                    Inventario.Add(Object);
-                    Response.Success = Room.Objects.Remove(Object);
-                    Response.Message = SetMessage();
-                    Response.Value = 0;
+                    if (!Inventario.Contains(Object))
+                    {
+                        Inventario.Add(Object);
+                        Response.Success = Room.Objects.Remove(Object);
+                        Response.Message = SetMessage();
+                        Response.Value = 0;
+                    }
+                    else
+                    {
+                        Response.Success = false;
+                        Response.Message = string.Format("{0} è già presente in inventario!", Object.Title);
+                        Response.Value = 0;
+                    }
                 }
                 else
                 {

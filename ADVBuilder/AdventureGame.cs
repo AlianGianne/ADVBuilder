@@ -25,6 +25,7 @@ namespace ADVBuilder
         private List<ObjectsData> Inventario = new List<ObjectsData>();
         private int dx;
         private int dy;
+        private int layer = 0;
 
         private Pen PenGreen = new Pen(Color.Green, 2);
         private Pen PenBlack = new Pen(Color.Black, 2);
@@ -99,6 +100,7 @@ namespace ADVBuilder
             int x = (pcbMap.Image.Width - (cCommon.ROOM_WIDTH + Room_Zoom)) / 2 + cCommon.GAP_FACTOR_X;
             int y = (pcbMap.Image.Height - (cCommon.ROOM_HEIGHT + Room_Zoom)) / 2 + cCommon.GAP_FACTOR_Y;
             RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
+            layer = actual.Layer;
             foreach (var r in ADD.Rooms) r.Drawed = false;
             DrawMap(actual, x, y, PenYellow, drawFont, drawBrush, g);
         }
@@ -314,8 +316,8 @@ namespace ADVBuilder
 
         private void ViewInventario()
         {
-            int r = 200;
-            int g = 50;
+            int r = 180;
+            int g = 10;
             int b = 100;
 
             int x = 0;
