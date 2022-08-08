@@ -92,7 +92,7 @@ namespace ADVBuilder
 
         private void ViewMap()
         {
-            pcbMap.Image = Image.FromFile("Images/Papiro1.jpg");
+            pcbMap.Image = Image.FromFile("Images/Papiro 2.jpg");
             Graphics g = Graphics.FromImage(pcbMap.Image);
             Font drawFontA = new Font("Arial", 2);
             Font drawFontB = new Font("Arial", 3);
@@ -103,7 +103,7 @@ namespace ADVBuilder
             RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
             layer = actual.Layer;
             foreach (var r in ADD.Rooms) r.Drawed = false;
-            DrawMap(actual, x, y, PenYellow, drawFontA, drawBrush, g);
+            DrawMap(actual, x, y, PenGreen, drawFontA, drawBrush, g);
         }
 
         private void DrawMap(RoomData rd, int x, int y, Pen p, Font drawFont, Brush drawBrush, Graphics g)
@@ -114,10 +114,10 @@ namespace ADVBuilder
                 {
                     rd.Drawed = true;
                     rd.Visited = true;
-                    g.DrawString(string.Format("Piano: {0}", rd.Layer), new Font("Arial", 8), drawBrush, cCommon.STR_LAYER_POSITION_X, cCommon.STR_LAYER_POSITION_Y);
-                    g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, (cCommon.ROOM_HEIGHT + Room_Zoom) ));
                     g.DrawString(rd.Id.ToString(), new Font("Arial", 3), drawBrush, x + 2, y);
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2, y + 12);
+                    g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, (cCommon.ROOM_HEIGHT + Room_Zoom) ));
+                    g.DrawString(string.Format("Piano: {0}", layer), new Font("Arial", 8), drawBrush, cCommon.STR_LAYER_POSITION_X, cCommon.STR_LAYER_POSITION_Y);
 
                     if (rd.AA > 0)
                     {

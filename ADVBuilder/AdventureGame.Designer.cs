@@ -389,7 +389,7 @@
             // pcbMap
             // 
             this.pcbMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Papiro1;
+            this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Papiro_2;
             this.pcbMap.Location = new System.Drawing.Point(840, 37);
             this.pcbMap.Name = "pcbMap";
             this.pcbMap.Size = new System.Drawing.Size(515, 486);

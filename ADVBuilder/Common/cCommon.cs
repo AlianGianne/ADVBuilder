@@ -4,13 +4,13 @@
     {
         #region "Maps"
 
-        public const int ROOM_WIDTH = 50;
-        public const int ROOM_HEIGHT = 13;
+        public const int ROOM_WIDTH = 60;
+        public const int ROOM_HEIGHT = 20;
         public const int ZOOM_FACTOR = 1;
         public const int ZOOM_FACTOR_MULTIPLIER = 10;
         public const int GAP_FACTOR = 50;
-        public const int STR_LAYER_POSITION_X = 150;
-        public const int STR_LAYER_POSITION_Y = 50;
+        public const int STR_LAYER_POSITION_X = 550;
+        public const int STR_LAYER_POSITION_Y = 300;
         public static int GAP_FACTOR_X = 0;
         public static int GAP_FACTOR_Y = 0;
         #endregion "Maps"

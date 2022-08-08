@@ -171,6 +171,9 @@
     </Content>
     <Content Include="Data\SQLBuilder\Rooms.sql" />
     <Content Include="Data\SQLBuilder\Sentences.sql" />
+    <None Include="Images\Papiro 2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Images\Papiro1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
