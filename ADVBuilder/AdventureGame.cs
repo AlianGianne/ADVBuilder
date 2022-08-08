@@ -17,7 +17,7 @@ namespace ADVBuilder
         private const int BTN_HEIGHT = 25;
         private const int BTN_WIDTH = 75;
         private const int BTN_GAP = 3;
-        private int Room_Zoom = 0;
+        private int Room_Zoom = 20;
         private bool Dragging;
         private Point lastLocation;
         private iActions CurrentAction;
@@ -94,7 +94,8 @@ namespace ADVBuilder
         {
             pcbMap.Image = Image.FromFile("Images/Papiro1.jpg");
             Graphics g = Graphics.FromImage(pcbMap.Image);
-            Font drawFont = new Font("Arial", 2);
+            Font drawFontA = new Font("Arial", 2);
+            Font drawFontB = new Font("Arial", 3);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
             int x = (pcbMap.Image.Width - (cCommon.ROOM_WIDTH + Room_Zoom)) / 2 + cCommon.GAP_FACTOR_X;
@@ -102,7 +103,7 @@ namespace ADVBuilder
             RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
             layer = actual.Layer;
             foreach (var r in ADD.Rooms) r.Drawed = false;
-            DrawMap(actual, x, y, PenYellow, drawFont, drawBrush, g);
+            DrawMap(actual, x, y, PenYellow, drawFontA, drawBrush, g);
         }
 
         private void DrawMap(RoomData rd, int x, int y, Pen p, Font drawFont, Brush drawBrush, Graphics g)
@@ -113,23 +114,25 @@ namespace ADVBuilder
                 {
                     rd.Drawed = true;
                     rd.Visited = true;
-                    g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, cCommon.ROOM_HEIGHT + Room_Zoom / 2));
+                    g.DrawString(string.Format("Piano: {0}", rd.Layer), new Font("Arial", 8), drawBrush, cCommon.STR_LAYER_POSITION_X, cCommon.STR_LAYER_POSITION_Y);
+                    g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, (cCommon.ROOM_HEIGHT + Room_Zoom) ));
+                    g.DrawString(rd.Id.ToString(), new Font("Arial", 3), drawBrush, x + 2, y);
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2, y + 12);
 
                     if (rd.AA > 0)
                     {
-                        g.DrawLine(p, x + 48, y + 2, x + 48, y + 7);
+                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) - 4, y + 4, x + (cCommon.ROOM_WIDTH + Room_Zoom) - 8, y + 9);
                     }
                     if (rd.BB > 0)
                     {
-                        g.DrawLine(p, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom / 2 - 7, x + 48, y + cCommon.ROOM_HEIGHT + Room_Zoom / 2 - 2);
+                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) - 8, y + (cCommon.ROOM_HEIGHT + Room_Zoom) - 9, x + (cCommon.ROOM_WIDTH + Room_Zoom) - 4, y + (cCommon.ROOM_HEIGHT + Room_Zoom) - 4);
                     }
                     if (rd.NN > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y - 5);
                         if (ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault(),
-                            x, y - (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
+                            x, y - ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.NE > 0)
@@ -137,12 +140,12 @@ namespace ADVBuilder
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y, x + (cCommon.ROOM_WIDTH + Room_Zoom) + 3, y - 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault(),
-                            x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
+                            x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.EE > 0)
                     {
-                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) / 2, x + (cCommon.ROOM_WIDTH + Room_Zoom) + 5, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) / 2);
+                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y + (cCommon.ROOM_HEIGHT + Room_Zoom) / 2, x + (cCommon.ROOM_WIDTH + Room_Zoom) + 5, y + (cCommon.ROOM_HEIGHT + Room_Zoom) / 2);
                         if (ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault(),
                                 x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y,
@@ -150,31 +153,31 @@ namespace ADVBuilder
                     }
                     if (rd.SE > 0)
                     {
-                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y + cCommon.ROOM_HEIGHT + Room_Zoom / 2, x + (cCommon.ROOM_WIDTH + Room_Zoom) + 3, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2));
+                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y + (cCommon.ROOM_HEIGHT + Room_Zoom), x + (cCommon.ROOM_WIDTH + Room_Zoom) + 3, y + (cCommon.ROOM_HEIGHT + Room_Zoom) + 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault(),
-                            x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
+                            x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.SS > 0)
                     {
-                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y + cCommon.ROOM_HEIGHT + Room_Zoom / 2, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) + 5);
+                        g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y + (cCommon.ROOM_HEIGHT + Room_Zoom), x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y + ((cCommon.ROOM_HEIGHT + Room_Zoom)) + 5);
                         if (ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault(),
-                            x, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
+                            x, y + ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.SO > 0)
                     {
-                        g.DrawLine(p, x, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2), x - 3, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) + 3);
+                        g.DrawLine(p, x, y + (cCommon.ROOM_HEIGHT + Room_Zoom), x - 3, y + (cCommon.ROOM_HEIGHT + Room_Zoom) + 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault(),
-                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
+                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                     if (rd.OO > 0)
                     {
-                        g.DrawLine(p, x, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) / 2, x - 5, y + (cCommon.ROOM_HEIGHT + Room_Zoom / 2) / 2);
+                        g.DrawLine(p, x, y + ((cCommon.ROOM_HEIGHT + Room_Zoom)) / 2, x - 5, y + ((cCommon.ROOM_HEIGHT + Room_Zoom)) / 2);
                         if (ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault(),
                             x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y,
@@ -185,7 +188,7 @@ namespace ADVBuilder
                         g.DrawLine(p, x, y, x - 3, y - 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault(),
-                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - (cCommon.ROOM_HEIGHT + Room_Zoom / 2 + 5),
+                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
                             PenBlack, drawFont, drawBrush, g);
                     }
                 }

@@ -58,6 +58,9 @@
             this.txtRoomDescription = new System.Windows.Forms.TextBox();
             this.lblRoomDescription = new System.Windows.Forms.Label();
             this.pnlActionMap = new System.Windows.Forms.Panel();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.btnRight = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
             this.btnSuperMinus = new System.Windows.Forms.Button();
             this.btnSuperPlus = new System.Windows.Forms.Button();
@@ -65,9 +68,6 @@
             this.btnZoomPlus = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnRight = new System.Windows.Forms.Button();
-            this.btnUp = new System.Windows.Forms.Button();
-            this.btnDown = new System.Windows.Forms.Button();
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
             this.pnlInventario.SuspendLayout();
@@ -336,7 +336,7 @@
             // 
             this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtResult.Enabled = false;
+            this.txtResult.BackColor = System.Drawing.Color.White;
             this.txtResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResult.Location = new System.Drawing.Point(0, 0);
             this.txtResult.Multiline = true;
@@ -416,12 +416,16 @@
             // 
             this.txtRoomDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRoomDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRoomDescription.Location = new System.Drawing.Point(-2, 22);
+            this.txtRoomDescription.BackColor = System.Drawing.Color.White;
+            this.txtRoomDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRoomDescription.Font = new System.Drawing.Font("Pristina", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomDescription.Location = new System.Drawing.Point(-2, 21);
             this.txtRoomDescription.Multiline = true;
             this.txtRoomDescription.Name = "txtRoomDescription";
-            this.txtRoomDescription.Size = new System.Drawing.Size(504, 488);
+            this.txtRoomDescription.ReadOnly = true;
+            this.txtRoomDescription.Size = new System.Drawing.Size(504, 487);
             this.txtRoomDescription.TabIndex = 1;
+            this.txtRoomDescription.Text = "gfervgrwcg\r\nrwcgr\r\ngcfdscgrecrfss";
             // 
             // lblRoomDescription
             // 
@@ -453,6 +457,54 @@
             this.pnlActionMap.Name = "pnlActionMap";
             this.pnlActionMap.Size = new System.Drawing.Size(515, 166);
             this.pnlActionMap.TabIndex = 20;
+            // 
+            // btnUp
+            // 
+            this.btnUp.BackColor = System.Drawing.Color.Transparent;
+            this.btnUp.FlatAppearance.BorderSize = 0;
+            this.btnUp.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
+            this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUp.Location = new System.Drawing.Point(126, 61);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(35, 35);
+            this.btnUp.TabIndex = 17;
+            this.btnUp.Text = "^";
+            this.btnUp.UseVisualStyleBackColor = false;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            // 
+            // btnDown
+            // 
+            this.btnDown.BackColor = System.Drawing.Color.Transparent;
+            this.btnDown.FlatAppearance.BorderSize = 0;
+            this.btnDown.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnDown.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDown.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
+            this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDown.Location = new System.Drawing.Point(85, 61);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(35, 35);
+            this.btnDown.TabIndex = 16;
+            this.btnDown.Text = "v";
+            this.btnDown.UseVisualStyleBackColor = false;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            // 
+            // btnRight
+            // 
+            this.btnRight.BackColor = System.Drawing.Color.Transparent;
+            this.btnRight.FlatAppearance.BorderSize = 0;
+            this.btnRight.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnRight.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
+            this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRight.Location = new System.Drawing.Point(126, 24);
+            this.btnRight.Name = "btnRight";
+            this.btnRight.Size = new System.Drawing.Size(35, 35);
+            this.btnRight.TabIndex = 15;
+            this.btnRight.Text = "-->";
+            this.btnRight.UseVisualStyleBackColor = false;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
             // btnLeft
             // 
@@ -556,54 +608,6 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Mappa:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnRight
-            // 
-            this.btnRight.BackColor = System.Drawing.Color.Transparent;
-            this.btnRight.FlatAppearance.BorderSize = 0;
-            this.btnRight.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnRight.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnRight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
-            this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRight.Location = new System.Drawing.Point(126, 24);
-            this.btnRight.Name = "btnRight";
-            this.btnRight.Size = new System.Drawing.Size(35, 35);
-            this.btnRight.TabIndex = 15;
-            this.btnRight.Text = "-->";
-            this.btnRight.UseVisualStyleBackColor = false;
-            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
-            // 
-            // btnUp
-            // 
-            this.btnUp.BackColor = System.Drawing.Color.Transparent;
-            this.btnUp.FlatAppearance.BorderSize = 0;
-            this.btnUp.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
-            this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUp.Location = new System.Drawing.Point(126, 61);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(35, 35);
-            this.btnUp.TabIndex = 17;
-            this.btnUp.Text = "^";
-            this.btnUp.UseVisualStyleBackColor = false;
-            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
-            // 
-            // btnDown
-            // 
-            this.btnDown.BackColor = System.Drawing.Color.Transparent;
-            this.btnDown.FlatAppearance.BorderSize = 0;
-            this.btnDown.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnDown.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnDown.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
-            this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDown.Location = new System.Drawing.Point(85, 61);
-            this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(35, 35);
-            this.btnDown.TabIndex = 16;
-            this.btnDown.Text = "v";
-            this.btnDown.UseVisualStyleBackColor = false;
-            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
             // AdventureGame
             // 
