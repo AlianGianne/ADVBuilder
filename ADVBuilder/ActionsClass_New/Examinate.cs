@@ -14,6 +14,7 @@ namespace ADVBuilder.ActionsClass_New
         {
             Object = pObj;
             Room = pRoom;
+            Character = pCharacter;
             Response.Message = SetMessage();
             return Response;
         }
@@ -21,7 +22,9 @@ namespace ADVBuilder.ActionsClass_New
         private string SetMessage()
         {
             Response.Success = Object != null;
-            return Response.Success ? Object.Description : "Seleziona qualcosa da guardare...";
+            if(Response.Success) return Response.Success ? Object.Description : "Seleziona qualcosa da guardare...";
+            Response.Success = Character != null;
+            return Response.Success ? Character.Description : "Seleziona qualcosa da guardare...";
         }
     }
 }

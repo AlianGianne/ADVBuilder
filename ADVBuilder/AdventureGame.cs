@@ -103,6 +103,7 @@ namespace ADVBuilder
             RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
             layer = actual.Layer;
             foreach (var r in ADD.Rooms) r.Drawed = false;
+            //foreach (var r in ADD.Rooms) r.Visited = true;
             DrawMap(actual, x, y, PenGreen, drawFontA, drawBrush, g);
         }
 
@@ -118,20 +119,23 @@ namespace ADVBuilder
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2, y + 12);
                     g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, cCommon.ROOM_HEIGHT + Room_Zoom));
                     g.DrawString(string.Format("Piano: {0}", layer), new Font("Arial", 8), drawBrush, cCommon.STR_LAYER_POSITION_X, cCommon.STR_LAYER_POSITION_Y);
+
                     int xObj = 2;
-                    int yObj = (cCommon.ROOM_HEIGHT + Room_Zoom) - 7;
+                    int yObj = (cCommon.ROOM_HEIGHT + Room_Zoom) - 8;
                     foreach (ObjectsData obj in rd.Objects)
                     {
-                        g.DrawRectangle(new Pen(Color.Brown, 2), new Rectangle(x + xObj, y + yObj, 5, 5));
+                        g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x + xObj, y + yObj, 5, 5));
                         xObj += 7;
                     }
+
                     xObj = 2;
-                    yObj = (cCommon.ROOM_HEIGHT + Room_Zoom) - 14;
+                    yObj = (cCommon.ROOM_HEIGHT + Room_Zoom) - 15;
                     foreach (CharactersData obj in rd.Characters)
                     {
-                        g.DrawRectangle(new Pen(Color.Violet, 2), new Rectangle(x + xObj, y + yObj, 5, 5));
+                        g.DrawRectangle(new Pen(Color.Violet, 1), new Rectangle(x + xObj, y + yObj, 5, 5));
                         xObj += 7;
                     }
+
                     if (rd.AA > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) - 4, y + 4, x + (cCommon.ROOM_WIDTH + Room_Zoom) - 8, y + 9);
@@ -207,7 +211,7 @@ namespace ADVBuilder
                 }
             }
         }
-
+       
         private Button GetButton(int pX, int pY, object pObject, Color pBackColor, Color pForeColor, EventHandler pEventHandler)
         {
             Type type = pObject.GetType();
@@ -482,6 +486,7 @@ namespace ADVBuilder
 
             Object = null;
             Complement = null;
+            Character = null;
             txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
             ViewData();
             ViewMap();

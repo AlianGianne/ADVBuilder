@@ -58,6 +58,12 @@
             this.txtRoomDescription = new System.Windows.Forms.TextBox();
             this.lblRoomDescription = new System.Windows.Forms.Label();
             this.pnlActionMap = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblLegendChr = new System.Windows.Forms.Label();
+            this.lblLegendaObj = new System.Windows.Forms.Label();
             this.btnUp = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
@@ -418,7 +424,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRoomDescription.BackColor = System.Drawing.Color.White;
             this.txtRoomDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRoomDescription.Font = new System.Drawing.Font("Pristina", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomDescription.Font = new System.Drawing.Font("Sylfaen", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoomDescription.Location = new System.Drawing.Point(-2, 21);
             this.txtRoomDescription.Multiline = true;
             this.txtRoomDescription.Name = "txtRoomDescription";
@@ -444,6 +450,12 @@
             // 
             this.pnlActionMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlActionMap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlActionMap.Controls.Add(this.label5);
+            this.pnlActionMap.Controls.Add(this.label6);
+            this.pnlActionMap.Controls.Add(this.label4);
+            this.pnlActionMap.Controls.Add(this.label3);
+            this.pnlActionMap.Controls.Add(this.lblLegendChr);
+            this.pnlActionMap.Controls.Add(this.lblLegendaObj);
             this.pnlActionMap.Controls.Add(this.btnUp);
             this.pnlActionMap.Controls.Add(this.btnDown);
             this.pnlActionMap.Controls.Add(this.btnRight);
@@ -457,6 +469,63 @@
             this.pnlActionMap.Name = "pnlActionMap";
             this.pnlActionMap.Size = new System.Drawing.Size(515, 166);
             this.pnlActionMap.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(370, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Luogo attuale";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Green;
+            this.label6.Location = new System.Drawing.Point(350, 80);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(13, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "  ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(370, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(134, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Personaggi presenti in loco";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(370, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Oggetti presenti in loco";
+            // 
+            // lblLegendChr
+            // 
+            this.lblLegendChr.AutoSize = true;
+            this.lblLegendChr.BackColor = System.Drawing.Color.Violet;
+            this.lblLegendChr.Location = new System.Drawing.Point(350, 57);
+            this.lblLegendChr.Name = "lblLegendChr";
+            this.lblLegendChr.Size = new System.Drawing.Size(13, 13);
+            this.lblLegendChr.TabIndex = 19;
+            this.lblLegendChr.Text = "  ";
+            // 
+            // lblLegendaObj
+            // 
+            this.lblLegendaObj.AutoSize = true;
+            this.lblLegendaObj.BackColor = System.Drawing.Color.Maroon;
+            this.lblLegendaObj.Location = new System.Drawing.Point(350, 35);
+            this.lblLegendaObj.Name = "lblLegendaObj";
+            this.lblLegendaObj.Size = new System.Drawing.Size(13, 13);
+            this.lblLegendaObj.TabIndex = 18;
+            this.lblLegendaObj.Text = "  ";
             // 
             // btnUp
             // 
@@ -640,6 +709,7 @@
             this.pnlRoomDescription.ResumeLayout(false);
             this.pnlRoomDescription.PerformLayout();
             this.pnlActionMap.ResumeLayout(false);
+            this.pnlActionMap.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -684,5 +754,11 @@
         private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Button btnRight;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblLegendChr;
+        private System.Windows.Forms.Label lblLegendaObj;
     }
 }
