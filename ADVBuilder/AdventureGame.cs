@@ -116,9 +116,22 @@ namespace ADVBuilder
                     rd.Visited = true;
                     g.DrawString(rd.Id.ToString(), new Font("Arial", 3), drawBrush, x + 2, y);
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2, y + 12);
-                    g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, (cCommon.ROOM_HEIGHT + Room_Zoom) ));
+                    g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, cCommon.ROOM_HEIGHT + Room_Zoom));
                     g.DrawString(string.Format("Piano: {0}", layer), new Font("Arial", 8), drawBrush, cCommon.STR_LAYER_POSITION_X, cCommon.STR_LAYER_POSITION_Y);
-
+                    int xObj = 2;
+                    int yObj = (cCommon.ROOM_HEIGHT + Room_Zoom) - 7;
+                    foreach (ObjectsData obj in rd.Objects)
+                    {
+                        g.DrawRectangle(new Pen(Color.Brown, 2), new Rectangle(x + xObj, y + yObj, 5, 5));
+                        xObj += 7;
+                    }
+                    xObj = 2;
+                    yObj = (cCommon.ROOM_HEIGHT + Room_Zoom) - 14;
+                    foreach (CharactersData obj in rd.Characters)
+                    {
+                        g.DrawRectangle(new Pen(Color.Violet, 2), new Rectangle(x + xObj, y + yObj, 5, 5));
+                        xObj += 7;
+                    }
                     if (rd.AA > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) - 4, y + 4, x + (cCommon.ROOM_WIDTH + Room_Zoom) - 8, y + 9);
@@ -220,8 +233,8 @@ namespace ADVBuilder
         private void ViewActions()
         {
             int r = 200;
-            int g = 196;
-            int b = 222;
+            int g = 150;
+            int b = 100;
 
             int x = 0;
             int y = lblAction.Top + lblAction.Height;

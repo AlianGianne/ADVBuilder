@@ -21,9 +21,30 @@ namespace ADVBuilder.ActionsClass_New
             ObjectsData door = pRoom.Objects.Where(o => o.Position == ADD.Direction).FirstOrDefault();
             if (door == null || door.Status == cCommon.STATUS_OPEN)
             {
-                ADD.CurrentRoom = int.Parse(myPropInfo.GetValue(pRoom, null).ToString());
-                Response.Value = ADD.CurrentRoom;
-                Response.Message = SetMessage(ADD.Direction);
+                //Nel caso servano scale
+                if (ADD.Direction == "AA" || ADD.Direction == "BB")
+                {
+                    ObjectsData chair = pRoom.Objects.Where(o => o.Position == ADD.Direction).FirstOrDefault();
+                    if (chair == null) chair = Inventario.Where(o => o.Action == cCommon.ACTION_RISE).FirstOrDefault();
+
+                    if (chair != null)
+                    {
+                        ADD.CurrentRoom = int.Parse(myPropInfo.GetValue(pRoom, null).ToString());
+                        Response.Value = ADD.CurrentRoom;
+                        Response.Message = SetMessage(ADD.Direction);
+                    }
+                    else
+                    {
+                        Response.Success = false;
+                        Response.Message = "Non puoi usare il passaggio per salire o scendere. Hai bisogno di una scala, è troppo alto!";
+                    }
+                }
+                else
+                {
+                    ADD.CurrentRoom = int.Parse(myPropInfo.GetValue(pRoom, null).ToString());
+                    Response.Value = ADD.CurrentRoom;
+                    Response.Message = SetMessage(ADD.Direction);
+                }
             }
             else
             {

@@ -49,6 +49,7 @@
         public const string ACTION_OPEN = "Open";
         public const string ACTION_CLOSE = "Close";
         public const string ACTION_SHOOT = "Shoot";
+        public const string ACTION_RISE = "Rise";
 
         #endregion "Object Actions"
 
