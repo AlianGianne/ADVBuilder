@@ -30,6 +30,7 @@ namespace ADVBuilder
         private Pen PenGreen = new Pen(Color.Green, 2);
         private Pen PenBlack = new Pen(Color.Black, 2);
         private Pen PenYellow = new Pen(Color.Yellow, 2);
+        private Pen PenRed = new Pen(Color.Red, 2);
 
         public Adventure ADV;
         public AdventureData ADD;
@@ -104,7 +105,7 @@ namespace ADVBuilder
             layer = actual.Layer;
             foreach (var r in ADD.Rooms) r.Drawed = false;
             //foreach (var r in ADD.Rooms) r.Visited = true;
-            DrawMap(actual, x, y, PenGreen, drawFontA, drawBrush, g);
+            DrawMap(actual, x, y, PenRed, drawFontA, drawBrush, g);
         }
 
         private void DrawMap(RoomData rd, int x, int y, Pen p, Font drawFont, Brush drawBrush, Graphics g)
