@@ -19,7 +19,7 @@ namespace ADVBuilder.ActionsClass_New
             PropertyInfo myPropInfo = myType.GetProperty(ADD.Direction);
 
             ObjectsData door = pRoom.Objects.Where(o => o.Position == ADD.Direction).FirstOrDefault();
-            if (door == null || door.Status == cCommon.STATUS_OPEN)
+            if (door == null || door.Status == cCommon.STATUS_OPEN || door.Status == cCommon.STATUS_STATIC)
             {
                 //Nel caso servano scale
                 if (ADD.Direction == "AA" || ADD.Direction == "BB")

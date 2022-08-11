@@ -89,6 +89,7 @@ namespace ADVBuilder.Model
         [cAttributes(Name = "AA")] public int AA { get; set; }
         [cAttributes(Name = "BB")] public int BB { get; set; }                  //Direzioni perseguibili (Nord, Nord/est, Est, Sud/Est, Sud, Sud/Ovest, Ovest, Nord/Ovest, Alto, Basso)
         [cAttributes(Name = "Layer")] public int Layer { get; set; }
+        [cAttributes(Name = "ColorMap")] public int ColorMap { get; set; }
         public bool Visited { get; set; } = false;
         public List<string> Directions { get; set; }
         public List<ObjectsData> Objects { get; set; }                          //Eventuali oggetti presenti

@@ -28,9 +28,14 @@ namespace ADVBuilder
         private int layer = 0;
 
         private Pen PenGreen = new Pen(Color.Green, 2);
-        private Pen PenBlack = new Pen(Color.Black, 2);
+        private Pen PenUsed = new Pen(Color.Black, 2);
         private Pen PenYellow = new Pen(Color.Yellow, 2);
-        private Pen PenRed = new Pen(Color.Red, 2);
+        private Pen PenBlu = new Pen(Color.Blue, 2);
+        private Pen PenCyan = new Pen(Color.Cyan, 2);
+        private Pen PenDarkOrange = new Pen(Color.DarkOrange, 2);
+        private Pen PenRed = new Pen(Color.Red, 3);
+        private Dictionary<int, Pen> AllColors = new Dictionary<int, Pen>();
+        private int idxColor = 0;
 
         public Adventure ADV;
         public AdventureData ADD;
@@ -52,9 +57,20 @@ namespace ADVBuilder
         {
             InitializeInternalComponent();
             InitializeFunction();
+            InitializeColors();
             ViewData();
             ViewActions();
             ViewMap();
+        }
+
+        private void InitializeColors()
+        {
+            AllColors.Add(0, PenUsed);
+            AllColors.Add(1, PenBlu);
+            AllColors.Add(2, PenGreen);
+            AllColors.Add(3, PenYellow);
+            AllColors.Add(4, PenCyan);
+            AllColors.Add(5, PenDarkOrange);
         }
 
         private void InitializeInternalComponent()
@@ -108,18 +124,23 @@ namespace ADVBuilder
             DrawMap(actual, x, y, PenRed, drawFontA, drawBrush, g);
         }
 
+        private string ShortDesc = "";
         private void DrawMap(RoomData rd, int x, int y, Pen p, Font drawFont, Brush drawBrush, Graphics g)
         {
+
             if (rd != null)
             {
                 if (!rd.Drawed)
                 {
+                    PenUsed = AllColors[rd.ColorMap];
+
                     rd.Drawed = true;
                     rd.Visited = true;
                     g.DrawString(rd.Id.ToString(), new Font("Arial", 3), drawBrush, x + 2, y);
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2, y + 12);
                     g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, cCommon.ROOM_HEIGHT + Room_Zoom));
-                    g.DrawString(string.Format("Piano: {0}", layer), new Font("Arial", 8), drawBrush, cCommon.STR_LAYER_POSITION_X, cCommon.STR_LAYER_POSITION_Y);
+                    if(p==PenRed)
+                        g.DrawString(string.Format("Luogo {0} - Piano: {1}", rd.ShortDescription, layer), new Font("Arial", 8), drawBrush, cCommon.STR_LAYER_POSITION_X, cCommon.STR_LAYER_POSITION_Y);
 
                     int xObj = 2;
                     int yObj = (cCommon.ROOM_HEIGHT + Room_Zoom) - 8;
@@ -150,16 +171,16 @@ namespace ADVBuilder
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y - 5);
                         if (ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault(),
-                            x, y - ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
-                            PenBlack, drawFont, drawBrush, g);
+                            x, y - ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
+                            AllColors[ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.NE > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y, x + (cCommon.ROOM_WIDTH + Room_Zoom) + 3, y - 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault(),
-                            x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
-                            PenBlack, drawFont, drawBrush, g);
+                            x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
+                            AllColors[ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.EE > 0)
                     {
@@ -167,31 +188,31 @@ namespace ADVBuilder
                         if (ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault(),
                                 x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y,
-                                PenBlack, drawFont, drawBrush, g);
+                                AllColors[ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.SE > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y + (cCommon.ROOM_HEIGHT + Room_Zoom), x + (cCommon.ROOM_WIDTH + Room_Zoom) + 3, y + (cCommon.ROOM_HEIGHT + Room_Zoom) + 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault(),
-                            x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
-                            PenBlack, drawFont, drawBrush, g);
+                            x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
+                            AllColors[ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.SS > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y + (cCommon.ROOM_HEIGHT + Room_Zoom), x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y + ((cCommon.ROOM_HEIGHT + Room_Zoom)) + 5);
                         if (ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault(),
-                            x, y + ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
-                            PenBlack, drawFont, drawBrush, g);
+                            x, y + ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
+                            AllColors[ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.SO > 0)
                     {
                         g.DrawLine(p, x, y + (cCommon.ROOM_HEIGHT + Room_Zoom), x - 3, y + (cCommon.ROOM_HEIGHT + Room_Zoom) + 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault(),
-                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
-                            PenBlack, drawFont, drawBrush, g);
+                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
+                            AllColors[ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.OO > 0)
                     {
@@ -199,20 +220,20 @@ namespace ADVBuilder
                         if (ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault(),
                             x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y,
-                            PenBlack, drawFont, drawBrush, g);
+                            AllColors[ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.NO > 0)
                     {
                         g.DrawLine(p, x, y, x - 3, y - 3);
                         if (ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault().Visited)
                             DrawMap(ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault(),
-                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - ((cCommon.ROOM_HEIGHT + Room_Zoom ) + 5),
-                            PenBlack, drawFont, drawBrush, g);
+                            x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
+                            AllColors[ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                 }
             }
         }
-       
+
         private Button GetButton(int pX, int pY, object pObject, Color pBackColor, Color pForeColor, EventHandler pEventHandler)
         {
             Type type = pObject.GetType();
