@@ -468,8 +468,45 @@ namespace ADVBuilder
             Complement = null;
             ADD.Direction = direction;
             txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+            MoveCharacter();
             ViewData();
             ViewMap();
+        }
+
+        private void MoveCharacter()
+        {
+            foreach(RoomData r in ADD.Rooms)
+            {
+                if (r.Visited)
+                {
+                    foreach (CharactersData c in r.Characters)
+                    {
+                        c.IdRoom = GetNewRoom(r, c.IdRoom);
+
+                    }
+                }
+            }
+        }
+
+        private int GetNewRoom(RoomData pR, int pIdRoom)
+        {
+            List<int> newRooms = new List<int>();
+            newRooms.Add(pR.NE);
+            newRooms.Add(pR.NN);
+            newRooms.Add(pR.NO);
+            newRooms.Add(pR.OO);
+            newRooms.Add(pR.SE);
+            newRooms.Add(pR.SO);
+            newRooms.Add(pR.SS);
+            newRooms.Add(pR.AA);
+            newRooms.Add(pR.BB);
+            newRooms.Add(pR.EE);
+            int ret= newRooms[new Random(DateTime.Now.Second).Next(0, newRooms.Count)];
+            if (ret != -1)
+            {
+                
+            }
+            return ret == -1 ? pIdRoom : ret;
         }
 
         private void btnObjects_Click(object sender, EventArgs e)

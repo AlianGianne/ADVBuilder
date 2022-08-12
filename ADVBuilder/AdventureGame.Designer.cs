@@ -251,7 +251,7 @@
             // 
             this.pnlActions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlActions.Controls.Add(this.lblAction);
-            this.pnlActions.Location = new System.Drawing.Point(14, 529);
+            this.pnlActions.Location = new System.Drawing.Point(15, 615);
             this.pnlActions.Name = "pnlActions";
             this.pnlActions.Size = new System.Drawing.Size(310, 166);
             this.pnlActions.TabIndex = 19;
@@ -273,7 +273,7 @@
             this.pnlObjects.Controls.Add(this.lblObjects);
             this.pnlObjects.Location = new System.Drawing.Point(14, 13);
             this.pnlObjects.Name = "pnlObjects";
-            this.pnlObjects.Size = new System.Drawing.Size(310, 166);
+            this.pnlObjects.Size = new System.Drawing.Size(310, 192);
             this.pnlObjects.TabIndex = 20;
             // 
             // lblObjects
@@ -291,9 +291,9 @@
             // 
             this.pnlInventario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlInventario.Controls.Add(this.lblInventario);
-            this.pnlInventario.Location = new System.Drawing.Point(14, 185);
+            this.pnlInventario.Location = new System.Drawing.Point(14, 211);
             this.pnlInventario.Name = "pnlInventario";
-            this.pnlInventario.Size = new System.Drawing.Size(310, 166);
+            this.pnlInventario.Size = new System.Drawing.Size(310, 195);
             this.pnlInventario.TabIndex = 21;
             // 
             // lblInventario
@@ -311,9 +311,9 @@
             // 
             this.pnlPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPerson.Controls.Add(this.lblPersons);
-            this.pnlPerson.Location = new System.Drawing.Point(14, 357);
+            this.pnlPerson.Location = new System.Drawing.Point(14, 412);
             this.pnlPerson.Name = "pnlPerson";
-            this.pnlPerson.Size = new System.Drawing.Size(310, 166);
+            this.pnlPerson.Size = new System.Drawing.Size(310, 197);
             this.pnlPerson.TabIndex = 22;
             // 
             // lblPersons
@@ -333,9 +333,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlResult.Controls.Add(this.txtResult);
-            this.pnlResult.Location = new System.Drawing.Point(543, 529);
+            this.pnlResult.Location = new System.Drawing.Point(544, 615);
             this.pnlResult.Name = "pnlResult";
-            this.pnlResult.Size = new System.Drawing.Size(291, 166);
+            this.pnlResult.Size = new System.Drawing.Size(202, 166);
             this.pnlResult.TabIndex = 23;
             // 
             // txtResult
@@ -347,7 +347,7 @@
             this.txtResult.Location = new System.Drawing.Point(0, 0);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(289, 164);
+            this.txtResult.Size = new System.Drawing.Size(201, 164);
             this.txtResult.TabIndex = 0;
             // 
             // pnlDirection
@@ -367,7 +367,7 @@
             this.pnlDirection.Controls.Add(this.btnSO);
             this.pnlDirection.Controls.Add(this.btnOO);
             this.pnlDirection.Controls.Add(this.pictureBox1);
-            this.pnlDirection.Location = new System.Drawing.Point(330, 530);
+            this.pnlDirection.Location = new System.Drawing.Point(331, 616);
             this.pnlDirection.Name = "pnlDirection";
             this.pnlDirection.Size = new System.Drawing.Size(208, 165);
             this.pnlDirection.TabIndex = 20;
@@ -396,9 +396,9 @@
             // 
             this.pcbMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Papiro_2;
-            this.pcbMap.Location = new System.Drawing.Point(840, 37);
+            this.pcbMap.Location = new System.Drawing.Point(751, 37);
             this.pcbMap.Name = "pcbMap";
-            this.pcbMap.Size = new System.Drawing.Size(515, 486);
+            this.pcbMap.Size = new System.Drawing.Size(604, 572);
             this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pcbMap.TabIndex = 17;
             this.pcbMap.TabStop = false;
@@ -415,7 +415,7 @@
             this.pnlRoomDescription.Controls.Add(this.lblRoomDescription);
             this.pnlRoomDescription.Location = new System.Drawing.Point(330, 14);
             this.pnlRoomDescription.Name = "pnlRoomDescription";
-            this.pnlRoomDescription.Size = new System.Drawing.Size(503, 509);
+            this.pnlRoomDescription.Size = new System.Drawing.Size(415, 596);
             this.pnlRoomDescription.TabIndex = 24;
             // 
             // txtRoomDescription
@@ -429,7 +429,7 @@
             this.txtRoomDescription.Multiline = true;
             this.txtRoomDescription.Name = "txtRoomDescription";
             this.txtRoomDescription.ReadOnly = true;
-            this.txtRoomDescription.Size = new System.Drawing.Size(504, 487);
+            this.txtRoomDescription.Size = new System.Drawing.Size(416, 573);
             this.txtRoomDescription.TabIndex = 1;
             this.txtRoomDescription.Text = "gfervgrwcg\r\nrwcgr\r\ngcfdscgrecrfss";
             // 
@@ -441,7 +441,7 @@
             this.lblRoomDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoomDescription.Location = new System.Drawing.Point(-1, 0);
             this.lblRoomDescription.Name = "lblRoomDescription";
-            this.lblRoomDescription.Size = new System.Drawing.Size(503, 21);
+            this.lblRoomDescription.Size = new System.Drawing.Size(415, 21);
             this.lblRoomDescription.TabIndex = 0;
             this.lblRoomDescription.Text = "Descrizione luogo visitato:";
             this.lblRoomDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -465,9 +465,9 @@
             this.pnlActionMap.Controls.Add(this.btnZoomMinus);
             this.pnlActionMap.Controls.Add(this.btnZoomPlus);
             this.pnlActionMap.Controls.Add(this.label1);
-            this.pnlActionMap.Location = new System.Drawing.Point(840, 530);
+            this.pnlActionMap.Location = new System.Drawing.Point(752, 616);
             this.pnlActionMap.Name = "pnlActionMap";
-            this.pnlActionMap.Size = new System.Drawing.Size(515, 166);
+            this.pnlActionMap.Size = new System.Drawing.Size(604, 166);
             this.pnlActionMap.TabIndex = 20;
             // 
             // label5
@@ -661,7 +661,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(-5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(519, 21);
+            this.label1.Size = new System.Drawing.Size(608, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "Azioni Mappa:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -671,9 +671,9 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(840, 13);
+            this.label2.Location = new System.Drawing.Point(751, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(515, 23);
+            this.label2.Size = new System.Drawing.Size(604, 23);
             this.label2.TabIndex = 25;
             this.label2.Text = "Mappa:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -682,7 +682,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1367, 722);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1367, 793);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlActionMap);
             this.Controls.Add(this.pnlRoomDescription);
@@ -694,7 +696,9 @@
             this.Controls.Add(this.pnlActions);
             this.Controls.Add(this.pcbMap);
             this.Name = "AdventureGame";
-            this.Text = "AdventureGame";
+            this.Text = "Gioca l\'Avventura";
+            this.TopMost = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AdventureGame_Load);
             this.pnlActions.ResumeLayout(false);
             this.pnlObjects.ResumeLayout(false);
