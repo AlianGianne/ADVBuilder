@@ -42,6 +42,11 @@
         /// </summary>
         public const string STATUS_TAKE = "Take";
 
+        /// <summary>
+        /// Oggetto amico, non spostabile e non prendibile
+        /// </summary>
+        public const string STATUS_FRIEND = "Friend";
+
         #endregion "Objects Status"
 
         #region "Object Actions"
@@ -58,7 +63,7 @@
         /// <summary>
         /// Massimo numero di oggetti in Inventario
         /// </summary>
-        public const int INVENTARIO_MAX = 20;
+        public const int INVENTARIO_MAX = 15;
 
         #endregion "Inventario"
         #region "Common Methods"

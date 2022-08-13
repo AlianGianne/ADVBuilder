@@ -49,14 +49,15 @@
             this.pnlPerson = new System.Windows.Forms.Panel();
             this.lblPersons = new System.Windows.Forms.Label();
             this.pnlResult = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.pnlDirection = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pcbMap = new System.Windows.Forms.PictureBox();
             this.pnlRoomDescription = new System.Windows.Forms.Panel();
-            this.txtRoomDescription = new System.Windows.Forms.TextBox();
             this.lblRoomDescription = new System.Windows.Forms.Label();
+            this.txtRoomDescription = new System.Windows.Forms.TextBox();
             this.pnlActionMap = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -95,7 +96,7 @@
             this.btnNN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnNN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNN.Location = new System.Drawing.Point(67, 3);
+            this.btnNN.Location = new System.Drawing.Point(67, 7);
             this.btnNN.Name = "btnNN";
             this.btnNN.Size = new System.Drawing.Size(35, 35);
             this.btnNN.TabIndex = 2;
@@ -111,7 +112,7 @@
             this.btnNE.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnNE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNE.Location = new System.Drawing.Point(126, 3);
+            this.btnNE.Location = new System.Drawing.Point(126, 7);
             this.btnNE.Name = "btnNE";
             this.btnNE.Size = new System.Drawing.Size(35, 35);
             this.btnNE.TabIndex = 3;
@@ -127,7 +128,7 @@
             this.btnEE.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnEE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnEE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEE.Location = new System.Drawing.Point(126, 61);
+            this.btnEE.Location = new System.Drawing.Point(126, 65);
             this.btnEE.Name = "btnEE";
             this.btnEE.Size = new System.Drawing.Size(35, 35);
             this.btnEE.TabIndex = 4;
@@ -143,7 +144,7 @@
             this.btnSE.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSE.Location = new System.Drawing.Point(126, 125);
+            this.btnSE.Location = new System.Drawing.Point(126, 129);
             this.btnSE.Name = "btnSE";
             this.btnSE.Size = new System.Drawing.Size(35, 35);
             this.btnSE.TabIndex = 5;
@@ -159,7 +160,7 @@
             this.btnSS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnSS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSS.Location = new System.Drawing.Point(67, 125);
+            this.btnSS.Location = new System.Drawing.Point(67, 129);
             this.btnSS.Name = "btnSS";
             this.btnSS.Size = new System.Drawing.Size(35, 35);
             this.btnSS.TabIndex = 6;
@@ -175,7 +176,7 @@
             this.btnSO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnSO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSO.Location = new System.Drawing.Point(3, 125);
+            this.btnSO.Location = new System.Drawing.Point(3, 129);
             this.btnSO.Name = "btnSO";
             this.btnSO.Size = new System.Drawing.Size(35, 35);
             this.btnSO.TabIndex = 7;
@@ -191,7 +192,7 @@
             this.btnOO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnOO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnOO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOO.Location = new System.Drawing.Point(3, 61);
+            this.btnOO.Location = new System.Drawing.Point(3, 65);
             this.btnOO.Name = "btnOO";
             this.btnOO.Size = new System.Drawing.Size(35, 35);
             this.btnOO.TabIndex = 8;
@@ -207,7 +208,7 @@
             this.btnNO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNO.Location = new System.Drawing.Point(3, 3);
+            this.btnNO.Location = new System.Drawing.Point(3, 7);
             this.btnNO.Name = "btnNO";
             this.btnNO.Size = new System.Drawing.Size(35, 35);
             this.btnNO.TabIndex = 9;
@@ -223,7 +224,7 @@
             this.btnAA.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnAA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAA.Location = new System.Drawing.Point(168, 3);
+            this.btnAA.Location = new System.Drawing.Point(168, 7);
             this.btnAA.Name = "btnAA";
             this.btnAA.Size = new System.Drawing.Size(35, 35);
             this.btnAA.TabIndex = 10;
@@ -239,7 +240,7 @@
             this.btnBB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnBB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnBB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBB.Location = new System.Drawing.Point(168, 125);
+            this.btnBB.Location = new System.Drawing.Point(168, 129);
             this.btnBB.Name = "btnBB";
             this.btnBB.Size = new System.Drawing.Size(35, 35);
             this.btnBB.TabIndex = 11;
@@ -249,112 +250,133 @@
             // 
             // pnlActions
             // 
-            this.pnlActions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlActions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlActions.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlActions.Controls.Add(this.lblAction);
-            this.pnlActions.Location = new System.Drawing.Point(15, 615);
+            this.pnlActions.Location = new System.Drawing.Point(14, 638);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(310, 166);
+            this.pnlActions.Size = new System.Drawing.Size(430, 174);
             this.pnlActions.TabIndex = 19;
             // 
             // lblAction
             // 
+            this.lblAction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAction.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAction.Location = new System.Drawing.Point(-5, 0);
             this.lblAction.Name = "lblAction";
-            this.lblAction.Size = new System.Drawing.Size(313, 21);
+            this.lblAction.Size = new System.Drawing.Size(435, 31);
             this.lblAction.TabIndex = 3;
             this.lblAction.Text = "Azioni:";
             this.lblAction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlObjects
             // 
-            this.pnlObjects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlObjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlObjects.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlObjects.Controls.Add(this.lblObjects);
-            this.pnlObjects.Location = new System.Drawing.Point(14, 13);
+            this.pnlObjects.Location = new System.Drawing.Point(14, -121);
             this.pnlObjects.Name = "pnlObjects";
-            this.pnlObjects.Size = new System.Drawing.Size(310, 192);
+            this.pnlObjects.Size = new System.Drawing.Size(346, 244);
             this.pnlObjects.TabIndex = 20;
             // 
             // lblObjects
             // 
             this.lblObjects.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjects.Location = new System.Drawing.Point(-1, 0);
+            this.lblObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObjects.Location = new System.Drawing.Point(0, 1);
             this.lblObjects.Name = "lblObjects";
-            this.lblObjects.Size = new System.Drawing.Size(309, 21);
+            this.lblObjects.Size = new System.Drawing.Size(345, 31);
             this.lblObjects.TabIndex = 0;
             this.lblObjects.Text = "In questo luogo trovi:";
             this.lblObjects.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlInventario
             // 
-            this.pnlInventario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlInventario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlInventario.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlInventario.Controls.Add(this.lblInventario);
-            this.pnlInventario.Location = new System.Drawing.Point(14, 211);
+            this.pnlInventario.Location = new System.Drawing.Point(14, 129);
             this.pnlInventario.Name = "pnlInventario";
-            this.pnlInventario.Size = new System.Drawing.Size(310, 195);
+            this.pnlInventario.Size = new System.Drawing.Size(346, 244);
             this.pnlInventario.TabIndex = 21;
             // 
             // lblInventario
             // 
             this.lblInventario.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInventario.Location = new System.Drawing.Point(-3, 0);
             this.lblInventario.Name = "lblInventario";
-            this.lblInventario.Size = new System.Drawing.Size(313, 21);
+            this.lblInventario.Size = new System.Drawing.Size(349, 31);
             this.lblInventario.TabIndex = 1;
             this.lblInventario.Text = "Inventario:";
             this.lblInventario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlPerson
             // 
-            this.pnlPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlPerson.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlPerson.Controls.Add(this.lblPersons);
-            this.pnlPerson.Location = new System.Drawing.Point(14, 412);
+            this.pnlPerson.Location = new System.Drawing.Point(14, 379);
             this.pnlPerson.Name = "pnlPerson";
-            this.pnlPerson.Size = new System.Drawing.Size(310, 197);
+            this.pnlPerson.Size = new System.Drawing.Size(346, 253);
             this.pnlPerson.TabIndex = 22;
             // 
             // lblPersons
             // 
             this.lblPersons.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblPersons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersons.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPersons.Location = new System.Drawing.Point(-3, 0);
             this.lblPersons.Name = "lblPersons";
-            this.lblPersons.Size = new System.Drawing.Size(313, 21);
+            this.lblPersons.Size = new System.Drawing.Size(349, 31);
             this.lblPersons.TabIndex = 2;
             this.lblPersons.Text = "Persone incontrate:";
             this.lblPersons.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlResult
             // 
-            this.pnlResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlResult.BackColor = System.Drawing.Color.Gainsboro;
+            this.pnlResult.Controls.Add(this.label7);
             this.pnlResult.Controls.Add(this.txtResult);
-            this.pnlResult.Location = new System.Drawing.Point(544, 615);
+            this.pnlResult.Location = new System.Drawing.Point(663, 638);
             this.pnlResult.Name = "pnlResult";
-            this.pnlResult.Size = new System.Drawing.Size(202, 166);
+            this.pnlResult.Size = new System.Drawing.Size(187, 174);
             this.pnlResult.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(1, 1);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(187, 31);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Feedback:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtResult
             // 
             this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtResult.BackColor = System.Drawing.Color.White;
+            this.txtResult.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResult.Location = new System.Drawing.Point(0, 0);
+            this.txtResult.Location = new System.Drawing.Point(9, 42);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(201, 164);
+            this.txtResult.Size = new System.Drawing.Size(187, 123);
             this.txtResult.TabIndex = 0;
             // 
             // pnlDirection
             // 
-            this.pnlDirection.BackColor = System.Drawing.Color.White;
+            this.pnlDirection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlDirection.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlDirection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlDirection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDirection.Controls.Add(this.btnBB);
             this.pnlDirection.Controls.Add(this.btnAA);
             this.pnlDirection.Controls.Add(this.pictureBox2);
@@ -367,16 +389,16 @@
             this.pnlDirection.Controls.Add(this.btnSO);
             this.pnlDirection.Controls.Add(this.btnOO);
             this.pnlDirection.Controls.Add(this.pictureBox1);
-            this.pnlDirection.Location = new System.Drawing.Point(331, 616);
+            this.pnlDirection.Location = new System.Drawing.Point(450, 639);
             this.pnlDirection.Name = "pnlDirection";
-            this.pnlDirection.Size = new System.Drawing.Size(208, 165);
+            this.pnlDirection.Size = new System.Drawing.Size(208, 173);
             this.pnlDirection.TabIndex = 20;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::ADVBuilder.Properties.Resources.Scala;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(168, 37);
+            this.pictureBox2.Location = new System.Drawing.Point(168, 41);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 89);
             this.pictureBox2.TabIndex = 12;
@@ -386,7 +408,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::ADVBuilder.Properties.Resources.RosaVenti;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 37);
+            this.pictureBox1.Location = new System.Drawing.Point(37, 41);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(90, 94);
             this.pictureBox1.TabIndex = 10;
@@ -394,11 +416,11 @@
             // 
             // pcbMap
             // 
-            this.pcbMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pcbMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Papiro_2;
-            this.pcbMap.Location = new System.Drawing.Point(751, 37);
+            this.pcbMap.Location = new System.Drawing.Point(856, -87);
             this.pcbMap.Name = "pcbMap";
-            this.pcbMap.Size = new System.Drawing.Size(604, 572);
+            this.pcbMap.Size = new System.Drawing.Size(691, 719);
             this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pcbMap.TabIndex = 17;
             this.pcbMap.TabStop = false;
@@ -408,48 +430,48 @@
             // 
             // pnlRoomDescription
             // 
-            this.pnlRoomDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlRoomDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlRoomDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlRoomDescription.Controls.Add(this.txtRoomDescription);
+            this.pnlRoomDescription.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlRoomDescription.Controls.Add(this.lblRoomDescription);
-            this.pnlRoomDescription.Location = new System.Drawing.Point(330, 14);
+            this.pnlRoomDescription.Controls.Add(this.txtRoomDescription);
+            this.pnlRoomDescription.Location = new System.Drawing.Point(367, -120);
             this.pnlRoomDescription.Name = "pnlRoomDescription";
-            this.pnlRoomDescription.Size = new System.Drawing.Size(415, 596);
+            this.pnlRoomDescription.Size = new System.Drawing.Size(483, 753);
             this.pnlRoomDescription.TabIndex = 24;
-            // 
-            // txtRoomDescription
-            // 
-            this.txtRoomDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRoomDescription.BackColor = System.Drawing.Color.White;
-            this.txtRoomDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRoomDescription.Font = new System.Drawing.Font("Sylfaen", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRoomDescription.Location = new System.Drawing.Point(-2, 21);
-            this.txtRoomDescription.Multiline = true;
-            this.txtRoomDescription.Name = "txtRoomDescription";
-            this.txtRoomDescription.ReadOnly = true;
-            this.txtRoomDescription.Size = new System.Drawing.Size(416, 573);
-            this.txtRoomDescription.TabIndex = 1;
-            this.txtRoomDescription.Text = "gfervgrwcg\r\nrwcgr\r\ngcfdscgrecrfss";
             // 
             // lblRoomDescription
             // 
             this.lblRoomDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRoomDescription.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblRoomDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoomDescription.Location = new System.Drawing.Point(-1, 0);
             this.lblRoomDescription.Name = "lblRoomDescription";
-            this.lblRoomDescription.Size = new System.Drawing.Size(415, 21);
+            this.lblRoomDescription.Size = new System.Drawing.Size(485, 31);
             this.lblRoomDescription.TabIndex = 0;
             this.lblRoomDescription.Text = "Descrizione luogo visitato:";
             this.lblRoomDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtRoomDescription
+            // 
+            this.txtRoomDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRoomDescription.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtRoomDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRoomDescription.Font = new System.Drawing.Font("Sylfaen", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomDescription.Location = new System.Drawing.Point(8, 34);
+            this.txtRoomDescription.Multiline = true;
+            this.txtRoomDescription.Name = "txtRoomDescription";
+            this.txtRoomDescription.ReadOnly = true;
+            this.txtRoomDescription.Size = new System.Drawing.Size(466, 709);
+            this.txtRoomDescription.TabIndex = 1;
+            this.txtRoomDescription.Text = "gfervgrwcg\r\nrwcgr\r\ngcfdscgrecrfss";
+            // 
             // pnlActionMap
             // 
-            this.pnlActionMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlActionMap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlActionMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlActionMap.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlActionMap.Controls.Add(this.label5);
             this.pnlActionMap.Controls.Add(this.label6);
             this.pnlActionMap.Controls.Add(this.label4);
@@ -465,15 +487,16 @@
             this.pnlActionMap.Controls.Add(this.btnZoomMinus);
             this.pnlActionMap.Controls.Add(this.btnZoomPlus);
             this.pnlActionMap.Controls.Add(this.label1);
-            this.pnlActionMap.Location = new System.Drawing.Point(752, 616);
+            this.pnlActionMap.Location = new System.Drawing.Point(855, 639);
             this.pnlActionMap.Name = "pnlActionMap";
-            this.pnlActionMap.Size = new System.Drawing.Size(604, 166);
+            this.pnlActionMap.Size = new System.Drawing.Size(692, 173);
             this.pnlActionMap.TabIndex = 20;
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(370, 80);
+            this.label5.Location = new System.Drawing.Point(531, 100);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 13);
             this.label5.TabIndex = 23;
@@ -481,9 +504,10 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(350, 80);
+            this.label6.Location = new System.Drawing.Point(511, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 13);
             this.label6.TabIndex = 22;
@@ -491,8 +515,9 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(370, 57);
+            this.label4.Location = new System.Drawing.Point(531, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 13);
             this.label4.TabIndex = 21;
@@ -500,8 +525,9 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(370, 35);
+            this.label3.Location = new System.Drawing.Point(531, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 13);
             this.label3.TabIndex = 20;
@@ -509,9 +535,10 @@
             // 
             // lblLegendChr
             // 
+            this.lblLegendChr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLegendChr.AutoSize = true;
             this.lblLegendChr.BackColor = System.Drawing.Color.Violet;
-            this.lblLegendChr.Location = new System.Drawing.Point(350, 57);
+            this.lblLegendChr.Location = new System.Drawing.Point(511, 77);
             this.lblLegendChr.Name = "lblLegendChr";
             this.lblLegendChr.Size = new System.Drawing.Size(13, 13);
             this.lblLegendChr.TabIndex = 19;
@@ -519,9 +546,10 @@
             // 
             // lblLegendaObj
             // 
+            this.lblLegendaObj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLegendaObj.AutoSize = true;
             this.lblLegendaObj.BackColor = System.Drawing.Color.Maroon;
-            this.lblLegendaObj.Location = new System.Drawing.Point(350, 35);
+            this.lblLegendaObj.Location = new System.Drawing.Point(511, 55);
             this.lblLegendaObj.Name = "lblLegendaObj";
             this.lblLegendaObj.Size = new System.Drawing.Size(13, 13);
             this.lblLegendaObj.TabIndex = 18;
@@ -529,13 +557,13 @@
             // 
             // btnUp
             // 
-            this.btnUp.BackColor = System.Drawing.Color.Transparent;
+            this.btnUp.BackColor = System.Drawing.Color.Gainsboro;
             this.btnUp.FlatAppearance.BorderSize = 0;
             this.btnUp.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUp.Location = new System.Drawing.Point(126, 61);
+            this.btnUp.Location = new System.Drawing.Point(177, 96);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(35, 35);
             this.btnUp.TabIndex = 17;
@@ -545,13 +573,13 @@
             // 
             // btnDown
             // 
-            this.btnDown.BackColor = System.Drawing.Color.Transparent;
+            this.btnDown.BackColor = System.Drawing.Color.Gainsboro;
             this.btnDown.FlatAppearance.BorderSize = 0;
             this.btnDown.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnDown.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnDown.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDown.Location = new System.Drawing.Point(85, 61);
+            this.btnDown.Location = new System.Drawing.Point(120, 96);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(35, 35);
             this.btnDown.TabIndex = 16;
@@ -561,13 +589,13 @@
             // 
             // btnRight
             // 
-            this.btnRight.BackColor = System.Drawing.Color.Transparent;
+            this.btnRight.BackColor = System.Drawing.Color.Gainsboro;
             this.btnRight.FlatAppearance.BorderSize = 0;
             this.btnRight.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnRight.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnRight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRight.Location = new System.Drawing.Point(126, 24);
+            this.btnRight.Location = new System.Drawing.Point(177, 55);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(35, 35);
             this.btnRight.TabIndex = 15;
@@ -577,13 +605,13 @@
             // 
             // btnLeft
             // 
-            this.btnLeft.BackColor = System.Drawing.Color.Transparent;
+            this.btnLeft.BackColor = System.Drawing.Color.Gainsboro;
             this.btnLeft.FlatAppearance.BorderSize = 0;
             this.btnLeft.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnLeft.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnLeft.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeft.Location = new System.Drawing.Point(85, 24);
+            this.btnLeft.Location = new System.Drawing.Point(120, 55);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(35, 35);
             this.btnLeft.TabIndex = 14;
@@ -593,13 +621,13 @@
             // 
             // btnSuperMinus
             // 
-            this.btnSuperMinus.BackColor = System.Drawing.Color.Transparent;
+            this.btnSuperMinus.BackColor = System.Drawing.Color.Gainsboro;
             this.btnSuperMinus.FlatAppearance.BorderSize = 0;
             this.btnSuperMinus.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnSuperMinus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSuperMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnSuperMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSuperMinus.Location = new System.Drawing.Point(44, 65);
+            this.btnSuperMinus.Location = new System.Drawing.Point(63, 100);
             this.btnSuperMinus.Name = "btnSuperMinus";
             this.btnSuperMinus.Size = new System.Drawing.Size(35, 35);
             this.btnSuperMinus.TabIndex = 13;
@@ -609,13 +637,13 @@
             // 
             // btnSuperPlus
             // 
-            this.btnSuperPlus.BackColor = System.Drawing.Color.Transparent;
+            this.btnSuperPlus.BackColor = System.Drawing.Color.Gainsboro;
             this.btnSuperPlus.FlatAppearance.BorderSize = 0;
             this.btnSuperPlus.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnSuperPlus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSuperPlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnSuperPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSuperPlus.Location = new System.Drawing.Point(44, 24);
+            this.btnSuperPlus.Location = new System.Drawing.Point(63, 55);
             this.btnSuperPlus.Name = "btnSuperPlus";
             this.btnSuperPlus.Size = new System.Drawing.Size(35, 35);
             this.btnSuperPlus.TabIndex = 12;
@@ -625,13 +653,13 @@
             // 
             // btnZoomMinus
             // 
-            this.btnZoomMinus.BackColor = System.Drawing.Color.Transparent;
+            this.btnZoomMinus.BackColor = System.Drawing.Color.Gainsboro;
             this.btnZoomMinus.FlatAppearance.BorderSize = 0;
             this.btnZoomMinus.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnZoomMinus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnZoomMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnZoomMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoomMinus.Location = new System.Drawing.Point(3, 65);
+            this.btnZoomMinus.Location = new System.Drawing.Point(6, 100);
             this.btnZoomMinus.Name = "btnZoomMinus";
             this.btnZoomMinus.Size = new System.Drawing.Size(35, 35);
             this.btnZoomMinus.TabIndex = 11;
@@ -641,13 +669,13 @@
             // 
             // btnZoomPlus
             // 
-            this.btnZoomPlus.BackColor = System.Drawing.Color.Transparent;
+            this.btnZoomPlus.BackColor = System.Drawing.Color.Gainsboro;
             this.btnZoomPlus.FlatAppearance.BorderSize = 0;
             this.btnZoomPlus.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnZoomPlus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnZoomPlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnZoomPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZoomPlus.Location = new System.Drawing.Point(3, 24);
+            this.btnZoomPlus.Location = new System.Drawing.Point(6, 55);
             this.btnZoomPlus.Name = "btnZoomPlus";
             this.btnZoomPlus.Size = new System.Drawing.Size(35, 35);
             this.btnZoomPlus.TabIndex = 10;
@@ -657,23 +685,25 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-5, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(608, 21);
+            this.label1.Size = new System.Drawing.Size(692, 31);
             this.label1.TabIndex = 3;
             this.label1.Text = "Azioni Mappa:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(751, 13);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(856, -122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(604, 23);
+            this.label2.Size = new System.Drawing.Size(691, 33);
             this.label2.TabIndex = 25;
             this.label2.Text = "Mappa:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -684,7 +714,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1367, 793);
+            this.ClientSize = new System.Drawing.Size(1559, 816);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlActionMap);
             this.Controls.Add(this.pnlRoomDescription);
@@ -764,5 +794,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblLegendChr;
         private System.Windows.Forms.Label lblLegendaObj;
+        private System.Windows.Forms.Label label7;
     }
 }
