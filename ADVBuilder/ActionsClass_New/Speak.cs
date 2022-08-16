@@ -37,9 +37,18 @@ namespace ADVBuilder.ActionsClass_New
             }
             else
             {
-                Response.Message = string.Format("{0} dice:\n\r {1}", Character.Title, Character.Sentences[new Random(DateTime.Now.Second).Next(0, Character.Sentences.Count)].Sentence);
-                Response.Success = true;
-                Response.Value = 0;
+                if (Character.Sentences.Count > 0)
+                {
+                    Response.Message = string.Format("{0} dice:\n\r {1}", Character.Title, Character.Sentences[new Random(DateTime.Now.Second).Next(0, Character.Sentences.Count)].Sentence);
+                    Response.Success = true;
+                    Response.Value = 0;
+                }
+                else
+                {
+                    Response.Message = string.Format("{0} non ha nulla da dire", Character.Title);
+                    Response.Success = true;
+                    Response.Value = 0;
+                }
             }
             return Response;
         }

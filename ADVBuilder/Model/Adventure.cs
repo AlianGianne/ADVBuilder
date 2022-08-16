@@ -93,9 +93,16 @@ namespace ADVBuilder.Model
         /// <returns>string: descrizione lunga della Room</returns>
         public string ViewRoom()
         {
-            return Rooms.Where(r => r.Id == CurrentRoom).FirstOrDefault().Description;
+            return ActualRoom().Description;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public RoomData ActualRoom()
+        {
+            return Rooms.Where(r => r.Id == CurrentRoom).FirstOrDefault();
+        }
         #endregion "Methods"
     }
 }

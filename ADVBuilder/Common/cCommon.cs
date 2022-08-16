@@ -55,6 +55,9 @@
         public const string ACTION_CLOSE = "Close";
         public const string ACTION_SHOOT = "Shoot";
         public const string ACTION_RISE = "Rise";
+        public const string ACTION_BUY = "Buy";
+        public const string ACTION_SELL = "Sell";
+        public const string ACTION_STOLE = "Stole";
 
         #endregion "Object Actions"
 

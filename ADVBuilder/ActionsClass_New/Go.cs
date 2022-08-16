@@ -24,7 +24,7 @@ namespace ADVBuilder.ActionsClass_New
                 //Nel caso servano scale
                 if (ADD.Direction == "AA" || ADD.Direction == "BB")
                 {
-                    ObjectsData chair = pRoom.Objects.Where(o => o.Position == ADD.Direction).FirstOrDefault();
+                    ObjectsData chair = pRoom.Objects.Where(o => o.Position == ADD.Direction && o.Action == cCommon.ACTION_RISE).FirstOrDefault();
                     if (chair == null) chair = Inventario.Where(o => o.Action == cCommon.ACTION_RISE).FirstOrDefault();
 
                     if (chair != null)

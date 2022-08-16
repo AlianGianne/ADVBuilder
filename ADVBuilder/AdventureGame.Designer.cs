@@ -75,6 +75,11 @@
             this.btnZoomPlus = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblRoomsVisited = new System.Windows.Forms.Label();
+            this.lblCharacterEncountered = new System.Windows.Forms.Label();
+            this.lblPunteggio = new System.Windows.Forms.Label();
+            this.lblTitleAdventure = new System.Windows.Forms.Label();
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
             this.pnlInventario.SuspendLayout();
@@ -86,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
             this.pnlRoomDescription.SuspendLayout();
             this.pnlActionMap.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNN
@@ -253,7 +259,7 @@
             this.pnlActions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlActions.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlActions.Controls.Add(this.lblAction);
-            this.pnlActions.Location = new System.Drawing.Point(14, 638);
+            this.pnlActions.Location = new System.Drawing.Point(14, 878);
             this.pnlActions.Name = "pnlActions";
             this.pnlActions.Size = new System.Drawing.Size(430, 174);
             this.pnlActions.TabIndex = 19;
@@ -276,7 +282,7 @@
             this.pnlObjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlObjects.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlObjects.Controls.Add(this.lblObjects);
-            this.pnlObjects.Location = new System.Drawing.Point(14, -121);
+            this.pnlObjects.Location = new System.Drawing.Point(14, 119);
             this.pnlObjects.Name = "pnlObjects";
             this.pnlObjects.Size = new System.Drawing.Size(346, 244);
             this.pnlObjects.TabIndex = 20;
@@ -297,7 +303,7 @@
             this.pnlInventario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlInventario.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlInventario.Controls.Add(this.lblInventario);
-            this.pnlInventario.Location = new System.Drawing.Point(14, 129);
+            this.pnlInventario.Location = new System.Drawing.Point(14, 369);
             this.pnlInventario.Name = "pnlInventario";
             this.pnlInventario.Size = new System.Drawing.Size(346, 244);
             this.pnlInventario.TabIndex = 21;
@@ -318,7 +324,7 @@
             this.pnlPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlPerson.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlPerson.Controls.Add(this.lblPersons);
-            this.pnlPerson.Location = new System.Drawing.Point(14, 379);
+            this.pnlPerson.Location = new System.Drawing.Point(14, 619);
             this.pnlPerson.Name = "pnlPerson";
             this.pnlPerson.Size = new System.Drawing.Size(346, 253);
             this.pnlPerson.TabIndex = 22;
@@ -341,9 +347,9 @@
             this.pnlResult.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlResult.Controls.Add(this.label7);
             this.pnlResult.Controls.Add(this.txtResult);
-            this.pnlResult.Location = new System.Drawing.Point(663, 638);
+            this.pnlResult.Location = new System.Drawing.Point(663, 878);
             this.pnlResult.Name = "pnlResult";
-            this.pnlResult.Size = new System.Drawing.Size(187, 174);
+            this.pnlResult.Size = new System.Drawing.Size(303, 174);
             this.pnlResult.TabIndex = 23;
             // 
             // label7
@@ -354,7 +360,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(1, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(187, 31);
+            this.label7.Size = new System.Drawing.Size(303, 31);
             this.label7.TabIndex = 4;
             this.label7.Text = "Feedback:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -369,7 +375,7 @@
             this.txtResult.Location = new System.Drawing.Point(9, 42);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(187, 123);
+            this.txtResult.Size = new System.Drawing.Size(286, 123);
             this.txtResult.TabIndex = 0;
             // 
             // pnlDirection
@@ -389,7 +395,7 @@
             this.pnlDirection.Controls.Add(this.btnSO);
             this.pnlDirection.Controls.Add(this.btnOO);
             this.pnlDirection.Controls.Add(this.pictureBox1);
-            this.pnlDirection.Location = new System.Drawing.Point(450, 639);
+            this.pnlDirection.Location = new System.Drawing.Point(450, 879);
             this.pnlDirection.Name = "pnlDirection";
             this.pnlDirection.Size = new System.Drawing.Size(208, 173);
             this.pnlDirection.TabIndex = 20;
@@ -418,7 +424,7 @@
             // 
             this.pcbMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Papiro_2;
-            this.pcbMap.Location = new System.Drawing.Point(856, -87);
+            this.pcbMap.Location = new System.Drawing.Point(972, 153);
             this.pcbMap.Name = "pcbMap";
             this.pcbMap.Size = new System.Drawing.Size(691, 719);
             this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -435,9 +441,9 @@
             this.pnlRoomDescription.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlRoomDescription.Controls.Add(this.lblRoomDescription);
             this.pnlRoomDescription.Controls.Add(this.txtRoomDescription);
-            this.pnlRoomDescription.Location = new System.Drawing.Point(367, -120);
+            this.pnlRoomDescription.Location = new System.Drawing.Point(367, 120);
             this.pnlRoomDescription.Name = "pnlRoomDescription";
-            this.pnlRoomDescription.Size = new System.Drawing.Size(483, 753);
+            this.pnlRoomDescription.Size = new System.Drawing.Size(599, 753);
             this.pnlRoomDescription.TabIndex = 24;
             // 
             // lblRoomDescription
@@ -448,7 +454,7 @@
             this.lblRoomDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoomDescription.Location = new System.Drawing.Point(-1, 0);
             this.lblRoomDescription.Name = "lblRoomDescription";
-            this.lblRoomDescription.Size = new System.Drawing.Size(485, 31);
+            this.lblRoomDescription.Size = new System.Drawing.Size(601, 31);
             this.lblRoomDescription.TabIndex = 0;
             this.lblRoomDescription.Text = "Descrizione luogo visitato:";
             this.lblRoomDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -464,7 +470,7 @@
             this.txtRoomDescription.Multiline = true;
             this.txtRoomDescription.Name = "txtRoomDescription";
             this.txtRoomDescription.ReadOnly = true;
-            this.txtRoomDescription.Size = new System.Drawing.Size(466, 709);
+            this.txtRoomDescription.Size = new System.Drawing.Size(582, 709);
             this.txtRoomDescription.TabIndex = 1;
             this.txtRoomDescription.Text = "gfervgrwcg\r\nrwcgr\r\ngcfdscgrecrfss";
             // 
@@ -487,16 +493,16 @@
             this.pnlActionMap.Controls.Add(this.btnZoomMinus);
             this.pnlActionMap.Controls.Add(this.btnZoomPlus);
             this.pnlActionMap.Controls.Add(this.label1);
-            this.pnlActionMap.Location = new System.Drawing.Point(855, 639);
+            this.pnlActionMap.Location = new System.Drawing.Point(972, 879);
             this.pnlActionMap.Name = "pnlActionMap";
-            this.pnlActionMap.Size = new System.Drawing.Size(692, 173);
+            this.pnlActionMap.Size = new System.Drawing.Size(691, 173);
             this.pnlActionMap.TabIndex = 20;
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(531, 100);
+            this.label5.Location = new System.Drawing.Point(530, 100);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 13);
             this.label5.TabIndex = 23;
@@ -507,7 +513,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(511, 100);
+            this.label6.Location = new System.Drawing.Point(510, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 13);
             this.label6.TabIndex = 22;
@@ -517,7 +523,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(531, 77);
+            this.label4.Location = new System.Drawing.Point(530, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 13);
             this.label4.TabIndex = 21;
@@ -527,7 +533,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(531, 55);
+            this.label3.Location = new System.Drawing.Point(530, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 13);
             this.label3.TabIndex = 20;
@@ -538,7 +544,7 @@
             this.lblLegendChr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLegendChr.AutoSize = true;
             this.lblLegendChr.BackColor = System.Drawing.Color.Violet;
-            this.lblLegendChr.Location = new System.Drawing.Point(511, 77);
+            this.lblLegendChr.Location = new System.Drawing.Point(510, 77);
             this.lblLegendChr.Name = "lblLegendChr";
             this.lblLegendChr.Size = new System.Drawing.Size(13, 13);
             this.lblLegendChr.TabIndex = 19;
@@ -549,7 +555,7 @@
             this.lblLegendaObj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLegendaObj.AutoSize = true;
             this.lblLegendaObj.BackColor = System.Drawing.Color.Maroon;
-            this.lblLegendaObj.Location = new System.Drawing.Point(511, 55);
+            this.lblLegendaObj.Location = new System.Drawing.Point(510, 55);
             this.lblLegendaObj.Name = "lblLegendaObj";
             this.lblLegendaObj.Size = new System.Drawing.Size(13, 13);
             this.lblLegendaObj.TabIndex = 18;
@@ -691,7 +697,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(692, 31);
+            this.label1.Size = new System.Drawing.Size(691, 31);
             this.label1.TabIndex = 3;
             this.label1.Text = "Azioni Mappa:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -701,12 +707,73 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(856, -122);
+            this.label2.Location = new System.Drawing.Point(972, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(691, 33);
             this.label2.TabIndex = 25;
             this.label2.Text = "Mappa:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.lblRoomsVisited);
+            this.panel1.Controls.Add(this.lblCharacterEncountered);
+            this.panel1.Controls.Add(this.lblPunteggio);
+            this.panel1.Controls.Add(this.lblTitleAdventure);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1651, 100);
+            this.panel1.TabIndex = 26;
+            // 
+            // lblRoomsVisited
+            // 
+            this.lblRoomsVisited.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRoomsVisited.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomsVisited.Location = new System.Drawing.Point(1275, 64);
+            this.lblRoomsVisited.Name = "lblRoomsVisited";
+            this.lblRoomsVisited.Size = new System.Drawing.Size(371, 36);
+            this.lblRoomsVisited.TabIndex = 3;
+            this.lblRoomsVisited.Text = "label8";
+            this.lblRoomsVisited.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCharacterEncountered
+            // 
+            this.lblCharacterEncountered.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCharacterEncountered.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCharacterEncountered.Location = new System.Drawing.Point(749, 64);
+            this.lblCharacterEncountered.Name = "lblCharacterEncountered";
+            this.lblCharacterEncountered.Size = new System.Drawing.Size(487, 36);
+            this.lblCharacterEncountered.TabIndex = 2;
+            this.lblCharacterEncountered.Text = "label8";
+            this.lblCharacterEncountered.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPunteggio
+            // 
+            this.lblPunteggio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblPunteggio.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPunteggio.Location = new System.Drawing.Point(339, 64);
+            this.lblPunteggio.Name = "lblPunteggio";
+            this.lblPunteggio.Size = new System.Drawing.Size(371, 36);
+            this.lblPunteggio.TabIndex = 1;
+            this.lblPunteggio.Text = "label8";
+            this.lblPunteggio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTitleAdventure
+            // 
+            this.lblTitleAdventure.Font = new System.Drawing.Font("NSimSun", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleAdventure.Location = new System.Drawing.Point(2, 0);
+            this.lblTitleAdventure.Name = "lblTitleAdventure";
+            this.lblTitleAdventure.Size = new System.Drawing.Size(342, 100);
+            this.lblTitleAdventure.TabIndex = 0;
+            this.lblTitleAdventure.Text = "label8";
+            this.lblTitleAdventure.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AdventureGame
             // 
@@ -714,7 +781,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1559, 816);
+            this.ClientSize = new System.Drawing.Size(1675, 1056);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlActionMap);
             this.Controls.Add(this.pnlRoomDescription);
@@ -744,6 +812,7 @@
             this.pnlRoomDescription.PerformLayout();
             this.pnlActionMap.ResumeLayout(false);
             this.pnlActionMap.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -795,5 +864,10 @@
         private System.Windows.Forms.Label lblLegendChr;
         private System.Windows.Forms.Label lblLegendaObj;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblRoomsVisited;
+        private System.Windows.Forms.Label lblCharacterEncountered;
+        private System.Windows.Forms.Label lblPunteggio;
+        private System.Windows.Forms.Label lblTitleAdventure;
     }
 }
