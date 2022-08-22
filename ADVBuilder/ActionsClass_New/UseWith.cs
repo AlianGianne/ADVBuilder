@@ -19,7 +19,7 @@ namespace ADVBuilder.ActionsClass_New
             Room = pRoom;
             if (Object == null)
             {
-                Response.Success = true;
+                Response.Success = false;
                 Response.Message = "Seleziona l'oggetto da utilizzare!";
                 Response.Value = 0;
             }
@@ -27,7 +27,7 @@ namespace ADVBuilder.ActionsClass_New
             {
                 if (Complement == null)
                 {
-                    Response.Success = true;
+                    Response.Success = false;
                     Response.Message = "Seleziona l'oggetto con cui interagire!";
                     Response.Value = 0;
                 }
@@ -75,7 +75,7 @@ namespace ADVBuilder.ActionsClass_New
 
         private void SetOpenAction()
         {
-            if (int.Parse(Object.SufferAction) == Complement.Id)
+            if (Object.SufferAction == Complement.Id.ToString())
             {
                 Complement.Status = cCommon.STATUS_OPEN;
                 Response.Success = true;

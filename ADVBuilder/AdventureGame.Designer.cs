@@ -261,7 +261,7 @@
             this.pnlActions.Controls.Add(this.lblAction);
             this.pnlActions.Location = new System.Drawing.Point(14, 878);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(430, 174);
+            this.pnlActions.Size = new System.Drawing.Size(456, 174);
             this.pnlActions.TabIndex = 19;
             // 
             // lblAction
@@ -272,7 +272,7 @@
             this.lblAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAction.Location = new System.Drawing.Point(-5, 0);
             this.lblAction.Name = "lblAction";
-            this.lblAction.Size = new System.Drawing.Size(435, 31);
+            this.lblAction.Size = new System.Drawing.Size(461, 31);
             this.lblAction.TabIndex = 3;
             this.lblAction.Text = "Azioni:";
             this.lblAction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -347,9 +347,9 @@
             this.pnlResult.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlResult.Controls.Add(this.label7);
             this.pnlResult.Controls.Add(this.txtResult);
-            this.pnlResult.Location = new System.Drawing.Point(663, 878);
+            this.pnlResult.Location = new System.Drawing.Point(689, 878);
             this.pnlResult.Name = "pnlResult";
-            this.pnlResult.Size = new System.Drawing.Size(303, 174);
+            this.pnlResult.Size = new System.Drawing.Size(277, 174);
             this.pnlResult.TabIndex = 23;
             // 
             // label7
@@ -360,7 +360,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(1, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(303, 31);
+            this.label7.Size = new System.Drawing.Size(277, 31);
             this.label7.TabIndex = 4;
             this.label7.Text = "Feedback:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -375,7 +375,8 @@
             this.txtResult.Location = new System.Drawing.Point(9, 42);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(286, 123);
+            this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtResult.Size = new System.Drawing.Size(260, 123);
             this.txtResult.TabIndex = 0;
             // 
             // pnlDirection
@@ -395,7 +396,7 @@
             this.pnlDirection.Controls.Add(this.btnSO);
             this.pnlDirection.Controls.Add(this.btnOO);
             this.pnlDirection.Controls.Add(this.pictureBox1);
-            this.pnlDirection.Location = new System.Drawing.Point(450, 879);
+            this.pnlDirection.Location = new System.Drawing.Point(476, 879);
             this.pnlDirection.Name = "pnlDirection";
             this.pnlDirection.Size = new System.Drawing.Size(208, 173);
             this.pnlDirection.TabIndex = 20;
@@ -470,6 +471,7 @@
             this.txtRoomDescription.Multiline = true;
             this.txtRoomDescription.Name = "txtRoomDescription";
             this.txtRoomDescription.ReadOnly = true;
+            this.txtRoomDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtRoomDescription.Size = new System.Drawing.Size(582, 709);
             this.txtRoomDescription.TabIndex = 1;
             this.txtRoomDescription.Text = "gfervgrwcg\r\nrwcgr\r\ngcfdscgrecrfss";

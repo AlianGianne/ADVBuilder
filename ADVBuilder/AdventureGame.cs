@@ -15,7 +15,7 @@ namespace ADVBuilder
     public partial class AdventureGame : CommonForm
     {
         private const int BTN_HEIGHT = 26;
-        private const int BTN_WIDTH = 105;
+        private const int BTN_WIDTH = 111;
         private const int BTN_INTER_GAP = 1;
         private const int BTN_GAP = 5;
         private int Room_Zoom = 50;
@@ -137,8 +137,8 @@ namespace ADVBuilder
             Font drawFontA = new Font("Arial", 6 + Room_Zoom / 30);
             Font drawFontB = new Font("Arial", 5);
             SolidBrush drawBrush = new SolidBrush(Color.WhiteSmoke);
-            
-            
+
+
 
             RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
             layer = actual.Layer;
@@ -161,7 +161,7 @@ namespace ADVBuilder
                     g.DrawString(rd.Id.ToString(), new Font("Arial", 6 + Room_Zoom / 30), drawBrush, x + 2 + Room_Zoom / 30 + 6, y + 3 + Room_Zoom / 30 + 6);
                     g.DrawString(rd.Title, drawFont, drawBrush, x + 2 + Room_Zoom / 30 + 6, y + 10 + Room_Zoom / 10 + 6);
                     g.DrawRectangle(p, new Rectangle(x, y, cCommon.ROOM_WIDTH + Room_Zoom, cCommon.ROOM_HEIGHT + Room_Zoom));
-                    
+
 
                     //Titolo Mappa
                     if (p == PenRed)
@@ -173,54 +173,55 @@ namespace ADVBuilder
                     //Oggetti in stanza
                     int xObj = 2 + Room_Zoom / 30 + 7;
                     int yObj = (cCommon.ROOM_HEIGHT + Room_Zoom) - Room_Zoom / 4 - 10;
+                    Pen colorObject = new Pen(Color.Brown, 1);
                     foreach (ObjectsData obj in rd.Objects)
                     {
-                        //if (obj.Position == "AA")
-                        //{
-                        //    g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x + cCommon.ROOM_WIDTH + Room_Zoom + Room_Zoom - 5, y , 5, 5));
-                        //}
+                        colorObject = obj.Status == cCommon.STATUS_OPEN ?   new Pen(Color.DarkGreen, 1) : 
+                                      obj.Status == cCommon.STATUS_CLOSED ? new Pen(Color.Brown, 1) :
+                                      obj.Status == cCommon.STATUS_LOCKED ? new Pen(Color.DarkOrange, 1) :
+                                                                            new Pen(Color.Black);
                         if (obj.Position == "NN")
                         {
-                            g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom)/2 - 5, y, 10, 5));
+                            g.DrawRectangle(colorObject, new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2 - 5, y, 10, 5));
                         }
                         else
-                        if(obj.Position == "NE")
+                        if (obj.Position == "NE")
                         {
-                            g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) - 7, y, 7, 7));
+                            g.DrawRectangle(colorObject, new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) - 7, y, 7, 7));
                         }
                         else
                         if (obj.Position == "EE")
                         {
-                            g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) - 5, y + (cCommon.ROOM_HEIGHT + Room_Zoom)/2 - 5, 5, 10));
+                            g.DrawRectangle(colorObject, new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) - 5, y + (cCommon.ROOM_HEIGHT + Room_Zoom) / 2 - 5, 5, 10));
                         }
                         else
                         if (obj.Position == "SE")
                         {
-                            g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) - 7, y + (cCommon.ROOM_HEIGHT + Room_Zoom) - 7, 7, 7));
+                            g.DrawRectangle(colorObject, new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) - 7, y + (cCommon.ROOM_HEIGHT + Room_Zoom) - 7, 7, 7));
                         }
                         else
                         if (obj.Position == "SS")
                         {
-                            g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2 - 5, y + (cCommon.ROOM_HEIGHT + Room_Zoom) - 5, 10, 5));
+                            g.DrawRectangle(colorObject, new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2 - 5, y + (cCommon.ROOM_HEIGHT + Room_Zoom) - 5, 10, 5));
                         }
                         else
                         if (obj.Position == "SO")
                         {
-                            g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x, y + (cCommon.ROOM_HEIGHT + Room_Zoom) - 7, 7, 7));
+                            g.DrawRectangle(colorObject, new Rectangle(x, y + (cCommon.ROOM_HEIGHT + Room_Zoom) - 7, 7, 7));
                         }
                         else
                         if (obj.Position == "OO")
                         {
-                            g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x, y + (cCommon.ROOM_HEIGHT + Room_Zoom) / 2 - 5, 5, 10));
+                            g.DrawRectangle(colorObject, new Rectangle(x, y + (cCommon.ROOM_HEIGHT + Room_Zoom) / 2 - 5, 5, 10));
                         }
                         else
                         if (obj.Position == "NO")
                         {
-                            g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x, y, 7, 7));
+                            g.DrawRectangle(colorObject, new Rectangle(x, y, 7, 7));
                         }
                         else
                         {
-                            g.DrawRectangle(new Pen(Color.Brown, 1), new Rectangle(x + xObj, y + yObj, 5, 5));
+                            g.DrawRectangle(colorObject, new Rectangle(x + xObj, y + yObj, 5, 5));
                             xObj += 7;
                         }
                     }
@@ -356,7 +357,9 @@ namespace ADVBuilder
             int r = 200;
             int g = 150;
             int b = 100;
-
+            int r1 = 55;
+            int g1 = 105;
+            int b1 = 155;
             int x = BTN_GAP;
             int y = lblAction.Top + lblAction.Height + BTN_GAP;
 
@@ -365,13 +368,16 @@ namespace ADVBuilder
                 r = r - 2;
                 g = g + 3;
                 b = b + 3;
+                r1 = 255 - r;
+                g1 = 255 - g;
+                b1 = 255 - b;
                 Color color = Color.FromArgb(r, g, b);
-                Color foreColor = Color.WhiteSmoke;
+                Color foreColor = Color.FromArgb(r1, g1, b1);
                 if (a != null)
                 {
 
                     pnlActions.Controls.Add(GetButton(x, y, a, color, foreColor, new EventHandler(btnActions_Click)));
-                    if (x < 345 - BTN_WIDTH)
+                    if (x < 355 - BTN_WIDTH)
                     {
                         x += BTN_WIDTH + BTN_INTER_GAP;
                     }
@@ -401,7 +407,19 @@ namespace ADVBuilder
                 g = g - 2;
                 b = b + 3;
                 Color color = Color.FromArgb(r, g, b);
-                Color foreColor = Color.WhiteSmoke;
+                Color foreColor = Color.Black;
+                switch (o.Status)
+                {
+                    case cCommon.STATUS_CLOSED:
+                        foreColor = Color.DarkRed;
+                        break;
+                    case cCommon.STATUS_OPEN:
+                        foreColor = Color.DarkGreen;
+                        break;
+                    case cCommon.STATUS_STATIC:
+                        foreColor = Color.Yellow;
+                        break;
+                }
                 if (o != null)
                 {
                     pnlObjects.Controls.Add(GetButton(x, y, o, color, foreColor, new EventHandler(btnObjects_Click)));
@@ -423,7 +441,9 @@ namespace ADVBuilder
             int r = 50;
             int g = 20;
             int b = 200;
-
+            int r1 = 50;
+            int g1 = 20;
+            int b1 = 200;
             int x = BTN_GAP;
             int y = lblAction.Top + lblAction.Height + BTN_GAP;
 
@@ -431,11 +451,14 @@ namespace ADVBuilder
 
             foreach (CharactersData o in ADD.Rooms.Where(l => l.Id == ADD.CurrentRoom).FirstOrDefault().Characters)
             {
-                r = r + 4;
+                r = r - 2;
                 g = g + 3;
-                b = b - 4;
+                b = b + 3;
+                r1 = 255 - r;
+                g1 = 255 - g;
+                b1 = 255 - b;
                 Color color = Color.FromArgb(r, g, b);
-                Color foreColor = Color.WhiteSmoke;
+                Color foreColor = Color.FromArgb(r1, g1, b1);
                 if (o != null)
                 {
                     pnlPerson.Controls.Add(GetButton(x, y, o, color, foreColor, new EventHandler(btnCharacters_Click)));
@@ -456,8 +479,10 @@ namespace ADVBuilder
         {
             int r = 180;
             int g = 10;
-            int b = 100;
-
+            int b = 80;
+            int r1 = 180;
+            int g1 = 10;
+            int b1 = 100;
             int x = BTN_GAP;
             int y = lblAction.Top + lblAction.Height + BTN_GAP;
 
@@ -467,9 +492,12 @@ namespace ADVBuilder
             {
                 r = r - 3;
                 g = g + 2;
-                b = b + 2;
+                b = b - 2;
+                r1 = 255 - r;
+                g1 = 255 - g;
+                b1 = 255 - b;
                 Color color = Color.FromArgb(r, g, b);
-                Color foreColor = Color.WhiteSmoke;
+                Color foreColor = Color.FromArgb(r1, g1, b1);
                 if (o != null)
                 {
                     pnlInventario.Controls.Add(GetButton(x, y, o, color, foreColor, new EventHandler(btnInventario_Click)));
@@ -604,9 +632,10 @@ namespace ADVBuilder
                 }
             }
         }
-        private Random rnd = new Random();
+
         private int GetNewRoom(RoomData pR, int pIdRoom)
         {
+            Random rnd = new Random();
             List<int> newRooms = new List<int>();
             newRooms.Add(pR.NE);
             newRooms.Add(pR.NN);
@@ -628,10 +657,19 @@ namespace ADVBuilder
         {
             if (CurrentAction != null)
             {
+                Response response = null;
                 Button btn = (Button)sender;
 
                 SetActions(Action, btn.Tag as ObjectsData);
-                txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+                response = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault());
+                txtResult.Text = response.Message;
+                if (response.Success)
+                {
+                    //CurrentAction = null;
+                    Object = null;
+                    Complement = null;
+                    Character = null;
+                }
                 ViewData();
                 ViewMap();
             }
@@ -641,10 +679,20 @@ namespace ADVBuilder
         {
             if (CurrentAction != null)
             {
+                Response response = null;
+
                 Button btn = (Button)sender;
 
                 SetActionsCharacter(Action, btn.Tag as CharactersData);
-                txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+                response = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault());
+                txtResult.Text = response.Message;
+                if (response.Success)
+                {
+                    //CurrentAction = null;
+                    Object = null;
+                    Complement = null;
+                    Character = null;
+                }
                 ViewData();
                 ViewMap();
             }
@@ -705,7 +753,7 @@ namespace ADVBuilder
                 lastLocation = e.Location;
             }
         }
-        
+
         private void pcbMap_MouseUp(object sender, MouseEventArgs e)
         {
             Dragging = false;

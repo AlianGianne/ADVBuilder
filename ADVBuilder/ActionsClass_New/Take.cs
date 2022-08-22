@@ -25,7 +25,7 @@ namespace ADVBuilder.ActionsClass_New
             Room = pRoom;
             if (Object == null)
             {
-                Response.Success = true;
+                Response.Success = false;
                 Response.Message = "Seleziona l'oggetto da prendere!";
                 Response.Value = 0;
             }
