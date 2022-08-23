@@ -78,7 +78,7 @@ namespace ADVBuilder.Model
         [cAttributes(Name = "Title")] public string Title { get; set; }                   //Titolo
         [cAttributes(Name = "Description")] public string Description { get; set; }             //Descrizione
         [cAttributes(Name = "ShortDescription")] public string ShortDescription { get; set; }        //Descrizione breve
-        [cAttributes(Name = "NN")] public int NN { get; set; }
+        [cAttributes(Name = "NN")] public int NN { get; set; }                  //Direzioni perseguibili (Nord, Nord/est, Est, Sud/Est, Sud, Sud/Ovest, Ovest, Nord/Ovest, Alto, Basso)
         [cAttributes(Name = "NE")] public int NE { get; set; }
         [cAttributes(Name = "EE")] public int EE { get; set; }
         [cAttributes(Name = "SE")] public int SE { get; set; }
@@ -87,7 +87,7 @@ namespace ADVBuilder.Model
         [cAttributes(Name = "OO")] public int OO { get; set; }
         [cAttributes(Name = "NO")] public int NO { get; set; }
         [cAttributes(Name = "AA")] public int AA { get; set; }
-        [cAttributes(Name = "BB")] public int BB { get; set; }                  //Direzioni perseguibili (Nord, Nord/est, Est, Sud/Est, Sud, Sud/Ovest, Ovest, Nord/Ovest, Alto, Basso)
+        [cAttributes(Name = "BB")] public int BB { get; set; }
         [cAttributes(Name = "Layer")] public int Layer { get; set; }
         [cAttributes(Name = "ColorMap")] public int ColorMap { get; set; }
         public bool Visited { get; set; } = false;

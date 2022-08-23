@@ -32,5 +32,13 @@ namespace ADVBuilder.Model
         {
             return CharactersMeet.Count + 1;
         }
+        public int Force { get; set; } = 0;
+        public int Wisdom { get; set; } = 0;
+        public int Physique { get; set; } = 0;
+        public int Dexterity { get; set; } = 0;
+        public int Smartness { get; set; } = 0;
+        public int Experience { get; set; } = 0;
+        public int Life { get; set; } = 0;
+        public int Mana { get; set; } = 0;
     }
 }

@@ -115,8 +115,13 @@ namespace ADVBuilder
             ClassList.Add("Esamina", new Examinate(ADD, Inventario));
             ClassList.Add("Osserva", new Examinate(ADD, Inventario));
             ClassList.Add("Apri", new Open(ADD, Inventario));
+            ClassList.Add("Chiudi", new Close(ADD, Inventario));
             ClassList.Add("Usa con...", new UseWith(ADD, Inventario));
             ClassList.Add("Parla", new Speak(ADD, Inventario));
+            ClassList.Add("Salva", new Save(ADD, Inventario));
+            ClassList.Add("Carica", new Load(ADD, Inventario));
+            ClassList.Add("Termina", new End(ADD, Inventario));
+            ClassList.Add("Informazioni", new Info(ADD, Inventario));
             ClassList.Add("Inimplementato", new Unable(ADD, Inventario));
             ClassList.Add("NN", new Go(ADD, Inventario));
             ClassList.Add("NE", new Go(ADD, Inventario));
@@ -709,9 +714,12 @@ namespace ADVBuilder
             Object = null;
             Complement = null;
             Character = null;
-            txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+            Response r = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(rs => rs.Id == ADD.CurrentRoom).FirstOrDefault());
+            txtResult.Text = r.Message;
+            
             ViewData();
             ViewMap();
+            if (r.Value.ToString() == "END") Close();
         }
 
         private void SetActions(ActionData pAction, ObjectsData pObject)
