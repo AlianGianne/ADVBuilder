@@ -16,15 +16,16 @@ namespace ADVBuilder.ActionsClass_New
             Room = pRoom;
             Character = pCharacter;
             Response.Message = SetMessage();
+            //Response.Success = false;
             return Response;
         }
 
         private string SetMessage()
         {
             Response.Success = Object != null;
-            if(Response.Success) return Response.Success ? Object.Description : "Seleziona qualcosa da guardare...";
+            if(Response.Success) return Response.Success ? Object.Description : "Seleziona qualcosa da esaminare...";
             Response.Success = Character != null;
-            return Response.Success ? Character.Description : "Seleziona qualcosa da guardare...";
+            return Response.Success ? Character.Description : "Seleziona qualcosa da esaminare...";
         }
     }
 }

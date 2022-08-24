@@ -41,6 +41,8 @@ namespace ADVBuilder
         private Pen PenBlu = new Pen(Color.Blue, 1);
         private Pen PenCyan = new Pen(Color.Cyan, 1);
         private Pen PenDarkOrange = new Pen(Color.DarkOrange, 1);
+        private Pen PenLightGoldenrodYellow = new Pen(Color.LightGoldenrodYellow, 1);
+        private Pen PenMidnightBlue = new Pen(Color.MidnightBlue, 1);
         private Pen PenRed = new Pen(Color.Red, 2);
         private Dictionary<int, Pen> AllColors = new Dictionary<int, Pen>();
         private int idxColor = 0;
@@ -92,6 +94,8 @@ namespace ADVBuilder
             AllColors.Add(3, PenYellow);
             AllColors.Add(4, PenCyan);
             AllColors.Add(5, PenDarkOrange);
+            AllColors.Add(6, PenLightGoldenrodYellow);
+            AllColors.Add(7, PenMidnightBlue);
         }
 
         private void InitializeInternalComponent()
