@@ -76,10 +76,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDate = new System.Windows.Forms.Label();
             this.lblRoomsVisited = new System.Windows.Forms.Label();
             this.lblCharacterEncountered = new System.Windows.Forms.Label();
             this.lblPunteggio = new System.Windows.Forms.Label();
             this.lblTitleAdventure = new System.Windows.Forms.Label();
+            this.tmrAdv = new System.Windows.Forms.Timer(this.components);
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
             this.pnlInventario.SuspendLayout();
@@ -721,6 +723,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.lblDate);
             this.panel1.Controls.Add(this.lblRoomsVisited);
             this.panel1.Controls.Add(this.lblCharacterEncountered);
             this.panel1.Controls.Add(this.lblPunteggio);
@@ -729,6 +732,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1651, 100);
             this.panel1.TabIndex = 26;
+            // 
+            // lblDate
+            // 
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblDate.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(339, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(371, 36);
+            this.lblDate.TabIndex = 4;
+            this.lblDate.Text = "label8";
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblRoomsVisited
             // 
@@ -776,6 +791,12 @@
             this.lblTitleAdventure.TabIndex = 0;
             this.lblTitleAdventure.Text = "label8";
             this.lblTitleAdventure.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tmrAdv
+            // 
+            this.tmrAdv.Enabled = true;
+            this.tmrAdv.Interval = 10;
+            this.tmrAdv.Tick += new System.EventHandler(this.tmrAdv_Tick);
             // 
             // AdventureGame
             // 
@@ -871,5 +892,7 @@
         private System.Windows.Forms.Label lblCharacterEncountered;
         private System.Windows.Forms.Label lblPunteggio;
         private System.Windows.Forms.Label lblTitleAdventure;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Timer tmrAdv;
     }
 }

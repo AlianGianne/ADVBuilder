@@ -152,7 +152,7 @@ namespace ADVBuilder
             RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
             layer = actual.Layer;
             foreach (var r in ADD.Rooms) r.Drawed = false;
-            //foreach (var r in ADD.Rooms) r.Visited = true;
+            foreach (var r in ADD.Rooms) r.Visited = true;
             DrawMap(actual, cCommon.GAP_FACTOR_X, cCommon.GAP_FACTOR_Y, PenRed, drawFontA, drawBrush, g);
         }
 
@@ -185,10 +185,10 @@ namespace ADVBuilder
                     Pen colorObject = new Pen(Color.Brown, 1);
                     foreach (ObjectsData obj in rd.Objects)
                     {
-                        colorObject = obj.Status == cCommon.STATUS_OPEN ?   new Pen(Color.DarkGreen, 1) : 
+                        colorObject = obj.Status == cCommon.STATUS_OPEN ? new Pen(Color.DarkGreen, 1) :
                                       obj.Status == cCommon.STATUS_CLOSED ? new Pen(Color.Brown, 1) :
                                       obj.Status == cCommon.STATUS_LOCKED ? new Pen(Color.DarkOrange, 1) :
-                                                                            new Pen(Color.Black);
+                                                                            new Pen(Color.White);
                         if (obj.Position == "NN")
                         {
                             g.DrawRectangle(colorObject, new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2 - 5, y, 10, 5));
@@ -576,7 +576,7 @@ namespace ADVBuilder
         private void ViewData()
         {
             //Header
-            lblRoomsVisited.Text = String.Format("Luoghi visitati: {0}", User.RoomsVisitedCount().ToString());
+            lblRoomsVisited.Text = String.Format("Luoghi visitati: {0} su {1}", User.RoomsVisitedCount().ToString(), ADD.Rooms.Count);
             lblCharacterEncountered.Text = String.Format("Personaggi incontrati: {0}", User.CharactersMeetCount().ToString());
             lblPunteggio.Text = String.Format("Punteggio: {0}", User.Points.ToString());
             lblTitleAdventure.Text = ADD.Title;
@@ -641,10 +641,10 @@ namespace ADVBuilder
                 }
             }
         }
-
+        Random rnd = new Random();
         private int GetNewRoom(RoomData pR, int pIdRoom)
         {
-            Random rnd = new Random();
+
             List<int> newRooms = new List<int>();
             newRooms.Add(pR.NE);
             newRooms.Add(pR.NN);
@@ -720,7 +720,7 @@ namespace ADVBuilder
             Character = null;
             Response r = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(rs => rs.Id == ADD.CurrentRoom).FirstOrDefault());
             txtResult.Text = r.Message;
-            
+
             ViewData();
             ViewMap();
             if (r.Value.ToString() == "END") Close();
@@ -833,5 +833,11 @@ namespace ADVBuilder
             ViewMap();
         }
         #endregion "Maps"
+
+        private void tmrAdv_Tick(object sender, EventArgs e)
+        {
+            ADD.IncrementTime();
+            lblDate.Text = ADD.CompleteDate;
+        }
     }
 }

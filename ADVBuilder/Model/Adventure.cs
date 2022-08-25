@@ -82,11 +82,65 @@ namespace ADVBuilder.Model
         public int CurrentRoom { get; set; }
 
         public string Direction { get; set; }
+        public int Year { get; set; } = 110;
+        public int Month { get; set; } = 1;
+        public int Day { get; set; } = 1;
+        public int Hour { get; set; }
+        public int Minute { get; set; }
+        public int Second { get; set; }
+
+        public string CurrentTime { get { return string.Format("{0}:{1}:{2}", Hour, Minute, Second); } }
+        public string CurrentDate { get { return string.Format("{0}:{1}:{2}", Day, Month, Year); } }
+        public string CompleteDate { get { return string.Format("{0} {1}", CurrentDate, CurrentTime); } }
+
 
         #endregion "Properties"
 
         #region "Methods"
-
+        public void IncrementTime()
+        {
+            if (Second < 60)
+            {
+                Second++;
+            }
+            else
+            {
+                Second = 0;
+                if (Minute < 60)
+                {
+                    Minute++;
+                }
+                else
+                {
+                    Minute = 0;
+                    if (Hour < 24)
+                    {
+                        Hour++;
+                    }
+                    else
+                    {
+                        Hour = 0;
+                        if (Day < 32)
+                        {
+                            Day++;
+                        }
+                        else
+                        {
+                            Day = 1;
+                            if (Month < 13)
+                            {
+                                Month++;
+                            }
+                            else
+                            {
+                                Month = 1;
+                                Year++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         /// <summary>
         /// Restituisce la descrizione lunga della Room
         /// </summary>
