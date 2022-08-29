@@ -837,7 +837,8 @@ namespace ADVBuilder
         private void tmrAdv_Tick(object sender, EventArgs e)
         {
             ADD.IncrementTime();
-            lblDate.Text = ADD.CompleteDate;
+            lblDate.Text = ADD.CurrentDate;
+            lblHour.Text = ADD.CurrentTime;
         }
     }
 }

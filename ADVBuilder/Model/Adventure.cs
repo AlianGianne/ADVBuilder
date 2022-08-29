@@ -82,15 +82,20 @@ namespace ADVBuilder.Model
         public int CurrentRoom { get; set; }
 
         public string Direction { get; set; }
+        public List<string> Days { get; set; } = new List<string>() { "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi",
+                                                                      "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi",
+                                                                      "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi",
+                                                                      "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi"};
+        public List<string> Months { get; set; } = new List<string>() { "Unembre", "Duembre", "Treembre", "Quattrembre", "Cinquembre", "Seiembre", "Settembre", "Ottembre", "Novembre", "Diecembre", "Undicembre", "Dodicembre"};
         public int Year { get; set; } = 110;
-        public int Month { get; set; } = 1;
+        public int Month { get; set; } = 0;
         public int Day { get; set; } = 1;
         public int Hour { get; set; }
         public int Minute { get; set; }
         public int Second { get; set; }
 
-        public string CurrentTime { get { return string.Format("{0}:{1}:{2}", Hour, Minute, Second); } }
-        public string CurrentDate { get { return string.Format("{0}:{1}:{2}", Day, Month, Year); } }
+        public string CurrentTime { get { return string.Format("{0}:{1}:{2}", Hour.ToString("00"), Minute.ToString("00"), Second.ToString("00")); } }
+        public string CurrentDate { get { return string.Format("{0} {1} {2} nell'anno di Condorian {3}", Days[Day], (Day+1).ToString("00"), Months[Month], Year.ToString("00")); } }
         public string CompleteDate { get { return string.Format("{0} {1}", CurrentDate, CurrentTime); } }
 
 
@@ -99,41 +104,41 @@ namespace ADVBuilder.Model
         #region "Methods"
         public void IncrementTime()
         {
-            if (Second < 60)
+            if (Second < 59)
             {
                 Second++;
             }
             else
             {
                 Second = 0;
-                if (Minute < 60)
+                if (Minute < 59)
                 {
                     Minute++;
                 }
                 else
                 {
                     Minute = 0;
-                    if (Hour < 24)
+                    if (Hour < 22)
                     {
                         Hour++;
                     }
                     else
                     {
                         Hour = 0;
-                        if (Day < 32)
+                        if (Day < 28)
                         {
                             Day++;
                         }
                         else
                         {
-                            Day = 1;
-                            if (Month < 13)
+                            Day = 0;
+                            if (Month < 11)
                             {
                                 Month++;
                             }
                             else
                             {
-                                Month = 1;
+                                Month = 0;
                                 Year++;
                             }
                         }

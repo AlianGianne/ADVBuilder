@@ -82,6 +82,7 @@
             this.lblPunteggio = new System.Windows.Forms.Label();
             this.lblTitleAdventure = new System.Windows.Forms.Label();
             this.tmrAdv = new System.Windows.Forms.Timer(this.components);
+            this.lblHour = new System.Windows.Forms.Label();
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
             this.pnlInventario.SuspendLayout();
@@ -723,6 +724,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.lblHour);
             this.panel1.Controls.Add(this.lblDate);
             this.panel1.Controls.Add(this.lblRoomsVisited);
             this.panel1.Controls.Add(this.lblCharacterEncountered);
@@ -735,12 +737,13 @@
             // 
             // lblDate
             // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDate.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.Location = new System.Drawing.Point(339, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(371, 36);
+            this.lblDate.Size = new System.Drawing.Size(1312, 36);
             this.lblDate.TabIndex = 4;
             this.lblDate.Text = "label8";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -795,8 +798,21 @@
             // tmrAdv
             // 
             this.tmrAdv.Enabled = true;
-            this.tmrAdv.Interval = 10;
+            this.tmrAdv.Interval = 1;
             this.tmrAdv.Tick += new System.EventHandler(this.tmrAdv_Tick);
+            // 
+            // lblHour
+            // 
+            this.lblHour.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHour.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHour.Location = new System.Drawing.Point(339, 28);
+            this.lblHour.Name = "lblHour";
+            this.lblHour.Size = new System.Drawing.Size(1312, 36);
+            this.lblHour.TabIndex = 5;
+            this.lblHour.Text = "label8";
+            this.lblHour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AdventureGame
             // 
@@ -894,5 +910,6 @@
         private System.Windows.Forms.Label lblTitleAdventure;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Timer tmrAdv;
+        private System.Windows.Forms.Label lblHour;
     }
 }
