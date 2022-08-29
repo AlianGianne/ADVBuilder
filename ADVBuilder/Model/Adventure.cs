@@ -89,7 +89,7 @@ namespace ADVBuilder.Model
         public List<string> Months { get; set; } = new List<string>() { "Unembre", "Duembre", "Treembre", "Quattrembre", "Cinquembre", "Seiembre", "Settembre", "Ottembre", "Novembre", "Diecembre", "Undicembre", "Dodicembre"};
         public int Year { get; set; } = 110;
         public int Month { get; set; } = 0;
-        public int Day { get; set; } = 1;
+        public int Day { get; set; } = 0;
         public int Hour { get; set; }
         public int Minute { get; set; }
         public int Second { get; set; }
