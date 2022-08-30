@@ -16,7 +16,6 @@ namespace ADVBuilder.ActionsClass_New
             Room = pRoom;
             Character = pCharacter;
             Response.Message = SetMessage();
-            //Response.Success = false;
             return Response;
         }
 

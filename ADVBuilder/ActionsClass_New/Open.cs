@@ -34,15 +34,14 @@ namespace ADVBuilder.ActionsClass_New
             {
                 Object.Status = cCommon.STATUS_OPEN;
                 Response.Success = true;
-                Response.Message = SetMessage();
-                Response.Value = 0;
             }
             else
             {
                 Response.Success = false;
-                Response.Message = string.Format("Non puoi aprire {0}", Object.Title);
-                Response.Value = 0;
             }
+
+            Response.Message =SetMessage();
+            Response.Value = 0;
             Object = null;
             Room = null;
         }
@@ -50,7 +49,7 @@ namespace ADVBuilder.ActionsClass_New
         private string SetMessage()
         {
             return Response.Success ?
-                string.Format("Oggetto {0} aperto con successo.", Object.Title) : "Errore";
+                string.Format("Oggetto {0} aperto con successo.", Object.Title) : string.Format("Non puoi aprire {0}", Object.Title);
         }
     }
 }

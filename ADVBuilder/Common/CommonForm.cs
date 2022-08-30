@@ -22,5 +22,23 @@ namespace ADVBuilder.Common
                     c.Text = "";
             }
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // CommonForm
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "CommonForm";
+            this.Load += new System.EventHandler(this.CommonForm_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void CommonForm_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

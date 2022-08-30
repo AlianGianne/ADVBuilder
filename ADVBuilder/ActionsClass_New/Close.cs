@@ -37,22 +37,21 @@ namespace ADVBuilder.ActionsClass_New
             {
                 Object.Status = cCommon.STATUS_CLOSED;
                 Response.Success = true;
-                Response.Message = SetMessage();
-                Response.Value = 0;
             }
             else
             {
                 Response.Success = false;
-                Response.Message = string.Format("Non puoi chiudere {0}", Object.Title);
-                Response.Value = 0;
             }
+            Response.Message = SetMessage(); ;
+            Response.Value = 0;
             Object = null;
             Room = null;
         }
         private string SetMessage()
         {
             return Response.Success ?
-                string.Format("Oggetto {0} chiuso con successo.", Object.Title) : "Errore";
+                string.Format("Oggetto {0} chiuso con successo.", Object.Title) : 
+                string.Format("Non puoi chiudere {0}", Object.Title);
         }
     }
 }

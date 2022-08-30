@@ -115,6 +115,9 @@
     <EmbeddedResource Include="AdventureGame.resx">
       <DependentUpon>AdventureGame.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Common\CommonForm.resx">
+      <DependentUpon>CommonForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
