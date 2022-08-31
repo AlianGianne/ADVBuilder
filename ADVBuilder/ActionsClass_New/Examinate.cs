@@ -1,5 +1,5 @@
 ﻿using ADVBuilder.Model;
-
+using System;
 using System.Collections.Generic;
 
 namespace ADVBuilder.ActionsClass_New
@@ -24,7 +24,7 @@ namespace ADVBuilder.ActionsClass_New
             Response.Success = Object != null;
             if(Response.Success) return Response.Success ? Object.Description : "Seleziona qualcosa da esaminare...";
             Response.Success = Character != null;
-            return Response.Success ? Character.Description : "Seleziona qualcosa da esaminare...";
+            return Response.Success ? string.Format("{0}{3}Stato:\t{1}{3}Vita:\t{2}{3}", Character.Description, Character.Status, Character.LifePoint, Environment.NewLine) : "Seleziona qualcosa da esaminare...";
         }
     }
 }

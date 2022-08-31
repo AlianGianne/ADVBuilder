@@ -41,12 +41,19 @@
         /// Oggetto raccoglibile
         /// </summary>
         public const string STATUS_TAKE = "Take";
-
         /// <summary>
-        /// Oggetto amico, non spostabile e non prendibile
+        /// Oggetto raccoglibile
+        /// </summary>
+        public const string STATUS_BROKEN = "Broken";
+        /// <summary>
+        /// Personaggio amico, non spostabile e non prendibile
         /// </summary>
         public const string STATUS_FRIEND = "Friend";
 
+        /// <summary>
+        /// Personaggio morto, non spostabile e non prendibile
+        /// </summary>
+        public const string STATUS_DEAD = "Dead";
         #endregion "Objects Status"
 
         #region "Object Actions"

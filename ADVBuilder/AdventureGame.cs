@@ -122,6 +122,7 @@ namespace ADVBuilder
             ClassList.Add("Chiudi", new Close(ADD, Inventario));
             ClassList.Add("Usa con...", new UseWith(ADD, Inventario));
             ClassList.Add("Parla", new Speak(ADD, Inventario));
+            ClassList.Add("Colpisci", new Hit(ADD, Inventario));
             ClassList.Add("Salva", new Save(ADD, Inventario));
             ClassList.Add("Carica", new Load(ADD, Inventario));
             ClassList.Add("Termina", new End(ADD, Inventario));
@@ -188,6 +189,7 @@ namespace ADVBuilder
                         colorObject = obj.Status == cCommon.STATUS_OPEN ? new Pen(Color.DarkGreen, 1) :
                                       obj.Status == cCommon.STATUS_CLOSED ? new Pen(Color.Brown, 1) :
                                       obj.Status == cCommon.STATUS_LOCKED ? new Pen(Color.DarkOrange, 1) :
+                                      obj.Status == cCommon.STATUS_BROKEN ? new Pen(Color.Gray, 1) :
                                                                             new Pen(Color.White);
                         if (obj.Position == "NN")
                         {
@@ -334,6 +336,9 @@ namespace ADVBuilder
                     break;
                 case cCommon.STATUS_FRIEND:
                     ret = Color.SteelBlue;
+                    break;
+                case cCommon.STATUS_DEAD:
+                    ret = Color.Gray;
                     break;
             }
             return ret;

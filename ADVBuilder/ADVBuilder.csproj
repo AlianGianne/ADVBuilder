@@ -71,6 +71,7 @@
     <Compile Include="ActionsClass_New\End.cs" />
     <Compile Include="ActionsClass_New\Examinate.cs" />
     <Compile Include="ActionsClass_New\Go.cs" />
+    <Compile Include="ActionsClass_New\Hit.cs" />
     <Compile Include="ActionsClass_New\iActions.cs" />
     <Compile Include="ActionsClass_New\Info.cs" />
     <Compile Include="ActionsClass_New\Load.cs" />

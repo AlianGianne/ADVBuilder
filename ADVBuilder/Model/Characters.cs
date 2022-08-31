@@ -64,6 +64,7 @@ namespace ADVBuilder.Model
         [cAttributes(Name = "Status")] public string Status { get; set; }
         [cAttributes(Name = "Action")] public string Action { get; set; }
         [cAttributes(Name = "SufferAction")] public string SufferAction { get; set; }
+        [cAttributes(Name = "LifePoint")] public int LifePoint { get; set; }
         public List<SentencesData> Sentences { get; set; }
 
         public string ViewCharacter
