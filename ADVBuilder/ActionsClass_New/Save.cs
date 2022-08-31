@@ -11,7 +11,7 @@ namespace ADVBuilder.ActionsClass_New
 {
     public class Save : aActions, iActions
     {
-        public Save(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        public Save(User pUser, List<ObjectsData> pInventario) : base(pUser, pInventario)
         {
         }
         public Response Execute(CharactersData pCharacter, ObjectsData pObj, ObjectsData pCmp, RoomData pRoom)
@@ -20,14 +20,9 @@ namespace ADVBuilder.ActionsClass_New
             {
                 JsonSerializer serializer = new JsonSerializer();
                 //serialize object directly into file stream
-                serializer.Serialize(file, ADD);
+                serializer.Serialize(file, User);
             }
-            using (StreamWriter file = File.CreateText(string.Format("{0}_Inve.jsn", ADD.Title)))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                //serialize object directly into file stream
-                serializer.Serialize(file, Inventario);
-            }
+            
             return Response;
         }
     }

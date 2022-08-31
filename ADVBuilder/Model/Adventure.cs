@@ -86,10 +86,11 @@ namespace ADVBuilder.Model
                                                                       "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi",
                                                                       "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi",
                                                                       "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi"};
-        public List<string> Months { get; set; } = new List<string>() { "Unembre", "Duembre", "Treembre", "Quattrembre", "Cinquembre", "Seiembre", "Settembre", "Ottembre", "Novembre", "Diecembre", "Undicembre", "Dodicembre"};
+        public List<string> Months { get; set; } = new List<string>() { "Unembre", "Duembre", "Treembre", "Quattrembre", "Cinquembre", "Seiembre", 
+                                                                        "Settembre", "Ottembre", "Novembre", "Diecembre", "Undicembre", "Dodicembre"};
         public int Year { get; set; } = 110;
-        public int Month { get; set; } = 0;
-        public int Day { get; set; } = 0;
+        public int Month { get; set; } = 11;
+        public int Day { get; set; } = 27;
         public int Hour { get; set; }
         public int Minute { get; set; }
         public int Second { get; set; }
@@ -102,8 +103,9 @@ namespace ADVBuilder.Model
         #endregion "Properties"
 
         #region "Methods"
-        public void IncrementTime()
+        public bool IncrementTime()
         {
+            bool ret = false;
             if (Second < 59)
             {
                 Second++;
@@ -140,11 +142,13 @@ namespace ADVBuilder.Model
                             {
                                 Month = 0;
                                 Year++;
+                                ret = true;
                             }
                         }
                     }
                 }
             }
+            return ret;
         }
         /// <summary>
         /// Restituisce la descrizione lunga della Room

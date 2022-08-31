@@ -6,7 +6,7 @@ namespace ADVBuilder.ActionsClass_New
 {
     internal class Drop : aActions, iActions
     {
-        public Drop(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        public Drop(User pUser, List<ObjectsData> pInventario) : base(pUser, pInventario)
         {
         }
 

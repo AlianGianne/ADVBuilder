@@ -9,7 +9,7 @@ namespace ADVBuilder.ActionsClass_New
 {
     class End : aActions, iActions
     {
-        public End(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        public End(User pUser, List<ObjectsData> pInventario) : base(pUser, pInventario)
         {
         }
 

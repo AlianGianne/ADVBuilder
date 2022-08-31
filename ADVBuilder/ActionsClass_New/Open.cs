@@ -7,7 +7,7 @@ namespace ADVBuilder.ActionsClass_New
 {
     internal class Open : aActions, iActions
     {
-        public Open(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        public Open(User pUser, List<ObjectsData> pInventario) : base(pUser, pInventario)
         {
         }
 

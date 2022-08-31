@@ -23,7 +23,6 @@ namespace ADVBuilder
         private Point lastLocation;
         private iActions CurrentAction;
         private Dictionary<string, iActions> ClassList = new Dictionary<string, iActions>();
-        private List<ObjectsData> Inventario = new List<ObjectsData>();
         private int dx;
         private int dy;
         private int layer = 0;
@@ -48,7 +47,7 @@ namespace ADVBuilder
         private int idxColor = 0;
 
         public Adventure ADV;
-        public AdventureData ADD;
+        //public AdventureData ADD;
 
         public User User;
 
@@ -69,11 +68,17 @@ namespace ADVBuilder
         {
             InitializeInternalComponent();
             InitializeUser();
+            InitializeGame();
             InitializeFunction();
             InitializeColors();
             ViewData();
             ViewActions();
             ViewMap();
+        }
+
+        private void InitializeGame()
+        {
+            RoomIdSelected = User.ADD.CurrentRoom;
         }
 
         private void InitializeUser()
@@ -83,7 +88,7 @@ namespace ADVBuilder
             User.Surname = "Iannarelli";
             User.UserName = "AlianGianne";
             User.Points = 0;
-            User.ADD = ADD;
+            User.ADD = ADV.List.FirstOrDefault();
         }
 
         private void InitializeColors()
@@ -103,8 +108,8 @@ namespace ADVBuilder
             if (AdvIdSelected != 0)
             {
                 ADV = new Adventure(AdvIdSelected);
-                ADD = ADV.List.FirstOrDefault();
-                RoomIdSelected = ADD.CurrentRoom;
+                
+                
                 cCommon.GAP_FACTOR_X = (pcbMap.Image.Width - (cCommon.ROOM_WIDTH + Room_Zoom)) / 2;
                 cCommon.GAP_FACTOR_Y = (pcbMap.Image.Height - (cCommon.ROOM_HEIGHT + Room_Zoom)) / 2;
             }
@@ -112,32 +117,32 @@ namespace ADVBuilder
 
         private void InitializeFunction()
         {
-            ClassList.Add("Prendi", new Take(ADD, Inventario));
-            ClassList.Add("Lascia", new Drop(ADD, Inventario));
-            ClassList.Add("Getta", new Drop(ADD, Inventario));
-            ClassList.Add("Guarda", new Examinate(ADD, Inventario));
-            ClassList.Add("Esamina", new Examinate(ADD, Inventario));
-            ClassList.Add("Osserva", new Examinate(ADD, Inventario));
-            ClassList.Add("Apri", new Open(ADD, Inventario));
-            ClassList.Add("Chiudi", new Close(ADD, Inventario));
-            ClassList.Add("Usa con...", new UseWith(ADD, Inventario));
-            ClassList.Add("Parla", new Speak(ADD, Inventario));
-            ClassList.Add("Colpisci", new Hit(ADD, Inventario));
-            ClassList.Add("Salva", new Save(ADD, Inventario));
-            ClassList.Add("Carica", new Load(ADD, Inventario));
-            ClassList.Add("Termina", new End(ADD, Inventario));
-            ClassList.Add("Informazioni", new Info(ADD, Inventario));
-            ClassList.Add("Inimplementato", new Unable(ADD, Inventario));
-            ClassList.Add("NN", new Go(ADD, Inventario));
-            ClassList.Add("NE", new Go(ADD, Inventario));
-            ClassList.Add("EE", new Go(ADD, Inventario));
-            ClassList.Add("SE", new Go(ADD, Inventario));
-            ClassList.Add("SS", new Go(ADD, Inventario));
-            ClassList.Add("SO", new Go(ADD, Inventario));
-            ClassList.Add("OO", new Go(ADD, Inventario));
-            ClassList.Add("NO", new Go(ADD, Inventario));
-            ClassList.Add("AA", new Go(ADD, Inventario));
-            ClassList.Add("BB", new Go(ADD, Inventario));
+            ClassList.Add("Prendi", new Take(User, User.Inventario));
+            ClassList.Add("Lascia", new Drop(User, User.Inventario));
+            ClassList.Add("Getta", new Drop(User, User.Inventario));
+            ClassList.Add("Guarda", new Examinate(User, User.Inventario));
+            ClassList.Add("Esamina", new Examinate(User, User.Inventario));
+            ClassList.Add("Osserva", new Examinate(User, User.Inventario));
+            ClassList.Add("Apri", new Open(User, User.Inventario));
+            ClassList.Add("Chiudi", new Close(User, User.Inventario));
+            ClassList.Add("Usa con...", new UseWith(User, User.Inventario));
+            ClassList.Add("Parla", new Speak(User, User.Inventario));
+            ClassList.Add("Colpisci", new Hit(User, User.Inventario));
+            ClassList.Add("Salva", new Save(User, User.Inventario));
+            ClassList.Add("Carica", new Load(User, User.Inventario));
+            ClassList.Add("Termina", new End(User, User.Inventario));
+            ClassList.Add("Informazioni", new Info(User, User.Inventario));
+            ClassList.Add("Inimplementato", new Unable(User, User.Inventario));
+            ClassList.Add("NN", new Go(User, User.Inventario));
+            ClassList.Add("NE", new Go(User, User.Inventario));
+            ClassList.Add("EE", new Go(User, User.Inventario));
+            ClassList.Add("SE", new Go(User, User.Inventario));
+            ClassList.Add("SS", new Go(User, User.Inventario));
+            ClassList.Add("SO", new Go(User, User.Inventario));
+            ClassList.Add("OO", new Go(User, User.Inventario));
+            ClassList.Add("NO", new Go(User, User.Inventario));
+            ClassList.Add("AA", new Go(User, User.Inventario));
+            ClassList.Add("BB", new Go(User, User.Inventario));
         }
 
         private void ViewMap()
@@ -150,10 +155,10 @@ namespace ADVBuilder
 
 
 
-            RoomData actual = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault();
+            RoomData actual = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault();
             layer = actual.Layer;
-            foreach (var r in ADD.Rooms) r.Drawed = false;
-            foreach (var r in ADD.Rooms) r.Visited = true;
+            foreach (var r in User.ADD.Rooms) r.Drawed = false;
+            //foreach (var r in User.ADD.Rooms) r.Visited = true;
             DrawMap(actual, cCommon.GAP_FACTOR_X, cCommon.GAP_FACTOR_Y, PenRed, drawFontA, drawBrush, g);
         }
 
@@ -260,66 +265,66 @@ namespace ADVBuilder
                     if (rd.NN > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y - 5);
-                        if (ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault().Visited)
-                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault(),
+                        if (User.ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault().Visited)
+                            DrawMap(User.ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault(),
                             x, y - ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
-                            AllColors[ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
+                            AllColors[User.ADD.Rooms.Where(r => r.Id == rd.NN).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.NE > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y, x + (cCommon.ROOM_WIDTH + Room_Zoom) + 3, y - 3);
-                        if (ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault().Visited)
-                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault(),
+                        if (User.ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault().Visited)
+                            DrawMap(User.ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault(),
                             x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
-                            AllColors[ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
+                            AllColors[User.ADD.Rooms.Where(r => r.Id == rd.NE).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.EE > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y + (cCommon.ROOM_HEIGHT + Room_Zoom) / 2, x + (cCommon.ROOM_WIDTH + Room_Zoom) + 5, y + (cCommon.ROOM_HEIGHT + Room_Zoom) / 2);
-                        if (ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault().Visited)
-                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault(),
+                        if (User.ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault().Visited)
+                            DrawMap(User.ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault(),
                                 x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y,
-                                AllColors[ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
+                                AllColors[User.ADD.Rooms.Where(r => r.Id == rd.EE).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.SE > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom), y + (cCommon.ROOM_HEIGHT + Room_Zoom), x + (cCommon.ROOM_WIDTH + Room_Zoom) + 3, y + (cCommon.ROOM_HEIGHT + Room_Zoom) + 3);
-                        if (ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault().Visited)
-                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault(),
+                        if (User.ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault().Visited)
+                            DrawMap(User.ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault(),
                             x + (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
-                            AllColors[ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
+                            AllColors[User.ADD.Rooms.Where(r => r.Id == rd.SE).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.SS > 0)
                     {
                         g.DrawLine(p, x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y + (cCommon.ROOM_HEIGHT + Room_Zoom), x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2, y + ((cCommon.ROOM_HEIGHT + Room_Zoom)) + 5);
-                        if (ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault().Visited)
-                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault(),
+                        if (User.ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault().Visited)
+                            DrawMap(User.ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault(),
                             x, y + ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
-                            AllColors[ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
+                            AllColors[User.ADD.Rooms.Where(r => r.Id == rd.SS).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.SO > 0)
                     {
                         g.DrawLine(p, x, y + (cCommon.ROOM_HEIGHT + Room_Zoom), x - 3, y + (cCommon.ROOM_HEIGHT + Room_Zoom) + 3);
-                        if (ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault().Visited)
-                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault(),
+                        if (User.ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault().Visited)
+                            DrawMap(User.ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault(),
                             x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y + ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
-                            AllColors[ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
+                            AllColors[User.ADD.Rooms.Where(r => r.Id == rd.SO).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.OO > 0)
                     {
                         g.DrawLine(p, x, y + ((cCommon.ROOM_HEIGHT + Room_Zoom)) / 2, x - 5, y + ((cCommon.ROOM_HEIGHT + Room_Zoom)) / 2);
-                        if (ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault().Visited)
-                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault(),
+                        if (User.ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault().Visited)
+                            DrawMap(User.ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault(),
                             x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y,
-                            AllColors[ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
+                            AllColors[User.ADD.Rooms.Where(r => r.Id == rd.OO).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                     if (rd.NO > 0)
                     {
                         g.DrawLine(p, x, y, x - 3, y - 3);
-                        if (ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault().Visited)
-                            DrawMap(ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault(),
+                        if (User.ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault().Visited)
+                            DrawMap(User.ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault(),
                             x - (cCommon.ROOM_WIDTH + Room_Zoom + 5), y - ((cCommon.ROOM_HEIGHT + Room_Zoom) + 5),
-                            AllColors[ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
+                            AllColors[User.ADD.Rooms.Where(r => r.Id == rd.NO).FirstOrDefault().ColorMap], drawFont, drawBrush, g);
                     }
                 }
             }
@@ -415,7 +420,7 @@ namespace ADVBuilder
 
             foreach (Control p in pnlObjects.Controls.OfType<Button>().ToList()) pnlObjects.Controls.Remove(p);
 
-            foreach (ObjectsData o in ADD.Rooms.Where(l => l.Id == ADD.CurrentRoom).FirstOrDefault().Objects)
+            foreach (ObjectsData o in User.ADD.Rooms.Where(l => l.Id == User.ADD.CurrentRoom).FirstOrDefault().Objects)
             {
                 r = r + 3;
                 g = g - 2;
@@ -463,7 +468,7 @@ namespace ADVBuilder
 
             foreach (Control p in pnlPerson.Controls.OfType<Button>().ToList()) pnlPerson.Controls.Remove(p);
 
-            foreach (CharactersData o in ADD.Rooms.Where(l => l.Id == ADD.CurrentRoom).FirstOrDefault().Characters)
+            foreach (CharactersData o in User.ADD.Rooms.Where(l => l.Id == User.ADD.CurrentRoom).FirstOrDefault().Characters)
             {
                 r = r - 2;
                 g = g + 3;
@@ -502,7 +507,7 @@ namespace ADVBuilder
 
             foreach (Control p in pnlInventario.Controls.OfType<Button>().ToList()) pnlInventario.Controls.Remove(p);
 
-            foreach (ObjectsData o in Inventario)
+            foreach (ObjectsData o in User.Inventario)
             {
                 r = r - 3;
                 g = g + 2;
@@ -535,43 +540,43 @@ namespace ADVBuilder
                 switch (btn.Name.Substring(3))
                 {
                     case "NN":
-                        btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().NN > 0;
+                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().NN > 0;
                         break;
 
                     case "NE":
-                        btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().NE > 0;
+                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().NE > 0;
                         break;
 
                     case "EE":
-                        btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().EE > 0;
+                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().EE > 0;
                         break;
 
                     case "SE":
-                        btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().SE > 0;
+                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().SE > 0;
                         break;
 
                     case "SS":
-                        btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().SS > 0;
+                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().SS > 0;
                         break;
 
                     case "SO":
-                        btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().SO > 0;
+                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().SO > 0;
                         break;
 
                     case "OO":
-                        btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().OO > 0;
+                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().OO > 0;
                         break;
 
                     case "NO":
-                        btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().NO > 0;
+                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().NO > 0;
                         break;
 
                     case "AA":
-                        btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().AA > 0;
+                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().AA > 0;
                         break;
 
                     case "BB":
-                        btn.Enabled = ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault().BB > 0;
+                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().BB > 0;
                         break;
                 }
                 btn.BackColor = !btn.Enabled ? Color.LightGray : Color.LightSalmon;
@@ -581,13 +586,15 @@ namespace ADVBuilder
         private void ViewData()
         {
             //Header
-            lblRoomsVisited.Text = String.Format("Luoghi visitati: {0} su {1}", User.RoomsVisitedCount().ToString(), ADD.Rooms.Count);
+            lblRoomsVisited.Text = String.Format("Luoghi visitati: {0} su {1}", User.RoomsVisitedCount().ToString(), User.ADD.Rooms.Count);
             lblCharacterEncountered.Text = String.Format("Personaggi incontrati: {0}", User.CharactersMeetCount().ToString());
             lblPunteggio.Text = String.Format("Punteggio: {0}", User.Points.ToString());
-            lblTitleAdventure.Text = ADD.Title;
-
+            lblTitleAdventure.Text = User.ADD.Title;
+            lblEta.Text = String.Format("Età: {0}", User.Age.ToString()); ;
+            lblName.Text = String.Format("Nome: {0}",User.Name);
+            lblLifePoint.Text = String.Format("Vita: {0}", User.Life.ToString());
             //Rooms
-            txtRoomDescription.Text = ADD.ViewRoom();
+            txtRoomDescription.Text = User.ADD.ViewRoom();
 
             //Objects
             ViewObjects();
@@ -608,22 +615,23 @@ namespace ADVBuilder
             string direction = btn.Text;
 
             CurrentAction = ClassList[direction];
+            CurrentAction.SetUser(User);
             Object = null;
             Complement = null;
-            ADD.Direction = direction;
+            User.ADD.Direction = direction;
             MoveCharacter();
-            txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+            txtResult.Text = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault()).Message;
 
-            foreach (CharactersData c in ADD.ActualRoom().Characters)
+            foreach (CharactersData c in User.ADD.ActualRoom().Characters)
                 User.AddCharacterMeet(c);
+            User.AddRoom(User.ADD.ActualRoom());
 
-            User.AddRoom(ADD.ActualRoom());
             ViewData();
             ViewMap();
         }
         private void MoveCharacter()
         {
-            foreach (RoomData r in ADD.Rooms)
+            foreach (RoomData r in User.ADD.Rooms)
             {
                 if (r.Visited)
                 {
@@ -634,11 +642,11 @@ namespace ADVBuilder
                             int newIdRoom = GetNewRoom(r, r.Characters[i].IdRoom);
 
                             if (r.Characters[i].Status == cCommon.STATUS_FRIEND ||
-                                r.Characters[i].Status == ADD.Rooms.Where(ro => ro.Id == newIdRoom).FirstOrDefault().ShortDescription)
+                                r.Characters[i].Status == User.ADD.Rooms.Where(ro => ro.Id == newIdRoom).FirstOrDefault().ShortDescription)
                             {
                                 r.Characters[i].IdRoom = newIdRoom;
 
-                                ADD.Rooms.Where(ro => ro.Id == r.Characters[i].IdRoom).FirstOrDefault().Characters.Add(r.Characters[i]);
+                                User.ADD.Rooms.Where(ro => ro.Id == r.Characters[i].IdRoom).FirstOrDefault().Characters.Add(r.Characters[i]);
                                 r.Characters.Remove(r.Characters[i]);
                             }
                         }
@@ -673,13 +681,12 @@ namespace ADVBuilder
             {
                 Response response = null;
                 Button btn = (Button)sender;
-
+                CurrentAction.SetUser(User);
                 SetActions(Action, btn.Tag as ObjectsData);
-                response = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault());
+                response = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault());
                 txtResult.Text = response.Message;
                 if (response.Success)
                 {
-                    //CurrentAction = null;
                     Object = null;
                     Complement = null;
                     Character = null;
@@ -696,13 +703,12 @@ namespace ADVBuilder
                 Response response = null;
 
                 Button btn = (Button)sender;
-
+                CurrentAction.SetUser(User);
                 SetActionsCharacter(Action, btn.Tag as CharactersData);
-                response = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault());
+                response = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault());
                 txtResult.Text = response.Message;
                 if (response.Success)
                 {
-                    //CurrentAction = null;
                     Object = null;
                     Complement = null;
                     Character = null;
@@ -717,18 +723,28 @@ namespace ADVBuilder
             Button btn = (Button)sender;
 
             CurrentAction = ClassList.Where(cl => cl.Key == btn.Text).FirstOrDefault().Value;
-
             if (CurrentAction == null) CurrentAction = ClassList["Inimplementato"];
+
+            CurrentAction.SetUser(User);
 
             Object = null;
             Complement = null;
             Character = null;
-            Response r = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(rs => rs.Id == ADD.CurrentRoom).FirstOrDefault());
+
+            Response r = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(rs => rs.Id == User.ADD.CurrentRoom).FirstOrDefault());
             txtResult.Text = r.Message;
+
+            EvaluateResponse(r);
 
             ViewData();
             ViewMap();
+            
+        }
+
+        private void EvaluateResponse(Response r)
+        {
             if (r.Value.ToString() == "END") Close();
+            if (r.Value is User) { User = (User)r.Value; }
         }
 
         private void SetActions(ActionData pAction, ObjectsData pObject)
@@ -785,7 +801,7 @@ namespace ADVBuilder
                 Button btn = (Button)sender;
 
                 SetActions(Action, btn.Tag as ObjectsData);
-                txtResult.Text = CurrentAction.Execute(Character, Object, Complement, ADD.Rooms.Where(r => r.Id == ADD.CurrentRoom).FirstOrDefault()).Message;
+                txtResult.Text = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault()).Message;
                 ViewData();
                 ViewMap();
             }
@@ -841,9 +857,9 @@ namespace ADVBuilder
 
         private void tmrAdv_Tick(object sender, EventArgs e)
         {
-            ADD.IncrementTime();
-            lblDate.Text = ADD.CurrentDate;
-            lblHour.Text = ADD.CurrentTime;
+            if (User.ADD.IncrementTime()) User.Age++; ;
+            lblDate.Text = User.ADD.CurrentDate;
+            lblHour.Text = User.ADD.CurrentTime;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace ADVBuilder.ActionsClass_New
 {
     public class Unable : aActions, iActions
     {
-        public Unable(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        public Unable(User pUser, List<ObjectsData> pInventario) : base(pUser, pInventario)
         {
         }
 

@@ -76,13 +76,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblHour = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblLifePoint = new System.Windows.Forms.Label();
+            this.lblEta = new System.Windows.Forms.Label();
             this.lblRoomsVisited = new System.Windows.Forms.Label();
             this.lblCharacterEncountered = new System.Windows.Forms.Label();
             this.lblPunteggio = new System.Windows.Forms.Label();
             this.lblTitleAdventure = new System.Windows.Forms.Label();
             this.tmrAdv = new System.Windows.Forms.Timer(this.components);
-            this.lblHour = new System.Windows.Forms.Label();
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
             this.pnlInventario.SuspendLayout();
@@ -726,6 +734,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.lblHour);
             this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.lblName);
+            this.panel1.Controls.Add(this.lblLifePoint);
+            this.panel1.Controls.Add(this.lblEta);
             this.panel1.Controls.Add(this.lblRoomsVisited);
             this.panel1.Controls.Add(this.lblCharacterEncountered);
             this.panel1.Controls.Add(this.lblPunteggio);
@@ -735,55 +751,154 @@
             this.panel1.Size = new System.Drawing.Size(1651, 100);
             this.panel1.TabIndex = 26;
             // 
+            // lblHour
+            // 
+            this.lblHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHour.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHour.Location = new System.Drawing.Point(1171, 28);
+            this.lblHour.Name = "lblHour";
+            this.lblHour.Size = new System.Drawing.Size(480, 36);
+            this.lblHour.TabIndex = 5;
+            this.lblHour.Text = "label8";
+            this.lblHour.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // lblDate
             // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDate.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(339, 0);
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(1171, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(1312, 36);
+            this.lblDate.Size = new System.Drawing.Size(480, 36);
             this.lblDate.TabIndex = 4;
             this.lblDate.Text = "label8";
-            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(1187, 43);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(273, 21);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "label8";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(1187, 8);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(273, 21);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "label8";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(908, 79);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(273, 21);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "label8";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(908, 43);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(273, 21);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "label8";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label10.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(908, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(273, 21);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "label8";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblName
+            // 
+            this.lblName.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(350, 8);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(273, 21);
+            this.lblName.TabIndex = 8;
+            this.lblName.Text = "label8";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLifePoint
+            // 
+            this.lblLifePoint.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLifePoint.Location = new System.Drawing.Point(350, 79);
+            this.lblLifePoint.Name = "lblLifePoint";
+            this.lblLifePoint.Size = new System.Drawing.Size(273, 21);
+            this.lblLifePoint.TabIndex = 7;
+            this.lblLifePoint.Text = "label8";
+            this.lblLifePoint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblEta
+            // 
+            this.lblEta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblEta.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEta.Location = new System.Drawing.Point(350, 43);
+            this.lblEta.Name = "lblEta";
+            this.lblEta.Size = new System.Drawing.Size(273, 21);
+            this.lblEta.TabIndex = 6;
+            this.lblEta.Text = "label8";
+            this.lblEta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblRoomsVisited
             // 
-            this.lblRoomsVisited.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblRoomsVisited.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoomsVisited.Location = new System.Drawing.Point(1275, 64);
+            this.lblRoomsVisited.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomsVisited.Location = new System.Drawing.Point(629, 79);
             this.lblRoomsVisited.Name = "lblRoomsVisited";
-            this.lblRoomsVisited.Size = new System.Drawing.Size(371, 36);
+            this.lblRoomsVisited.Size = new System.Drawing.Size(273, 21);
             this.lblRoomsVisited.TabIndex = 3;
             this.lblRoomsVisited.Text = "label8";
-            this.lblRoomsVisited.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRoomsVisited.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCharacterEncountered
             // 
             this.lblCharacterEncountered.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCharacterEncountered.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCharacterEncountered.Location = new System.Drawing.Point(749, 64);
+            this.lblCharacterEncountered.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCharacterEncountered.Location = new System.Drawing.Point(629, 43);
             this.lblCharacterEncountered.Name = "lblCharacterEncountered";
-            this.lblCharacterEncountered.Size = new System.Drawing.Size(487, 36);
+            this.lblCharacterEncountered.Size = new System.Drawing.Size(273, 21);
             this.lblCharacterEncountered.TabIndex = 2;
             this.lblCharacterEncountered.Text = "label8";
-            this.lblCharacterEncountered.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCharacterEncountered.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPunteggio
             // 
             this.lblPunteggio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblPunteggio.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPunteggio.Location = new System.Drawing.Point(339, 64);
+            this.lblPunteggio.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPunteggio.Location = new System.Drawing.Point(629, 8);
             this.lblPunteggio.Name = "lblPunteggio";
-            this.lblPunteggio.Size = new System.Drawing.Size(371, 36);
+            this.lblPunteggio.Size = new System.Drawing.Size(273, 21);
             this.lblPunteggio.TabIndex = 1;
             this.lblPunteggio.Text = "label8";
-            this.lblPunteggio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPunteggio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTitleAdventure
             // 
@@ -800,19 +915,6 @@
             this.tmrAdv.Enabled = true;
             this.tmrAdv.Interval = 1;
             this.tmrAdv.Tick += new System.EventHandler(this.tmrAdv_Tick);
-            // 
-            // lblHour
-            // 
-            this.lblHour.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHour.Font = new System.Drawing.Font("NSimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHour.Location = new System.Drawing.Point(339, 28);
-            this.lblHour.Name = "lblHour";
-            this.lblHour.Size = new System.Drawing.Size(1312, 36);
-            this.lblHour.TabIndex = 5;
-            this.lblHour.Text = "label8";
-            this.lblHour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AdventureGame
             // 
@@ -911,5 +1013,13 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Timer tmrAdv;
         private System.Windows.Forms.Label lblHour;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblLifePoint;
+        private System.Windows.Forms.Label lblEta;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

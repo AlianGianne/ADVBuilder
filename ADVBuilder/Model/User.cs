@@ -11,6 +11,8 @@ namespace ADVBuilder.Model
         public string UserName { get; set; } = "SemVir";     //Username per l'accesso
         public string Password { get; set; }     //Password
         public AdventureData ADD { get; set; } = new AdventureData();  //Avventura giocata
+        public List<ObjectsData> Inventario { get; set; } = new List<ObjectsData>();
+
         public int Points { get; set; } = 1;        //Punteggio avventura
         public List<CharactersData> CharactersMeet { get; set; } = new List<CharactersData>();        //Personaggi incontrati
         public List<CharactersData> CharactersSpeek { get; set; } = new List<CharactersData>();         //Personaggi con cui si è parlato
@@ -32,13 +34,15 @@ namespace ADVBuilder.Model
         {
             return CharactersMeet.Count + 1;
         }
+        public int Age { get; set; } = 20;
         public int Force { get; set; } = 0;
         public int Wisdom { get; set; } = 0;
         public int Physique { get; set; } = 0;
         public int Dexterity { get; set; } = 0;
         public int Smartness { get; set; } = 0;
         public int Experience { get; set; } = 0;
-        public int Life { get; set; } = 0;
+        public int Life { get; set; } = 10;
         public int Mana { get; set; } = 0;
+        public int Xp { get; set; } = 0;
     }
 }

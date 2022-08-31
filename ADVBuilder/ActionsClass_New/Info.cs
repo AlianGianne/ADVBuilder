@@ -9,7 +9,7 @@ namespace ADVBuilder.ActionsClass_New
 {
     public class Info : aActions, iActions
     {
-        public Info(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        public Info(User pUser, List<ObjectsData> pInventario) : base(pUser, pInventario)
         {
         }
 

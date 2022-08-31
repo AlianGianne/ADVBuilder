@@ -8,7 +8,7 @@ namespace ADVBuilder.ActionsClass_New
 {
     internal class Take : aActions, iActions
     {
-        public Take(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        public Take(User pUser, List<ObjectsData> pInventario) : base(pUser, pInventario)
         {
         }
 

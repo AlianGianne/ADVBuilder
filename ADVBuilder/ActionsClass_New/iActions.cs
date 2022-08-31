@@ -15,5 +15,7 @@ namespace ADVBuilder.ActionsClass_New
         /// <param name="pRoom">Stanza di riferimento</param>
         /// <returns></returns>
         Response Execute(CharactersData pCharacter, ObjectsData pObj, ObjectsData pCmp, RoomData pRoom);
+
+        void SetUser(User pUsr);
     }
 }

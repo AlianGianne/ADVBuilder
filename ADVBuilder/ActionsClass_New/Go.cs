@@ -9,7 +9,7 @@ namespace ADVBuilder.ActionsClass_New
 {
     internal class Go : aActions, iActions
     {
-        public Go(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        public Go(User pUser, List<ObjectsData> pInventario) : base(pUser, pInventario)
         {
         }
 

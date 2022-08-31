@@ -8,7 +8,7 @@ namespace ADVBuilder.ActionsClass_New
 {
     internal class UseWith : aActions, iActions
     {
-        public UseWith(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        public UseWith(User pUser, List<ObjectsData> pInventario) : base(pUser, pInventario)
         {
         }
 

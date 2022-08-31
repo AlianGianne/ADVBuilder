@@ -6,7 +6,7 @@ namespace ADVBuilder.ActionsClass_New
 {
     internal class Examinate : aActions, iActions
     {
-        public Examinate(AdventureData pADD, List<ObjectsData> pInventario) : base(pADD, pInventario)
+        public Examinate(User pUser, List<ObjectsData> pInventario) : base(pUser, pInventario)
         {
         }
 
