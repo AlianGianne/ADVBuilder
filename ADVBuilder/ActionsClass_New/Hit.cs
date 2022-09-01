@@ -38,8 +38,8 @@ namespace ADVBuilder.ActionsClass_New
             else if (Character != null)
             {
                 Character.LifePoint--;
-                if(Character.LifePoint<=0)
-                    Character.Status = cCommon.STATUS_DEAD;
+                //if(Character.LifePoint<=0)
+                //    Character.Status = cCommon.STATUS_DEAD;
                 Response.Success = true;
             }
             else

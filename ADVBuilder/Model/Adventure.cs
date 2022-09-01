@@ -91,12 +91,12 @@ namespace ADVBuilder.Model
         public int Year { get; set; } = 110;
         public int Month { get; set; } = 11;
         public int Day { get; set; } = 27;
-        public int Hour { get; set; }
+        public int Hour { get; set; } = 23;
         public int Minute { get; set; }
         public int Second { get; set; }
 
-        public string CurrentTime { get { return string.Format("{0}:{1}:{2}", Hour.ToString("00"), Minute.ToString("00"), Second.ToString("00")); } }
-        public string CurrentDate { get { return string.Format("{0} {1} {2} nell'anno di Condorian {3}", Days[Day], (Day+1).ToString("00"), Months[Month], Year.ToString("00")); } }
+        public string CurrentTime { get { return string.Format("{0}:{1}", Hour.ToString("00"), Minute.ToString("00")); } }
+        public string CurrentDate { get { return string.Format("{0} {1} {2} nell'anno di Condorian {3}", Days[Day], (Day + 1).ToString("00"), Months[Month], Year.ToString("00")); } }
         public string CompleteDate { get { return string.Format("{0} {1}", CurrentDate, CurrentTime); } }
 
 
@@ -108,7 +108,7 @@ namespace ADVBuilder.Model
             bool ret = false;
             if (Second < 59)
             {
-                Second++;
+                Second+=5;
             }
             else
             {
@@ -127,7 +127,7 @@ namespace ADVBuilder.Model
                     else
                     {
                         Hour = 0;
-                        if (Day < 28)
+                        if (Day < 27)
                         {
                             Day++;
                         }

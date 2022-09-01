@@ -21,7 +21,7 @@ namespace ADVBuilder.ActionsClass_New
         /// <summary>
         /// Costruttore
         /// </summary>
-        /// <param name="pADD">Avventura in uso</param>
+        /// <param name="pUser">Utente in uso</param>
         /// <param name="pInventario">Inventario</param>
         public aActions(User pUser, List<ObjectsData> pInventario)
         {

@@ -1,4 +1,5 @@
-﻿using Gema2022.Class;
+﻿using ADVBuilder.Common;
+using Gema2022.Class;
 using Gema2022.CommonClass;
 
 using System.Collections.Generic;
@@ -56,6 +57,8 @@ namespace ADVBuilder.Model
 
     public class CharactersData
     {
+        private int lifePoint;
+
         [cAttributes(Name = "Id")] public int Id { get; set; }
         [cAttributes(Name = "Title")] public string Title { get; set; }
         [cAttributes(Name = "Description")] public string Description { get; set; }
@@ -64,7 +67,15 @@ namespace ADVBuilder.Model
         [cAttributes(Name = "Status")] public string Status { get; set; }
         [cAttributes(Name = "Action")] public string Action { get; set; }
         [cAttributes(Name = "SufferAction")] public string SufferAction { get; set; }
-        [cAttributes(Name = "LifePoint")] public int LifePoint { get; set; }
+        [cAttributes(Name = "LifePoint")] public int LifePoint
+        {
+            get => lifePoint; set
+            {
+                lifePoint = value;
+                if(lifePoint<=0)
+                    Status = cCommon.STATUS_DEAD;
+            }
+        }
         public List<SentencesData> Sentences { get; set; }
 
         public string ViewCharacter
