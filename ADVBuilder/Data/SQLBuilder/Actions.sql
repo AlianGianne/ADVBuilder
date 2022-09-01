@@ -5,5 +5,3 @@
     [DeepObjects] INT            DEFAULT ((1)) NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
-
-nhbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
