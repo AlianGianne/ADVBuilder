@@ -49,6 +49,10 @@
         /// Personaggio amico, non spostabile e non prendibile
         /// </summary>
         public const string STATUS_FRIEND = "Friend";
+        /// <summary>
+        /// Personaggio nemico, non spostabile e non prendibile
+        /// </summary>
+        public const string STATUS_ENEMY = "Enemy";
 
         /// <summary>
         /// Personaggio morto, non spostabile e non prendibile
@@ -60,7 +64,7 @@
 
         public const string ACTION_OPEN = "Open";
         public const string ACTION_CLOSE = "Close";
-        public const string ACTION_SHOOT = "Shoot";
+        public const string ACTION_SHOOT = "Hit";
         public const string ACTION_RISE = "Rise";
         public const string ACTION_BUY = "Buy";
         public const string ACTION_SELL = "Sell";

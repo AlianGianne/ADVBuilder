@@ -72,8 +72,11 @@ namespace ADVBuilder.Model
             get => lifePoint; set
             {
                 lifePoint = value;
-                if(lifePoint<=0)
+                if (lifePoint <= 0)
+                {
                     Status = cCommon.STATUS_DEAD;
+                    lifePoint = 0;
+                }
             }
         }
         public List<SentencesData> Sentences { get; set; }

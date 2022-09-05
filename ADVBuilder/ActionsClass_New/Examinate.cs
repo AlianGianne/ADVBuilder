@@ -22,9 +22,11 @@ namespace ADVBuilder.ActionsClass_New
         private string SetMessage()
         {
             Response.Success = Object != null;
-            if(Response.Success) return Response.Success ? Object.Description : "Seleziona qualcosa da esaminare...";
+            if (Response.Success) return string.Format("{0}{2}Stato:\t{1}{2}", Object.Description, Object.Status, Environment.NewLine);
             Response.Success = Character != null;
-            return Response.Success ? string.Format("{0}{3}Stato:\t{1}{3}Vita:\t{2}{3}", Character.Description, Character.Status, Character.LifePoint, Environment.NewLine) : "Seleziona qualcosa da esaminare...";
+            return Response.Success ? 
+                string.Format("{0}{3}Stato:\t{1}{3}Vita:\t{2}{3}", Character.Description, Character.Status, Character.LifePoint, Environment.NewLine) : 
+                "Seleziona qualcosa o qualcuno da esaminare...";
         }
     }
 }

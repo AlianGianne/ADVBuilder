@@ -38,8 +38,6 @@ namespace ADVBuilder.ActionsClass_New
             else if (Character != null)
             {
                 Character.LifePoint--;
-                //if(Character.LifePoint<=0)
-                //    Character.Status = cCommon.STATUS_DEAD;
                 Response.Success = true;
             }
             else
@@ -60,8 +58,8 @@ namespace ADVBuilder.ActionsClass_New
                         Character.Status == cCommon.STATUS_DEAD? 
                             string.Format("Hai ucciso {0}.", Character.Title) :
                             string.Format("Hai colpito {0}.", Character.Title) :
-                        string.Format("Non succede nulla.") :
-                    string.Format("Non succede nulla.");
+                    string.Format("Non succede nulla.") :
+                string.Format("Non succede nulla.");
         }
     }
 }
