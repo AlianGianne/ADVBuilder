@@ -82,10 +82,10 @@ namespace ADVBuilder.Model
         public int CurrentRoom { get; set; }
 
         public string Direction { get; set; }
-        public List<string> Days { get; set; } = new List<string>() { "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi",
-                                                                      "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi",
-                                                                      "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi",
-                                                                      "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi"};
+        public List<string> Days { get; set; } = new List<string>() { "Lunadi", "Martedi", "Mercuriodi", "Giovedi", "Veneredi", "Saturnodi", "Soledi",
+                                                                      "Uranodi", "Nettunodi", "Plutonedi", "Iodi", "Europadi", "Ganimededi", "Terradi",
+                                                                      "Callistodi", "Titanodi", "Readi", "Giapetodi", "Dionedi", "Tetidi", "Iperionedi",
+                                                                      "Mimasdi", "Enceladodi", "Phoebedi", "Gianodi", "Titaniadi", "Oberondi", "Metisdi"};
         public List<string> Months { get; set; } = new List<string>() { "Unembre", "Duembre", "Treembre", "Quattrembre", "Cinquembre", "Seiembre",
                                                                         "Settembre", "Ottembre", "Novembre", "Diecembre", "Undicembre", "Dodicembre"};
         public int Year { get; set; } = 110;
