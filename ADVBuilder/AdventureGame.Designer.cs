@@ -78,7 +78,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblHour = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblTipoGiornata = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -734,7 +734,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.lblHour);
             this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.lblTipoGiornata);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label9);
@@ -755,9 +755,9 @@
             // 
             this.lblHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHour.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHour.Location = new System.Drawing.Point(1171, 28);
+            this.lblHour.Location = new System.Drawing.Point(1502, 28);
             this.lblHour.Name = "lblHour";
-            this.lblHour.Size = new System.Drawing.Size(480, 36);
+            this.lblHour.Size = new System.Drawing.Size(149, 36);
             this.lblHour.TabIndex = 5;
             this.lblHour.Text = "label8";
             this.lblHour.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -773,18 +773,18 @@
             this.lblDate.Text = "label8";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label12
+            // lblTipoGiornata
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblTipoGiornata.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1187, 43);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(273, 21);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "label8";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTipoGiornata.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoGiornata.Location = new System.Drawing.Point(1223, 36);
+            this.lblTipoGiornata.Name = "lblTipoGiornata";
+            this.lblTipoGiornata.Size = new System.Drawing.Size(273, 21);
+            this.lblTipoGiornata.TabIndex = 13;
+            this.lblTipoGiornata.Text = "label8";
+            this.lblTipoGiornata.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label13
             // 
@@ -913,7 +913,7 @@
             // tmrAdv
             // 
             this.tmrAdv.Enabled = true;
-            this.tmrAdv.Interval = 1;
+            this.tmrAdv.Interval = 500;
             this.tmrAdv.Tick += new System.EventHandler(this.tmrAdv_Tick);
             // 
             // AdventureGame
@@ -1016,7 +1016,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblLifePoint;
         private System.Windows.Forms.Label lblEta;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblTipoGiornata;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;

@@ -860,6 +860,7 @@ namespace ADVBuilder
             if (User.ADD.IncrementTime()) User.Age++; ;
             lblDate.Text = User.ADD.CurrentDate;
             lblHour.Text = User.ADD.CurrentTime;
+            lblTipoGiornata.Text = User.ADD.CurrentDayTime;
         }
     }
 }

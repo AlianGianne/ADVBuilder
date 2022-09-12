@@ -86,7 +86,7 @@ namespace ADVBuilder.Model
                                                                       "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi",
                                                                       "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi",
                                                                       "LunaDi", "MarteDi", "MercurioDi", "GioveDi", "VenereDi", "SaturnoDi", "SoleDi"};
-        public List<string> Months { get; set; } = new List<string>() { "Unembre", "Duembre", "Treembre", "Quattrembre", "Cinquembre", "Seiembre", 
+        public List<string> Months { get; set; } = new List<string>() { "Unembre", "Duembre", "Treembre", "Quattrembre", "Cinquembre", "Seiembre",
                                                                         "Settembre", "Ottembre", "Novembre", "Diecembre", "Undicembre", "Dodicembre"};
         public int Year { get; set; } = 110;
         public int Month { get; set; } = 11;
@@ -98,6 +98,18 @@ namespace ADVBuilder.Model
         public string CurrentTime { get { return string.Format("{0}:{1}", Hour.ToString("00"), Minute.ToString("00")); } }
         public string CurrentDate { get { return string.Format("{0} {1} {2} nell'anno di Condorian {3}", Days[Day], (Day + 1).ToString("00"), Months[Month], Year.ToString("00")); } }
         public string CompleteDate { get { return string.Format("{0} {1}", CurrentDate, CurrentTime); } }
+        public string CurrentDayTime
+        {
+            get { return string.Format("{0}",
+                        Hour >= 0 && Hour < 6 ? 
+                            "Notte" : 
+                        Hour >= 6 && Hour < 12 ? 
+                            "Mattino" : 
+                        Hour >= 12 && Hour < 18 ? 
+                            "Pomeriggio" : 
+                        "Sera");
+            }
+        }
 
 
         #endregion "Properties"
@@ -108,7 +120,7 @@ namespace ADVBuilder.Model
             bool ret = false;
             if (Second < 59)
             {
-                Second+=5;
+                Second += 30;
             }
             else
             {

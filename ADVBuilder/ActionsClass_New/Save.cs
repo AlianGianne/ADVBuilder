@@ -17,6 +17,9 @@ namespace ADVBuilder.ActionsClass_New
                 JsonSerializer serializer = new JsonSerializer();
                 //serialize object directly into file stream
                 serializer.Serialize(file, User);
+                file.Close();
+                Response.Message = string.Format("{0}_Save.jsn salvato con successo.", ADD.Title);
+                Response.Success = true;    
             }
             
             return Response;

@@ -22,7 +22,7 @@ namespace ADVBuilder.ActionsClass_New
                 string json = r.ReadToEnd();
 
                 Response.Value = JsonConvert.DeserializeObject<User>(json);
-                
+                Response.Message = string.Format("{0}_Save.jsn caricato con successo.", ADD.Title);
             }
             
             return Response;
