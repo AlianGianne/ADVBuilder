@@ -108,8 +108,8 @@ namespace ADVBuilder
             if (AdvIdSelected != 0)
             {
                 ADV = new Adventure(AdvIdSelected);
-                
-                
+
+
                 cCommon.GAP_FACTOR_X = (pcbMap.Image.Width - (cCommon.ROOM_WIDTH + Room_Zoom)) / 2;
                 cCommon.GAP_FACTOR_Y = (pcbMap.Image.Height - (cCommon.ROOM_HEIGHT + Room_Zoom)) / 2;
             }
@@ -384,14 +384,23 @@ namespace ADVBuilder
 
             foreach (ActionData a in Actions.List)
             {
-                r = r - 2;
-                g = g + 3;
+                int r3 = 0;
+                int g3 = 0;
+                int b3 = 0;
+                r = r - 1;
+                g = g + 2;
                 b = b + 3;
                 r1 = 255 - r;
                 g1 = 255 - g;
                 b1 = 255 - b;
-                Color color = Color.FromArgb(r, g, b);
-                Color foreColor = Color.FromArgb(r1, g1, b1);
+                if (a.DeepObjects < 0)
+                {
+                    r3 = -50;
+                    g3 = 150;
+                    b3 = 100;
+                }
+                Color color = Color.FromArgb(r + r3, g - g3, b - b3);
+                Color foreColor = Color.FromArgb(r1 -r3, g1 +g3, b1 + b3);
                 if (a != null)
                 {
 
@@ -591,7 +600,7 @@ namespace ADVBuilder
             lblPunteggio.Text = String.Format("Punteggio: {0}", User.Points.ToString());
             lblTitleAdventure.Text = User.ADD.Title;
             lblEta.Text = String.Format("Età: {0}", User.Age.ToString()); ;
-            lblName.Text = String.Format("Nome: {0}",User.Name);
+            lblName.Text = String.Format("Nome: {0}", User.Name);
             lblLifePoint.Text = String.Format("Vita: {0}", User.Life.ToString());
             //Rooms
             txtRoomDescription.Text = User.ADD.ViewRoom();
@@ -738,7 +747,7 @@ namespace ADVBuilder
 
             ViewData();
             ViewMap();
-            
+
         }
 
         private void EvaluateResponse(Response r)

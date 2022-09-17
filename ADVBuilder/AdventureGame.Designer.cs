@@ -79,7 +79,6 @@
             this.lblHour = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTipoGiornata = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -732,10 +731,10 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(23)))), ((int)(((byte)(21)))));
             this.panel1.Controls.Add(this.lblHour);
             this.panel1.Controls.Add(this.lblDate);
             this.panel1.Controls.Add(this.lblTipoGiornata);
-            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label10);
@@ -754,10 +753,12 @@
             // lblHour
             // 
             this.lblHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHour.BackColor = System.Drawing.Color.Transparent;
             this.lblHour.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHour.Location = new System.Drawing.Point(1502, 28);
+            this.lblHour.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblHour.Location = new System.Drawing.Point(1499, 43);
             this.lblHour.Name = "lblHour";
-            this.lblHour.Size = new System.Drawing.Size(149, 36);
+            this.lblHour.Size = new System.Drawing.Size(149, 21);
             this.lblHour.TabIndex = 5;
             this.lblHour.Text = "label8";
             this.lblHour.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -765,43 +766,35 @@
             // lblDate
             // 
             this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.BackColor = System.Drawing.Color.Transparent;
             this.lblDate.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(1171, 0);
+            this.lblDate.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDate.Location = new System.Drawing.Point(1178, 8);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(480, 36);
+            this.lblDate.Size = new System.Drawing.Size(470, 21);
             this.lblDate.TabIndex = 4;
             this.lblDate.Text = "label8";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTipoGiornata
             // 
-            this.lblTipoGiornata.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTipoGiornata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTipoGiornata.BackColor = System.Drawing.Color.Transparent;
             this.lblTipoGiornata.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoGiornata.Location = new System.Drawing.Point(1223, 36);
+            this.lblTipoGiornata.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTipoGiornata.Location = new System.Drawing.Point(1181, 43);
             this.lblTipoGiornata.Name = "lblTipoGiornata";
-            this.lblTipoGiornata.Size = new System.Drawing.Size(273, 21);
+            this.lblTipoGiornata.Size = new System.Drawing.Size(302, 21);
             this.lblTipoGiornata.TabIndex = 13;
             this.lblTipoGiornata.Text = "label8";
             this.lblTipoGiornata.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(1187, 8);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(273, 21);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "label8";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label8
             // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(908, 79);
+            this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label8.Location = new System.Drawing.Point(918, 79);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(273, 21);
             this.label8.TabIndex = 11;
@@ -813,8 +806,10 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(908, 43);
+            this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label9.Location = new System.Drawing.Point(918, 43);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(273, 21);
             this.label9.TabIndex = 10;
@@ -825,8 +820,10 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(908, 8);
+            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label10.Location = new System.Drawing.Point(918, 8);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(273, 21);
             this.label10.TabIndex = 9;
@@ -835,7 +832,9 @@
             // 
             // lblName
             // 
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblName.Location = new System.Drawing.Point(350, 8);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(273, 21);
@@ -845,7 +844,9 @@
             // 
             // lblLifePoint
             // 
+            this.lblLifePoint.BackColor = System.Drawing.Color.Transparent;
             this.lblLifePoint.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLifePoint.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblLifePoint.Location = new System.Drawing.Point(350, 79);
             this.lblLifePoint.Name = "lblLifePoint";
             this.lblLifePoint.Size = new System.Drawing.Size(273, 21);
@@ -857,7 +858,9 @@
             // 
             this.lblEta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblEta.BackColor = System.Drawing.Color.Transparent;
             this.lblEta.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEta.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblEta.Location = new System.Drawing.Point(350, 43);
             this.lblEta.Name = "lblEta";
             this.lblEta.Size = new System.Drawing.Size(273, 21);
@@ -867,8 +870,10 @@
             // 
             // lblRoomsVisited
             // 
+            this.lblRoomsVisited.BackColor = System.Drawing.Color.Transparent;
             this.lblRoomsVisited.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoomsVisited.Location = new System.Drawing.Point(629, 79);
+            this.lblRoomsVisited.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblRoomsVisited.Location = new System.Drawing.Point(634, 79);
             this.lblRoomsVisited.Name = "lblRoomsVisited";
             this.lblRoomsVisited.Size = new System.Drawing.Size(273, 21);
             this.lblRoomsVisited.TabIndex = 3;
@@ -880,8 +885,10 @@
             this.lblCharacterEncountered.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCharacterEncountered.BackColor = System.Drawing.Color.Transparent;
             this.lblCharacterEncountered.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCharacterEncountered.Location = new System.Drawing.Point(629, 43);
+            this.lblCharacterEncountered.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCharacterEncountered.Location = new System.Drawing.Point(634, 43);
             this.lblCharacterEncountered.Name = "lblCharacterEncountered";
             this.lblCharacterEncountered.Size = new System.Drawing.Size(273, 21);
             this.lblCharacterEncountered.TabIndex = 2;
@@ -892,8 +899,10 @@
             // 
             this.lblPunteggio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblPunteggio.BackColor = System.Drawing.Color.Transparent;
             this.lblPunteggio.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPunteggio.Location = new System.Drawing.Point(629, 8);
+            this.lblPunteggio.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblPunteggio.Location = new System.Drawing.Point(634, 8);
             this.lblPunteggio.Name = "lblPunteggio";
             this.lblPunteggio.Size = new System.Drawing.Size(273, 21);
             this.lblPunteggio.TabIndex = 1;
@@ -903,6 +912,7 @@
             // lblTitleAdventure
             // 
             this.lblTitleAdventure.Font = new System.Drawing.Font("NSimSun", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleAdventure.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblTitleAdventure.Location = new System.Drawing.Point(2, 0);
             this.lblTitleAdventure.Name = "lblTitleAdventure";
             this.lblTitleAdventure.Size = new System.Drawing.Size(342, 100);
@@ -1017,7 +1027,6 @@
         private System.Windows.Forms.Label lblLifePoint;
         private System.Windows.Forms.Label lblEta;
         private System.Windows.Forms.Label lblTipoGiornata;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;

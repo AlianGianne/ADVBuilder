@@ -47,6 +47,10 @@ namespace ADVBuilder.Model
         /// Profondità di Oggetti da utilizzare nell'Azione
         /// Es.: Usa Chiave su Porta
         /// </summary>
-        [cAttributes(Name = "DeepObjects")] public string DeepObjects { get; set; }
+        [cAttributes(Name = "DeepObjects")] public int DeepObjects { get; set; }
+        /// <summary>
+        /// tipo di dialogo da visualizzare
+        /// </summary>
+        [cAttributes(Name = "Dialog")] public int Dialog { get; set; }
     }
 }

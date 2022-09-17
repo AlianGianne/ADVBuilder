@@ -65,6 +65,7 @@
         public const string ACTION_OPEN = "Open";
         public const string ACTION_CLOSE = "Close";
         public const string ACTION_SHOOT = "Hit";
+        public const string ACTION_RECHARGE = "Recharge";
         public const string ACTION_RISE = "Rise";
         public const string ACTION_BUY = "Buy";
         public const string ACTION_SELL = "Sell";
