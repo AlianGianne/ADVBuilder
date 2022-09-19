@@ -33,5 +33,9 @@ namespace ADVBuilder.ActionsClass_New
             ADD = User.ADD;
             Inventario = pUsr.Inventario;
         }
+        /// <summary>
+        /// Determina se visualizzare la finestra di dialogo
+        /// </summary>
+        public int Dialog { get; set; }
     }
 }

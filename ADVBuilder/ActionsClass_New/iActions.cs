@@ -17,5 +17,6 @@ namespace ADVBuilder.ActionsClass_New
         Response Execute(CharactersData pCharacter, ObjectsData pObj, ObjectsData pCmp, RoomData pRoom);
 
         void SetUser(User pUsr);
+        int Dialog { get; set; }
     }
 }

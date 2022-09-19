@@ -73,6 +73,15 @@
 
         #endregion "Object Actions"
 
+        #region "Result Actions"
+        public const string RESULT_ACTION_END = "END";
+        public const string RESULT_ACTION_SHOW = "SHOW";
+        public const int RESULT_ACTION_NOTHING = 0;
+        public const int RESULT_ACTION_VIEW = 1;
+        public const int RESULT_ACTION_YES = 2;
+        public const int RESULT_ACTION_NO = 3;
+        #endregion
+
         #region "Inventario"
 
         /// <summary>

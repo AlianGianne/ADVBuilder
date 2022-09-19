@@ -186,6 +186,10 @@
     </Content>
     <Content Include="Data\SQLBuilder\Rooms.sql" />
     <Content Include="Data\SQLBuilder\Sentences.sql" />
+    <Content Include="Images\Papiro 2 - Copia.jpg" />
+    <Content Include="Images\Papiro 2_OLD_OLD.jpg" />
+    <None Include="Images\question.png" />
+    <None Include="Images\question.jpg" />
     <None Include="Images\Papiro 2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -400,7 +400,7 @@ namespace ADVBuilder
                     b3 = 100;
                 }
                 Color color = Color.FromArgb(r + r3, g - g3, b - b3);
-                Color foreColor = Color.FromArgb(r1 -r3, g1 +g3, b1 + b3);
+                Color foreColor = Color.FromArgb(r1 - r3, g1 + g3, b1 + b3);
                 if (a != null)
                 {
 
@@ -740,6 +740,7 @@ namespace ADVBuilder
             Complement = null;
             Character = null;
 
+            CurrentAction.Dialog = (btn.Tag as ActionData).Dialog;
             Response r = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(rs => rs.Id == User.ADD.CurrentRoom).FirstOrDefault());
             txtResult.Text = r.Message;
 
@@ -752,8 +753,21 @@ namespace ADVBuilder
 
         private void EvaluateResponse(Response r)
         {
-            if (r.Value.ToString() == "END") Close();
+            if (r.Value.ToString() == cCommon.RESULT_ACTION_END) Close();
+            if (r.Value.ToString() == cCommon.RESULT_ACTION_SHOW) { ShowInternalDialog(r); }
             if (r.Value is User) { User = (User)r.Value; }
+        }
+
+        private void ShowInternalDialog(Response r)
+        {
+            using (var bmp = new Bitmap(this.Width, this.Height))
+            {
+                this.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+                pnlDialog.BackgroundImage = bmp;
+                lblDialogMessage.Text = r.Message;
+                pnlDialog.Location = new Point(-8, -32);
+                pnlDialog.Visible = true;
+            }
         }
 
         private void SetActions(ActionData pAction, ObjectsData pObject)
@@ -870,6 +884,32 @@ namespace ADVBuilder
             lblDate.Text = User.ADD.CurrentDate;
             lblHour.Text = User.ADD.CurrentTime;
             lblTipoGiornata.Text = User.ADD.CurrentDayTime;
+        }
+
+        private void btnChooseNo_Click(object sender, EventArgs e)
+        {
+            CurrentAction.Dialog = cCommon.RESULT_ACTION_NO;
+            Response r = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(rs => rs.Id == User.ADD.CurrentRoom).FirstOrDefault());
+            txtResult.Text = r.Message;
+            pnlDialog.Visible = false;
+
+            EvaluateResponse(r);
+
+            ViewData();
+            ViewMap();
+        }
+
+        private void btnChooseSi_Click(object sender, EventArgs e)
+        {
+            CurrentAction.Dialog = cCommon.RESULT_ACTION_YES;
+            Response r = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(rs => rs.Id == User.ADD.CurrentRoom).FirstOrDefault());
+            txtResult.Text = r.Message;
+            pnlDialog.Visible = false;
+
+            EvaluateResponse(r);
+
+            ViewData();
+            ViewMap();
         }
     }
 }

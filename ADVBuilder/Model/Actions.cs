@@ -49,7 +49,7 @@ namespace ADVBuilder.Model
         /// </summary>
         [cAttributes(Name = "DeepObjects")] public int DeepObjects { get; set; }
         /// <summary>
-        /// tipo di dialogo da visualizzare
+        /// tipo di dialogo da visualizzare: 0-NO; 1-SI; 2-OK; 3-KO
         /// </summary>
         [cAttributes(Name = "Dialog")] public int Dialog { get; set; }
     }
