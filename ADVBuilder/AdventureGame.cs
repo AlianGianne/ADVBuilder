@@ -758,7 +758,7 @@ namespace ADVBuilder
             if (r.Value is User) { User = (User)r.Value; }
         }
 
-        private void ShowInternalDialog(Response r)
+        private void ShowInternalDialog(Response r, string btn1 = "SI", string btn2 = "NO")
         {
             using (var bmp = new Bitmap(this.Width, this.Height))
             {
@@ -767,7 +767,9 @@ namespace ADVBuilder
                 lblDialogMessage.Text = r.Message;
                 pnlDialog.Location = new Point(-8, -32);
                 pnlDialog.Visible = true;
-            }
+                btnChooseSi.Text= btn1;
+                btnChooseNo.Text= btn2; nnnnnnnnnnnnnnnnnn
+                                }
         }
 
         private void SetActions(ActionData pAction, ObjectsData pObject)
