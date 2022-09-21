@@ -44,7 +44,7 @@ namespace ADVBuilder.ActionsClass_New
 
         private void Exec()
         {
-            if (int.Parse(Object.SufferAction) > 0)         //Indica a chi consegnare l'oggetto
+            if (Object.SufferAction!="" && int.Parse(Object.SufferAction) > 0)         //Indica a chi consegnare l'oggetto
             {
                 if (Complement != null)
                 {
@@ -57,6 +57,7 @@ namespace ADVBuilder.ActionsClass_New
                     if (Character != null)
                     {
                         Character.SufferAction = Object.Id.ToString();
+                        Inventario.Remove(Object);
                         Response.Success = true;
                         Response.Message = String.Format("Hai consegnato {0} a {1}",
                             Object.Description, Character.Description);
@@ -70,7 +71,6 @@ namespace ADVBuilder.ActionsClass_New
                         Response.Value = 0;
                     }
                 }
-                Object.SufferAction = (int.Parse(Object.SufferAction) - 1).ToString();
             }
             else
             {
@@ -78,12 +78,6 @@ namespace ADVBuilder.ActionsClass_New
                 Response.Message = String.Format("{0} non può essere consegnato ad alcuna persona.", Object.Description);
                 Response.Value = 0;
             }
-        }
-        private string SetMessage()
-        {
-            return Response.Success ?
-                string.Format("Oggetto {0} chiuso con successo.", Object.Title) :
-                string.Format("Non puoi chiudere {0}", Object.Title);
         }
     }
 }
