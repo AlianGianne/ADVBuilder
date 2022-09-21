@@ -46,9 +46,10 @@ namespace ADVBuilder.ActionsClass_New
                 }
                 else if (Character.Sentences.Count > 0)
                 {
-                    Response.Message = string.Format("{0} dice:\n\r {1}", Character.Title, Character.Sentences[new Random(DateTime.Now.Second).Next(0, Character.Sentences.Count)].Sentence);
+                    int idx = new Random(DateTime.Now.Second).Next(0, Character.Sentences.Count);
+                    Response.Message = string.Format("{0} dice:\n\r {1}", Character.Title, Character.Sentences[idx].Sentence);
                     Response.Success = true;
-                    Response.Value = 0;
+                    Response.Value = string.Format("XP|{0}", Character.Sentences[idx].XP);
                 }
                 else
                 {

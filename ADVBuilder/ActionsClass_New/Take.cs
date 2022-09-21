@@ -47,7 +47,7 @@ namespace ADVBuilder.ActionsClass_New
                         Inventario.Add(Object);
                         Response.Success = Room.Objects.Remove(Object);
                         Response.Message = SetMessage();
-                        Response.Value = 0;
+                        Response.Value = string.Format("XP|{0}", Object.XP);
                     }
                     else
                     {

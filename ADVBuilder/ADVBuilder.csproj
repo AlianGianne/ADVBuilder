@@ -70,6 +70,7 @@
     <Compile Include="ActionsClass_New\Drop.cs" />
     <Compile Include="ActionsClass_New\End.cs" />
     <Compile Include="ActionsClass_New\Examinate.cs" />
+    <Compile Include="ActionsClass_New\Give.cs" />
     <Compile Include="ActionsClass_New\Go.cs" />
     <Compile Include="ActionsClass_New\Hit.cs" />
     <Compile Include="ActionsClass_New\iActions.cs" />

@@ -88,6 +88,9 @@ namespace ADVBuilder
             User.Surname = "Iannarelli";
             User.UserName = "AlianGianne";
             User.Points = 0;
+            User.Xp = 0;
+            User.Level = 1;
+            User.XpNextLevel = 10;
             User.ADD = ADV.List.FirstOrDefault();
         }
 
@@ -128,6 +131,7 @@ namespace ADVBuilder
             ClassList.Add("Usa con...", new UseWith(User, User.Inventario));
             ClassList.Add("Parla", new Speak(User, User.Inventario));
             ClassList.Add("Colpisci", new Hit(User, User.Inventario));
+            ClassList.Add("Consegna", new Give(User, User.Inventario));
             ClassList.Add("Salva", new Save(User, User.Inventario));
             ClassList.Add("Carica", new Load(User, User.Inventario));
             ClassList.Add("Termina", new End(User, User.Inventario));
@@ -192,10 +196,12 @@ namespace ADVBuilder
                     foreach (ObjectsData obj in rd.Objects)
                     {
                         colorObject = obj.Status == cCommon.STATUS_OPEN ? new Pen(Color.DarkGreen, 1) :
-                                      obj.Status == cCommon.STATUS_CLOSED ? new Pen(Color.Brown, 1) :
+                                      obj.Status == cCommon.STATUS_CLOSED ? new Pen(Color.LightBlue, 1) :
                                       obj.Status == cCommon.STATUS_LOCKED ? new Pen(Color.DarkOrange, 1) :
                                       obj.Status == cCommon.STATUS_BROKEN ? new Pen(Color.Gray, 1) :
-                                                                            new Pen(Color.White);
+                                      obj.Status == cCommon.STATUS_TAKE ? new Pen(Color.White, 1) :
+                                      obj.Status == cCommon.STATUS_STATIC ? new Pen(Color.Yellow, 1) :
+                                                                            new Pen(Color.WhiteSmoke);
                         if (obj.Position == "NN")
                         {
                             g.DrawRectangle(colorObject, new Rectangle(x + (cCommon.ROOM_WIDTH + Room_Zoom) / 2 - 5, y, 10, 5));
@@ -602,6 +608,9 @@ namespace ADVBuilder
             lblEta.Text = String.Format("Età: {0}", User.Age.ToString()); ;
             lblName.Text = String.Format("Nome: {0}", User.Name);
             lblLifePoint.Text = String.Format("Vita: {0}", User.Life.ToString());
+            lblLevel.Text = string.Format("Livello: {0}", User.Level);
+            lblNextXP.Text = string.Format("XP livello successivo: {0}", User.XpNextLevel);
+            lblXP.Text = string.Format("XP: {0}", User.Xp);
             //Rooms
             txtRoomDescription.Text = User.ADD.ViewRoom();
 
@@ -700,6 +709,9 @@ namespace ADVBuilder
                     Complement = null;
                     Character = null;
                 }
+
+                EvaluateXP(response);
+
                 ViewData();
                 ViewMap();
             }
@@ -722,6 +734,9 @@ namespace ADVBuilder
                     Complement = null;
                     Character = null;
                 }
+
+                EvaluateXP(response);
+
                 ViewData();
                 ViewMap();
             }
@@ -746,9 +761,21 @@ namespace ADVBuilder
 
             EvaluateResponse(r);
 
+            EvaluateXP(r);
+
             ViewData();
             ViewMap();
 
+        }
+
+        private void EvaluateXP(Response r)
+        {
+            if (r.Value.ToString().StartsWith("XP"))
+            {
+                string[] vet = r.Value.ToString().Split('|');
+                User.Xp += int.Parse(vet[1]);
+                if (User.Xp > User.XpNextLevel) { User.Level += 1; User.XpNextLevel = User.XpNextLevel * User.Level; }
+            }
         }
 
         private void EvaluateResponse(Response r)
@@ -765,11 +792,11 @@ namespace ADVBuilder
                 this.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
                 pnlDialog.BackgroundImage = bmp;
                 lblDialogMessage.Text = r.Message;
-                pnlDialog.Location = new Point(-8, -32);
+                pnlDialog.Location = new Point(-8, -31);
                 pnlDialog.Visible = true;
-                btnChooseSi.Text= btn1;
-                btnChooseNo.Text= btn2; nnnnnnnnnnnnnnnnnn
-                                }
+                btnChooseSi.Text = btn1;
+                btnChooseNo.Text = btn2;
+            }
         }
 
         private void SetActions(ActionData pAction, ObjectsData pObject)
@@ -897,6 +924,8 @@ namespace ADVBuilder
 
             EvaluateResponse(r);
 
+            EvaluateXP(r);
+
             ViewData();
             ViewMap();
         }
@@ -909,6 +938,8 @@ namespace ADVBuilder
             pnlDialog.Visible = false;
 
             EvaluateResponse(r);
+
+            EvaluateXP(r);
 
             ViewData();
             ViewMap();

@@ -44,5 +44,7 @@ namespace ADVBuilder.Model
         public int Life { get; set; } = 10;
         public int Mana { get; set; } = 0;
         public int Xp { get; set; } = 0;
+        public int Level { get; set; }
+        public int XpNextLevel { get; set; }
     }
 }

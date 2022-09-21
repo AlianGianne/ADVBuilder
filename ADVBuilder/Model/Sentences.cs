@@ -49,5 +49,6 @@ namespace ADVBuilder.Model
         [cAttributes(Name = "IdCharacter")] public int IdCharacter { get; set; }
         [cAttributes(Name = "Sentence")] public string Sentence { get; set; }
         [cAttributes(Name = "Level")] public int Level { get; set; }
+        [cAttributes(Name = "XP")] public int XP { get; set; }
     }
 }

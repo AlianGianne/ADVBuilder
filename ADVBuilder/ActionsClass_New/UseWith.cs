@@ -95,7 +95,7 @@ namespace ADVBuilder.ActionsClass_New
                     Room.Objects.Remove(Object);
                     Response.Success = true;
                     Response.Message = String.Format("Hai caricato {0} con {1} colpi.", Complement.Description, Object.SufferAction);
-                    Response.Value = 0;
+                    Response.Value = "XP|2";
                 }
             }
         }
@@ -118,14 +118,14 @@ namespace ADVBuilder.ActionsClass_New
                         Response.Success = true;
                         Response.Message = String.Format("Hai colpito {0}, ma sembra ancora vivo.{1}Punit vita: {2}",
                             Character.Description, Environment.NewLine, Character.LifePoint);
-                        Response.Value = 0;
+                        Response.Value = "XP|1";
                     }
                     else
                     {
                         Character.Status = cCommon.STATUS_DEAD;
                         Response.Success = true;
                         Response.Message = String.Format("{0} morto.", Character.Description);
-                        Response.Value = 0;
+                        Response.Value = "XP|5";
                     }
                 }
                 Object.SufferAction = (int.Parse(Object.SufferAction) - 1).ToString();
@@ -161,7 +161,7 @@ namespace ADVBuilder.ActionsClass_New
                 Complement.Status = cCommon.STATUS_OPEN;
                 Response.Success = true;
                 Response.Message = String.Format("{0} aperto.", Complement.Description);
-                Response.Value = 0;
+                Response.Value = "XP|1";
             }
             else
             {

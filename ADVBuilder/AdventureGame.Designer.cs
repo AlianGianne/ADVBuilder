@@ -52,6 +52,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.pnlDirection = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlRoomDescription = new System.Windows.Forms.Panel();
             this.lblRoomDescription = new System.Windows.Forms.Label();
             this.txtRoomDescription = new System.Windows.Forms.TextBox();
@@ -76,9 +78,9 @@
             this.lblHour = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTipoGiornata = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblXP = new System.Windows.Forms.Label();
+            this.lblNextXP = new System.Windows.Forms.Label();
+            this.lblLevel = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblLifePoint = new System.Windows.Forms.Label();
             this.lblEta = new System.Windows.Forms.Label();
@@ -89,12 +91,10 @@
             this.tmrAdv = new System.Windows.Forms.Timer(this.components);
             this.pnlDialog = new System.Windows.Forms.Panel();
             this.pnlDialogRectangle = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblDialogMessage = new System.Windows.Forms.Label();
             this.btnChooseNo = new System.Windows.Forms.Button();
             this.btnChooseSi = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pcbMap = new System.Windows.Forms.PictureBox();
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
@@ -102,14 +102,14 @@
             this.pnlPerson.SuspendLayout();
             this.pnlResult.SuspendLayout();
             this.pnlDirection.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlRoomDescription.SuspendLayout();
             this.pnlActionMap.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlDialog.SuspendLayout();
             this.pnlDialogRectangle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
             this.SuspendLayout();
             // 
@@ -300,6 +300,7 @@
             // 
             this.pnlObjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlObjects.BackColor = System.Drawing.Color.Gainsboro;
+            this.pnlObjects.Controls.Add(this.pnlDialog);
             this.pnlObjects.Controls.Add(this.lblObjects);
             this.pnlObjects.Location = new System.Drawing.Point(14, 119);
             this.pnlObjects.Name = "pnlObjects";
@@ -419,6 +420,26 @@
             this.pnlDirection.Name = "pnlDirection";
             this.pnlDirection.Size = new System.Drawing.Size(208, 173);
             this.pnlDirection.TabIndex = 20;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::ADVBuilder.Properties.Resources.Scala;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(168, 41);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 89);
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::ADVBuilder.Properties.Resources.RosaVenti;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(37, 41);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(90, 94);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // pnlRoomDescription
             // 
@@ -710,9 +731,9 @@
             this.panel1.Controls.Add(this.lblHour);
             this.panel1.Controls.Add(this.lblDate);
             this.panel1.Controls.Add(this.lblTipoGiornata);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.lblXP);
+            this.panel1.Controls.Add(this.lblNextXP);
+            this.panel1.Controls.Add(this.lblLevel);
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.lblLifePoint);
             this.panel1.Controls.Add(this.lblEta);
@@ -764,46 +785,46 @@
             this.lblTipoGiornata.Text = "label8";
             this.lblTipoGiornata.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label8
+            // lblXP
             // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label8.Location = new System.Drawing.Point(918, 79);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(273, 21);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "label8";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblXP.BackColor = System.Drawing.Color.Transparent;
+            this.lblXP.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblXP.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblXP.Location = new System.Drawing.Point(918, 79);
+            this.lblXP.Name = "lblXP";
+            this.lblXP.Size = new System.Drawing.Size(273, 21);
+            this.lblXP.TabIndex = 11;
+            this.lblXP.Text = "label8";
+            this.lblXP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label9
+            // lblNextXP
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblNextXP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Location = new System.Drawing.Point(918, 43);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(273, 21);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "label8";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNextXP.BackColor = System.Drawing.Color.Transparent;
+            this.lblNextXP.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNextXP.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblNextXP.Location = new System.Drawing.Point(918, 43);
+            this.lblNextXP.Name = "lblNextXP";
+            this.lblNextXP.Size = new System.Drawing.Size(273, 21);
+            this.lblNextXP.TabIndex = 10;
+            this.lblNextXP.Text = "label8";
+            this.lblNextXP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label10
+            // lblLevel
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblLevel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label10.Location = new System.Drawing.Point(918, 8);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(273, 21);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "label8";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblLevel.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLevel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblLevel.Location = new System.Drawing.Point(918, 8);
+            this.lblLevel.Name = "lblLevel";
+            this.lblLevel.Size = new System.Drawing.Size(273, 21);
+            this.lblLevel.TabIndex = 9;
+            this.lblLevel.Text = "label8";
+            this.lblLevel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblName
             // 
@@ -907,7 +928,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlDialog.Controls.Add(this.pnlDialogRectangle);
-            this.pnlDialog.Location = new System.Drawing.Point(0, 0);
+            this.pnlDialog.Location = new System.Drawing.Point(140, 37);
             this.pnlDialog.Name = "pnlDialog";
             this.pnlDialog.Size = new System.Drawing.Size(1675, 1088);
             this.pnlDialog.TabIndex = 27;
@@ -928,6 +949,16 @@
             this.pnlDialogRectangle.Size = new System.Drawing.Size(915, 465);
             this.pnlDialogRectangle.TabIndex = 0;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::ADVBuilder.Properties.Resources.question1;
+            this.pictureBox3.Location = new System.Drawing.Point(-1, 60);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
             // lblDialogMessage
             // 
             this.lblDialogMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -944,6 +975,7 @@
             // btnChooseNo
             // 
             this.btnChooseNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChooseNo.FlatAppearance.BorderSize = 0;
             this.btnChooseNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChooseNo.Location = new System.Drawing.Point(770, 416);
             this.btnChooseNo.Name = "btnChooseNo";
@@ -956,6 +988,7 @@
             // btnChooseSi
             // 
             this.btnChooseSi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChooseSi.FlatAppearance.BorderSize = 0;
             this.btnChooseSi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChooseSi.Location = new System.Drawing.Point(622, 416);
             this.btnChooseSi.Name = "btnChooseSi";
@@ -964,36 +997,6 @@
             this.btnChooseSi.Text = "Si";
             this.btnChooseSi.UseVisualStyleBackColor = true;
             this.btnChooseSi.Click += new System.EventHandler(this.btnChooseSi_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ADVBuilder.Properties.Resources.question1;
-            this.pictureBox3.Location = new System.Drawing.Point(-1, 60);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::ADVBuilder.Properties.Resources.Scala;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(168, 41);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 89);
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::ADVBuilder.Properties.Resources.RosaVenti;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 41);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(90, 94);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
             // 
             // pcbMap
             // 
@@ -1016,7 +1019,6 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1675, 1056);
-            this.Controls.Add(this.pnlDialog);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlActionMap);
@@ -1040,6 +1042,8 @@
             this.pnlResult.ResumeLayout(false);
             this.pnlResult.PerformLayout();
             this.pnlDirection.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlRoomDescription.ResumeLayout(false);
             this.pnlRoomDescription.PerformLayout();
             this.pnlActionMap.ResumeLayout(false);
@@ -1048,8 +1052,6 @@
             this.pnlDialog.ResumeLayout(false);
             this.pnlDialogRectangle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).EndInit();
             this.ResumeLayout(false);
 
@@ -1114,9 +1116,9 @@
         private System.Windows.Forms.Label lblLifePoint;
         private System.Windows.Forms.Label lblEta;
         private System.Windows.Forms.Label lblTipoGiornata;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblXP;
+        private System.Windows.Forms.Label lblNextXP;
+        private System.Windows.Forms.Label lblLevel;
         private System.Windows.Forms.Panel pnlDialog;
         private System.Windows.Forms.Panel pnlDialogRectangle;
         private System.Windows.Forms.Button btnChooseNo;
