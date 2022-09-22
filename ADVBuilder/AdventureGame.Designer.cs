@@ -43,6 +43,12 @@
             this.lblAction = new System.Windows.Forms.Label();
             this.tltMain = new System.Windows.Forms.ToolTip(this.components);
             this.pnlObjects = new System.Windows.Forms.Panel();
+            this.pnlDialog = new System.Windows.Forms.Panel();
+            this.pnlDialogRectangle = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblDialogMessage = new System.Windows.Forms.Label();
+            this.btnChooseNo = new System.Windows.Forms.Button();
+            this.btnChooseSi = new System.Windows.Forms.Button();
             this.lblObjects = new System.Windows.Forms.Label();
             this.pnlInventario = new System.Windows.Forms.Panel();
             this.lblInventario = new System.Windows.Forms.Label();
@@ -89,15 +95,12 @@
             this.lblPunteggio = new System.Windows.Forms.Label();
             this.lblTitleAdventure = new System.Windows.Forms.Label();
             this.tmrAdv = new System.Windows.Forms.Timer(this.components);
-            this.pnlDialog = new System.Windows.Forms.Panel();
-            this.pnlDialogRectangle = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lblDialogMessage = new System.Windows.Forms.Label();
-            this.btnChooseNo = new System.Windows.Forms.Button();
-            this.btnChooseSi = new System.Windows.Forms.Button();
             this.pcbMap = new System.Windows.Forms.PictureBox();
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
+            this.pnlDialog.SuspendLayout();
+            this.pnlDialogRectangle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlInventario.SuspendLayout();
             this.pnlPerson.SuspendLayout();
             this.pnlResult.SuspendLayout();
@@ -107,9 +110,6 @@
             this.pnlRoomDescription.SuspendLayout();
             this.pnlActionMap.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.pnlDialog.SuspendLayout();
-            this.pnlDialogRectangle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
             this.SuspendLayout();
             // 
@@ -300,12 +300,87 @@
             // 
             this.pnlObjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlObjects.BackColor = System.Drawing.Color.Gainsboro;
-            this.pnlObjects.Controls.Add(this.pnlDialog);
             this.pnlObjects.Controls.Add(this.lblObjects);
             this.pnlObjects.Location = new System.Drawing.Point(14, 119);
             this.pnlObjects.Name = "pnlObjects";
             this.pnlObjects.Size = new System.Drawing.Size(346, 244);
             this.pnlObjects.TabIndex = 20;
+            // 
+            // pnlDialog
+            // 
+            this.pnlDialog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlDialog.Controls.Add(this.pnlDialogRectangle);
+            this.pnlDialog.Location = new System.Drawing.Point(20, 2);
+            this.pnlDialog.Name = "pnlDialog";
+            this.pnlDialog.Size = new System.Drawing.Size(1675, 1088);
+            this.pnlDialog.TabIndex = 27;
+            this.pnlDialog.Visible = false;
+            // 
+            // pnlDialogRectangle
+            // 
+            this.pnlDialogRectangle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlDialogRectangle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDialogRectangle.Controls.Add(this.pictureBox3);
+            this.pnlDialogRectangle.Controls.Add(this.lblDialogMessage);
+            this.pnlDialogRectangle.Controls.Add(this.btnChooseNo);
+            this.pnlDialogRectangle.Controls.Add(this.btnChooseSi);
+            this.pnlDialogRectangle.Location = new System.Drawing.Point(368, 304);
+            this.pnlDialogRectangle.Name = "pnlDialogRectangle";
+            this.pnlDialogRectangle.Size = new System.Drawing.Size(915, 465);
+            this.pnlDialogRectangle.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::ADVBuilder.Properties.Resources.question1;
+            this.pictureBox3.Location = new System.Drawing.Point(-1, 60);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // lblDialogMessage
+            // 
+            this.lblDialogMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDialogMessage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDialogMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDialogMessage.Location = new System.Drawing.Point(103, 60);
+            this.lblDialogMessage.Name = "lblDialogMessage";
+            this.lblDialogMessage.Size = new System.Drawing.Size(712, 271);
+            this.lblDialogMessage.TabIndex = 2;
+            this.lblDialogMessage.Text = "label11\r\ngfsdfg\r\nsdgsd";
+            this.lblDialogMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnChooseNo
+            // 
+            this.btnChooseNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChooseNo.FlatAppearance.BorderSize = 0;
+            this.btnChooseNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChooseNo.Location = new System.Drawing.Point(770, 416);
+            this.btnChooseNo.Name = "btnChooseNo";
+            this.btnChooseNo.Size = new System.Drawing.Size(142, 46);
+            this.btnChooseNo.TabIndex = 1;
+            this.btnChooseNo.Text = "No";
+            this.btnChooseNo.UseVisualStyleBackColor = true;
+            this.btnChooseNo.Click += new System.EventHandler(this.btnChooseNo_Click);
+            // 
+            // btnChooseSi
+            // 
+            this.btnChooseSi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChooseSi.FlatAppearance.BorderSize = 0;
+            this.btnChooseSi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChooseSi.Location = new System.Drawing.Point(622, 416);
+            this.btnChooseSi.Name = "btnChooseSi";
+            this.btnChooseSi.Size = new System.Drawing.Size(142, 46);
+            this.btnChooseSi.TabIndex = 0;
+            this.btnChooseSi.Text = "Si";
+            this.btnChooseSi.UseVisualStyleBackColor = true;
+            this.btnChooseSi.Click += new System.EventHandler(this.btnChooseSi_Click);
             // 
             // lblObjects
             // 
@@ -922,82 +997,6 @@
             this.tmrAdv.Interval = 500;
             this.tmrAdv.Tick += new System.EventHandler(this.tmrAdv_Tick);
             // 
-            // pnlDialog
-            // 
-            this.pnlDialog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlDialog.Controls.Add(this.pnlDialogRectangle);
-            this.pnlDialog.Location = new System.Drawing.Point(140, 37);
-            this.pnlDialog.Name = "pnlDialog";
-            this.pnlDialog.Size = new System.Drawing.Size(1675, 1088);
-            this.pnlDialog.TabIndex = 27;
-            this.pnlDialog.Visible = false;
-            // 
-            // pnlDialogRectangle
-            // 
-            this.pnlDialogRectangle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlDialogRectangle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlDialogRectangle.Controls.Add(this.pictureBox3);
-            this.pnlDialogRectangle.Controls.Add(this.lblDialogMessage);
-            this.pnlDialogRectangle.Controls.Add(this.btnChooseNo);
-            this.pnlDialogRectangle.Controls.Add(this.btnChooseSi);
-            this.pnlDialogRectangle.Location = new System.Drawing.Point(368, 304);
-            this.pnlDialogRectangle.Name = "pnlDialogRectangle";
-            this.pnlDialogRectangle.Size = new System.Drawing.Size(915, 465);
-            this.pnlDialogRectangle.TabIndex = 0;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ADVBuilder.Properties.Resources.question1;
-            this.pictureBox3.Location = new System.Drawing.Point(-1, 60);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // lblDialogMessage
-            // 
-            this.lblDialogMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDialogMessage.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblDialogMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDialogMessage.Location = new System.Drawing.Point(103, 60);
-            this.lblDialogMessage.Name = "lblDialogMessage";
-            this.lblDialogMessage.Size = new System.Drawing.Size(712, 271);
-            this.lblDialogMessage.TabIndex = 2;
-            this.lblDialogMessage.Text = "label11\r\ngfsdfg\r\nsdgsd";
-            this.lblDialogMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnChooseNo
-            // 
-            this.btnChooseNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChooseNo.FlatAppearance.BorderSize = 0;
-            this.btnChooseNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChooseNo.Location = new System.Drawing.Point(770, 416);
-            this.btnChooseNo.Name = "btnChooseNo";
-            this.btnChooseNo.Size = new System.Drawing.Size(142, 46);
-            this.btnChooseNo.TabIndex = 1;
-            this.btnChooseNo.Text = "No";
-            this.btnChooseNo.UseVisualStyleBackColor = true;
-            this.btnChooseNo.Click += new System.EventHandler(this.btnChooseNo_Click);
-            // 
-            // btnChooseSi
-            // 
-            this.btnChooseSi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChooseSi.FlatAppearance.BorderSize = 0;
-            this.btnChooseSi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChooseSi.Location = new System.Drawing.Point(622, 416);
-            this.btnChooseSi.Name = "btnChooseSi";
-            this.btnChooseSi.Size = new System.Drawing.Size(142, 46);
-            this.btnChooseSi.TabIndex = 0;
-            this.btnChooseSi.Text = "Si";
-            this.btnChooseSi.UseVisualStyleBackColor = true;
-            this.btnChooseSi.Click += new System.EventHandler(this.btnChooseSi_Click);
-            // 
             // pcbMap
             // 
             this.pcbMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -1019,6 +1018,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1675, 1056);
+            this.Controls.Add(this.pnlDialog);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlActionMap);
@@ -1037,6 +1037,9 @@
             this.Load += new System.EventHandler(this.AdventureGame_Load);
             this.pnlActions.ResumeLayout(false);
             this.pnlObjects.ResumeLayout(false);
+            this.pnlDialog.ResumeLayout(false);
+            this.pnlDialogRectangle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlInventario.ResumeLayout(false);
             this.pnlPerson.ResumeLayout(false);
             this.pnlResult.ResumeLayout(false);
@@ -1049,9 +1052,6 @@
             this.pnlActionMap.ResumeLayout(false);
             this.pnlActionMap.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.pnlDialog.ResumeLayout(false);
-            this.pnlDialogRectangle.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).EndInit();
             this.ResumeLayout(false);
 

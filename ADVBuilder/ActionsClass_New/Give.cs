@@ -31,7 +31,7 @@ namespace ADVBuilder.ActionsClass_New
                 if (Complement == null && Character == null)
                 {
                     Response.Success = false;
-                    Response.Message = string.Format("Seleziona l'oggetto a cui consegnare {0}!", Object);
+                    Response.Message = string.Format("Seleziona l'oggetto a cui consegnare {0}!", Object.Description);
                     Response.Value = 0;
                 }
                 else

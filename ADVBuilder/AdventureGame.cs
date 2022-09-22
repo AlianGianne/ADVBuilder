@@ -793,6 +793,7 @@ namespace ADVBuilder
                 pnlDialog.BackgroundImage = bmp;
                 lblDialogMessage.Text = r.Message;
                 pnlDialog.Location = new Point(-8, -31);
+                pnlDialog.BringToFront();
                 pnlDialog.Visible = true;
                 btnChooseSi.Text = btn1;
                 btnChooseNo.Text = btn2;
