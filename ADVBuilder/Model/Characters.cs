@@ -9,7 +9,7 @@ namespace ADVBuilder.Model
     public class Characters : cOggettoData
     {
         private const string SELECTBYID = "SelectById";
-
+        
         /// <summary>
         /// Lista Oggetti
         /// </summary>
@@ -80,7 +80,7 @@ namespace ADVBuilder.Model
             }
         }
         public List<SentencesData> Sentences { get; set; }
-
+        public List<ObjectsData> Inventario { get; set; } = new List<ObjectsData>();
         public string ViewCharacter
         {
             get { return string.Format("{0} - {1}", Title, ShortDescription); }

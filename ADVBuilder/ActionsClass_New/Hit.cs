@@ -32,15 +32,33 @@ namespace ADVBuilder.ActionsClass_New
         {
             if (Object != null)
             {
-                Object.Status = cCommon.STATUS_BROKEN;
-                Response.Value = "XP|1";
-                Response.Success = true;
+                if (Object.Status != cCommon.STATUS_BROKEN)
+                {
+                    Object.Status = cCommon.STATUS_BROKEN;
+                    Response.Value = "XP|1";
+                    Response.Success = true;
+                }
+                else
+                {
+                    Response.Success = false;
+                    Response.Message = "E' già rotto!";
+                    Response.Value = 0;
+                }
             }
             else if (Character != null)
             {
-                Character.LifePoint--;
-                Response.Success = true;
-                Response.Value = Character.Status == cCommon.STATUS_DEAD ? "XP|5" : "XP|1";
+                if (Character.LifePoint > 0)
+                {
+                    Character.LifePoint--;
+                    Response.Success = true;
+                    Response.Value = Character.Status == cCommon.STATUS_DEAD ? "XP|5" : "XP|1";
+                }
+                else
+                {
+                    Response.Success = false;
+                    Response.Message = "E' già morto!";
+                    Response.Value = 0;
+                }
             }
             else
             {

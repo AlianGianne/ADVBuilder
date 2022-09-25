@@ -16,7 +16,7 @@ namespace ADVBuilder
     {
         private const int BTN_HEIGHT = 26;
         private const int BTN_WIDTH = 111;
-        private const int BTN_INTER_GAP = 1;
+        private const int BTN_INTER_GAP = 2;
         private const int BTN_GAP = 5;
         private int Room_Zoom = 50;
         private bool Dragging;
@@ -27,13 +27,6 @@ namespace ADVBuilder
         private int dy;
         private int layer = 0;
 
-        //private Pen PenGreen = new Pen(Color.Green, 2);
-        //private Pen PenUsed = new Pen(Color.GhostWhite, 2);
-        //private Pen PenYellow = new Pen(Color.Yellow, 2);
-        //private Pen PenBlu = new Pen(Color.Blue, 2);
-        //private Pen PenCyan = new Pen(Color.Cyan, 2);
-        //private Pen PenDarkOrange = new Pen(Color.DarkOrange, 2);
-        //private Pen PenRed = new Pen(Color.Red, 3);
         private Pen PenGreen = new Pen(Color.Green, 1);
         private Pen PenUsed = new Pen(Color.GhostWhite, 1);
         private Pen PenYellow = new Pen(Color.Yellow, 1);
@@ -159,7 +152,7 @@ namespace ADVBuilder
 
 
 
-            RoomData actual = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault();
+            RoomData actual = User.ADD.ActualRoom();
             layer = actual.Layer;
             foreach (var r in User.ADD.Rooms) r.Drawed = false;
             //foreach (var r in User.ADD.Rooms) r.Visited = true;
@@ -379,7 +372,7 @@ namespace ADVBuilder
 
         private void ViewActions()
         {
-            int r = 200;
+            int r = 250;
             int g = 150;
             int b = 100;
             int r1 = 55;
@@ -437,9 +430,9 @@ namespace ADVBuilder
 
             foreach (ObjectsData o in User.ADD.Rooms.Where(l => l.Id == User.ADD.CurrentRoom).FirstOrDefault().Objects)
             {
-                r = r + 3;
-                g = g - 2;
-                b = b + 3;
+                r = r + 2;
+                g = g - 4;
+                b = b + 1;
                 Color color = Color.FromArgb(r, g, b);
                 Color foreColor = Color.Black;
                 switch (o.Status)
@@ -485,9 +478,9 @@ namespace ADVBuilder
 
             foreach (CharactersData o in User.ADD.Rooms.Where(l => l.Id == User.ADD.CurrentRoom).FirstOrDefault().Characters)
             {
-                r = r - 2;
+                r = r + 2;
                 g = g + 3;
-                b = b + 3;
+                b = b - 3;
                 r1 = 255 - r;
                 g1 = 255 - g;
                 b1 = 255 - b;
@@ -555,43 +548,43 @@ namespace ADVBuilder
                 switch (btn.Name.Substring(3))
                 {
                     case "NN":
-                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().NN > 0;
+                        btn.Enabled = User.ADD.ActualRoom().NN > 0;
                         break;
 
                     case "NE":
-                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().NE > 0;
+                        btn.Enabled = User.ADD.ActualRoom().NE > 0;
                         break;
 
                     case "EE":
-                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().EE > 0;
+                        btn.Enabled = User.ADD.ActualRoom().EE > 0;
                         break;
 
                     case "SE":
-                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().SE > 0;
+                        btn.Enabled = User.ADD.ActualRoom().SE > 0;
                         break;
 
                     case "SS":
-                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().SS > 0;
+                        btn.Enabled = User.ADD.ActualRoom().SS > 0;
                         break;
 
                     case "SO":
-                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().SO > 0;
+                        btn.Enabled = User.ADD.ActualRoom().SO > 0;
                         break;
 
                     case "OO":
-                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().OO > 0;
+                        btn.Enabled = User.ADD.ActualRoom().OO > 0;
                         break;
 
                     case "NO":
-                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().NO > 0;
+                        btn.Enabled = User.ADD.ActualRoom().NO > 0;
                         break;
 
                     case "AA":
-                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().AA > 0;
+                        btn.Enabled = User.ADD.ActualRoom().AA > 0;
                         break;
 
                     case "BB":
-                        btn.Enabled = User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault().BB > 0;
+                        btn.Enabled = User.ADD.ActualRoom().BB > 0;
                         break;
                 }
                 btn.BackColor = !btn.Enabled ? Color.LightGray : Color.LightSalmon;
@@ -634,14 +627,13 @@ namespace ADVBuilder
 
             CurrentAction = ClassList[direction];
             CurrentAction.SetUser(User);
-            Object = null;
-            Complement = null;
+            NullifyObjects();
             User.ADD.Direction = direction;
             MoveCharacter();
-            txtResult.Text = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault()).Message;
+            txtResult.Text = CurrentAction.Execute(Character, Object, Complement, User.ADD.ActualRoom()).Message;
 
             foreach (CharactersData c in User.ADD.ActualRoom().Characters)
-                User.AddCharacterMeet(c);
+            User.AddCharacterMeet(c);
             User.AddRoom(User.ADD.ActualRoom());
 
             ViewData();
@@ -701,13 +693,11 @@ namespace ADVBuilder
                 Button btn = (Button)sender;
                 CurrentAction.SetUser(User);
                 SetActions(Action, btn.Tag as ObjectsData);
-                response = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault());
+                response = CurrentAction.Execute(Character, Object, Complement, User.ADD.ActualRoom());
                 txtResult.Text = response.Message;
                 if (response.Success)
                 {
-                    Object = null;
-                    Complement = null;
-                    Character = null;
+                    NullifyObjects();
                 }
 
                 EvaluateXP(response);
@@ -726,13 +716,11 @@ namespace ADVBuilder
                 Button btn = (Button)sender;
                 CurrentAction.SetUser(User);
                 SetActionsCharacter(Action, btn.Tag as CharactersData);
-                response = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault());
+                response = CurrentAction.Execute(Character, Object, Complement, User.ADD.ActualRoom());
                 txtResult.Text = response.Message;
                 if (response.Success)
                 {
-                    Object = null;
-                    Complement = null;
-                    Character = null;
+                    NullifyObjects();
                 }
 
                 EvaluateXP(response);
@@ -746,26 +734,35 @@ namespace ADVBuilder
         {
             Button btn = (Button)sender;
 
-            CurrentAction = ClassList.Where(cl => cl.Key == btn.Text).FirstOrDefault().Value;
-            if (CurrentAction == null) CurrentAction = ClassList["Inimplementato"];
+            SetCurrentAction(btn);
 
-            CurrentAction.SetUser(User);
+            NullifyObjects();
 
-            Object = null;
-            Complement = null;
-            Character = null;
-
-            CurrentAction.Dialog = (btn.Tag as ActionData).Dialog;
-            Response r = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(rs => rs.Id == User.ADD.CurrentRoom).FirstOrDefault());
+            Response r = CurrentAction.Execute(Character, Object, Complement, User.ADD.ActualRoom());
             txtResult.Text = r.Message;
 
             EvaluateResponse(r);
 
             EvaluateXP(r);
-
+            54rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrpppppppppppppppo00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000op5444444444444,.##
             ViewData();
             ViewMap();
 
+        }
+
+        private void NullifyObjects()
+        {
+            Object = null;
+            Complement = null;
+            Character = null;
+        }
+
+        private void SetCurrentAction(Button btn)
+        {
+            CurrentAction = ClassList.Where(cl => cl.Key == btn.Text).FirstOrDefault().Value;
+            if (CurrentAction == null) CurrentAction = ClassList["Inimplementato"];
+            CurrentAction.SetUser(User);
+            CurrentAction.Dialog = (btn.Tag as ActionData).Dialog;
         }
 
         private void EvaluateXP(Response r)
@@ -854,7 +851,7 @@ namespace ADVBuilder
                 Button btn = (Button)sender;
 
                 SetActions(Action, btn.Tag as ObjectsData);
-                txtResult.Text = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(r => r.Id == User.ADD.CurrentRoom).FirstOrDefault()).Message;
+                txtResult.Text = CurrentAction.Execute(Character, Object, Complement, User.ADD.ActualRoom()).Message;
                 ViewData();
                 ViewMap();
             }
@@ -919,7 +916,7 @@ namespace ADVBuilder
         private void btnChooseNo_Click(object sender, EventArgs e)
         {
             CurrentAction.Dialog = cCommon.RESULT_ACTION_NO;
-            Response r = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(rs => rs.Id == User.ADD.CurrentRoom).FirstOrDefault());
+            Response r = CurrentAction.Execute(Character, Object, Complement, User.ADD.ActualRoom());
             txtResult.Text = r.Message;
             pnlDialog.Visible = false;
 
@@ -934,7 +931,7 @@ namespace ADVBuilder
         private void btnChooseSi_Click(object sender, EventArgs e)
         {
             CurrentAction.Dialog = cCommon.RESULT_ACTION_YES;
-            Response r = CurrentAction.Execute(Character, Object, Complement, User.ADD.Rooms.Where(rs => rs.Id == User.ADD.CurrentRoom).FirstOrDefault());
+            Response r = CurrentAction.Execute(Character, Object, Complement, User.ADD.ActualRoom());
             txtResult.Text = r.Message;
             pnlDialog.Visible = false;
 

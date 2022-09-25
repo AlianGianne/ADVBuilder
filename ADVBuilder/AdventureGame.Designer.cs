@@ -43,13 +43,13 @@
             this.lblAction = new System.Windows.Forms.Label();
             this.tltMain = new System.Windows.Forms.ToolTip(this.components);
             this.pnlObjects = new System.Windows.Forms.Panel();
+            this.lblObjects = new System.Windows.Forms.Label();
             this.pnlDialog = new System.Windows.Forms.Panel();
             this.pnlDialogRectangle = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblDialogMessage = new System.Windows.Forms.Label();
             this.btnChooseNo = new System.Windows.Forms.Button();
             this.btnChooseSi = new System.Windows.Forms.Button();
-            this.lblObjects = new System.Windows.Forms.Label();
             this.pnlInventario = new System.Windows.Forms.Panel();
             this.lblInventario = new System.Windows.Forms.Label();
             this.pnlPerson = new System.Windows.Forms.Panel();
@@ -306,13 +306,24 @@
             this.pnlObjects.Size = new System.Drawing.Size(346, 244);
             this.pnlObjects.TabIndex = 20;
             // 
+            // lblObjects
+            // 
+            this.lblObjects.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lblObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObjects.Location = new System.Drawing.Point(0, 1);
+            this.lblObjects.Name = "lblObjects";
+            this.lblObjects.Size = new System.Drawing.Size(345, 31);
+            this.lblObjects.TabIndex = 0;
+            this.lblObjects.Text = "In questo luogo trovi:";
+            this.lblObjects.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnlDialog
             // 
             this.pnlDialog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlDialog.Controls.Add(this.pnlDialogRectangle);
-            this.pnlDialog.Location = new System.Drawing.Point(20, 2);
+            this.pnlDialog.Location = new System.Drawing.Point(2, 1036);
             this.pnlDialog.Name = "pnlDialog";
             this.pnlDialog.Size = new System.Drawing.Size(1675, 1088);
             this.pnlDialog.TabIndex = 27;
@@ -381,17 +392,6 @@
             this.btnChooseSi.Text = "Si";
             this.btnChooseSi.UseVisualStyleBackColor = true;
             this.btnChooseSi.Click += new System.EventHandler(this.btnChooseSi_Click);
-            // 
-            // lblObjects
-            // 
-            this.lblObjects.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjects.Location = new System.Drawing.Point(0, 1);
-            this.lblObjects.Name = "lblObjects";
-            this.lblObjects.Size = new System.Drawing.Size(345, 31);
-            this.lblObjects.TabIndex = 0;
-            this.lblObjects.Text = "In questo luogo trovi:";
-            this.lblObjects.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlInventario
             // 

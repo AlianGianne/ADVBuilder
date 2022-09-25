@@ -58,6 +58,7 @@ namespace ADVBuilder.ActionsClass_New
                     {
                         Character.SufferAction = Object.Id.ToString();
                         Inventario.Remove(Object);
+                        Character.Inventario.Add(Object);
                         Response.Success = true;
                         Response.Message = String.Format("Hai consegnato {0} a {1}",
                             Object.Description, Character.Description);

@@ -48,6 +48,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Sospeso.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -189,6 +192,7 @@
     <Content Include="Data\SQLBuilder\Sentences.sql" />
     <Content Include="Images\Papiro 2 - Copia.jpg" />
     <Content Include="Images\Papiro 2_OLD_OLD.jpg" />
+    <Content Include="Sospeso.ico" />
     <None Include="Images\question.png" />
     <None Include="Images\question.jpg" />
     <None Include="Images\Papiro 2.jpg">

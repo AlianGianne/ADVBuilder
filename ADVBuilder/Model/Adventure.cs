@@ -120,14 +120,14 @@ namespace ADVBuilder.Model
             bool ret = false;
             if (Second < 59)
             {
-                Second += 30;
+                Second += 59;
             }
             else
             {
-                Second = 0;
+                Second = 59;
                 if (Minute < 59)
                 {
-                    Minute++;
+                    Minute+=2;
                 }
                 else
                 {
