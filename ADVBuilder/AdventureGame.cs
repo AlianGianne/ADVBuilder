@@ -633,7 +633,7 @@ namespace ADVBuilder
             txtResult.Text = CurrentAction.Execute(Character, Object, Complement, User.ADD.ActualRoom()).Message;
 
             foreach (CharactersData c in User.ADD.ActualRoom().Characters)
-            User.AddCharacterMeet(c);
+                User.AddCharacterMeet(c);
             User.AddRoom(User.ADD.ActualRoom());
 
             ViewData();
@@ -744,7 +744,7 @@ namespace ADVBuilder
             EvaluateResponse(r);
 
             EvaluateXP(r);
-            54rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrpppppppppppppppo00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000op5444444444444,.##
+
             ViewData();
             ViewMap();
 
@@ -760,9 +760,14 @@ namespace ADVBuilder
         private void SetCurrentAction(Button btn)
         {
             CurrentAction = ClassList.Where(cl => cl.Key == btn.Text).FirstOrDefault().Value;
-            if (CurrentAction == null) CurrentAction = ClassList["Inimplementato"];
-            CurrentAction.SetUser(User);
-            CurrentAction.Dialog = (btn.Tag as ActionData).Dialog;
+            if (CurrentAction == null)
+            {
+                CurrentAction = ClassList["Inimplementato"];
+                CurrentAction.Dialog = -1;
+            }
+            else
+                CurrentAction.Dialog = (btn.Tag as ActionData).Dialog;
+            CurrentAction.SetUser(User);            
         }
 
         private void EvaluateXP(Response r)
@@ -771,7 +776,7 @@ namespace ADVBuilder
             {
                 string[] vet = r.Value.ToString().Split('|');
                 User.Xp += int.Parse(vet[1]);
-                if (User.Xp > User.XpNextLevel) { User.Level += 1; User.XpNextLevel = User.XpNextLevel * User.Level; }
+                if (User.Xp > User.XpNextLevel) { User.Level += 1; User.XpNextLevel = User.XpNextLevel * (User.Level / 2); }
             }
         }
 
@@ -792,8 +797,15 @@ namespace ADVBuilder
                 pnlDialog.Location = new Point(-8, -31);
                 pnlDialog.BringToFront();
                 pnlDialog.Visible = true;
+                btnChooseSi.Visible = true;
+                btnChooseNo.Visible = true;
                 btnChooseSi.Text = btn1;
                 btnChooseNo.Text = btn2;
+                if (CurrentAction.Dialog == -1)
+                {
+                    btnChooseSi.Visible = false;
+                    btnChooseNo.Text = "Ok";
+                }
             }
         }
 

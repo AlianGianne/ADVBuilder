@@ -69,7 +69,8 @@ namespace ADVBuilder.Model
         [cAttributes(Name = "SufferAction")] public string SufferAction { get; set; }
         [cAttributes(Name = "LifePoint")] public int LifePoint
         {
-            get => lifePoint; set
+            get => lifePoint;
+            set
             {
                 lifePoint = value;
                 if (lifePoint <= 0)

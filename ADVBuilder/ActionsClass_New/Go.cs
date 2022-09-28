@@ -49,7 +49,7 @@ namespace ADVBuilder.ActionsClass_New
             else
             {
                 Response.Success = false;
-                Response.Message = "La porta è chiusa!";
+                Response.Message = string.Format("{0} è chiusa!", door.Title);
             }
             return Response;
         }

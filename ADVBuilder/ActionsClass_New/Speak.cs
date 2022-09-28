@@ -3,6 +3,7 @@ using ADVBuilder.Model;
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ADVBuilder.ActionsClass_New
 {
@@ -11,6 +12,7 @@ namespace ADVBuilder.ActionsClass_New
     /// </summary>
     public class Speak : aActions, iActions
     {
+        private Random rnd= new Random();
         /// <summary>
         ///
         /// </summary>
@@ -23,6 +25,7 @@ namespace ADVBuilder.ActionsClass_New
         /// <summary>
         ///
         /// </summary>
+        /// <param name="pCharacter"></param>
         /// <param name="pObj"></param>
         /// <param name="pCmp"></param>
         /// <param name="pRoom"></param>
@@ -46,10 +49,12 @@ namespace ADVBuilder.ActionsClass_New
                 }
                 else if (Character.Sentences.Count > 0)
                 {
-                    int idx = new Random(DateTime.Now.Second).Next(0, Character.Sentences.Count);
+                    int idx = GetSentence();
                     Response.Message = string.Format("{0} dice:\n\r {1}", Character.Title, Character.Sentences[idx].Sentence);
                     Response.Success = true;
-                    Response.Value = string.Format("XP|{0}", Character.Sentences[idx].XP);
+                    Response.Value = string.Format("XP|{0}", Character.Sentences[idx].XpPaied ? 0: Character.Sentences[idx].XP);
+                    Character.Sentences[idx].Readed = true;
+                    Character.Sentences[idx].XpPaied = true;
                 }
                 else
                 {
@@ -59,6 +64,16 @@ namespace ADVBuilder.ActionsClass_New
                 }
             }
             return Response;
+        }
+        private int GetSentence()
+        {
+            if (Character.Sentences.Where(s => !s.Readed).ToList().Count == 0) { Character.Sentences.ForEach(s => s.Readed = false); }
+            int idx = rnd.Next(0, Character.Sentences.Count);
+            while (Character.Sentences[idx].Readed)
+            {
+                idx = rnd.Next(0, Character.Sentences.Count);
+            }
+            return idx;
         }
     }
 }

@@ -97,6 +97,12 @@
     <Compile Include="Common\CommonForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Design.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Design.Designer.cs">
+      <DependentUpon>Design.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Common\CommonForm.resx">
       <DependentUpon>CommonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design.resx">
+      <DependentUpon>Design.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
