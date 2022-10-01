@@ -81,6 +81,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblHour = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTipoGiornata = new System.Windows.Forms.Label();
@@ -96,6 +99,20 @@
             this.lblTitleAdventure = new System.Windows.Forms.Label();
             this.tmrAdv = new System.Windows.Forms.Timer(this.components);
             this.pcbMap = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
             this.pnlDialog.SuspendLayout();
@@ -111,6 +128,7 @@
             this.pnlActionMap.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNN
@@ -278,9 +296,9 @@
             this.pnlActions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlActions.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlActions.Controls.Add(this.lblAction);
-            this.pnlActions.Location = new System.Drawing.Point(14, 878);
+            this.pnlActions.Location = new System.Drawing.Point(12, 878);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(456, 174);
+            this.pnlActions.Size = new System.Drawing.Size(458, 174);
             this.pnlActions.TabIndex = 19;
             // 
             // lblAction
@@ -291,7 +309,7 @@
             this.lblAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAction.Location = new System.Drawing.Point(-5, 0);
             this.lblAction.Name = "lblAction";
-            this.lblAction.Size = new System.Drawing.Size(461, 31);
+            this.lblAction.Size = new System.Drawing.Size(463, 31);
             this.lblAction.TabIndex = 3;
             this.lblAction.Text = "Azioni:";
             this.lblAction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -301,18 +319,20 @@
             this.pnlObjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlObjects.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlObjects.Controls.Add(this.lblObjects);
-            this.pnlObjects.Location = new System.Drawing.Point(14, 119);
+            this.pnlObjects.Location = new System.Drawing.Point(367, 619);
             this.pnlObjects.Name = "pnlObjects";
-            this.pnlObjects.Size = new System.Drawing.Size(346, 244);
+            this.pnlObjects.Size = new System.Drawing.Size(346, 253);
             this.pnlObjects.TabIndex = 20;
             // 
             // lblObjects
             // 
+            this.lblObjects.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblObjects.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.lblObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblObjects.Location = new System.Drawing.Point(0, 1);
             this.lblObjects.Name = "lblObjects";
-            this.lblObjects.Size = new System.Drawing.Size(345, 31);
+            this.lblObjects.Size = new System.Drawing.Size(346, 31);
             this.lblObjects.TabIndex = 0;
             this.lblObjects.Text = "In questo luogo trovi:";
             this.lblObjects.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -398,9 +418,9 @@
             this.pnlInventario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlInventario.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlInventario.Controls.Add(this.lblInventario);
-            this.pnlInventario.Location = new System.Drawing.Point(14, 369);
+            this.pnlInventario.Location = new System.Drawing.Point(12, 369);
             this.pnlInventario.Name = "pnlInventario";
-            this.pnlInventario.Size = new System.Drawing.Size(346, 244);
+            this.pnlInventario.Size = new System.Drawing.Size(348, 244);
             this.pnlInventario.TabIndex = 21;
             // 
             // lblInventario
@@ -409,7 +429,7 @@
             this.lblInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInventario.Location = new System.Drawing.Point(-3, 0);
             this.lblInventario.Name = "lblInventario";
-            this.lblInventario.Size = new System.Drawing.Size(349, 31);
+            this.lblInventario.Size = new System.Drawing.Size(352, 31);
             this.lblInventario.TabIndex = 1;
             this.lblInventario.Text = "Inventario:";
             this.lblInventario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -419,9 +439,9 @@
             this.pnlPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlPerson.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlPerson.Controls.Add(this.lblPersons);
-            this.pnlPerson.Location = new System.Drawing.Point(14, 619);
+            this.pnlPerson.Location = new System.Drawing.Point(12, 619);
             this.pnlPerson.Name = "pnlPerson";
-            this.pnlPerson.Size = new System.Drawing.Size(346, 253);
+            this.pnlPerson.Size = new System.Drawing.Size(348, 253);
             this.pnlPerson.TabIndex = 22;
             // 
             // lblPersons
@@ -442,9 +462,9 @@
             this.pnlResult.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlResult.Controls.Add(this.label7);
             this.pnlResult.Controls.Add(this.txtResult);
-            this.pnlResult.Location = new System.Drawing.Point(689, 878);
+            this.pnlResult.Location = new System.Drawing.Point(719, 619);
             this.pnlResult.Name = "pnlResult";
-            this.pnlResult.Size = new System.Drawing.Size(277, 174);
+            this.pnlResult.Size = new System.Drawing.Size(247, 253);
             this.pnlResult.TabIndex = 23;
             // 
             // label7
@@ -455,7 +475,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(1, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(277, 31);
+            this.label7.Size = new System.Drawing.Size(247, 31);
             this.label7.TabIndex = 4;
             this.label7.Text = "Feedback:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -471,12 +491,13 @@
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtResult.Size = new System.Drawing.Size(260, 123);
+            this.txtResult.Size = new System.Drawing.Size(230, 123);
             this.txtResult.TabIndex = 0;
             // 
             // pnlDirection
             // 
-            this.pnlDirection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlDirection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlDirection.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlDirection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlDirection.Controls.Add(this.btnBB);
@@ -491,9 +512,9 @@
             this.pnlDirection.Controls.Add(this.btnSO);
             this.pnlDirection.Controls.Add(this.btnOO);
             this.pnlDirection.Controls.Add(this.pictureBox1);
-            this.pnlDirection.Location = new System.Drawing.Point(476, 879);
+            this.pnlDirection.Location = new System.Drawing.Point(479, 879);
             this.pnlDirection.Name = "pnlDirection";
-            this.pnlDirection.Size = new System.Drawing.Size(208, 173);
+            this.pnlDirection.Size = new System.Drawing.Size(487, 173);
             this.pnlDirection.TabIndex = 20;
             // 
             // pictureBox2
@@ -525,7 +546,7 @@
             this.pnlRoomDescription.Controls.Add(this.txtRoomDescription);
             this.pnlRoomDescription.Location = new System.Drawing.Point(367, 120);
             this.pnlRoomDescription.Name = "pnlRoomDescription";
-            this.pnlRoomDescription.Size = new System.Drawing.Size(599, 753);
+            this.pnlRoomDescription.Size = new System.Drawing.Size(599, 493);
             this.pnlRoomDescription.TabIndex = 24;
             // 
             // lblRoomDescription
@@ -543,7 +564,8 @@
             // 
             // txtRoomDescription
             // 
-            this.txtRoomDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtRoomDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRoomDescription.BackColor = System.Drawing.Color.Gainsboro;
             this.txtRoomDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -553,7 +575,7 @@
             this.txtRoomDescription.Name = "txtRoomDescription";
             this.txtRoomDescription.ReadOnly = true;
             this.txtRoomDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRoomDescription.Size = new System.Drawing.Size(582, 709);
+            this.txtRoomDescription.Size = new System.Drawing.Size(582, 446);
             this.txtRoomDescription.TabIndex = 1;
             this.txtRoomDescription.Text = "gfervgrwcg\r\nrwcgr\r\ngcfdscgrecrfss";
             // 
@@ -803,6 +825,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(23)))), ((int)(((byte)(21)))));
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lblHour);
             this.panel1.Controls.Add(this.lblDate);
             this.panel1.Controls.Add(this.lblTipoGiornata);
@@ -820,6 +845,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1651, 100);
             this.panel1.TabIndex = 26;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label8.Location = new System.Drawing.Point(918, 70);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(273, 14);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "label8";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label9.Location = new System.Drawing.Point(350, 70);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(273, 14);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "label8";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label10.Location = new System.Drawing.Point(634, 70);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(273, 14);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "label8";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblHour
             // 
@@ -863,11 +924,11 @@
             // lblXP
             // 
             this.lblXP.BackColor = System.Drawing.Color.Transparent;
-            this.lblXP.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblXP.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblXP.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblXP.Location = new System.Drawing.Point(918, 79);
+            this.lblXP.Location = new System.Drawing.Point(918, 50);
             this.lblXP.Name = "lblXP";
-            this.lblXP.Size = new System.Drawing.Size(273, 21);
+            this.lblXP.Size = new System.Drawing.Size(273, 14);
             this.lblXP.TabIndex = 11;
             this.lblXP.Text = "label8";
             this.lblXP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -878,11 +939,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNextXP.BackColor = System.Drawing.Color.Transparent;
-            this.lblNextXP.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNextXP.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNextXP.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblNextXP.Location = new System.Drawing.Point(918, 43);
+            this.lblNextXP.Location = new System.Drawing.Point(918, 29);
             this.lblNextXP.Name = "lblNextXP";
-            this.lblNextXP.Size = new System.Drawing.Size(273, 21);
+            this.lblNextXP.Size = new System.Drawing.Size(273, 14);
             this.lblNextXP.TabIndex = 10;
             this.lblNextXP.Text = "label8";
             this.lblNextXP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -892,11 +953,11 @@
             this.lblLevel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblLevel.BackColor = System.Drawing.Color.Transparent;
-            this.lblLevel.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLevel.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLevel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblLevel.Location = new System.Drawing.Point(918, 8);
             this.lblLevel.Name = "lblLevel";
-            this.lblLevel.Size = new System.Drawing.Size(273, 21);
+            this.lblLevel.Size = new System.Drawing.Size(273, 14);
             this.lblLevel.TabIndex = 9;
             this.lblLevel.Text = "label8";
             this.lblLevel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -904,11 +965,11 @@
             // lblName
             // 
             this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblName.Location = new System.Drawing.Point(350, 8);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(273, 21);
+            this.lblName.Size = new System.Drawing.Size(273, 14);
             this.lblName.TabIndex = 8;
             this.lblName.Text = "label8";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -916,11 +977,11 @@
             // lblLifePoint
             // 
             this.lblLifePoint.BackColor = System.Drawing.Color.Transparent;
-            this.lblLifePoint.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLifePoint.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLifePoint.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblLifePoint.Location = new System.Drawing.Point(350, 79);
+            this.lblLifePoint.Location = new System.Drawing.Point(350, 50);
             this.lblLifePoint.Name = "lblLifePoint";
-            this.lblLifePoint.Size = new System.Drawing.Size(273, 21);
+            this.lblLifePoint.Size = new System.Drawing.Size(273, 14);
             this.lblLifePoint.TabIndex = 7;
             this.lblLifePoint.Text = "label8";
             this.lblLifePoint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -930,11 +991,11 @@
             this.lblEta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblEta.BackColor = System.Drawing.Color.Transparent;
-            this.lblEta.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEta.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEta.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblEta.Location = new System.Drawing.Point(350, 43);
+            this.lblEta.Location = new System.Drawing.Point(350, 29);
             this.lblEta.Name = "lblEta";
-            this.lblEta.Size = new System.Drawing.Size(273, 21);
+            this.lblEta.Size = new System.Drawing.Size(273, 14);
             this.lblEta.TabIndex = 6;
             this.lblEta.Text = "label8";
             this.lblEta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -942,11 +1003,11 @@
             // lblRoomsVisited
             // 
             this.lblRoomsVisited.BackColor = System.Drawing.Color.Transparent;
-            this.lblRoomsVisited.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoomsVisited.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoomsVisited.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblRoomsVisited.Location = new System.Drawing.Point(634, 79);
+            this.lblRoomsVisited.Location = new System.Drawing.Point(634, 50);
             this.lblRoomsVisited.Name = "lblRoomsVisited";
-            this.lblRoomsVisited.Size = new System.Drawing.Size(273, 21);
+            this.lblRoomsVisited.Size = new System.Drawing.Size(273, 14);
             this.lblRoomsVisited.TabIndex = 3;
             this.lblRoomsVisited.Text = "label8";
             this.lblRoomsVisited.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -957,11 +1018,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCharacterEncountered.BackColor = System.Drawing.Color.Transparent;
-            this.lblCharacterEncountered.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCharacterEncountered.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCharacterEncountered.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblCharacterEncountered.Location = new System.Drawing.Point(634, 43);
+            this.lblCharacterEncountered.Location = new System.Drawing.Point(634, 29);
             this.lblCharacterEncountered.Name = "lblCharacterEncountered";
-            this.lblCharacterEncountered.Size = new System.Drawing.Size(273, 21);
+            this.lblCharacterEncountered.Size = new System.Drawing.Size(273, 14);
             this.lblCharacterEncountered.TabIndex = 2;
             this.lblCharacterEncountered.Text = "label8";
             this.lblCharacterEncountered.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -971,11 +1032,11 @@
             this.lblPunteggio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPunteggio.BackColor = System.Drawing.Color.Transparent;
-            this.lblPunteggio.Font = new System.Drawing.Font("NSimSun", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPunteggio.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPunteggio.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblPunteggio.Location = new System.Drawing.Point(634, 8);
             this.lblPunteggio.Name = "lblPunteggio";
-            this.lblPunteggio.Size = new System.Drawing.Size(273, 21);
+            this.lblPunteggio.Size = new System.Drawing.Size(273, 14);
             this.lblPunteggio.TabIndex = 1;
             this.lblPunteggio.Text = "label8";
             this.lblPunteggio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1003,13 +1064,204 @@
             this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Papiro_2;
             this.pcbMap.Location = new System.Drawing.Point(972, 153);
             this.pcbMap.Name = "pcbMap";
-            this.pcbMap.Size = new System.Drawing.Size(691, 719);
+            this.pcbMap.Size = new System.Drawing.Size(691, 722);
             this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pcbMap.TabIndex = 17;
             this.pcbMap.TabStop = false;
             this.pcbMap.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseDown);
             this.pcbMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseMove);
             this.pcbMap.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseUp);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(23)))), ((int)(((byte)(21)))));
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.label20);
+            this.panel2.Controls.Add(this.label21);
+            this.panel2.Controls.Add(this.label22);
+            this.panel2.Controls.Add(this.label23);
+            this.panel2.Controls.Add(this.label24);
+            this.panel2.Controls.Add(this.label25);
+            this.panel2.Location = new System.Drawing.Point(12, 118);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(348, 245);
+            this.panel2.TabIndex = 28;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label12.Location = new System.Drawing.Point(6, 70);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(342, 14);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Destrezza:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label13.Location = new System.Drawing.Point(6, 153);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(273, 14);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "...";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label17.Location = new System.Drawing.Point(6, 216);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(273, 14);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "...";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label18.Location = new System.Drawing.Point(6, 195);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(0, 14);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "label8";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label19.Location = new System.Drawing.Point(6, 174);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(273, 14);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "...";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label20
+            // 
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label20.Location = new System.Drawing.Point(6, 8);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(342, 14);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "Forza:";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label21
+            // 
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label21.Location = new System.Drawing.Point(6, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(342, 14);
+            this.label21.TabIndex = 7;
+            this.label21.Text = "Costituzione:";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label22.Location = new System.Drawing.Point(6, 29);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(342, 14);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "Saggezza:";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label23
+            // 
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label23.Location = new System.Drawing.Point(6, 133);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(273, 14);
+            this.label23.TabIndex = 3;
+            this.label23.Text = "...";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label24.Location = new System.Drawing.Point(6, 112);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(0, 14);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "label8";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label25
+            // 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label25.Location = new System.Drawing.Point(6, 91);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(273, 14);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "Intelligenza:";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label11.Location = new System.Drawing.Point(6, 112);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(273, 14);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Carisma:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label14.Location = new System.Drawing.Point(6, 195);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(273, 14);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "...";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AdventureGame
             // 
@@ -1018,6 +1270,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1675, 1056);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlDialog);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
@@ -1053,6 +1306,7 @@
             this.pnlActionMap.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1125,5 +1379,22 @@
         private System.Windows.Forms.Button btnChooseSi;
         private System.Windows.Forms.Label lblDialogMessage;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label11;
     }
 }

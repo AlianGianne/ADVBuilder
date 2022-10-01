@@ -168,7 +168,7 @@ namespace ADVBuilder.Model
         /// <returns>string: descrizione lunga della Room</returns>
         public string ViewRoom()
         {
-            return ActualRoom().Description;
+            return ActualRoom().Description.Replace("@", Environment.NewLine);
         }
         /// <summary>
         /// 

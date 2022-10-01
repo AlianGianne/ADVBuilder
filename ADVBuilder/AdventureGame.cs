@@ -641,6 +641,7 @@ namespace ADVBuilder
         }
         private void MoveCharacter()
         {
+            //TODO: Inserire movimento automatico dei Character nel modulo ADD
             foreach (RoomData r in User.ADD.Rooms)
             {
                 if (r.Visited)
@@ -772,6 +773,7 @@ namespace ADVBuilder
 
         private void EvaluateXP(Response r)
         {
+            //TODO: Rivedere calcolo xp livello successivo
             if (r.Value.ToString().StartsWith("XP"))
             {
                 string[] vet = r.Value.ToString().Split('|');
@@ -779,7 +781,7 @@ namespace ADVBuilder
                 if (User.Xp > User.XpNextLevel) { User.Level += 1; User.XpNextLevel = User.XpNextLevel * (User.Level / 2); }
             }
         }
-
+        
         private void EvaluateResponse(Response r)
         {
             if (r.Value.ToString() == cCommon.RESULT_ACTION_END) Close();
