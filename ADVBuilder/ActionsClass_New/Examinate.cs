@@ -48,7 +48,7 @@ namespace ADVBuilder.ActionsClass_New
                     Room.Objects.Add(i);
                 }
                 Character.Inventario.Clear();
-                ret += string.Format("{0}Eventuali oggetti appartenuti a {1} sonostati rilasciati sul luogo.", Environment.NewLine, Character.Title);
+                ret += string.Format("{0}Eventuali oggetti appartenuti a {1} sono stati rilasciati sul luogo.", Environment.NewLine, Character.Title);
             }
             return ret;
         }

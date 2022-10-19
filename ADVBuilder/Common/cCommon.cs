@@ -1,9 +1,10 @@
-﻿namespace ADVBuilder.Common
+﻿using System;
+
+namespace ADVBuilder.Common
 {
     internal static class cCommon
     {
         #region "Maps"
-
         public const int ROOM_WIDTH = 60;
         public const int ROOM_HEIGHT = 20;
         public const int ZOOM_FACTOR = 1;
@@ -14,6 +15,8 @@
         public static int GAP_FACTOR_X = 0;
         public static int GAP_FACTOR_Y = 0;
         #endregion "Maps"
+
+        private static Random Rnd { get; set; } = new Random(DateTime.Now.Second);
 
         #region "Objects Status"
 
@@ -128,6 +131,12 @@
                     break;
             }
             return ret;
+        }
+        #endregion
+        #region "Common Methods"
+        public static int GetRandom(int pFrom, int pTo)
+        {
+            return Rnd.Next(pFrom, pTo);
         }
         #endregion
     }

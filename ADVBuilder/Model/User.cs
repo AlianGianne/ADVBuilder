@@ -4,6 +4,7 @@ namespace ADVBuilder.Model
 {
     public class User
     {
+        public CharacterSkills Skills { get; set; } = new CharacterSkills();
         public int Id { get; set; }             //Identificativo Utente
         public int IdAdv { get; set; }          //Id adv in uso
         public string Name { get; set; } = "Virtuoso";      //Nome Utente
@@ -34,17 +35,5 @@ namespace ADVBuilder.Model
         {
             return CharactersMeet.Count + 1;
         }
-        public int Age { get; set; } = 20;
-        public int Force { get; set; } = 0;
-        public int Wisdom { get; set; } = 0;
-        public int Physique { get; set; } = 0;
-        public int Dexterity { get; set; } = 0;
-        public int Smartness { get; set; } = 0;
-        public int Experience { get; set; } = 0;
-        public int Life { get; set; } = 10;
-        public int Mana { get; set; } = 0;
-        public int Xp { get; set; } = 0;
-        public int Level { get; set; }
-        public int XpNextLevel { get; set; }
     }
 }
