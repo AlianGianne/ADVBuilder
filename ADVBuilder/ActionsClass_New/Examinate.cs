@@ -32,8 +32,10 @@ namespace ADVBuilder.ActionsClass_New
 
         private string GetCharacterSuccess()
         {
-            string ret = string.Format("{0}{3}Stato:\t{1}{3}Vita:\t{2}{3}",
-                        Character.Description, Character.Status, Character.LifePoint, Environment.NewLine);
+            string ret = string.Format("{0}{3}Stato:\t{1}{3}Vita:\t{2}{3}Livello:\t{5}{3}Forza:\t{4}{3}",
+                        Character.Description, Character.Status, Character.LifePoint, 
+                        Environment.NewLine, 
+                        Character.Skills.Force, Character.Skills.Level);
 
             foreach (var obj in Character.Inventario)
             {
