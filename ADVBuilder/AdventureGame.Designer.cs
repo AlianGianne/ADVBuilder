@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdventureGame));
             this.btnNN = new System.Windows.Forms.Button();
             this.btnNE = new System.Windows.Forms.Button();
             this.btnEE = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@
             this.lblObjects = new System.Windows.Forms.Label();
             this.pnlDialog = new System.Windows.Forms.Panel();
             this.pnlDialogRectangle = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblDialogMessage = new System.Windows.Forms.Label();
             this.btnChooseNo = new System.Windows.Forms.Button();
@@ -98,8 +100,9 @@
             this.lblPunteggio = new System.Windows.Forms.Label();
             this.lblTitleAdventure = new System.Windows.Forms.Label();
             this.tmrAdv = new System.Windows.Forms.Timer(this.components);
-            this.pcbMap = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -111,12 +114,12 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.pcbMap = new System.Windows.Forms.PictureBox();
             this.pnlActions.SuspendLayout();
             this.pnlObjects.SuspendLayout();
             this.pnlDialog.SuspendLayout();
             this.pnlDialogRectangle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlInventario.SuspendLayout();
             this.pnlPerson.SuspendLayout();
@@ -127,8 +130,8 @@
             this.pnlRoomDescription.SuspendLayout();
             this.pnlActionMap.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNN
@@ -298,7 +301,7 @@
             this.pnlActions.Controls.Add(this.lblAction);
             this.pnlActions.Location = new System.Drawing.Point(12, 878);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(458, 174);
+            this.pnlActions.Size = new System.Drawing.Size(456, 174);
             this.pnlActions.TabIndex = 19;
             // 
             // lblAction
@@ -309,7 +312,7 @@
             this.lblAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAction.Location = new System.Drawing.Point(-5, 0);
             this.lblAction.Name = "lblAction";
-            this.lblAction.Size = new System.Drawing.Size(463, 31);
+            this.lblAction.Size = new System.Drawing.Size(461, 31);
             this.lblAction.TabIndex = 3;
             this.lblAction.Text = "Azioni:";
             this.lblAction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -321,7 +324,7 @@
             this.pnlObjects.Controls.Add(this.lblObjects);
             this.pnlObjects.Location = new System.Drawing.Point(367, 619);
             this.pnlObjects.Name = "pnlObjects";
-            this.pnlObjects.Size = new System.Drawing.Size(346, 253);
+            this.pnlObjects.Size = new System.Drawing.Size(368, 253);
             this.pnlObjects.TabIndex = 20;
             // 
             // lblObjects
@@ -332,7 +335,7 @@
             this.lblObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblObjects.Location = new System.Drawing.Point(0, 1);
             this.lblObjects.Name = "lblObjects";
-            this.lblObjects.Size = new System.Drawing.Size(346, 31);
+            this.lblObjects.Size = new System.Drawing.Size(368, 31);
             this.lblObjects.TabIndex = 0;
             this.lblObjects.Text = "In questo luogo trovi:";
             this.lblObjects.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -343,7 +346,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlDialog.Controls.Add(this.pnlDialogRectangle);
-            this.pnlDialog.Location = new System.Drawing.Point(2, 1036);
+            this.pnlDialog.Location = new System.Drawing.Point(2, 1035);
             this.pnlDialog.Name = "pnlDialog";
             this.pnlDialog.Size = new System.Drawing.Size(1675, 1088);
             this.pnlDialog.TabIndex = 27;
@@ -355,6 +358,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlDialogRectangle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDialogRectangle.Controls.Add(this.pictureBox4);
             this.pnlDialogRectangle.Controls.Add(this.pictureBox3);
             this.pnlDialogRectangle.Controls.Add(this.lblDialogMessage);
             this.pnlDialogRectangle.Controls.Add(this.btnChooseNo);
@@ -364,9 +368,20 @@
             this.pnlDialogRectangle.Size = new System.Drawing.Size(915, 465);
             this.pnlDialogRectangle.TabIndex = 0;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::ADVBuilder.Properties.Resources.question;
+            this.pictureBox4.Location = new System.Drawing.Point(-1, 60);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
+            // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::ADVBuilder.Properties.Resources.question1;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(-1, 60);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 100);
@@ -462,9 +477,9 @@
             this.pnlResult.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlResult.Controls.Add(this.label7);
             this.pnlResult.Controls.Add(this.txtResult);
-            this.pnlResult.Location = new System.Drawing.Point(719, 619);
+            this.pnlResult.Location = new System.Drawing.Point(741, 619);
             this.pnlResult.Name = "pnlResult";
-            this.pnlResult.Size = new System.Drawing.Size(247, 253);
+            this.pnlResult.Size = new System.Drawing.Size(225, 253);
             this.pnlResult.TabIndex = 23;
             // 
             // label7
@@ -475,7 +490,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(1, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(247, 31);
+            this.label7.Size = new System.Drawing.Size(225, 31);
             this.label7.TabIndex = 4;
             this.label7.Text = "Feedback:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -491,7 +506,7 @@
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtResult.Size = new System.Drawing.Size(230, 123);
+            this.txtResult.Size = new System.Drawing.Size(207, 201);
             this.txtResult.TabIndex = 0;
             // 
             // pnlDirection
@@ -512,14 +527,13 @@
             this.pnlDirection.Controls.Add(this.btnSO);
             this.pnlDirection.Controls.Add(this.btnOO);
             this.pnlDirection.Controls.Add(this.pictureBox1);
-            this.pnlDirection.Location = new System.Drawing.Point(479, 879);
+            this.pnlDirection.Location = new System.Drawing.Point(474, 879);
             this.pnlDirection.Name = "pnlDirection";
-            this.pnlDirection.Size = new System.Drawing.Size(487, 173);
+            this.pnlDirection.Size = new System.Drawing.Size(492, 173);
             this.pnlDirection.TabIndex = 20;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::ADVBuilder.Properties.Resources.Scala;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(168, 41);
             this.pictureBox2.Name = "pictureBox2";
@@ -529,7 +543,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::ADVBuilder.Properties.Resources.RosaVenti;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(37, 41);
             this.pictureBox1.Name = "pictureBox1";
@@ -1058,20 +1072,6 @@
             this.tmrAdv.Interval = 500;
             this.tmrAdv.Tick += new System.EventHandler(this.tmrAdv_Tick);
             // 
-            // pcbMap
-            // 
-            this.pcbMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pcbMap.Image = global::ADVBuilder.Properties.Resources.Papiro_2;
-            this.pcbMap.Location = new System.Drawing.Point(972, 153);
-            this.pcbMap.Name = "pcbMap";
-            this.pcbMap.Size = new System.Drawing.Size(691, 722);
-            this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pcbMap.TabIndex = 17;
-            this.pcbMap.TabStop = false;
-            this.pcbMap.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseDown);
-            this.pcbMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseMove);
-            this.pcbMap.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseUp);
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1094,6 +1094,30 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(348, 245);
             this.panel2.TabIndex = 28;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label14.Location = new System.Drawing.Point(6, 195);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(273, 14);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "...";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label11.Location = new System.Drawing.Point(6, 112);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(273, 14);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Carisma:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
@@ -1239,29 +1263,19 @@
             this.label25.Text = "Intelligenza:";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label11
+            // pcbMap
             // 
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label11.Location = new System.Drawing.Point(6, 112);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(273, 14);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Carisma:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label14
-            // 
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("NSimSun", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label14.Location = new System.Drawing.Point(6, 195);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(273, 14);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "...";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pcbMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pcbMap.Image = ((System.Drawing.Image)(resources.GetObject("pcbMap.Image")));
+            this.pcbMap.Location = new System.Drawing.Point(972, 153);
+            this.pcbMap.Name = "pcbMap";
+            this.pcbMap.Size = new System.Drawing.Size(691, 722);
+            this.pcbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pcbMap.TabIndex = 17;
+            this.pcbMap.TabStop = false;
+            this.pcbMap.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseDown);
+            this.pcbMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseMove);
+            this.pcbMap.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pcbMap_MouseUp);
             // 
             // AdventureGame
             // 
@@ -1271,7 +1285,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1675, 1056);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pnlDialog);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlActionMap);
@@ -1283,6 +1296,7 @@
             this.Controls.Add(this.pnlObjects);
             this.Controls.Add(this.pnlActions);
             this.Controls.Add(this.pcbMap);
+            this.Controls.Add(this.pnlDialog);
             this.Name = "AdventureGame";
             this.Text = "Gioca l\'Avventura";
             this.TopMost = true;
@@ -1292,6 +1306,7 @@
             this.pnlObjects.ResumeLayout(false);
             this.pnlDialog.ResumeLayout(false);
             this.pnlDialogRectangle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlInventario.ResumeLayout(false);
             this.pnlPerson.ResumeLayout(false);
@@ -1305,8 +1320,8 @@
             this.pnlActionMap.ResumeLayout(false);
             this.pnlActionMap.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbMap)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1396,5 +1411,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ADVBuilder.Common;
+using ADVBuilder.Model.Abstract;
 using Gema2022.Class;
 using Gema2022.CommonClass;
 
@@ -9,7 +10,7 @@ namespace ADVBuilder.Model
     public class Characters : cOggettoData
     {
         private const string SELECTBYID = "SelectById";
-        
+
         /// <summary>
         /// Lista Oggetti
         /// </summary>
@@ -55,7 +56,7 @@ namespace ADVBuilder.Model
         }
     }
 
-    public class CharactersData
+    public class CharactersData : CharProperties
     {
         private int lifePoint;
 
@@ -67,7 +68,8 @@ namespace ADVBuilder.Model
         [cAttributes(Name = "Status")] public string Status { get; set; }
         [cAttributes(Name = "Action")] public string Action { get; set; }
         [cAttributes(Name = "SufferAction")] public string SufferAction { get; set; }
-        [cAttributes(Name = "LifePoint")] public int LifePoint
+        [cAttributes(Name = "LifePoint")]
+        public int LifePoint
         {
             get => lifePoint;
             set

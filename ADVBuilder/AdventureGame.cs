@@ -15,7 +15,7 @@ namespace ADVBuilder
     public partial class AdventureGame : CommonForm
     {
         private const int BTN_HEIGHT = 26;
-        private const int BTN_WIDTH = 111;
+        private const int BTN_WIDTH = 88;
         private const int BTN_INTER_GAP = 2;
         private const int BTN_GAP = 5;
         private int Room_Zoom = 50;
@@ -116,7 +116,6 @@ namespace ADVBuilder
             ClassList.Add("Prendi", new Take(User, User.Inventario));
             ClassList.Add("Lascia", new Drop(User, User.Inventario));
             ClassList.Add("Getta", new Drop(User, User.Inventario));
-            ClassList.Add("Guarda", new Examinate(User, User.Inventario));
             ClassList.Add("Esamina", new Examinate(User, User.Inventario));
             ClassList.Add("Osserva", new Examinate(User, User.Inventario));
             ClassList.Add("Apri", new Open(User, User.Inventario));
@@ -127,6 +126,7 @@ namespace ADVBuilder
             ClassList.Add("Consegna", new Give(User, User.Inventario));
             ClassList.Add("Salva", new Save(User, User.Inventario));
             ClassList.Add("Carica", new Load(User, User.Inventario));
+            ClassList.Add("Soluzioni", new Info(User, User.Inventario));
             ClassList.Add("Termina", new End(User, User.Inventario));
             ClassList.Add("Informazioni", new Info(User, User.Inventario));
             ClassList.Add("Inimplementato", new Unable(User, User.Inventario));
@@ -404,7 +404,7 @@ namespace ADVBuilder
                 {
 
                     pnlActions.Controls.Add(GetButton(x, y, a, color, foreColor, new EventHandler(btnActions_Click)));
-                    if (x < 355 - BTN_WIDTH)
+                    if (x < pnlActions.Width - (BTN_WIDTH + BTN_INTER_GAP + BTN_INTER_GAP))
                     {
                         x += BTN_WIDTH + BTN_INTER_GAP;
                     }
@@ -803,10 +803,15 @@ namespace ADVBuilder
                 btnChooseNo.Visible = true;
                 btnChooseSi.Text = btn1;
                 btnChooseNo.Text = btn2;
+                pictureBox3.Visible = false;
+                pictureBox4.Visible = true;
+
                 if (CurrentAction.Dialog == -1)
                 {
                     btnChooseSi.Visible = false;
                     btnChooseNo.Text = "Ok";
+                    pictureBox3.Visible = true;
+                    pictureBox4.Visible = false;
                 }
             }
         }

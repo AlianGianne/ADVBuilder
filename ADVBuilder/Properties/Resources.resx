@@ -121,8 +121,8 @@
   <data name="Withe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Withe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\question.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="esclamation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\esclamation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RosaVenti" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\RosaVenti.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,7 +136,7 @@
   <data name="Scala" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Scala.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="question1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

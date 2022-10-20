@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using ADVBuilder.Model.Abstryact;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ADVBuilder.Model
 {
-    public class User
+    public class User : CharProperties
     {
         public int Id { get; set; }             //Identificativo Utente
         public int IdAdv { get; set; }          //Id adv in uso
@@ -20,11 +22,11 @@ namespace ADVBuilder.Model
         public List<ObjectsData> ObjectsInteract { get; set; } = new List<ObjectsData>();        //Oggetti con cui si è interragito
         public void AddRoom(RoomData pRoom)
         {
-            if(!RoomsVisited.Contains(pRoom)) RoomsVisited.Add(pRoom);
+            if (RoomsVisited.Where(r => r.Id == pRoom.Id).ToList().Count < 1) RoomsVisited.Add(pRoom);
         }
         public void AddCharacterMeet(CharactersData pCharacter)
         {
-            if (!CharactersMeet.Contains(pCharacter)) CharactersMeet.Add(pCharacter);
+            if (CharactersMeet.Where(c => c.Id == pCharacter.Id).ToList().Count < 1) CharactersMeet.Add(pCharacter);
         }
         public int RoomsVisitedCount()
         {
@@ -34,17 +36,5 @@ namespace ADVBuilder.Model
         {
             return CharactersMeet.Count + 1;
         }
-        public int Age { get; set; } = 20;
-        public int Force { get; set; } = 0;
-        public int Wisdom { get; set; } = 0;
-        public int Physique { get; set; } = 0;
-        public int Dexterity { get; set; } = 0;
-        public int Smartness { get; set; } = 0;
-        public int Experience { get; set; } = 0;
-        public int Life { get; set; } = 10;
-        public int Mana { get; set; } = 0;
-        public int Xp { get; set; } = 0;
-        public int Level { get; set; }
-        public int XpNextLevel { get; set; }
     }
 }
