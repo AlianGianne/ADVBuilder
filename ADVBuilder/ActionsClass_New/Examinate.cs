@@ -32,8 +32,10 @@ namespace ADVBuilder.ActionsClass_New
 
         private string GetCharacterSuccess()
         {
-            string ret = string.Format("{0}{3}Stato:\t{1}{3}Vita:\t{2}{3}",
-                        Character.Description, Character.Status, Character.LifePoint, Environment.NewLine);
+            string ret = string.Format("{0}{3}Stato:\t{1}{3}Vita:\t{2}{3}Livello:\t{5}{3}Forza:\t{4}{3}",
+                        Character.Description, Character.Status, Character.LifePoint, 
+                        Environment.NewLine, 
+                        Character.Skills.Force, Character.Skills.Level);
 
             foreach (var obj in Character.Inventario)
             {
@@ -48,7 +50,7 @@ namespace ADVBuilder.ActionsClass_New
                     Room.Objects.Add(i);
                 }
                 Character.Inventario.Clear();
-                ret += string.Format("{0}Eventuali oggetti appartenuti a {1} sonostati rilasciati sul luogo.", Environment.NewLine, Character.Title);
+                ret += string.Format("{0}Eventuali oggetti appartenuti a {1} sono stati rilasciati sul luogo.", Environment.NewLine, Character.Title);
             }
             return ret;
         }

@@ -30,6 +30,7 @@ namespace ADVBuilder.ActionsClass_New
         }
         private void Exec()
         {
+            int hitPoints = 0;
             if (Object != null)
             {
                 if (Object.Status != cCommon.STATUS_BROKEN)
@@ -49,9 +50,15 @@ namespace ADVBuilder.ActionsClass_New
             {
                 if (Character.LifePoint > 0)
                 {
-                    Character.LifePoint--;
+                    int levelGap = User.Skills.Level - Character.Skills.Level;
+                    int forceGap = User.Skills.Force - Character.Skills.Force;
+                    hitPoints = levelGap + forceGap;
+
+                    if (hitPoints < 0) hitPoints = cCommon.GetRandom(0, 2);
+
+                    Character.LifePoint-=hitPoints;
                     Response.Success = true;
-                    Response.Value = Character.Status == cCommon.STATUS_DEAD ? "XP|5" : "XP|1";
+                    Response.Value = Character.Status == cCommon.STATUS_DEAD ? Character.Skills.Level.ToString() : "XP|1";
                 }
                 else
                 {
@@ -64,12 +71,12 @@ namespace ADVBuilder.ActionsClass_New
             {
                 Response.Success = false;
             }
-            Response.Message = SetMessage();
+            Response.Message = SetMessage(hitPoints);
 
             Object = null;
             Room = null;
         }
-        private string SetMessage()
+        private string SetMessage(int hitPoints)
         {
             return Response.Success ?
                 Object != null ?
@@ -77,7 +84,7 @@ namespace ADVBuilder.ActionsClass_New
                     Character != null ?
                         Character.Status == cCommon.STATUS_DEAD ?
                             string.Format("Hai ucciso {0}.", Character.Title) :
-                            string.Format("Hai colpito {0}.", Character.Title) :
+                            string.Format("Hai colpito {0}.{2}Punti ferita: {1}", Character.Title, hitPoints, Environment.NewLine) :
                     string.Format("Non succede nulla.") :
                 string.Format("Non succede nulla.");
         }

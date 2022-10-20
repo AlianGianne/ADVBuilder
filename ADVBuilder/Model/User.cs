@@ -6,6 +6,7 @@ namespace ADVBuilder.Model
 {
     public class User : CharProperties
     {
+        public CharacterSkills Skills { get; set; } = new CharacterSkills();
         public int Id { get; set; }             //Identificativo Utente
         public int IdAdv { get; set; }          //Id adv in uso
         public string Name { get; set; } = "Virtuoso";      //Nome Utente

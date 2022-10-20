@@ -81,9 +81,9 @@ namespace ADVBuilder
             User.Surname = "Iannarelli";
             User.UserName = "AlianGianne";
             User.Points = 0;
-            User.Xp = 0;
-            User.Level = 1;
-            User.XpNextLevel = 10;
+            User.Skills.Xp = 0;
+            User.Skills.Level = 1;
+            User.Skills.XpNextLevel = 10;
             User.ADD = ADV.List.FirstOrDefault();
         }
 
@@ -598,12 +598,12 @@ namespace ADVBuilder
             lblCharacterEncountered.Text = String.Format("Personaggi incontrati: {0}", User.CharactersMeetCount().ToString());
             lblPunteggio.Text = String.Format("Punteggio: {0}", User.Points.ToString());
             lblTitleAdventure.Text = User.ADD.Title;
-            lblEta.Text = String.Format("Età: {0}", User.Age.ToString()); ;
+            lblEta.Text = String.Format("Età: {0}", User.Skills.Age.ToString()); ;
             lblName.Text = String.Format("Nome: {0}", User.Name);
-            lblLifePoint.Text = String.Format("Vita: {0}", User.Life.ToString());
-            lblLevel.Text = string.Format("Livello: {0}", User.Level);
-            lblNextXP.Text = string.Format("XP livello successivo: {0}", User.XpNextLevel);
-            lblXP.Text = string.Format("XP: {0}", User.Xp);
+            lblLifePoint.Text = String.Format("Vita: {0}", User.Skills.Life.ToString());
+            lblLevel.Text = string.Format("Livello: {0}", User.Skills.Level);
+            lblNextXP.Text = string.Format("XP livello successivo: {0}", User.Skills.XpNextLevel);
+            lblXP.Text = string.Format("XP: {0}", User.Skills.Xp);
             //Rooms
             txtRoomDescription.Text = User.ADD.ViewRoom();
 
@@ -665,7 +665,7 @@ namespace ADVBuilder
                 }
             }
         }
-        Random rnd = new Random();
+        
         private int GetNewRoom(RoomData pR, int pIdRoom)
         {
 
@@ -681,7 +681,7 @@ namespace ADVBuilder
             newRooms.Add(pR.BB);
             newRooms.Add(pR.EE);
 
-            int ret = newRooms[rnd.Next(0, newRooms.Count)];
+            int ret = newRooms[cCommon.GetRandom(0, newRooms.Count)];
 
             return ret == -1 ? pIdRoom : ret;
         }
@@ -777,8 +777,8 @@ namespace ADVBuilder
             if (r.Value.ToString().StartsWith("XP"))
             {
                 string[] vet = r.Value.ToString().Split('|');
-                User.Xp += int.Parse(vet[1]);
-                if (User.Xp > User.XpNextLevel) { User.Level += 1; User.XpNextLevel = User.XpNextLevel * (User.Level / 2); }
+                User.Skills.Xp += int.Parse(vet[1]);
+                if (User.Skills.Xp > User.Skills.XpNextLevel) { User.Skills.Level += 1; User.Skills.XpNextLevel = User.Skills.XpNextLevel * (User.Skills.Level / 2); }
             }
         }
         
@@ -926,7 +926,7 @@ namespace ADVBuilder
 
         private void tmrAdv_Tick(object sender, EventArgs e)
         {
-            if (User.ADD.IncrementTime()) User.Age++; ;
+            if (User.ADD.IncrementTime()) User.Skills.Age++; ;
             lblDate.Text = User.ADD.CurrentDate;
             lblHour.Text = User.ADD.CurrentTime;
             lblTipoGiornata.Text = User.ADD.CurrentDayTime;

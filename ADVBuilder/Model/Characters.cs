@@ -2,7 +2,8 @@
 using ADVBuilder.Model.Abstract;
 using Gema2022.Class;
 using Gema2022.CommonClass;
-
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace ADVBuilder.Model
@@ -32,7 +33,16 @@ namespace ADVBuilder.Model
             Settings(this.GetType().Name);
             ReadData(pIdRoom);
             ReadList(List);
+            ReadSkills();
             ReadOthers();
+        }
+
+        private void ReadSkills()
+        {
+            foreach (CharactersData cd in List)
+            {
+                cd.Skills = JsonConvert.DeserializeObject<CharacterSkills>(cd.Skls);
+            }         
         }
 
         private void ReadData(int pIdRoom)
@@ -58,8 +68,8 @@ namespace ADVBuilder.Model
 
     public class CharactersData : CharProperties
     {
-        private int lifePoint;
-
+        //private int lifePoint;
+        
         [cAttributes(Name = "Id")] public int Id { get; set; }
         [cAttributes(Name = "Title")] public string Title { get; set; }
         [cAttributes(Name = "Description")] public string Description { get; set; }
@@ -71,17 +81,19 @@ namespace ADVBuilder.Model
         [cAttributes(Name = "LifePoint")]
         public int LifePoint
         {
-            get => lifePoint;
+            get => Skills.Life;
             set
             {
-                lifePoint = value;
-                if (lifePoint <= 0)
+                Skills.Life = value;
+                if (Skills.Life <= 0)
                 {
                     Status = cCommon.STATUS_DEAD;
-                    lifePoint = 0;
+                    Skills.Life = 0;
                 }
             }
         }
+        [cAttributes(Name = "Skls")] public string Skls { get; set; }
+        public CharacterSkills Skills { get; set; } = new CharacterSkills();
         public List<SentencesData> Sentences { get; set; }
         public List<ObjectsData> Inventario { get; set; } = new List<ObjectsData>();
         public string ViewCharacter

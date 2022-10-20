@@ -115,6 +115,7 @@
     <Compile Include="Model\Abstract\cData.cs" />
     <Compile Include="Model\Abstract\cOggettoData.cs" />
     <Compile Include="Model\Characters.cs" />
+    <Compile Include="Model\CharacterSkills.cs" />
     <Compile Include="Model\Directions.cs" />
     <Compile Include="Model\Inventario.cs" />
     <Compile Include="Model\Objects.cs" />
